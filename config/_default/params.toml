@@ -4,10 +4,11 @@ autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
+logo = "img/logo.svg"
 
 [header]
   layout = "fixed-fill-blur"
-  logo = "img/logo.png"
+  logo = "img/logo.svg"
   showTitle = true
 
 [homepage]

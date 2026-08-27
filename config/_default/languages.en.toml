@@ -8,13 +8,13 @@ title = "HyperBridge"
   displayName = "EN"
   isoCode = "en"
   dateFormat = "2 January 2006"
-  logo = "img/logo.png"
+  logo = "img/logo.svg"
   description = "Next-Gen Dynamic Island and Notification Enhancement for Xiaomi HyperOS."
   copyright = "© 2026 HyperBridge. All rights reserved."
 
 [params.author]
   name = "HyperBridge"
-  image = "img/logo.png"
+  image = "img/logo.svg"
   headline = "Dynamic Island Engine for Xiaomi HyperOS"
   bio = "Transforming Xiaomi HyperOS with rich notification translations, widgets, and live island activities."
   links = [

@@ -3,7 +3,7 @@ title: "HyperBridge"
 description: "Bring rich dynamic island notifications, smart widgets, and interactive actions to Xiaomi HyperOS."
 heroCaption: "Next-Gen Island Engine"
 heroLead: "Transform your Xiaomi HyperOS experience with intelligent notification translations, interactive dynamic islands, smart actions, and real-time live activities."
-heroImage: "img/logo.png"
+heroImage: "img/logo.svg"
 heroButtons:
   - label: "Explore Docs"
     url: "/docs/"
