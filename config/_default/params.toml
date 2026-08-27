@@ -1,0 +1,31 @@
+colorScheme = "emerald"
+defaultAppearance = "dark"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+
+[header]
+  layout = "fixed-fill-blur"
+  logo = "img/logo.png"
+  showTitle = true
+
+[homepage]
+  layout = "landing"
+  showRecent = false
+  cardView = true
+
+[article]
+  showDate = true
+  showAuthor = false
+  showReadingTime = true
+  showTableOfContents = true
+  showBreadcrumbs = true
+
+[list]
+  showBreadcrumbs = true
+  cardView = true
+
+[footer]
+  showCopyright = true
+  showTheme = false

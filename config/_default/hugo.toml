@@ -1,0 +1,19 @@
+baseURL = "https://hyper-bridge.app/"
+title = "HyperBridge"
+theme = "blowfish"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+summaryLength = 30
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]

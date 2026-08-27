@@ -1,0 +1,15 @@
+[[main]]
+  name = "Docs"
+  pageRef = "docs"
+  weight = 10
+
+[[main]]
+  name = "Changelog"
+  pageRef = "changelog"
+  weight = 20
+
+[[main]]
+  name = "GitHub"
+  url = "https://github.com/D4vidDf/HyperBridge"
+  weight = 30
+  pre = "github"
