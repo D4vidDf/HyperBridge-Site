@@ -1,4 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+
+/* Global & Index Typography using Nunito */
+:root,
+body,
+html,
+h1, h2, h3, h4, h5, h6,
+.landing-rise,
+.landing-rise-1,
+.landing-rise-2,
+.landing-rise-3,
+.landing-rise-4,
+.prose,
+.main-menu,
+nav,
+button,
+a {
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 
 /* Header / Navbar logo sizing */
 .main-menu .logo svg,
@@ -20,6 +38,6 @@
 .main-menu a.text-base,
 .main-menu a.truncate {
   font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   letter-spacing: -0.01em;
 }

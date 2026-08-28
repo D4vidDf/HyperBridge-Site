@@ -1,10 +1,10 @@
 [[main]]
-  name = "Docs"
+  name = "Documentación"
   pageRef = "docs"
   weight = 10
 
 [[main]]
-  name = "Changelog"
+  name = "Registro de cambios"
   pageRef = "changelog"
   weight = 20
 

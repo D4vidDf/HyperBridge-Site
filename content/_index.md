@@ -17,6 +17,15 @@ heroButtons:
 
 By default, only system apps utilize the HyperIsland. Hyper Bridge changes that. It acts as a bridge, reading your standard Android notifications and transforming them into sleek, native HyperOS visual elements.
 
+{{< stats columns="2" >}}
+{{< stat value="1M+" label="Downloads" >}}
+Trusted by users across the globe on Google Play and GitHub.
+{{< /stat >}}
+{{< stat value="100%" label="Offline & Private" >}}
+Runs entirely on-device with zero telemetry or background tracking.
+{{< /stat >}}
+{{< /stats >}}
+
 ## Key Features
 
 {{< feature-grid >}}
