@@ -21,6 +21,6 @@ Learn about system requirements and how to install HyperBridge on your device.
 2. Download the latest `HyperBridge-vX.X.X.apk`.
 3. Open the downloaded file on your Xiaomi device and grant installation permission to your package installer.
 
-{{< alert icon="triangle-exclamation" cardColor="#F59E0B" >}}
+{{< alert icon="triangle-exclamation" >}}
 **Important:** Only download HyperBridge from official sources (our GitHub repository or verified Play Store links) to ensure APK integrity.
 {{< /alert >}}

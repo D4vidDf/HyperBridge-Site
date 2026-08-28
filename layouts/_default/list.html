@@ -24,7 +24,7 @@
               {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default true) }}
                 {{ partial "breadcrumbs.html" . }}
               {{ end }}
-              <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-50 tracking-tight">
+              <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral tracking-tight">
                 {{ .Title | emojify }}
               </h1>
               {{ with .Description }}
@@ -32,17 +32,17 @@
                   {{ . }}
                 </p>
               {{ end }}
-              <div class="mt-4 border-b border-neutral-200/80 dark:border-neutral-800/80"></div>
+              <div class="mt-4 border-b border-neutral-200/80 dark:border-neutral-700/80"></div>
             </header>
 
             {{/* Mobile Docs Navigation Dropdown */}}
             <div class="not-prose block lg:hidden mb-6">
-              <details class="rounded-xl border border-neutral-200/80 bg-white/70 p-3 backdrop-blur-md dark:border-neutral-800/80 dark:bg-neutral-900/70 shadow-sm">
+              <details class="rounded-xl border border-neutral-200/80 bg-white/60 p-3 backdrop-blur-md dark:border-neutral-700/80 dark:bg-neutral-900/50 shadow-sm">
                 <summary class="cursor-pointer font-semibold text-sm text-primary-600 dark:text-primary-400 flex items-center justify-between">
                   <span>📖 Documentation Menu</span>
-                  <span class="text-xs text-neutral-500">Tap to expand</span>
+                  <span class="text-xs text-neutral-500 dark:text-neutral-400">Tap to expand</span>
                 </summary>
-                <div class="mt-3 pt-3 border-t border-neutral-200/60 dark:border-neutral-800/60">
+                <div class="mt-3 pt-3 border-t border-neutral-200/60 dark:border-neutral-700/60">
                   {{ partial "docs-sidebar.html" . }}
                 </div>
               </details>
@@ -55,37 +55,37 @@
               </div>
             {{ end }}
 
-            {{/* Sub-Pages Cards Grid (Lotus Docs Style) */}}
+            {{/* Sub-Pages Cards Grid (Blowfish Design & Dark Colors) */}}
             {{ if gt .Pages 0 }}
               <div class="not-prose mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                 {{ range .Pages.ByWeight }}
                   <a
                     href="{{ .RelPermalink }}"
-                    class="group relative flex flex-col justify-between rounded-2xl border border-neutral-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-xl hover:-translate-y-1 hover:border-primary-500/80 hover:shadow-xl hover:shadow-primary-500/5 dark:border-neutral-800/80 dark:bg-neutral-900/70 dark:hover:border-primary-500/50 transition-all duration-200">
+                    class="group relative flex flex-col justify-between rounded-2xl border border-neutral-200/80 bg-white/60 p-6 shadow-sm backdrop-blur-xl transition duration-200 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-primary-700">
                     <div>
                       {{ with .Params.icon }}
-                        <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary-500/10 text-primary-600 dark:text-primary-400 group-hover:bg-primary-500/20 transition-colors">
+                        <span class="mb-4 inline-flex rounded-xl bg-primary-100 p-3 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
                           <span class="h-5 w-5 block">
                             {{ partial "icon.html" . }}
                           </span>
-                        </div>
+                        </span>
                       {{ else }}
-                        <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary-500/10 text-primary-600 dark:text-primary-400 group-hover:bg-primary-500/20 transition-colors">
+                        <span class="mb-4 inline-flex rounded-xl bg-primary-100 p-3 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
                           <span class="h-5 w-5 block">
                             {{ partial "icon.html" "file-lines" }}
                           </span>
-                        </div>
+                        </span>
                       {{ end }}
-                      <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      <h3 class="text-lg font-bold text-neutral-900 dark:text-white transition-colors">
                         {{ .Title }}
                       </h3>
                       {{ with .Description }}
-                        <p class="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 line-clamp-3">
+                        <p class="mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-400 line-clamp-3">
                           {{ . }}
                         </p>
                       {{ end }}
                     </div>
-                    <div class="mt-6 flex items-center gap-1.5 text-xs font-bold text-primary-600 dark:text-primary-400">
+                    <div class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary-600 hover:text-primary-500 dark:text-primary-400">
                       <span>{{ if .IsSection }}Explore section{{ else }}Read guide{{ end }}</span>
                       <span class="group-hover:translate-x-1 transition-transform duration-150">&rarr;</span>
                     </div>
@@ -136,8 +136,8 @@
     {{ if gt .Pages 0 }}
       <section class="space-y-10 w-full">
         {{ range .Pages.ByWeight }}
-          <article class="p-4 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80">
-            <a href="{{ .RelPermalink }}" class="text-xl font-bold hover:text-primary-600">
+          <article class="p-4 rounded-xl border border-neutral-200/80 dark:border-neutral-700/80">
+            <a href="{{ .RelPermalink }}" class="text-xl font-bold hover:text-primary-600 dark:hover:text-primary-400">
               {{ .Title }}
             </a>
             <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
