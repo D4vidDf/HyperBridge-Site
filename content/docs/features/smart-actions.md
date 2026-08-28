@@ -6,7 +6,7 @@ showTableOfContents: true
 ---
 
 {{< alert icon="lightbulb" >}}
-**Note:** This feature is currently **Work in Progress**.
+**Note:** This feature is currently **Work in Progress**. This functionality will be part of the future v0.6.0 and is still on its early design stages. 
 {{< /alert >}}
 
 

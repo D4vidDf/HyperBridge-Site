@@ -1,11 +1,11 @@
 ---
 title: "Translations Guide"
-description: "Help translate HyperBridge into your language on Crowdin."
+description: "Help translate Hyper Bridge into your language on Crowdin."
 weight: 2
 showTableOfContents: true
 ---
 
-HyperBridge supports over 20 languages thanks to our amazing community translators!
+Hyper Bridge supports over 20 languages thanks to our amazing community translators!
 
 ## How to Help Translate
 
