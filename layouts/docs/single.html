@@ -1,25 +1,25 @@
 {{ define "main" }}
   {{ .Scratch.Set "scope" "single" }}
 
-  {{/* 3-Column Docs Layout: Left Floating Menu | Middle Content | Right Table of Contents */}}
-  <div class="relative w-full max-w-7xl mx-auto py-6">
-    <div class="flex flex-col lg:flex-row gap-8 items-start">
+  {{/* Lotus Docs Single Article Layout */}}
+  <div class="relative w-full py-6">
+    <div class="flex flex-col lg:flex-row items-start gap-8">
 
-      {{/* 1. Left Floating Sidebar Menu (Desktop) */}}
+      {{/* 1. Left Floating Glassmorphic Sidebar Menu (Desktop) */}}
       <div class="hidden lg:block w-64 shrink-0 sticky top-[100px] max-h-[calc(100vh-120px)] overflow-y-auto bf-scrollbar">
         {{ partial "docs-sidebar.html" . }}
       </div>
 
       {{/* 2. Middle Main Documentation Content */}}
-      <main class="grow min-w-0 w-full max-w-full">
+      <main class="w-full flex-1 min-w-0">
         <article class="prose dark:prose-invert max-w-none">
           
-          {{/* Breadcrumbs */}}
+          {{/* Breadcrumbs & Header */}}
           <header class="not-prose mb-6">
             {{ if .Params.showBreadcrumbs | default (site.Params.article.showBreadcrumbs | default true) }}
               {{ partial "breadcrumbs.html" . }}
             {{ end }}
-            <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-50 tracking-tight">
+            <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
               {{ .Title | emojify }}
             </h1>
             {{ with .Description }}
@@ -27,17 +27,17 @@
                 {{ . }}
               </p>
             {{ end }}
-            <div class="mt-4 border-b border-neutral-200/80 dark:border-neutral-800/80"></div>
+            <div class="mt-4 border-b border-neutral-200/80 dark:border-neutral-700/80"></div>
           </header>
 
           {{/* Mobile Docs Navigation Dropdown */}}
           <div class="not-prose block lg:hidden mb-6">
-            <details class="rounded-xl border border-neutral-200/80 bg-white/70 p-3 backdrop-blur-md dark:border-neutral-800/80 dark:bg-neutral-900/70 shadow-sm">
+            <details class="docs-sidebar-box rounded-2xl p-3">
               <summary class="cursor-pointer font-semibold text-sm text-primary-600 dark:text-primary-400 flex items-center justify-between">
                 <span>📖 Documentation Menu</span>
-                <span class="text-xs text-neutral-500">Tap to expand</span>
+                <span class="text-xs text-neutral-500 dark:text-neutral-400">Tap to expand</span>
               </summary>
-              <div class="mt-3 pt-3 border-t border-neutral-200/60 dark:border-neutral-800/60">
+              <div class="mt-3 pt-3 border-t border-neutral-200/60 dark:border-neutral-700/60">
                 {{ partial "docs-sidebar.html" . }}
               </div>
             </details>
@@ -49,14 +49,14 @@
           </div>
 
           {{/* Previous / Next Article Navigation */}}
-          <footer class="not-prose mt-12 pt-6 border-t border-neutral-200/80 dark:border-neutral-800/80 print:hidden">
+          <footer class="not-prose mt-12 pt-6 border-t border-neutral-200/80 dark:border-neutral-700/80 print:hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {{ with .PrevInSection }}
-                <a href="{{ .RelPermalink }}" class="group flex flex-col p-4 rounded-xl border border-neutral-200/80 bg-white/50 backdrop-blur-sm hover:border-primary-500 hover:bg-primary-50/30 dark:border-neutral-800/80 dark:bg-neutral-900/50 dark:hover:border-primary-500/50 dark:hover:bg-primary-950/20 transition duration-150">
+                <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-4 flex flex-col">
                   <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1">
                     &larr; Previous
                   </span>
-                  <span class="mt-1 font-semibold text-sm text-neutral-900 dark:text-neutral-100 group-hover:text-primary-600 dark:group-hover:text-primary-400">
+                  <span class="mt-1 font-semibold text-sm text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {{ .Title }}
                   </span>
                 </a>
@@ -65,11 +65,11 @@
               {{ end }}
 
               {{ with .NextInSection }}
-                <a href="{{ .RelPermalink }}" class="group flex flex-col items-end text-right p-4 rounded-xl border border-neutral-200/80 bg-white/50 backdrop-blur-sm hover:border-primary-500 hover:bg-primary-50/30 dark:border-neutral-800/80 dark:bg-neutral-900/50 dark:hover:border-primary-500/50 dark:hover:bg-primary-950/20 transition duration-150">
+                <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-4 flex flex-col items-end text-right">
                   <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1">
                     Next &rarr;
                   </span>
-                  <span class="mt-1 font-semibold text-sm text-neutral-900 dark:text-neutral-100 group-hover:text-primary-600 dark:group-hover:text-primary-400">
+                  <span class="mt-1 font-semibold text-sm text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {{ .Title }}
                   </span>
                 </a>
@@ -85,7 +85,7 @@
       {{ $showToc := and $enableToc (in .TableOfContents "<ul") }}
       {{ if $showToc }}
         <div class="hidden xl:block w-60 shrink-0 sticky top-[100px] max-h-[calc(100vh-120px)] overflow-y-auto bf-scrollbar">
-          <div class="rounded-2xl border border-neutral-200/80 bg-white/70 p-4 shadow-lg shadow-neutral-900/5 backdrop-blur-xl dark:border-neutral-800/80 dark:bg-neutral-900/70 dark:shadow-none">
+          <div class="docs-sidebar-box rounded-2xl p-4">
             <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">
               On this page
             </h4>
