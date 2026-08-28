@@ -5,11 +5,11 @@ weight: 1
 showTableOfContents: true
 ---
 
-This guide details how developers can create themes for **HyperBridge** and integrate a direct "Apply Theme" button in their own apps (e.g., icon pack dashboards, theme stores, or personalization tools).
+This guide details how developers can create themes for **Hyper Bridge** and integrate a direct "Apply Theme" button in their own apps (e.g., icon pack dashboards, theme stores, or personalization tools).
 
 ## **1. The Strict Contract**
 
-Themes are distributed as **HyperBridge Packages** (.hbr), which are standard ZIP archives containing a specific folder structure and configuration file. Whether a user downloads the file manually or applies it via your app, the internal structure must be identical.
+Themes are distributed as **Hyper Bridge Packages** (.hbr), which are standard ZIP archives containing a specific folder structure and configuration file. Whether a user downloads the file manually or applies it via your app, the internal structure must be identical.
 
 ### **File Structure**
 

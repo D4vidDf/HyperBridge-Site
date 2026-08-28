@@ -1,11 +1,11 @@
 ---
 title: "Installation & Requirements"
-description: "Hardware requirements, supported HyperOS versions, and downloading HyperBridge APK."
+description: "Hardware requirements, supported HyperOS versions, and downloading Hyper Bridge APK."
 weight: 1
 showTableOfContents: true
 ---
 
-Learn about system requirements and how to install HyperBridge on your device.
+Learn about system requirements and how to install Hyper Bridge on your device.
 
 ## System Requirements
 

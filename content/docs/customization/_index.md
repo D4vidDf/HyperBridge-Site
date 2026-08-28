@@ -6,4 +6,4 @@ weight: 40
 showTableOfContents: false
 ---
 
-Explore creator tutorials for the HyperBridge Theme Engine, custom translators, and KWGT-style micro-widgets.
+Explore creator tutorials for the Hyper Bridge Theme Engine, custom translators, and KWGT-style micro-widgets.

@@ -1,19 +1,19 @@
 ---
 title: "Política de Privacidad"
-description: "Política de Privacidad para HyperBridge y hyper-bridge.app"
+description: "Política de Privacidad para Hyper Bridge y hyper-bridge.app"
 layout: "simple"
 ---
 
 *Última actualización: 28 de agosto de 2026*
 
-Bienvenido/a a **HyperBridge** ([hyper-bridge.app](https://hyper-bridge.app)). Esta Política de Privacidad describe cómo se maneja tu información cuando visitas nuestro sitio web o utilizas la aplicación **HyperBridge** (los "Servicios"). Tu privacidad es nuestra máxima prioridad.
+Bienvenido/a a **Hyper Bridge** ([hyper-bridge.app](https://hyper-bridge.app)). Esta Política de Privacidad describe cómo se maneja tu información cuando visitas nuestro sitio web o utilizas la aplicación **Hyper Bridge** (los "Servicios"). Tu privacidad es nuestra máxima prioridad.
 
 ---
 
 ### 1. Principio Fundamental: Procesamiento 100% Local en el Dispositivo
 
-HyperBridge está diseñado bajo una estricta arquitectura de privacidad:
-- **Sin Compartición de Datos:** HyperBridge **no comparte, vende, transmite ni monetiza** tus datos personales o el contenido de tus notificaciones con terceros ni con servidores remotos.
+Hyper Bridge está diseñado bajo una estricta arquitectura de privacidad:
+- **Sin Compartición de Datos:** Hyper Bridge **no comparte, vende, transmite ni monetiza** tus datos personales o el contenido de tus notificaciones con terceros ni con servidores remotos.
 - **Cero Telemetría / Analíticas:** La aplicación no incluye SDKs de análisis, rastreadores ni servicios de publicidad.
 - **Procesamiento Exclusivamente Local:** Todo el análisis de notificaciones, evaluación de reglas, traductores de islas y renderizado de temas se ejecuta completa y exclusivamente en tu propio dispositivo.
 
@@ -22,8 +22,8 @@ HyperBridge está diseñado bajo una estricta arquitectura de privacidad:
 ### 2. Información que Procesamos y su Finalidad
 
 #### Acceso al Servicio de Notificaciones (`NotificationListenerService`)
-Para ofrecer su funcionalidad principal, HyperBridge requiere permiso de acceso a las notificaciones de Android.
-- **Finalidad:** HyperBridge lee las notificaciones entrantes (reproducción multimedia, temporizadores, descargas, navegación GPS, mensajes y llamadas) únicamente para **procesarlas localmente en tiempo real y traducirlas a la especificación de Super Island / Dynamic Island de Xiaomi HyperOS**.
+Para ofrecer su funcionalidad principal, Hyper Bridge requiere permiso de acceso a las notificaciones de Android.
+- **Finalidad:** Hyper Bridge lee las notificaciones entrantes (reproducción multimedia, temporizadores, descargas, navegación GPS, mensajes y llamadas) únicamente para **procesarlas localmente en tiempo real y traducirlas a la especificación de Super Island / Dynamic Island de Xiaomi HyperOS**.
 - **Alcance:** Los datos de las notificaciones se mantienen en memoria volátil solo mientras la isla o notificación activa se encuentra visible, tras lo cual se liberan de inmediato.
 - **Almacenamiento:** El contenido de las notificaciones **nunca se almacena de forma permanente** en bases de datos ni se envía a servidores externos.
 
@@ -50,7 +50,7 @@ No compartimos, vendemos ni revelamos tu información personal o de notificacion
 ---
 
 ### 5. Control y Derechos del Usuario
-Tienes control total sobre HyperBridge:
+Tienes control total sobre Hyper Bridge:
 - Puedes revocar el permiso de acceso a notificaciones en cualquier momento desde los ajustes del sistema de Android.
 - Puedes excluir o bloquear aplicaciones específicas para que no se procesen ni se muestren en la isla.
 - Borrar los datos de la aplicación o desinstalarla elimina permanentemente todas las preferencias locales y cachés.
@@ -58,7 +58,7 @@ Tienes control total sobre HyperBridge:
 ---
 
 ### 6. Privacidad de Menores
-HyperBridge no recopila deliberadamente información personal de menores de 13 años.
+Hyper Bridge no recopila deliberadamente información personal de menores de 13 años.
 
 ---
 

@@ -5,7 +5,7 @@ weight: 1
 showTableOfContents: true
 ---
 
-We welcome all contributions to HyperBridge!
+We welcome all contributions to Hyper Bridge!
 
 ## Getting Started
 1.  Clone the repo.
