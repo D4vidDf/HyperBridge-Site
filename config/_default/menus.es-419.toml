@@ -9,6 +9,11 @@
   weight = 20
 
 [[main]]
+  name = "Privacidad"
+  pageRef = "privacy"
+  weight = 22
+
+[[main]]
   url = "https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge"
   weight = 25
   pre = "google-play"
