@@ -43,127 +43,114 @@ a {
 }
 
 /* =========================================================================
-   Documentation Cards, Sidebars & Theme Synchronization
+   Documentation Cards & Sidebar (High-Contrast Blowfish Dark/Light Theme)
    ========================================================================= */
 
-/* Light Theme Card & Sidebar */
-.docs-card {
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(var(--color-neutral-200), 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+/* --- Light Mode --- */
+.docs-feature-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
 }
-.docs-card:hover {
-  border-color: rgba(var(--color-primary-400), 0.8);
+.docs-feature-card:hover {
+  border-color: rgb(var(--color-primary-400));
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+.docs-feature-card h2,
+.docs-feature-card h3 {
+  color: #0f172a;
+}
+.docs-feature-card .docs-card-desc {
+  color: #475569;
+}
+.docs-feature-card .docs-card-link {
+  color: #059669;
 }
 
 .docs-sidebar-box {
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(var(--color-neutral-200), 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
 .docs-icon-badge {
-  background-color: rgba(var(--color-primary-500), 0.1);
-  color: rgb(var(--color-primary-600));
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #059669;
 }
 
-/* Dark Theme Card & Sidebar (Blowfish Theme Compatible) */
-.dark .docs-card,
-[data-appearance="dark"] .docs-card,
-html.dark .docs-card {
-  background-color: rgba(var(--color-neutral-800), 0.6) !important;
-  border-color: rgba(var(--color-neutral-700), 0.8) !important;
+/* --- Dark Mode (Triggered by .dark, [data-appearance="dark"], or html.dark) --- */
+.dark .docs-feature-card,
+[data-appearance="dark"] .docs-feature-card,
+html.dark .docs-feature-card {
+  background-color: #161d27 !important;
+  border: 1px solid #283344 !important;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3) !important;
 }
-.dark .docs-card:hover,
-[data-appearance="dark"] .docs-card:hover,
-html.dark .docs-card:hover {
-  background-color: rgba(var(--color-neutral-800), 0.85) !important;
-  border-color: rgba(var(--color-primary-400), 0.8) !important;
-  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4) !important;
+
+.dark .docs-feature-card:hover,
+[data-appearance="dark"] .docs-feature-card:hover,
+html.dark .docs-feature-card:hover {
+  background-color: #1b2431 !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.dark .docs-feature-card h2,
+.dark .docs-feature-card h3,
+[data-appearance="dark"] .docs-feature-card h2,
+[data-appearance="dark"] .docs-feature-card h3,
+html.dark .docs-feature-card h2,
+html.dark .docs-feature-card h3 {
+  color: #ffffff !important;
+}
+
+.dark .docs-feature-card .docs-card-desc,
+[data-appearance="dark"] .docs-feature-card .docs-card-desc,
+html.dark .docs-feature-card .docs-card-desc {
+  color: #94a3b8 !important;
+}
+
+.dark .docs-feature-card .docs-card-link,
+[data-appearance="dark"] .docs-feature-card .docs-card-link,
+html.dark .docs-feature-card .docs-card-link {
+  color: #34d399 !important;
+}
+.dark .docs-feature-card:hover .docs-card-link,
+[data-appearance="dark"] .docs-feature-card:hover .docs-card-link,
+html.dark .docs-feature-card:hover .docs-card-link {
+  color: #6ee7b7 !important;
 }
 
 .dark .docs-sidebar-box,
 [data-appearance="dark"] .docs-sidebar-box,
 html.dark .docs-sidebar-box {
-  background-color: rgba(var(--color-neutral-800), 0.65) !important;
-  border-color: rgba(var(--color-neutral-700), 0.8) !important;
+  background-color: #161d27 !important;
+  border: 1px solid #283344 !important;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
 .dark .docs-icon-badge,
 [data-appearance="dark"] .docs-icon-badge,
 html.dark .docs-icon-badge {
-  background-color: rgba(var(--color-primary-500), 0.15) !important;
-  color: rgb(var(--color-primary-400)) !important;
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
 }
 
-/* Headings & Text Color Fix in Dark Mode */
+/* Headings in Dark Mode */
 .dark h1,
 .dark h2,
 .dark h3,
 .dark h4,
-.dark h5,
-.dark h6,
 [data-appearance="dark"] h1,
 [data-appearance="dark"] h2,
 [data-appearance="dark"] h3,
 [data-appearance="dark"] h4,
-[data-appearance="dark"] h5,
-[data-appearance="dark"] h6,
 html.dark h1,
 html.dark h2,
 html.dark h3,
-html.dark h4,
-html.dark h5,
-html.dark h6,
-.dark article.prose h1,
-.dark article.prose h2,
-.dark article.prose h3,
-.dark article.prose h4,
-[data-appearance="dark"] article.prose h1,
-[data-appearance="dark"] article.prose h2,
-[data-appearance="dark"] article.prose h3,
-[data-appearance="dark"] article.prose h4,
-html.dark article.prose h1,
-html.dark article.prose h2,
-html.dark article.prose h3,
-html.dark article.prose h4 {
+html.dark h4 {
   color: #ffffff !important;
-}
-
-.dark .docs-card h2,
-.dark .docs-card h3,
-.dark .docs-card h4,
-[data-appearance="dark"] .docs-card h2,
-[data-appearance="dark"] .docs-card h3,
-[data-appearance="dark"] .docs-card h4,
-html.dark .docs-card h2,
-html.dark .docs-card h3,
-html.dark .docs-card h4 {
-  color: #ffffff !important;
-}
-
-.dark .docs-card:hover h2,
-.dark .docs-card:hover h3,
-.dark .docs-card:hover h4,
-[data-appearance="dark"] .docs-card:hover h2,
-[data-appearance="dark"] .docs-card:hover h3,
-[data-appearance="dark"] .docs-card:hover h4,
-html.dark .docs-card:hover h2,
-html.dark .docs-card:hover h3,
-html.dark .docs-card:hover h4 {
-  color: rgb(var(--color-primary-400)) !important;
-}
-
-.dark .docs-card p,
-[data-appearance="dark"] .docs-card p,
-html.dark .docs-card p,
-.dark .docs-desc,
-[data-appearance="dark"] .docs-desc,
-html.dark .docs-desc {
-  color: rgba(var(--color-neutral-400), 1) !important;
 }
