@@ -7,15 +7,14 @@ showTableOfContents: true
 
 Xiaomi devices aggressively kill background services by default. Follow these steps to keep Hyper Bridge running smoothly:
 
-{{< steps >}}
+## 1. Enable Autostart
 
-### Enable Autostart
 Go to **Security app** > **Manage apps** > **Hyper Bridge** > Toggle **Autostart** to **Allowed**.
 
-### Set Battery Saver to No Restrictions
+## 2. Set Battery Saver to No Restrictions
+
 In the same app info menu, tap **Battery saver** and select **No restrictions**.
 
-### Lock in Recents (Optional)
-Open the app switcher, press and hold the **Hyper Bridge** card, and tap the **Lock icon**.
+## 3. Lock in Recents (Optional)
 
-{{< /steps >}}
+Open the app switcher, press and hold the **Hyper Bridge** card, and tap the **Lock icon**.
