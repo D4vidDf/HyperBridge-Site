@@ -5,6 +5,10 @@ weight: 2
 showTableOfContents: true
 ---
 
+{{< alert icon="lightbulb" >}}
+**Note:** This guide is currently a work in progress and is only a basic overview of the initial HyperBridge setup wizard. In the future this guide will be a comprehensive guide of the initial HyperBridge setup wizard.
+{{< /alert >}}
+
 After installing HyperBridge, follow these quick steps to get your first Dynamic Island running.
 
 ---

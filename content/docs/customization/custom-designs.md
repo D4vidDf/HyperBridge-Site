@@ -5,6 +5,10 @@ weight: 3
 showTableOfContents: true
 ---
 
+{{< alert icon="lightbulb" >}}
+**Note:** This feature is currently **Work in Progress**.
+{{< /alert >}}
+
 HyperBridge 0.6.0 introduces a Visual Template Composer, allowing you to position dynamic elements on island views like KWGT widgets.
 
 ## Dynamic Tags Dictionary
@@ -16,5 +20,3 @@ HyperBridge 0.6.0 introduces a Visual Template Composer, allowing you to positio
 | `{device.battery}` | Current battery level percentage |
 | `{time.elapsed}` | Duration since notification arrived |
 
-
-Work in Progress

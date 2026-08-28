@@ -5,6 +5,10 @@ weight: 2
 showTableOfContents: true
 ---
 
+{{< alert icon="lightbulb" >}}
+**Note:** This feature is currently **Work in Progress**.
+{{< /alert >}}
+
 Translators determine how incoming Android notifications are transformed into native Xiaomi Super Island specifications.
 
 ## Anatomy of a Translator
@@ -21,6 +25,3 @@ A `.htrans` package contains:
   "actions": ["CALL_DRIVER", "TRACK_MAP"]
 }
 ```
-
-
-Work in Progress, to be released in 0.6.0
