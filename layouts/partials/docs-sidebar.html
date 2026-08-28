@@ -60,9 +60,8 @@
                   </span>
                   <a
                     href="{{ $section.RelPermalink }}"
-                    class="text-sm truncate {{ if $isSectionActive }}text-primary-700 dark:text-primary-400 font-bold{{ else }}font-semibold text-neutral-800 dark:text-neutral-200 hover:text-primary-600 dark:hover:text-primary-400{{ end }}"
-                    onclick="event.stopPropagation()"
-                    {{ if $isSectionActive }}aria-current="page"{{ end }}>
+                    class="text-sm truncate bg-transparent border-none p-0 shadow-none {{ if $isSectionActive }}text-primary-700 dark:text-primary-400 font-bold{{ else }}font-semibold text-neutral-800 dark:text-neutral-200 hover:text-primary-600 dark:hover:text-primary-400{{ end }}"
+                    onclick="event.stopPropagation()">
                     {{ $section.Title }}
                   </a>
                 </div>
@@ -73,7 +72,7 @@
                 </span>
               </summary>
 
-              {{/* Sub-guides (Clean Indented Links Without Arrow) */}}
+              {{/* Sub-guides */}}
               <div class="mt-1 space-y-1 ps-6 py-0.5">
                 {{ range $page := $section.Pages.ByWeight }}
                   {{ $isPageActive := eq $currentPage.RelPermalink $page.RelPermalink }}

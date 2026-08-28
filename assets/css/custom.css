@@ -84,8 +84,16 @@ a {
   text-decoration: none !important;
 }
 
+/* Ensure summary inner links never get background or border */
+.docs-sidebar summary a {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
 /* Sidebar Active Items (Light Mode) */
-.docs-sidebar a[aria-current="page"],
+.docs-sidebar a[aria-current="page"]:not(summary a),
 .docs-sidebar summary[aria-current="page"] {
   background-color: rgba(9, 105, 218, 0.08) !important;
   color: #0969da !important;
@@ -157,12 +165,12 @@ html.dark .docs-icon-badge {
   color: #58a6ff !important;
 }
 
-/* Sidebar Active Items (Darker Blue Background + High-Contrast #58a6ff Text in Dark Mode) */
-.dark .docs-sidebar a[aria-current="page"],
+/* Sidebar Active Items (Dark Mode) */
+.dark .docs-sidebar a[aria-current="page"]:not(summary a),
 .dark .docs-sidebar summary[aria-current="page"],
-[data-appearance="dark"] .docs-sidebar a[aria-current="page"],
+[data-appearance="dark"] .docs-sidebar a[aria-current="page"]:not(summary a),
 [data-appearance="dark"] .docs-sidebar summary[aria-current="page"],
-html.dark .docs-sidebar a[aria-current="page"],
+html.dark .docs-sidebar a[aria-current="page"]:not(summary a),
 html.dark .docs-sidebar summary[aria-current="page"] {
   background-color: rgba(31, 111, 235, 0.2) !important;
   color: #58a6ff !important;
