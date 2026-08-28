@@ -3,7 +3,7 @@ title: "Hyper Bridge"
 description: "Hyper Bridge unlocks the native visual notification system of HyperOS, allowing third-party apps to utilize the HyperIsland."
 heroCaption: "Expand your Super Island"
 heroLead: "Hyper Bridge unlocks the native visual notification system of HyperOS, allowing third-party apps to utilize the HyperIsland."
-heroImage: "img/logo.svg"
+heroImage: "img/hero.png"
 heroButtons:
   - label: "Google Play"
     url: "https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge"

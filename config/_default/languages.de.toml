@@ -2,21 +2,21 @@ locale = "de"
 label = "Deutsch"
 displayName = "Deutsch"
 weight = 6
-title = "HyperBridge"
+title = "Hyper Bridge"
 
 [params]
   displayName = "Deutsch"
   isoCode = "de"
   dateFormat = "2 January 2006"
   logo = "img/logo.svg"
-  description = "Next-Gen Dynamic Island and Notification Enhancement for Xiaomi HyperOS."
-  copyright = "© 2026 HyperBridge. All rights reserved."
+  description = "Hyper Bridge unlocks the native visual notification system of HyperOS, allowing third-party apps to utilize the HyperIsland."
+  copyright = "© 2026 D4vidDf. All rights reserved."
 
 [params.author]
-  name = "HyperBridge"
+  name = "Hyper Bridge"
   image = "img/logo.svg"
-  headline = "Dynamic Island Engine for Xiaomi HyperOS"
-  bio = "Transforming Xiaomi HyperOS with rich notification translations, widgets, and live island activities."
+  headline = "Expand your Super Island"
+  bio = "Hyper Bridge unlocks the native visual notification system of HyperOS, allowing third-party apps to utilize the HyperIsland."
   links = [
     { github = "https://github.com/D4vidDf/HyperBridge" },
     { globe = "https://crowdin.com/project/hyperbridge" }
