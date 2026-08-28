@@ -1,18 +1,9 @@
 ---
-icon: "circle-question"
 title: "Troubleshooting & FAQ"
 description: "Find solutions to common issues, Xiaomi ROM restrictions, and frequently asked questions."
+icon: "circle-question"
 weight: 60
-showTableOfContents: true
+showTableOfContents: false
 ---
 
-Having trouble with islands not showing up or disappearing? Check our troubleshooting guides and FAQ.
-
-{{< alert icon="circle-info" >}}
-**Status: Work in Progress** — Community-submitted fixes and troubleshooting scenarios are documented here.
-{{< /alert >}}
-
-## Resources
-
-- **[Frequently Asked Questions (FAQ)](/docs/troubleshooting/faq/)**: Common questions and answers.
-- **[Known Issues & ROM Quirks](/docs/troubleshooting/known-issues/)**: Workarounds for strict Xiaomi battery savers, DND mode, and watch relays.
+Find instant answers to frequently asked questions and troubleshooting guides for Xiaomi HyperOS quirks.

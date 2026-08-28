@@ -9,9 +9,9 @@
   {{- partialCached "init.html" . -}}
 
   {{ $isDocs := or (eq .Type "docs") (eq .Section "docs") (strings.Contains .RelPermalink "/docs/") }}
-  {{ $bodyLayout := "flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32" }}
+  {{ $bodyLayout := "flex flex-col min-h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32" }}
   {{ if $isDocs }}
-    {{ $bodyLayout = "flex flex-col h-screen m-auto leading-7 max-w-[92rem] px-4 sm:px-8 md:px-10 lg:px-12" }}
+    {{ $bodyLayout = "flex flex-col min-h-screen m-auto leading-7 max-w-7xl w-full px-4 sm:px-6 lg:px-8" }}
   {{ end }}
   {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
   <body class="{{ $bodyLayout }} {{ $bodyColor }} {{ if site.Params.enableStyledScrollbar | default true }}bf-scrollbar{{ end }}">
