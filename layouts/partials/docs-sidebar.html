@@ -73,18 +73,15 @@
                 </span>
               </summary>
 
-              {{/* Sub-guides */}}
-              <div class="mt-1 space-y-1 ps-3 py-1">
+              {{/* Sub-guides (Clean Indented Links Without Arrow) */}}
+              <div class="mt-1 space-y-1 ps-6 py-0.5">
                 {{ range $page := $section.Pages.ByWeight }}
                   {{ $isPageActive := eq $currentPage.RelPermalink $page.RelPermalink }}
                   <a
                     href="{{ $page.RelPermalink }}"
-                    class="flex items-center justify-between rounded-lg py-1.5 px-3 text-xs leading-relaxed transition-all duration-150 {{ if $isPageActive }}bg-primary-100 text-primary-700 dark:bg-primary-950/70 dark:text-primary-400 font-bold border-r-[3px] border-primary-600 dark:border-primary-500 shadow-sm{{ else }}text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800/60 font-medium{{ end }}"
+                    class="block rounded-lg py-1.5 px-3 text-xs leading-relaxed transition-all duration-150 {{ if $isPageActive }}bg-primary-100 text-primary-700 dark:bg-primary-950/70 dark:text-primary-400 font-bold border-r-[3px] border-primary-600 dark:border-primary-500 shadow-sm{{ else }}text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800/60 font-medium{{ end }}"
                     {{ if $isPageActive }}aria-current="page"{{ end }}>
-                    <div class="flex items-center gap-3.5 min-w-0">
-                      <span class="text-sm font-bold {{ if $isPageActive }}text-primary-600 dark:text-primary-400{{ else }}text-neutral-400 dark:text-neutral-500{{ end }} shrink-0 select-none leading-none" aria-hidden="true">↳</span>
-                      <span class="truncate {{ if $isPageActive }}text-primary-700 dark:text-primary-400 font-bold{{ end }}">{{ $page.Title }}</span>
-                    </div>
+                    <span class="truncate block {{ if $isPageActive }}text-primary-700 dark:text-primary-400 font-bold{{ end }}">{{ $page.Title }}</span>
                   </a>
                 {{ end }}
               </div>
