@@ -87,7 +87,7 @@ a {
 .docs-sidebar a[aria-current="page"] {
   background-color: rgba(16, 185, 129, 0.1) !important;
   color: #047857 !important;
-  border-left: 3px solid #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
   font-weight: 700 !important;
 }
 
@@ -177,8 +177,8 @@ html.dark .docs-folder-group summary:hover {
 html.dark .docs-sidebar a[aria-current="page"] {
   background-color: rgba(16, 185, 129, 0.18) !important;
   color: #34d399 !important;
-  border-left: 3px solid #10b981 !important;
-  font-weight: 800 !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  font-weight: 700 !important;
 }
 
 .dark .docs-sidebar a:not([aria-current="page"]),

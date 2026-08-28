@@ -3,10 +3,10 @@
 {{ $docsSection := .Site.GetPage "docs" }}
 
 <aside class="docs-sidebar w-full" role="complementary" aria-label="Documentation navigation sidebar">
-  <div class="docs-sidebar-box rounded-2xl p-4 shadow-sm">
+  <div class="docs-sidebar-box rounded-2xl p-3.5 shadow-sm">
     
     {{/* Sidebar Header / Brand */}}
-    <div class="mb-4 flex items-center justify-between border-b border-neutral-200/80 pb-3 dark:border-neutral-700/80">
+    <div class="mb-3 flex items-center justify-between border-b border-neutral-200/80 pb-2.5 dark:border-neutral-700/80">
       <a
         href="{{ "docs/" | relLangURL }}"
         class="flex items-center gap-2 text-sm font-bold text-neutral-900 hover:text-primary-600 dark:text-white dark:hover:text-primary-400 focus-visible:outline-2 focus-visible:outline-primary-500 rounded-md"
@@ -18,13 +18,13 @@
         </span>
         <span class="tracking-tight font-extrabold text-sm">HyperBridge Docs</span>
       </a>
-      <span class="rounded-full bg-primary-100 px-2 py-0.5 text-[11px] font-bold text-primary-700 dark:bg-primary-950 dark:text-primary-300" aria-label="Version 0.6.0">
+      <span class="rounded-full bg-primary-100 px-2 py-0.5 text-[10px] font-bold text-primary-700 dark:bg-primary-950 dark:text-primary-300" aria-label="Version 0.6.0">
         v0.6.0
       </span>
     </div>
 
     {{/* Navigation Tree with Collapsible Sections */}}
-    <nav class="space-y-2.5" aria-label="Documentation Guides">
+    <nav class="space-y-2" aria-label="Documentation Guides">
       {{ if $docsSection }}
         {{ range $section := $docsSection.Sections.ByWeight }}
           {{ $isCurrentSection := or (eq $currentPage.RelPermalink $section.RelPermalink) (in $currentPage.Ancestors $section) (strings.HasPrefix $currentPage.RelPermalink $section.RelPermalink) }}
@@ -32,42 +32,41 @@
           
           <details class="docs-folder-group group" open aria-label="{{ $section.Title }} section">
             {{/* Main Section Header */}}
-            <summary class="flex items-center justify-between cursor-pointer rounded-lg px-2 py-1.5 text-[13px] font-bold uppercase tracking-wider text-neutral-900 hover:bg-neutral-100/80 dark:text-neutral-200 dark:hover:bg-neutral-800/70 list-none select-none transition duration-150 focus-visible:outline-2 focus-visible:outline-primary-500 [&::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between cursor-pointer rounded-lg px-2 py-1 text-xs font-bold uppercase tracking-wider text-neutral-800 hover:bg-neutral-100/80 dark:text-neutral-200 dark:hover:bg-neutral-800/70 list-none select-none transition duration-150 focus-visible:outline-2 focus-visible:outline-primary-500 [&::-webkit-details-marker]:hidden">
               <div class="flex items-center gap-2 min-w-0">
                 {{ with $section.Params.icon }}
-                  <span class="flex h-4 w-4 shrink-0 items-center justify-center text-primary-600 dark:text-primary-400" aria-hidden="true">
+                  <span class="flex h-3.5 w-3.5 shrink-0 items-center justify-center text-primary-600 dark:text-primary-400" aria-hidden="true">
                     {{ partial "icon.html" . }}
                   </span>
                 {{ end }}
                 <a
                   href="{{ $section.RelPermalink }}"
-                  class="truncate hover:text-primary-600 dark:hover:text-primary-400 {{ if $isSectionDirectlyActive }}text-primary-600 dark:text-primary-400 font-black{{ end }}"
+                  class="truncate hover:text-primary-600 dark:hover:text-primary-400 {{ if $isSectionDirectlyActive }}text-primary-600 dark:text-primary-400 font-extrabold{{ end }}"
                   onclick="event.stopPropagation()"
                   {{ if $isSectionDirectlyActive }}aria-current="page"{{ end }}>
                   {{ $section.Title }}
                 </a>
               </div>
               <span class="shrink-0 text-neutral-400 dark:text-neutral-400 group-open:rotate-180 transition-transform duration-200" aria-hidden="true">
-                <span class="h-3.5 w-3.5 block">
+                <span class="h-3 w-3 block">
                   {{ partial "icon.html" "chevron-down" }}
                 </span>
               </span>
             </summary>
 
-            {{/* Child Sub-items List */}}
-            <ul class="mt-0.5 space-y-0.5 ps-2.5 ms-2 border-s-2 border-neutral-200/80 dark:border-neutral-700/80" role="list">
+            {{/* Child Sub-items List with generous separation from vertical tree line */}}
+            <ul class="mt-1 space-y-1 ps-4 ms-3 border-s border-neutral-200/80 dark:border-neutral-700/80" role="list">
               {{ range $page := $section.Pages.ByWeight }}
                 {{ $isActive := eq $currentPage.RelPermalink $page.RelPermalink }}
+                {{ $itemIcon := $page.Params.icon | default "file-lines" }}
                 <li>
                   <a
                     href="{{ $page.RelPermalink }}"
-                    class="flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs leading-5 transition-all duration-150 focus-visible:outline-2 focus-visible:outline-primary-500 {{ if $isActive }}font-bold bg-primary-50 text-primary-700 border-l-2 border-primary-600 dark:bg-primary-950/70 dark:text-emerald-300 dark:border-emerald-400 shadow-sm{{ else }}text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800/80 dark:hover:text-white{{ end }}"
+                    class="flex items-center gap-2 rounded-lg px-2.5 py-1 text-[12px] leading-snug transition-all duration-150 focus-visible:outline-2 focus-visible:outline-primary-500 {{ if $isActive }}font-bold bg-primary-500/10 text-primary-700 dark:bg-primary-500/20 dark:text-emerald-300 border border-primary-500/30 dark:border-emerald-500/40 shadow-sm{{ else }}text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800/80 dark:hover:text-white{{ end }}"
                     {{ if $isActive }}aria-current="page"{{ end }}>
-                    {{ with $page.Params.icon }}
-                      <span class="h-3 w-3 shrink-0 {{ if $isActive }}text-primary-600 dark:text-emerald-400{{ else }}text-neutral-400 dark:text-neutral-400{{ end }}" aria-hidden="true">
-                        {{ partial "icon.html" . }}
-                      </span>
-                    {{ end }}
+                    <span class="h-3.5 w-3.5 shrink-0 {{ if $isActive }}text-primary-600 dark:text-emerald-400{{ else }}text-neutral-400 dark:text-neutral-400{{ end }}" aria-hidden="true">
+                      {{ partial "icon.html" $itemIcon }}
+                    </span>
                     <span class="truncate">{{ $page.Title }}</span>
                   </a>
                 </li>
