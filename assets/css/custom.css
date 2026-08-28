@@ -254,3 +254,11 @@ html.dark article h4 {
     gap: 1.5rem !important; /* 24px horizontal separation between prev & next */
   }
 }
+
+/* =========================================================================
+   Mobile Menu Fixes (Blowfish PR #3073)
+   ========================================================================= */
+/* Prevent body scroll when fullscreen mobile menu is open, except for dropdown style */
+body:has(#mobile-menu-toggle:checked):not(:has(#mobile-menu-dialog.mobile-menu-style-dropdown)) {
+  overflow: hidden;
+}
