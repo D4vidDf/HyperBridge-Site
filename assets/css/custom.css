@@ -269,6 +269,85 @@ html.dark article h4 {
 }
 
 /* =========================================================================
+   Table of Contents inside Floating Box (.docs-sidebar-box)
+   ========================================================================= */
+.docs-toc-container {
+  width: 16rem !important;
+  min-width: 16rem !important;
+  max-width: 16rem !important;
+  flex-shrink: 0 !important;
+}
+
+.docs-sidebar-box #TableOfContents,
+.docs-sidebar-box #TableOfContentsMobile {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.docs-sidebar-box #TableOfContents ul,
+.docs-sidebar-box #TableOfContentsMobile ul {
+  list-style-type: none !important;
+  padding-left: 0.75rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.docs-sidebar-box #TableOfContents > ul,
+.docs-sidebar-box #TableOfContentsMobile > ul {
+  padding-left: 0 !important;
+}
+
+.docs-sidebar-box #TableOfContents a,
+.docs-sidebar-box #TableOfContentsMobile a {
+  display: block !important;
+  font-size: 0.875rem !important; /* Matches content & sidebar text size (text-sm) */
+  padding: 0.3rem 0.5rem !important;
+  border-radius: 0.5rem !important;
+  color: #475569 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease-in-out !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.4 !important;
+}
+
+.dark .docs-sidebar-box #TableOfContents a,
+.dark .docs-sidebar-box #TableOfContentsMobile a,
+[data-appearance="dark"] .docs-sidebar-box #TableOfContents a,
+[data-appearance="dark"] .docs-sidebar-box #TableOfContentsMobile a,
+html.dark .docs-sidebar-box #TableOfContents a,
+html.dark .docs-sidebar-box #TableOfContentsMobile a {
+  color: #94a3b8 !important;
+}
+
+.docs-sidebar-box #TableOfContents a:hover,
+.docs-sidebar-box #TableOfContents a.active,
+.docs-sidebar-box #TableOfContentsMobile a:hover,
+.docs-sidebar-box #TableOfContentsMobile a.active {
+  color: #0969da !important;
+  background-color: rgba(9, 105, 218, 0.08) !important;
+  font-weight: 600 !important;
+}
+
+.dark .docs-sidebar-box #TableOfContents a:hover,
+.dark .docs-sidebar-box #TableOfContents a.active,
+.dark .docs-sidebar-box #TableOfContentsMobile a:hover,
+.dark .docs-sidebar-box #TableOfContentsMobile a.active,
+[data-appearance="dark"] .docs-sidebar-box #TableOfContents a:hover,
+[data-appearance="dark"] .docs-sidebar-box #TableOfContents a.active,
+[data-appearance="dark"] .docs-sidebar-box #TableOfContentsMobile a:hover,
+[data-appearance="dark"] .docs-sidebar-box #TableOfContentsMobile a.active,
+html.dark .docs-sidebar-box #TableOfContents a:hover,
+html.dark .docs-sidebar-box #TableOfContents a.active,
+html.dark .docs-sidebar-box #TableOfContentsMobile a:hover,
+html.dark .docs-sidebar-box #TableOfContentsMobile a.active {
+  color: #58a6ff !important;
+  background-color: rgba(31, 111, 235, 0.2) !important;
+  font-weight: 600 !important;
+}
+
+/* =========================================================================
    Mobile Menu Fixes (Blowfish PR #3073)
    ========================================================================= */
 /* Prevent body scroll when fullscreen mobile menu is open, except for dropdown style */

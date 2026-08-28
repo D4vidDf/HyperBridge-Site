@@ -114,17 +114,17 @@
         </article>
       </main>
 
-      {{/* 3. Right Sidebar: Sticky Table of Contents */}}
+      {{/* 3. Right Sidebar: Sticky Fixed-Width Table of Contents */}}
       {{ $enableToc := site.Params.article.showTableOfContents | default true }}
       {{ $enableToc = .Params.showTableOfContents | default $enableToc }}
       {{ $showToc := and $enableToc (in .TableOfContents "<ul") }}
       {{ if $showToc }}
-        <div class="hidden xl:block w-60 shrink-0 docs-sidebar-sticky bf-scrollbar">
+        <div class="hidden xl:block docs-toc-container docs-sidebar-sticky bf-scrollbar">
           <div class="docs-sidebar-box rounded-2xl p-4">
             <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">
               On this page
             </h4>
-            <div class="text-xs leading-relaxed">
+            <div class="text-sm leading-relaxed">
               {{ .TableOfContents }}
             </div>
           </div>
