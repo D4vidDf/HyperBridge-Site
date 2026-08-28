@@ -205,3 +205,19 @@ html.dark article h3,
 html.dark article h4 {
   color: #ffffff !important;
 }
+
+/* =========================================================================
+   Guide Navigation Footer Buttons Grid (Generous Separation)
+   ========================================================================= */
+.docs-nav-grid {
+  display: grid !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important; /* 24px clean gap */
+}
+
+@media (min-width: 640px) {
+  .docs-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important; /* 24px horizontal separation between prev & next */
+  }
+}

@@ -79,16 +79,16 @@
             {{ end }}
 
             <footer class="not-prose mt-16 pt-8 mb-12 border-t border-neutral-200/80 dark:border-neutral-700/80 print:hidden">
-              <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="mt-4 docs-nav-grid">
                 {{ with $prevPage }}
                   <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-5 flex flex-col">
                     <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 font-medium">
                       &larr; Previous
-                      {{ if ne .CurrentSection.Title $currentPage.CurrentSection.Title }}
-                        <span class="ms-1 rounded bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 text-[10px] text-neutral-600 dark:text-neutral-400">
-                          {{ .CurrentSection.Title }}
-                        </span>
-                      {{ end }}
+                    {{ if ne .CurrentSection.Title $currentPage.CurrentSection.Title }}
+                      <span class="ms-1 rounded bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 text-[10px] text-neutral-600 dark:text-neutral-400">
+                        {{ .CurrentSection.Title }}
+                      </span>
+                    {{ end }}
                     </span>
                     <span class="mt-2 font-bold text-base text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                       {{ .Title }}
@@ -101,11 +101,11 @@
                 {{ with $nextPage }}
                   <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-5 flex flex-col items-end text-right">
                     <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 font-medium">
-                      {{ if ne .CurrentSection.Title $currentPage.CurrentSection.Title }}
-                        <span class="me-1 rounded bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 text-[10px] text-neutral-600 dark:text-neutral-400">
-                          {{ .CurrentSection.Title }}
-                        </span>
-                      {{ end }}
+                    {{ if ne .CurrentSection.Title $currentPage.CurrentSection.Title }}
+                      <span class="me-1 rounded bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 text-[10px] text-neutral-600 dark:text-neutral-400">
+                        {{ .CurrentSection.Title }}
+                      </span>
+                    {{ end }}
                       Next &rarr;
                     </span>
                     <span class="mt-2 font-bold text-base text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
