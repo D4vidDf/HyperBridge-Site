@@ -43,7 +43,7 @@ a {
 }
 
 /* =========================================================================
-   Documentation Cards & Sidebar (High-Contrast Blowfish Dark/Light Theme)
+   Documentation Cards & Sidebar (Lotus Docs Style + Blowfish Colors)
    ========================================================================= */
 
 /* --- Light Mode --- */
@@ -82,22 +82,6 @@ a {
 
 .docs-sidebar a {
   text-decoration: none !important;
-}
-
-.docs-sidebar a[aria-current="page"] {
-  background-color: rgba(16, 185, 129, 0.1) !important;
-  color: #047857 !important;
-  border: 1px solid rgba(16, 185, 129, 0.3) !important;
-  font-weight: 700 !important;
-}
-
-.docs-sidebar a:not([aria-current="page"]) {
-  color: #334155 !important;
-}
-
-.docs-sidebar a:not([aria-current="page"]):hover {
-  color: #0f172a !important;
-  background-color: #f1f5f9 !important;
 }
 
 /* --- Dark Mode (Triggered by .dark, [data-appearance="dark"], or html.dark) --- */
@@ -157,41 +141,6 @@ html.dark .docs-sidebar-box {
 html.dark .docs-icon-badge {
   background-color: rgba(16, 185, 129, 0.15) !important;
   color: #34d399 !important;
-}
-
-.dark .docs-folder-group summary,
-[data-appearance="dark"] .docs-folder-group summary,
-html.dark .docs-folder-group summary {
-  color: #e2e8f0 !important;
-}
-
-.dark .docs-folder-group summary:hover,
-[data-appearance="dark"] .docs-folder-group summary:hover,
-html.dark .docs-folder-group summary:hover {
-  color: #ffffff !important;
-  background-color: rgba(255, 255, 255, 0.06) !important;
-}
-
-.dark .docs-sidebar a[aria-current="page"],
-[data-appearance="dark"] .docs-sidebar a[aria-current="page"],
-html.dark .docs-sidebar a[aria-current="page"] {
-  background-color: rgba(16, 185, 129, 0.18) !important;
-  color: #34d399 !important;
-  border: 1px solid rgba(16, 185, 129, 0.35) !important;
-  font-weight: 700 !important;
-}
-
-.dark .docs-sidebar a:not([aria-current="page"]),
-[data-appearance="dark"] .docs-sidebar a:not([aria-current="page"]),
-html.dark .docs-sidebar a:not([aria-current="page"]) {
-  color: #cbd5e1 !important;
-}
-
-.dark .docs-sidebar a:not([aria-current="page"]):hover,
-[data-appearance="dark"] .docs-sidebar a:not([aria-current="page"]):hover,
-html.dark .docs-sidebar a:not([aria-current="page"]):hover {
-  color: #ffffff !important;
-  background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 /* Headings in Dark Mode */
