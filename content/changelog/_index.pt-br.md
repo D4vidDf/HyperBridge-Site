@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Português (Brasil))."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Atualização de Performance e Sincronização `Latest`
+## v0.5.7: Atualização de Performance e Sincronização `Latest`
 
 **Otimizações e Correções**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+## v0.5.1: Fixes & Refinements
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+## v0.5.0: The Live Update
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Atualização de correção
+## v0.4.2: Atualização de correção
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: A Atualização da Customização
+## v0.4.0: A Atualização da Customização
 
 **Engine de Tema**
 
@@ -224,7 +224,7 @@ Uma reescrita completa da lógica principal para melhor estabilidade:
 
 ---
 
-### v0.3.1: Atualização de Backup e Poliglota
+## v0.3.1: Atualização de Backup e Poliglota
 
 **Backup e Restauração 📦**
 Novo recurso para usuários avançados! Exporte com segurança suas configurações, listas de bloqueio e prioridades de apps para um arquivo .hbr e restaure-os a qualquer momento.
@@ -250,7 +250,7 @@ O app foi atualizado com o design **Material 3 Expressive**. Desfrute de cabeça
 
 ---
 
-### v0.3.0: A Atualização Global
+## v0.3.0: A Atualização Global
 
 **Notificações Ocultas 👻**
 
@@ -298,7 +298,7 @@ Melhorada a lógica de detecção para dar suporte a uma maior variedade de apli
 
 ---
 
-### v0.2.0: A Atualização de Informações
+## v0.2.0: A Atualização de Informações
 
 - **Progresso Avançado:** Suporte para "Passos" (ex.: 1 de 3) e barras de progresso com ícones no painel de notificações.
 
@@ -312,7 +312,7 @@ Melhorada a lógica de detecção para dar suporte a uma maior variedade de apli
 
 ---
 
-### v0.1.0: A Atualização Expressiva
+## v0.1.0: A Atualização Expressiva
 
 - **Grandes mudanças na IU:** Hyper Bridge agora usa o Material 3 Expressive com novas animações suaves.
 

@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Polski)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+## v0.5.1: Fixes & Refinements
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+## v0.5.0: The Live Update
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hotfix Update
+## v0.4.2: Hotfix Update
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: Aktualizacja personalizacyjna
+## v0.4.0: Aktualizacja personalizacyjna
 
 **Silnik motywów 🎨**
 
@@ -224,7 +224,7 @@ Całkowicie przepisany rdzeń dla lepszej stabilności:
 
 ---
 
-### v0.3.1: Aktualizacja: Kopia zapasowa i Wielojęzyczność
+## v0.3.1: Aktualizacja: Kopia zapasowa i Wielojęzyczność
 
 **Kopia zapasowa i przywracanie 📦**
 
@@ -266,7 +266,7 @@ Aplikacja została zaktualizowana do stylu **Material 3 Expressive**. Ciesz się
 
 ---
 
-### v0.3.0: Globalna aktualizacja
+## v0.3.0: Globalna aktualizacja
 
 **Ukrywanie powiadomień 👻**
 
@@ -314,7 +314,7 @@ Poprawiono logikę wykrywania powiadomień, aby wspierać większą liczbę apli
 
 ---
 
-### v0.2.0: Aktualizacja informacji
+## v0.2.0: Aktualizacja informacji
 
 - **Zaawansowany progres:** Dodano wsparcie dla "Postępu krokowego" (np. 1 z 3) oraz pasków postępu z ikonami wewnątrz panelu powiadomień.
 
@@ -328,7 +328,7 @@ Poprawiono logikę wykrywania powiadomień, aby wspierać większą liczbę apli
 
 ---
 
-### v0.1.0: Aktualizacja ekspresyjna
+## v0.1.0: Aktualizacja ekspresyjna
 
 - **Odmieniony wygląd:** Nowy design Material 3 Expressive z płynnymi animacjami.
 

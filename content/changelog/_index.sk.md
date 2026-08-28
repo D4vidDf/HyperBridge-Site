@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Slovenčina)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+## v0.5.1: Fixes & Refinements
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+## v0.5.0: The Live Update
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hotfix Update
+## v0.4.2: Hotfix Update
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: Aktualizácia prispôsobenia
+## v0.4.0: Aktualizácia prispôsobenia
 
 **Tématický engine 🎨**
 
@@ -224,7 +224,7 @@ Kompletné prepísanie základnej logiky pre lepšiu stabilitu:
 
 ---
 
-### v0.3.1: Zálohovanie & Aktualizácia Polyglot
+## v0.3.1: Zálohovanie & Aktualizácia Polyglot
 
 **Zálohovanie & Obnovenie 📦**
 
@@ -266,7 +266,7 @@ Aplikácia bola aktualizovaná s **Material 3 Expressive** dizajnom. Užite si v
 
 ---
 
-### v0.3.0: Globálna aktualizácia
+## v0.3.0: Globálna aktualizácia
 
 **Skryté upozornenia 👻**
 
@@ -314,7 +314,7 @@ Vylepšená logika detekcie na podporu širšej škály aplikácií VoIP a Diale
 
 ---
 
-### v0.2.0: Informácia o aktualizácii
+## v0.2.0: Informácia o aktualizácii
 
 - **Pokročilý pokrok:** Pridaná podpora pre „Postup krokov“ (napr. 1 z 3) a indikátory priebehu s ikonami vo vnútri panela upozornení.
 
@@ -328,7 +328,7 @@ Vylepšená logika detekcie na podporu širšej škály aplikácií VoIP a Diale
 
 ---
 
-### v0.1.0: Expresívna aktualizácia
+## v0.1.0: Expresívna aktualizácia
 
 - **Hlavná rekonštrukcia používateľského rozhrania:** Nový "Material 3" Expresívny dizajn s plynulými animáciami.
 

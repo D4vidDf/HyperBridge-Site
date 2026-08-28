@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Italiano)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+## v0.5.1: Fixes & Refinements
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: Il Live Update
+## v0.5.0: Il Live Update
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Aggiornamento Hotfix
+## v0.4.2: Aggiornamento Hotfix
 
 - **Crash Fix:** Risolto un problema critico che ha causato l'arresto dell'app quando si apre il menu delle impostazioni in Cinese Tradizionale.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: Aggiornamento Personalizzazione
+## v0.4.0: Aggiornamento Personalizzazione
 
 **Motore del Tema 🎨**
 
@@ -224,7 +224,7 @@ Una riscrittura completa della logica di base per una migliore stabilità:
 
 ---
 
-### v0.3.1: Backup & Aggiornamento Polyglot
+## v0.3.1: Backup & Aggiornamento Polyglot
 
 **Backup & Ripristina 📦**
 
@@ -266,7 +266,7 @@ L'app è stata aggiornata con **Material 3 Expressive** design. Godetevi intesta
 
 ---
 
-### v0.3.0: Aggiornamento Globale
+## v0.3.0: Aggiornamento Globale
 
 **Notifica nascosta 👻**
 
@@ -314,7 +314,7 @@ Miglioramento della logica di rilevamento per supportare una gamma più ampia di
 
 ---
 
-### v0.2.0: Aggiornamento Delle Informazioni
+## v0.2.0: Aggiornamento Delle Informazioni
 
 - **Migliorato stato di avanzamento:** Aggiunto il supporto per "Avanzamento passo per passo" (ad esempio 1 di 3) e barre di avanzamento con icone all'interno dell'area notifiche.
 
@@ -328,7 +328,7 @@ Miglioramento della logica di rilevamento per supportare una gamma più ampia di
 
 ---
 
-### v0.1.0: Aggiornamento Espressivo
+## v0.1.0: Aggiornamento Espressivo
 
 - **Revisione dell'interfaccia utente:** Nuovo Material 3 Expressive design con animazioni fluide.
 

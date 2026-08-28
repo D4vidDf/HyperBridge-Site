@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Čeština)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+## v0.5.1: Fixes & Refinements
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+## v0.5.0: The Live Update
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hotfix Update
+## v0.4.2: Hotfix Update
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: The Customization Update
+## v0.4.0: The Customization Update
 
 **Theme Engine 🎨**
 
@@ -224,7 +224,7 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.3.1: Backup & Polyglot Update
+## v0.3.1: Backup & Polyglot Update
 
 **Backup & Restore 📦**
 
@@ -266,7 +266,7 @@ The app has been updated with **Material 3 Expressive** design. Enjoy larger hea
 
 ---
 
-### v0.3.0: The Global Update
+## v0.3.0: The Global Update
 
 **Hidden Notification 👻**
 
@@ -314,7 +314,7 @@ Improved detection logic to support a wider range of VoIP and Dialer application
 
 ---
 
-### v0.2.0: The Information Update
+## v0.2.0: The Information Update
 
 - **Advanced Progress:** Added support for "Step Progress" (e.g. 1 of 3) and progress bars with icons inside the notification shade.
 
@@ -328,7 +328,7 @@ Improved detection logic to support a wider range of VoIP and Dialer application
 
 ---
 
-### v0.1.0: The Expressive Update
+## v0.1.0: The Expressive Update
 
 - **Major UI Overhaul:** New Material 3 Expressive design with smooth animations.
 

@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (繁體中文)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: 修復 & 改進
+## v0.5.1: 修復 & 改進
 
 **修復 & 穩定**
 
@@ -106,7 +106,7 @@ WhatsApp 重複通知修復：解決了 WhatsApp 通知重複出現的問題。
 
 ---
 
-### v0.5.0: 即時更新
+## v0.5.0: 即時更新
 
 ** 中國版ROM 支援 **
 
@@ -164,7 +164,7 @@ WhatsApp 重複通知修復：解決了 WhatsApp 通知重複出現的問題。
 
 ---
 
-### v0.4.2: 修補更新
+## v0.4.2: 修補更新
 
 - **崩潰修復：**修正了在繁體中文環境下，開啟設定選單會導致應用程式閃退的嚴重問題。
 
@@ -172,7 +172,7 @@ WhatsApp 重複通知修復：解決了 WhatsApp 通知重複出現的問題。
 
 ---
 
-### v0.4.0: 自訂更新
+## v0.4.0: 自訂更新
 
 **主題引擎 🎨**
 
@@ -224,7 +224,7 @@ WhatsApp 重複通知修復：解決了 WhatsApp 通知重複出現的問題。
 
 ---
 
-### v0.3.1: 備份 & 多語言更新
+## v0.3.1: 備份 & 多語言更新
 
 **備份 & 還原 📦**
 
@@ -266,7 +266,7 @@ App 已更新為 **Material 3 豐富表現**設計。享受更大的標題、更
 
 ---
 
-### v0.3.0: 預設功能更新
+## v0.3.0: 預設功能更新
 
 **隱藏通知 👻**
 
@@ -314,7 +314,7 @@ App 已更新為 **Material 3 豐富表現**設計。享受更大的標題、更
 
 ---
 
-### v0.2.0: 資訊更新
+## v0.2.0: 資訊更新
 
 - **進階進度顯示：**新增支援「分段進度」（例如：1/3）以及通知欄內含圖示的進度條。
 
@@ -328,7 +328,7 @@ App 已更新為 **Material 3 豐富表現**設計。享受更大的標題、更
 
 ---
 
-### v0.1.0: 快速更新
+## v0.1.0: 快速更新
 
 - **介面大改版：**全新的 Material 3 豐富表現設計，搭配流暢的動畫效果。
 

@@ -7,10 +7,8 @@ heroImage: "img/hero.png"
 heroButtons:
   - label: "Google Play"
     url: "https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge"
-  - label: "Explore Docs"
+  - label: "Documentation"
     url: "/docs/"
-  - label: "View Changelog"
-    url: "/changelog/"
   - label: "GitHub"
     url: "https://github.com/D4vidDf/HyperBridge"
 ---
@@ -25,8 +23,6 @@ Trusted by users across the globe on Google Play and GitHub.
 Runs entirely on-device with zero telemetry or background tracking.
 {{< /stat >}}
 {{< /stats >}}
-
-## Key Features
 
 {{< feature-grid >}}
 
@@ -47,15 +43,3 @@ Runs 100% on-device with zero telemetry. Shizuku is only needed as an optional w
 {{< /feature >}}
 
 {{< /feature-grid >}}
-
----
-
-## Getting Started
-
-HyperBridge is designed to work seamlessly on Xiaomi HyperOS devices.
-
-1. **Download & Install**: Get it on [Google Play](https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge) or grab the latest APK release from [GitHub Releases](https://github.com/D4vidDf/HyperBridge/releases).
-2. **Grant Permissions**: Enable Notification Listener (Shizuku is only required as a workaround on Chinese ROMs).
-3. **Customize Themes**: Tailor colors, icons, and island behavior to match your personal setup.
-
-Check out our [Documentation](/docs/) for step-by-step guides and configuration tips.

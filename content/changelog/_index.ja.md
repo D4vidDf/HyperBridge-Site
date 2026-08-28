@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (日本語)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Inline Reply, Performance & Stability *(English)*
+## v0.5.2: Inline Reply, Performance & Stability *(English)*
 
 **New Inline Reply Feature!**
 
@@ -87,7 +87,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements *(English)*
+## v0.5.1: Fixes & Refinements *(English)*
 
 **Fixes & Stability**
 
@@ -116,7 +116,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update *(English)*
+## v0.5.0: The Live Update *(English)*
 
 **CN ROM Support**
 
@@ -174,7 +174,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: 緊急修正アップデート
+## v0.4.2: 緊急修正アップデート
 
 - **クラッシュの修正:** 繁体字中国語で設定メニューを開いた際にアプリがクラッシュする重大な不具合を修正しました。
 
@@ -182,7 +182,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: カスタマイズアップデート
+## v0.4.0: カスタマイズアップデート
 
 **テーマエンジン 🎨**
 
@@ -234,7 +234,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.3.1: バックアップ＆多言語アップデート
+## v0.3.1: バックアップ＆多言語アップデート
 
 **バックアップと復元 📦**
 
@@ -276,7 +276,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.3.0: グローバルアップデート
+## v0.3.0: グローバルアップデート
 
 **通知の非表示 👻**
 
@@ -324,7 +324,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.2.0: 情報アップデート
+## v0.2.0: 情報アップデート
 
 - **進行状況の強化:** 「ステップ進行状況」（例: 3件中1件）と、通知パネル内でアイコン付きの進行バーに対応しました。
 
@@ -338,7 +338,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.1.0: エクスプレッシブアップデート
+## v0.1.0: エクスプレッシブアップデート
 
 - **UIの大幅刷新:** スムーズなアニメーションを備えた新しいMaterial 3 Expressiveデザインを採用しました。
 

@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Español (Latinoamérica))."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Actualización de Rendimiento y Estabilidad
+## v0.5.2: Actualización de Rendimiento y Estabilidad
 
 **Actualización de Rendimiento y Estabilidad**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements *(English)*
+## v0.5.1: Fixes & Refinements *(English)*
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update *(English)*
+## v0.5.0: The Live Update *(English)*
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hotfix Update *(English)*
+## v0.4.2: Hotfix Update *(English)*
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: The Customization Update *(English)*
+## v0.4.0: The Customization Update *(English)*
 
 **Theme Engine 🎨**
 
@@ -224,7 +224,7 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.3.1: Actualización de Copias y Idiomas
+## v0.3.1: Actualización de Copias y Idiomas
 
 **Copia de Seguridad y Restauración 📦**
 
@@ -266,7 +266,7 @@ La aplicación se ha actualizado al diseño **Material 3 Expressive**. Disfruta 
 
 ---
 
-### v0.3.0: La Actualización Global
+## v0.3.0: La Actualización Global
 
 **Notificación Oculta 👻**
 
@@ -313,7 +313,7 @@ Mejorada la lógica de detección para soportar más aplicaciones de VoIP y Tel�
 
 ---
 
-### v0.2.0: La Actualización de Información
+## v0.2.0: La Actualización de Información
 
 - **Progreso Avanzado:** Soporte para "Pasos" (ej. 1 de 3) y barras de progreso con iconos en el panel de notificaciones.
 
@@ -327,7 +327,7 @@ Mejorada la lógica de detección para soportar más aplicaciones de VoIP y Tel�
 
 ---
 
-### v0.1.0: La Actualización Expresiva
+## v0.1.0: La Actualización Expresiva
 
 - **Nuevo Diseño :** Hyper Bridge ahora usa Material 3 Expressive con nuevas animaciones.
 

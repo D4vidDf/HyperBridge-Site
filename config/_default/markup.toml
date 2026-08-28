@@ -2,6 +2,11 @@
   [goldmark.renderer]
     unsafe = true
 
+[tableOfContents]
+  endLevel = 2
+  ordered = false
+  startLevel = 2
+
 [highlight]
   noClasses = false
   style = "monokai"

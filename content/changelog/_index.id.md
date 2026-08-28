@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Bahasa Indonesia)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Perbaikan & Penyempurnaan
+## v0.5.1: Perbaikan & Penyempurnaan
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: Pembaruan Langsung
+## v0.5.0: Pembaruan Langsung
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Pembaruan Hotfix
+## v0.4.2: Pembaruan Hotfix
 
 - **Perbakan Kesalahan:** Mengatasi masalah kritis yang menyebabkan aplikasi mogok saat membuka menu pengaturan dalam bahasa Mandarin Tradisional.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: Pembaruan Kustomisasi
+## v0.4.0: Pembaruan Kustomisasi
 
 **Theme Engine 🎨**
 
@@ -224,7 +224,7 @@ Penulisan ulang total logika inti untuk stabilitas yang lebih baik.
 
 ---
 
-### v0.3.1: Pembaruan Cadangan & Polyglot
+## v0.3.1: Pembaruan Cadangan & Polyglot
 
 **Cadangkan & Pulihkan 📦**
 
@@ -266,7 +266,7 @@ Aplikasi telah diperbarui dengan desain **Material 3 Expressive**. Nikmati heade
 
 ---
 
-### v0.3.0: Pembaruan Global
+## v0.3.0: Pembaruan Global
 
 **Notifikasi Tersembunyi 👻**
 
@@ -314,7 +314,7 @@ Logika deteksi ditingkatkan untuk mendukung lebih banyak aplikasi VoIP dan Diale
 
 ---
 
-### v0.2.0: Informasi Pembaruan
+## v0.2.0: Informasi Pembaruan
 
 - **Progres Canggih:** Menambahkan dukungan untuk "Progres Langkah" (mis. 1 dari 3) dan bilah progres dengan ikon di dalam panel notifikasi.
 
@@ -328,7 +328,7 @@ Logika deteksi ditingkatkan untuk mendukung lebih banyak aplikasi VoIP dan Diale
 
 ---
 
-### v0.1.0: Pembaruan Ekspresif
+## v0.1.0: Pembaruan Ekspresif
 
 - **Perombakan UI Besar:** Desain Material 3 Expressive baru dengan animasi halus.
 

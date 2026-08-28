@@ -7,10 +7,8 @@ heroImage: "img/hero.png"
 heroButtons:
   - label: "Google Play"
     url: "https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge"
-  - label: "Explorar Docs"
+  - label: "Documentación"
     url: "/docs/"
-  - label: "Ver Cambios"
-    url: "/changelog/"
   - label: "GitHub"
     url: "https://github.com/D4vidDf/HyperBridge"
 ---
@@ -26,8 +24,6 @@ Funciona completamente en tu dispositivo sin telemetría ni rastreo.
 {{< /stat >}}
 {{< /stats >}}
 
-## Características Principales
-
 {{< feature-grid >}}
 
 {{< feature icon="wand-magic-sparkles" title="Isla Dinámica para HyperOS" >}}
@@ -35,11 +31,11 @@ Conecta sin problemas las notificaciones estándar de Android con la Super Isla 
 {{< /feature >}}
 
 {{< feature icon="code" title="Traductores y Reglas Inteligentes" >}}
-Categoriza de forma inteligente reproducción multimedia, llamadas activas, progreso de navegación, medidores de descarga, códigos de verificación y temporizadores para mostrar tarjetas de isla personalizadas.
+Categoriza de forma inteligente la reproducción multimedia, llamadas activas, progreso de navegación, medidores de descarga, códigos de verificación y temporizadores para mostrar islas personalizadas.
 {{< /feature >}}
 
 {{< feature icon="bell" title="Acciones Inteligentes y Automatización" >}}
-Copia rápidamente códigos de verificación 2FA, abre enlaces de seguimiento, accede a la navegación o ejecuta acciones contextuales directamente desde tu isla y notificaciones.
+Copia rápidamente códigos de verificación 2FA, abre enlaces de seguimiento, accede a la navegación o ejecuta acciones contextuales directamente desde tu isla.
 {{< /feature >}}
 
 {{< feature icon="shield" title="Privacidad y Procesamiento Local" >}}
@@ -47,15 +43,3 @@ Funciona 100% en el dispositivo con cero telemetría. Shizuku solo es necesario 
 {{< /feature >}}
 
 {{< /feature-grid >}}
-
----
-
-## Primeros Pasos
-
-Hyper Bridge está diseñado para funcionar perfectamente en dispositivos con Xiaomi HyperOS.
-
-1. **Descargar e Instalar**: Consíguelo en [Google Play](https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge) o descarga el APK más reciente desde [GitHub Releases](https://github.com/D4vidDf/HyperBridge/releases).
-2. **Conceder Permisos**: Activa el Acceso a Notificaciones (Shizuku solo es necesario como solución alternativa en ROMs Chinas).
-3. **Personalizar Temas**: Adapta colores, iconos y el comportamiento de la isla a tu gusto.
-
-Consulta nuestra [Documentación](/docs/) para obtener guías paso a paso y consejos de configuración.

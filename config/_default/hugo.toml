@@ -4,6 +4,7 @@ theme = "blowfish"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
 summaryLength = 30
+timeout = "120s"
 
 [pagination]
   pagerSize = 10

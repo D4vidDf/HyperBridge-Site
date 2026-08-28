@@ -25,6 +25,7 @@ logo = "img/logo.svg"
 
 [list]
   showBreadcrumbs = true
+  showTableOfContents = true
   cardView = true
 
 [footer]

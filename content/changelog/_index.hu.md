@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Magyar)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+## v0.5.1: Fixes & Refinements
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+## v0.5.0: The Live Update
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hibaijavító frissítés
+## v0.4.2: Hibaijavító frissítés
 
 - **Hibajavítás:** Kijavítottunk egy kritikus hibát, amely miatt az alkalmazás összeomlott, amikor a beállítások menüt hagyományos kínai nyelven nyitották meg.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: A testreszabás frissítés
+## v0.4.0: A testreszabás frissítés
 
 **Téma motor 🎨**
 
@@ -222,7 +222,7 @@ A jobb stabilitás érdekében teljesen átírtuk a központi logikát:
 
 ---
 
-### v0.3.1: Mentés és többnyelvű frissítés
+## v0.3.1: Mentés és többnyelvű frissítés
 
 **Mentés és visszaállítás 📦**
 
@@ -264,7 +264,7 @@ Az alkalmazás **Material 3 Expressive** dizájnnal lett frissítve. Élvezd a n
 
 ---
 
-### v0.3.0: Az általános frissítés
+## v0.3.0: Az általános frissítés
 
 **Rejtett értesítések 👻**
 
@@ -312,7 +312,7 @@ Továbbfejlesztett felismerési logika a VoIP- és tárcsázóalkalmazások szé
 
 ---
 
-### v0.2.0: Az információs frissítés
+## v0.2.0: Az információs frissítés
 
 - **Részletes folyamatok:** Hozzáadott támogatás a „Lépésenkénti előrehaladás” (pl. 1/3) és az ikonokkal ellátott előrehaladási sávok számára az értesítési sávon belül.
 
@@ -326,7 +326,7 @@ Továbbfejlesztett felismerési logika a VoIP- és tárcsázóalkalmazások szé
 
 ---
 
-### v0.1.0: A kifejező frissítés
+## v0.1.0: A kifejező frissítés
 
 - **A felhasználói felület jelentős átalakítása:** Új Material 3 kifejező dizájn, sima animációkkal.
 

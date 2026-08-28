@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Español (España))."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Actualización de Rendimiento y Sincronización `Latest`
+## v0.5.7: Actualización de Rendimiento y Sincronización `Latest`
 
 **Optimizaciones y correcciones**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Modo Horizontal y Correcciones de Estabilidad
+## v0.5.6: Modo Horizontal y Correcciones de Estabilidad
 
 **Correcciones y Mejoras**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Mensajería y Correcciones
+## v0.5.5: Mensajería y Correcciones
 
 **Live Updates e Islas**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Respuesta Rápida, Rendimiento y Estabilidad
+## v0.5.2: Respuesta Rápida, Rendimiento y Estabilidad
 
 **¡Nueva Respuesta Rápida!**
 
@@ -87,7 +87,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Correcciones y Mejoras
+## v0.5.1: Correcciones y Mejoras
 
 **Correcciones y Estabilidad**
 
@@ -116,7 +116,7 @@ Traducciones al Español: Añadidas traducciones completas al español para todo
 
 ---
 
-### v0.5.0: La actualización en vivo
+## v0.5.0: La actualización en vivo
 
 **Soporte para ROMs CN**
 
@@ -174,7 +174,7 @@ Traducciones al Español: Añadidas traducciones completas al español para todo
 
 ---
 
-### v0.4.2: Actualización Rápida
+## v0.4.2: Actualización Rápida
 
 - **Corrección de errores:** Se solucionó un error crítico que provocaba el cierre de la aplicación al abrir la configuración en Chino Tradicional.
 
@@ -182,7 +182,7 @@ Traducciones al Español: Añadidas traducciones completas al español para todo
 
 ---
 
-### v0.4.0: La Actualización de Personalización
+## v0.4.0: La Actualización de Personalización
 
 **Theme Engine 🎨**
 
@@ -234,7 +234,7 @@ Una completa reescritura de la lógica para una mejor estabilidad:
 
 ---
 
-### v0.3.1: Actualización de Copias y Idiomas
+## v0.3.1: Actualización de Copias y Idiomas
 
 **Copia de Seguridad y Restauración 📦**
 
@@ -276,7 +276,7 @@ La aplicación se ha actualizado al diseño **Material 3 Expressive**. Disfruta 
 
 ---
 
-### v0.3.0: La Actualización Global
+## v0.3.0: La Actualización Global
 
 **Notificación Oculta 👻**
 
@@ -323,7 +323,7 @@ Mejorada la lógica de detección para soportar más aplicaciones de VoIP y Tel�
 
 ---
 
-### v0.2.0: La Actualización de Información
+## v0.2.0: La Actualización de Información
 
 - **Progreso Avanzado:** Soporte para "Pasos" (ej. 1 de 3) y barras de progreso con iconos en el panel de notificaciones.
 
@@ -337,7 +337,7 @@ Mejorada la lógica de detección para soportar más aplicaciones de VoIP y Tel�
 
 ---
 
-### v0.1.0: La Actualización Expresiva
+## v0.1.0: La Actualización Expresiva
 
 - **Nuevo Diseño :** Hyper Bridge ahora usa Material 3 Expressive con nuevas animaciones.
 

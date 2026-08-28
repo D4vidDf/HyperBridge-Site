@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (Français)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Réponse intégrée, performance & stabilité
+## v0.5.2: Réponse intégrée, performance & stabilité
 
 **Nouvelle fonctionnalité de réponse intégrée !**
 
@@ -87,7 +87,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Corrections & Affinements
+## v0.5.1: Corrections & Affinements
 
 **Corrections & stabilité**
 
@@ -116,7 +116,7 @@ Traductions en espagnol : ajout de traductions complètes en espagnol pour toute
 
 ---
 
-### v0.5.0: La mise à jour "Live Update"
+## v0.5.0: La mise à jour "Live Update"
 
 **Support ROM CN**
 
@@ -174,7 +174,7 @@ Traductions en espagnol : ajout de traductions complètes en espagnol pour toute
 
 ---
 
-### v0.4.2: Mise à jour de corrections de bugs
+## v0.4.2: Mise à jour de corrections de bugs
 
 - **Correction d'un crash :** Résolution d'un problème critique qui faisait planter l'application lors de l'ouverture du menu des paramètres en chinois traditionnel.
 
@@ -182,7 +182,7 @@ Traductions en espagnol : ajout de traductions complètes en espagnol pour toute
 
 ---
 
-### v0.4.0: La version de la personnalisation
+## v0.4.0: La version de la personnalisation
 
 **Système de thèmes 🎨**
 
@@ -234,7 +234,7 @@ Réécriture complète du moteur pour une meilleure stabilité:
 
 ---
 
-### v0.3.1: Sauvegarde & langues
+## v0.3.1: Sauvegarde & langues
 
 **Sauvegarde & Restauration 📦**
 
@@ -278,7 +278,7 @@ L'application a été mise à jour avec **Material 3 Expressive** . Appréciez d
 
 ---
 
-### v0.3.0: La version "Globale"
+## v0.3.0: La version "Globale"
 
 **Notification masquée 👻**
 
@@ -326,7 +326,7 @@ Logique de détection améliorée pour prendre en charge une plus grande gamme d
 
 ---
 
-### v0.2.0: La version de l'information
+## v0.2.0: La version de l'information
 
 - **Progression avancée:** Ajout d'étapes de progressions (par ex. 1 sur 3) et de barres de progression avec icônes dans la bulle de notification.
 
@@ -340,7 +340,7 @@ Logique de détection améliorée pour prendre en charge une plus grande gamme d
 
 ---
 
-### v0.1.0: La version expressive
+## v0.1.0: La version expressive
 
 - **Révision majeure de l'interface utilisateur :** Nouveau design "Material 3 expressive" avec des animations plus fluides.
 

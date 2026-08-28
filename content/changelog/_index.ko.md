@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release history and updates for HyperBridge (한국어)."
-layout: "simple"
+showTableOfContents: true
 ---
 
 Follow the latest updates, features, and release history for **HyperBridge**.
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest` *(English)*
+## v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes *(English)*
+## v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes *(English)*
+## v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Performance & Stability Update
+## v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
@@ -77,7 +77,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+## v0.5.1: Fixes & Refinements
 
 **Fixes & Stability**
 
@@ -106,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+## v0.5.0: The Live Update
 
 **CN ROM Support**
 
@@ -164,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hotfix Update
+## v0.4.2: Hotfix Update
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -172,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: The Customization Update
+## v0.4.0: The Customization Update
 
 **Theme Engine 🎨**
 
@@ -224,7 +224,7 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.3.1: 백업 & 다국어 업데이트
+## v0.3.1: 백업 & 다국어 업데이트
 
 **백업 & 복원 📦**
 
@@ -266,7 +266,7 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.3.0: The Hidden 업데이트
+## v0.3.0: The Hidden 업데이트
 
 - **숨겨진 알림 👻:** 알림 패널에는 숨기고, 아일랜드에서는 계속 표시되도록 하는 새로운 옵션이 추가되었습니다. 전역 설정에서 확인하세요.
 
@@ -298,7 +298,7 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.2.0: The Information 업데이트
+## v0.2.0: The Information 업데이트
 
 - **고급 진행률 표시줄:** "단계별 진행"(예: 1/3) 및 알림창 내 아이콘이 포함된 진행률 표시줄 지원이 추가되었습니다.
 
@@ -312,7 +312,7 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.1.0: The Expressive 업데이트
+## v0.1.0: The Expressive 업데이트
 
 - **주요 UI 개편:** 부드러운 애니메이션이 적용된 새로운 Material 3 Expressive 디자인.
 
