@@ -5,6 +5,10 @@ weight: 1
 showTableOfContents: true
 ---
 
+{{< alert icon="lightbulb" >}}
+**Note:** This page is currently **Work in Progress**.
+{{< /alert >}}
+
 HyperBridge needs access to system notifications to detect active music, downloads, timers, and messages.
 
 ## Privacy & Security
@@ -12,4 +16,3 @@ HyperBridge processes notification data **100% locally in ephemeral memory**. No
 
 ## How to Enable
 
-Work in Progress
