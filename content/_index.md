@@ -7,10 +7,14 @@ heroImage: "img/hero.png"
 heroButtons:
   - label: "Google Play"
     url: "https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge"
+    style: "primary"
   - label: "Documentation"
     url: "/docs/"
+    style: "outline"
   - label: "GitHub"
     url: "https://github.com/D4vidDf/HyperBridge"
+    style: "outline"
+    github: "D4vidDf/HyperBridge"
 ---
 
 By default, only system apps utilize the HyperIsland. Hyper Bridge changes that. It acts as a bridge, reading your standard Android notifications and transforming them into sleek, native HyperOS visual elements.
