@@ -21,3 +21,6 @@ A `.htrans` package contains:
   "actions": ["CALL_DRIVER", "TRACK_MAP"]
 }
 ```
+
+
+Work in Progress, to be released in 0.6.0

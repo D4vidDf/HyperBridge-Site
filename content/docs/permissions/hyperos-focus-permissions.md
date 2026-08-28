@@ -12,7 +12,4 @@ If you don't see dynamic islands appearing around the camera punch-hole, this pe
 {{< /alert >}}
 
 ## Steps to Enable
-
-1. Open **Settings** > **Notifications & status bar**.
-2. Scroll to **Focus notifications** (or **Featured notifications**).
-3. Find **HyperBridge** and ensure it is turned **ON**.
+Work in Progress

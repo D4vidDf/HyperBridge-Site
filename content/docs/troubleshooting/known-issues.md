@@ -11,7 +11,7 @@ showTableOfContents: true
 - **Fix:** Whitelist HyperBridge in the Xiaomi Security app by setting **Autostart** to Allowed and **Battery saver** to **No restrictions**.
 
 ### Smartwatch notifications stopped working
-- **Fix:** In HyperBridge settings, ensure **Remove original notification** is configured with watch relay compatibility mode enabled.
+- **Fix:** In HyperBridge settings, ensure **Remove original notification** is disabled.
 
 ### Chinese (CN) ROM not displaying islands
 - **Fix:** Set up **Shizuku** and toggle the Shizuku workaround in HyperBridge Theme Editor Engine settings.

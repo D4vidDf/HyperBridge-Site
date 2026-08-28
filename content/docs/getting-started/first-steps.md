@@ -27,6 +27,6 @@ Tap **Grant Permission** to allow HyperBridge to read notifications locally on y
 
 ---
 
-### Step 4: Send a Test Notification
+### Step 4: Enable the applications
 
-From the app's settings or test screen, trigger a test island (Media, Timer, or Download) to verify that the Super Island renders smoothly around your camera cutout.
+Select the apps you want Hyper Bridge to show in the Super Island.
