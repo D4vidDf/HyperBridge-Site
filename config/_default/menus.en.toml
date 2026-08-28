@@ -9,6 +9,12 @@
   weight = 20
 
 [[main]]
+  name = "Google Play"
+  url = "https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge"
+  weight = 25
+  pre = "google-play"
+
+[[main]]
   name = "GitHub"
   url = "https://github.com/D4vidDf/HyperBridge"
   weight = 30

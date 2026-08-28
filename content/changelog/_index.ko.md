@@ -1,6 +1,6 @@
 ---
 title: "Changelog"
-description: "Release history and updates for HyperBridge (English)."
+description: "Release history and updates for HyperBridge (한국어)."
 layout: "simple"
 ---
 
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest`
+### v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes
+### v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes
+### v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,33 +57,23 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Inline Reply, Performance & Stability
-
-**New Inline Reply Feature!**
-
-- **Inline Reply:** You can now reply to messages directly from the island without opening the app!
-
-- **Customization:** Fully customize the look of the new inline reply editor globally or per-app.
-
-- **Global Settings:** Access the new Reply customization section directly from the Global Settings -> Inline reply.
-
-
+### v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
-- **Theme Creator:** Fixed a crash when parsing large sets of custom assets.
+? **Theme Creator:** Fixed a crash when parsing large sets of custom assets.
 
-- **Performance:** Resolved an ANR (Application Not Responding) issue on the initial Welcome Screen.
+? **Performance:** Resolved an ANR (Application Not Responding) issue on the initial Welcome Screen.
 
-- **Widget Picker:** Eliminated crashes and Out-Of-Memory (OOM) errors caused by extremely large widget previews.
+? **Widget Picker:** Eliminated crashes and Out-Of-Memory (OOM) errors caused by extremely large widget previews.
 
-- **UI Layouts:** Fixed Jetpack Compose layout constraint exceptions that crashed the app when resizing certain menus.
+? **UI Layouts:** Fixed Jetpack Compose layout constraint exceptions that crashed the app when resizing certain menus.
 
-- **Backups:** Resolved OOM errors when importing large backup files by optimizing JSON parsing.
+? **Backups:** Resolved OOM errors when importing large backup files by optimizing JSON parsing.
 
-- **Warm Starts:** Significantly improved app launch speeds and eliminated UI thread blocking on mid-range devices.
+? **Warm Starts:** Significantly improved app launch speeds and eliminated UI thread blocking on mid-range devices.
 
-- **Background Service:** Completely overhauled the Notification Listener memory architecture, dropping background overhead to 0% and improving battery life.
+? **Background Service:** Completely overhauled the Notification Listener memory architecture, dropping background overhead to 0% and improving battery life.
 
 ---
 
@@ -234,120 +224,104 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.3.1: Backup & Polyglot Update
+### v0.3.1: 백업 & 다국어 업데이트
 
-**Backup & Restore 📦**
+**백업 & 복원 📦**
 
-New power-user feature! Securely export your settings, blocklists, and app priorities to a .hbr file and restore them anytime.
-
-
-**New Languages 🌍**
-
-Added support for:
-
-- 🇩🇪 German
-
-- 🇷🇺 Russian
-
-- 🇺🇦 Ukrainian (Improved)
-
-<i>Plus: A new in-app Language Selector to change languages without affecting your system settings.</i>
+고급 사용자 기능 추가! 설정, 차단 목록, 앱 우선순위를 .hbr 파일로 안전하게 내보내고 언제든지 복원할 수 있습니다.
 
 
-**Visual Refresh 🎨**
+**새로운 언어 🌍**
 
-The app has been updated with **Material 3 Expressive** design. Enjoy larger headers, rounder shapes, and a smoother experience.
+다음 언어가 추가되었습니다:
 
+- 🇩🇪 독일어
 
-**Privacy & Setup 🛡️**
+- 🇷🇺 러시아어
 
-- Improved Onboarding with a dedicated Privacy page clarifying offline-first architecture.
+- 🇺🇦 우크라이나어 (개선됨)
 
-- Stricter compatibility checks to ensure the best experience on HyperOS 3.0.
-
-
-**Fixes 🛠️**
-
-- Fixed a critical issue where settings were lost after device reboot (migrated to database).
-
-- Fixed "Exit" button in Navigation island showing as an icon instead of text.
-
-- Fixed App Icon loading in Settings.
-
----
-
-### v0.3.0: The Global Update
-
-**Hidden Notification 👻**
-
-New option to hide notifications from the system panel while keeping the Island active. Check Global Settings!
+<i>또한: 시스템 언어에 영향을 주지 않고 앱 내에서 바로 변경할 수 있는 새로운 언어 선택기가 추가되었습니다.</i>
 
 
-**New Languages 🌍**
+**시각적 업데이트 🎨**
 
-Special thanks to our community for these translations:
-
-- 🇧🇷 Portuguese (Brazil)
-
-- 🇵🇱 Polish
-
-- 🇰🇷 Korean
+앱이 Material 3 Expressive 디자인으로 새로워졌습니다. 더 큰 헤더, 더 둥근 형태, 더 부드러운 사용자 경험을 제공합니다.
 
 
-- 🇺🇦 Ukranian
+**프라이버시 & 설정 🛡️**
+
+- 오프라인 우선 구조를 설명하는 전용 프라이버시 페이지가 포함된 온보딩 개선.
+
+- HyperOS 3.0에서 최고의 경험을 제공하기 위한 더욱 엄격한 호환성 검사.
 
 
-**Navigation Customization 🧭**
+**버그 수정 🛠️**
 
-You can now choose what information appears on the Left and Right sides of the Navigation Island (Distance, ETA, Instruction).
+- 기기 재부팅 후 설정이 사라지는 치명적 오류 수정(데이터베이스로 마이그레이션됨).
 
+- Navigation Island에서 “종료” 버튼이 아이콘으로 표시되던 문제 수정 — 이제 텍스트로 표시됩니다.
 
-**Spoiler Protection 🛡️**
-
-New "Blocked Terms" feature. Define words globally or per-app to prevent specific notifications from showing up on the Island.
-
-
-**Call Improvements 📞**
-
-Improved detection logic to support a wider range of VoIP and Dialer applications.
-
-
-**Fixes & Improvements 🛠️**
-
-- Fixed a critical bug where the app would get stuck loading after a reboot.
-
-- Fixed notifications sometimes showing raw package names (e.g. "com.google...") instead of content.
-
-- Redesigned App Configuration sheet for better usability.
-
-- Improved Compatibility Check screen with detailed device info.
+- 설정에서 앱 아이콘 로딩 문제 수정.
 
 ---
 
-### v0.2.0: The Information Update
+### v0.3.0: The Hidden 업데이트
 
-- **Advanced Progress:** Added support for "Step Progress" (e.g. 1 of 3) and progress bars with icons inside the notification shade.
+- **숨겨진 알림 👻:** 알림 패널에는 숨기고, 아일랜드에서는 계속 표시되도록 하는 새로운 옵션이 추가되었습니다. 전역 설정에서 확인하세요.
 
-- **Priority System:** New "Island Behavior" settings. Choose between "Most Recent", "First Come", or a custom "App Priority" list.
+- **새로운 언어 🌍:** 커뮤니티 번역에 감사드립니다:
 
-- **Smart Filtering:** Improved detection of duplicate notifications and grouped downloads.
+- 🇧🇷 포르투갈어(브라질)
 
-- **Visual Improvements:** Fixed layout issues with Navigation instructions.
+- 🇵🇱 폴란드어
 
-- **Per-App Config:** Customize Timeout and Floating behavior per app.
+- 🇰🇷 한국어
+
+- 🇺🇦 우크라이나어
+
+- **내비게이션 설정 🧭:** 거리, 도착 시간, 안내 등 어떤 정보를 좌/우에 표시할지 선택할 수 있습니다.
+
+- **스포일러 방지 🛡️:** “차단된 단어” 기능을 통해 특정 단어가 포함된 알림이 아일랜드에 표시되지 않도록 전역 또는 앱별로 설정할 수 있습니다.
+
+- **통화 개선 📞:** 더 다양한 VoIP 및 전화 앱을 정확하게 감지하도록 로직을 개선했습니다.
+
+- **수정 및 개선 🛠️:**
+
+- 재부팅 후 앱이 로딩에서 멈추는 치명적 버그 수정
+
+- 알림 내용 대신 패키지명이 표시되던 문제 수정
+
+- 앱 구성 패널 디자인 개선
+
+- 기기 정보를 포함한 호환성 검사 화면 개선
 
 ---
 
-### v0.1.0: The Expressive Update
+### v0.2.0: The Information 업데이트
 
-- **Major UI Overhaul:** New Material 3 Expressive design with smooth animations.
+- **고급 진행률 표시줄:** "단계별 진행"(예: 1/3) 및 알림창 내 아이콘이 포함된 진행률 표시줄 지원이 추가되었습니다.
 
-- **Better Island:** Text now appears on the right side. Added Green Tick for finished downloads.
+- **우선순위 시스템:** 새로운 "아일랜드 동작" 설정. "최신순", "선착순", 또는 사용자 지정 "앱 우선순위" 목록 중에서 선택하세요.
 
-- **Per-App Config:** Select specific notification types (Music, Maps, Calls) per app.
+- **스마트 필터링:** 중복 알림 및 그룹화된 다운로드 감지 기능이 개선되었습니다.
 
-- **Smart Filters:** Blocks duplicate notifications and saves battery.
+- **시각적 개선:** 내비게이션 안내의 레이아웃 문제를 수정했습니다.
 
-- **New Library:** Filter apps by category and sort order.
+- **앱별 구성:** 앱별로 시간 제한 및 플로팅 동작을 사용자가 지정할 수 있습니다.
 
-- **Localization:** Added Spanish support.
+---
+
+### v0.1.0: The Expressive 업데이트
+
+- **주요 UI 개편:** 부드러운 애니메이션이 적용된 새로운 Material 3 Expressive 디자인.
+
+- **향상된 아일랜드:** 이제 텍스트가 오른쪽에 표시됩니다. 완료된 다운로드에 녹색 체크 표시가 추가되었습니다.
+
+- **앱별 구성:** 앱별로 특정 알림 유형(음악, 지도, 통화)을 선택할 수 있습니다.
+
+- **스마트 필터:** 중복 알림을 차단하고 배터리를 절약합니다.
+
+- **새로운 라이브러리:** 카테고리별로 앱을 필터링하고 정렬 순서를 변경할 수 있습니다.
+
+- **현지화:** 스페인어 지원이 추가되었습니다.

@@ -1,5 +1,5 @@
 baseURL = "https://hyper-bridge.app/"
-title = "HyperBridge"
+title = "Hyper Bridge"
 theme = "blowfish"
 defaultContentLanguage = "en"
 enableRobotsTXT = true

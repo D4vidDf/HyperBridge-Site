@@ -1,6 +1,6 @@
 ---
 title: "Changelog"
-description: "Release history and updates for HyperBridge (English)."
+description: "Release history and updates for HyperBridge (Galego)."
 layout: "simple"
 ---
 
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest`
+### v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes
+### v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes
+### v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,7 +57,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Inline Reply, Performance & Stability
+### v0.5.2: Inline Reply, Performance & Stability *(English)*
 
 **New Inline Reply Feature!**
 
@@ -87,7 +87,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+### v0.5.1: Fixes & Refinements *(English)*
 
 **Fixes & Stability**
 
@@ -116,7 +116,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+### v0.5.0: The Live Update *(English)*
 
 **CN ROM Support**
 
@@ -174,7 +174,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hotfix Update
+### v0.4.2: Hotfix Update *(English)*
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -182,7 +182,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: The Customization Update
+### v0.4.0: The Customization Update *(English)*
 
 **Theme Engine 🎨**
 

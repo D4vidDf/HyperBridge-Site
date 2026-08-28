@@ -1,6 +1,6 @@
 ---
 title: "Changelog"
-description: "Release history and updates for HyperBridge (English)."
+description: "Release history and updates for HyperBridge (Türkçe)."
 layout: "simple"
 ---
 
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest`
+### v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes
+### v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes
+### v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,33 +57,23 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Inline Reply, Performance & Stability
-
-**New Inline Reply Feature!**
-
-- **Inline Reply:** You can now reply to messages directly from the island without opening the app!
-
-- **Customization:** Fully customize the look of the new inline reply editor globally or per-app.
-
-- **Global Settings:** Access the new Reply customization section directly from the Global Settings -> Inline reply.
-
-
+### v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
-- **Theme Creator:** Fixed a crash when parsing large sets of custom assets.
+? **Theme Creator:** Fixed a crash when parsing large sets of custom assets.
 
-- **Performance:** Resolved an ANR (Application Not Responding) issue on the initial Welcome Screen.
+? **Performance:** Resolved an ANR (Application Not Responding) issue on the initial Welcome Screen.
 
-- **Widget Picker:** Eliminated crashes and Out-Of-Memory (OOM) errors caused by extremely large widget previews.
+? **Widget Picker:** Eliminated crashes and Out-Of-Memory (OOM) errors caused by extremely large widget previews.
 
-- **UI Layouts:** Fixed Jetpack Compose layout constraint exceptions that crashed the app when resizing certain menus.
+? **UI Layouts:** Fixed Jetpack Compose layout constraint exceptions that crashed the app when resizing certain menus.
 
-- **Backups:** Resolved OOM errors when importing large backup files by optimizing JSON parsing.
+? **Backups:** Resolved OOM errors when importing large backup files by optimizing JSON parsing.
 
-- **Warm Starts:** Significantly improved app launch speeds and eliminated UI thread blocking on mid-range devices.
+? **Warm Starts:** Significantly improved app launch speeds and eliminated UI thread blocking on mid-range devices.
 
-- **Background Service:** Completely overhauled the Notification Listener memory architecture, dropping background overhead to 0% and improving battery life.
+? **Background Service:** Completely overhauled the Notification Listener memory architecture, dropping background overhead to 0% and improving battery life.
 
 ---
 

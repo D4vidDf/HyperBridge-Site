@@ -1,6 +1,6 @@
 ---
 title: "Changelog"
-description: "Release history and updates for HyperBridge (English)."
+description: "Release history and updates for HyperBridge (Español (Latinoamérica))."
 layout: "simple"
 ---
 
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest`
+### v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes
+### v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes
+### v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,37 +57,27 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Inline Reply, Performance & Stability
+### v0.5.2: Actualización de Rendimiento y Estabilidad
 
-**New Inline Reply Feature!**
+**Actualización de Rendimiento y Estabilidad**
 
-- **Inline Reply:** You can now reply to messages directly from the island without opening the app!
+- **Creador de Temas:** Se resolvió un cierre inesperado al cargar conjuntos de iconos grandes.
 
-- **Customization:** Fully customize the look of the new inline reply editor globally or per-app.
+- **Mejora en la Bienvenida:** Eliminado un error de "Aplicación no Responde" (ANR) en la primera pantalla.
 
-- **Global Settings:** Access the new Reply customization section directly from the Global Settings -> Inline reply.
+- **Selector de Widgets:** Prevenidos cierres y errores de falta de memoria (OOM) causados por vistas previas gigantes.
 
+- **Diseño Más Robusto:** Solucionados problemas de restricciones de diseño en Jetpack Compose al achicar menús.
 
+- **Copias de Seguridad:** Mejorado el análisis de JSON, evitando errores de OOM al restaurar archivos grandes.
 
-**Play Store Crash Fixes & Stability**
+- **Inicio Rápido:** Reducción significativa de los bloqueos de la interfaz, acelerando el inicio de la app en dispositivos de gama media.
 
-- **Theme Creator:** Fixed a crash when parsing large sets of custom assets.
-
-- **Performance:** Resolved an ANR (Application Not Responding) issue on the initial Welcome Screen.
-
-- **Widget Picker:** Eliminated crashes and Out-Of-Memory (OOM) errors caused by extremely large widget previews.
-
-- **UI Layouts:** Fixed Jetpack Compose layout constraint exceptions that crashed the app when resizing certain menus.
-
-- **Backups:** Resolved OOM errors when importing large backup files by optimizing JSON parsing.
-
-- **Warm Starts:** Significantly improved app launch speeds and eliminated UI thread blocking on mid-range devices.
-
-- **Background Service:** Completely overhauled the Notification Listener memory architecture, dropping background overhead to 0% and improving battery life.
+- **Servicio en Segundo Plano:** Arquitectura de memoria del Notification Listener completamente rediseñada, reduciendo el consumo en segundo plano al 0% y mejorando la batería.
 
 ---
 
-### v0.5.1: Fixes & Refinements
+### v0.5.1: Fixes & Refinements *(English)*
 
 **Fixes & Stability**
 
@@ -116,7 +106,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.5.0: The Live Update
+### v0.5.0: The Live Update *(English)*
 
 **CN ROM Support**
 
@@ -174,7 +164,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.2: Hotfix Update
+### v0.4.2: Hotfix Update *(English)*
 
 - **Crash Fix:** Resolved a critical issue that caused the app to crash when opening the settings menu in Traditional Chinese.
 
@@ -182,7 +172,7 @@ Spanish Translations: Added full Spanish translations for all the new troublesho
 
 ---
 
-### v0.4.0: The Customization Update
+### v0.4.0: The Customization Update *(English)*
 
 **Theme Engine 🎨**
 
@@ -234,120 +224,119 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.3.1: Backup & Polyglot Update
+### v0.3.1: Actualización de Copias y Idiomas
 
-**Backup & Restore 📦**
+**Copia de Seguridad y Restauración 📦**
 
-New power-user feature! Securely export your settings, blocklists, and app priorities to a .hbr file and restore them anytime.
-
-
-**New Languages 🌍**
-
-Added support for:
-
-- 🇩🇪 German
-
-- 🇷🇺 Russian
-
-- 🇺🇦 Ukrainian (Improved)
-
-<i>Plus: A new in-app Language Selector to change languages without affecting your system settings.</i>
+¡Nueva función para usuarios avanzados! Exporta de forma segura tu configuración, listas de bloqueo y prioridades a un archivo .hbr y restáuralos cuando quieras.
 
 
-**Visual Refresh 🎨**
+**Nuevos Idiomas 🌍**
 
-The app has been updated with **Material 3 Expressive** design. Enjoy larger headers, rounder shapes, and a smoother experience.
+Añadido soporte para:
 
+- 🇩🇪 Alemán
 
-**Privacy & Setup 🛡️**
+- 🇷🇺 Ruso
 
-- Improved Onboarding with a dedicated Privacy page clarifying offline-first architecture.
+- 🇺🇦 Ucraniano (Mejorado)
 
-- Stricter compatibility checks to ensure the best experience on HyperOS 3.0.
-
-
-**Fixes 🛠️**
-
-- Fixed a critical issue where settings were lost after device reboot (migrated to database).
-
-- Fixed "Exit" button in Navigation island showing as an icon instead of text.
-
-- Fixed App Icon loading in Settings.
-
----
-
-### v0.3.0: The Global Update
-
-**Hidden Notification 👻**
-
-New option to hide notifications from the system panel while keeping the Island active. Check Global Settings!
+<i>Además: Nuevo selector de idioma en la app para cambiarlo sin afectar a los ajustes del sistema.</i>
 
 
-**New Languages 🌍**
+**Renovación Visual 🎨**
 
-Special thanks to our community for these translations:
-
-- 🇧🇷 Portuguese (Brazil)
-
-- 🇵🇱 Polish
-
-- 🇰🇷 Korean
+La aplicación se ha actualizado al diseño **Material 3 Expressive**. Disfruta de cabeceras más grandes, formas más redondeadas y una experiencia más fluida.
 
 
-- 🇺🇦 Ukranian
+**Privacidad y Configuración 🛡️**
+
+- Onboarding mejorado con una página de Privacidad dedicada que aclara la arquitectura offline.
+
+- Verificaciones de compatibilidad más estrictas para asegurar la mejor experiencia en HyperOS 3.0.
 
 
-**Navigation Customization 🧭**
+**Correcciones 🛠️**
 
-You can now choose what information appears on the Left and Right sides of the Navigation Island (Distance, ETA, Instruction).
+- Solucionado un error crítico donde la configuración se perdía al reiniciar (migración a base de datos).
 
+- Corregido el botón "Salir" en la isla de Navegación (ahora muestra texto en lugar de un icono).
 
-**Spoiler Protection 🛡️**
-
-New "Blocked Terms" feature. Define words globally or per-app to prevent specific notifications from showing up on the Island.
-
-
-**Call Improvements 📞**
-
-Improved detection logic to support a wider range of VoIP and Dialer applications.
-
-
-**Fixes & Improvements 🛠️**
-
-- Fixed a critical bug where the app would get stuck loading after a reboot.
-
-- Fixed notifications sometimes showing raw package names (e.g. "com.google...") instead of content.
-
-- Redesigned App Configuration sheet for better usability.
-
-- Improved Compatibility Check screen with detailed device info.
+- Corregida la carga del icono de la App en Ajustes.
 
 ---
 
-### v0.2.0: The Information Update
+### v0.3.0: La Actualización Global
 
-- **Advanced Progress:** Added support for "Step Progress" (e.g. 1 of 3) and progress bars with icons inside the notification shade.
+**Notificación Oculta 👻**
 
-- **Priority System:** New "Island Behavior" settings. Choose between "Most Recent", "First Come", or a custom "App Priority" list.
+Nueva opción para ocultar notificaciones del panel del sistema manteniendo la Isla activa. ¡Revisa los Ajustes Globales!
 
-- **Smart Filtering:** Improved detection of duplicate notifications and grouped downloads.
 
-- **Visual Improvements:** Fixed layout issues with Navigation instructions.
+**Nuevos Idiomas 🌍**
 
-- **Per-App Config:** Customize Timeout and Floating behavior per app.
+¡Un agradecimiento especial a la comunidad por estas traducciones!
+
+- 🇧🇷 Portugués (Brasil)
+
+- 🇵🇱 Polaco
+
+- 🇰🇷 Coreano
+
+- 🇺🇦 Ucraniano
+
+
+**Personalización de Navegación 🧭**
+
+Ahora puedes elegir qué información aparece a la izquierda y derecha de la Isla de Navegación (Distancia, Hora de llegada, Instrucción).
+
+
+**Protección Anti-Spoilers 🛡️**
+
+Nueva función de "Términos Bloqueados". Define palabras globalmente o por aplicación para evitar que ciertas notificaciones aparezcan en la Isla.
+
+
+**Mejoras en Llamadas 📞**
+
+Mejorada la lógica de detección para soportar más aplicaciones de VoIP y Teléfono.
+
+
+**Correcciones y Mejoras 🛠️**
+
+- Solucionado un error crítico donde la app se quedaba cargando tras reiniciar.
+
+- Corregido error donde las notificaciones mostraban el nombre del paquete (ej. "com.google…") en lugar del contenido.
+
+- Rediseñado el panel de Configuración de App.
+
+- Mejorada la pantalla de Comprobación de Compatibilidad con info detallada.
 
 ---
 
-### v0.1.0: The Expressive Update
+### v0.2.0: La Actualización de Información
 
-- **Major UI Overhaul:** New Material 3 Expressive design with smooth animations.
+- **Progreso Avanzado:** Soporte para "Pasos" (ej. 1 de 3) y barras de progreso con iconos en el panel de notificaciones.
 
-- **Better Island:** Text now appears on the right side. Added Green Tick for finished downloads.
+- **Sistema de Prioridad:** Nuevos ajustes de "Comportamiento". Elige el orden de aparición de las islas.
 
-- **Per-App Config:** Select specific notification types (Music, Maps, Calls) per app.
+- **Filtros Inteligentes:** Detección mejorada de duplicados.
 
-- **Smart Filters:** Blocks duplicate notifications and saves battery.
+- **Mejoras Visuales:** Diseño de navegación mejorado.
 
-- **New Library:** Filter apps by category and sort order.
+- **Configuración por Aplicación:** Personaliza la duración y tiempo de muestra por aplicación.
 
-- **Localization:** Added Spanish support.
+---
+
+### v0.1.0: La Actualización Expresiva
+
+- **Nuevo Diseño :** Hyper Bridge ahora usa Material 3 Expressive con nuevas animaciones.
+
+- **Mejoras en HyperIsland:** El texto ahora aparece a la derecha y muestra un tick verde para descargas completas.
+
+- **Configuración por aplicación:** Ahora puedes personalizar que tipos de notificación se puede mostrar para cada aplicación.
+
+- **Filtros Inteligentes:** Hyper Bridge ahora bloquea notificaciones duplicadas y ahorra batería.
+
+- **Nueva Biblioteca:** Filtra aplicaciones por categoría y orden.
+
+- **Idiomas:** Soporte completo para Español.

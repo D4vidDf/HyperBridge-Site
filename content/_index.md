@@ -1,10 +1,12 @@
 ---
-title: "HyperBridge"
-description: "Bring rich dynamic island notifications, smart widgets, and interactive actions to Xiaomi HyperOS."
-heroCaption: "Next-Gen Island Engine"
-heroLead: "Transform your Xiaomi HyperOS experience with intelligent notification translations, interactive dynamic islands, smart actions, and real-time live activities."
+title: "Hyper Bridge"
+description: "Hyper Bridge unlocks the native visual notification system of HyperOS, allowing third-party apps to utilize the HyperIsland."
+heroCaption: "Expand your Super Island"
+heroLead: "Hyper Bridge unlocks the native visual notification system of HyperOS, allowing third-party apps to utilize the HyperIsland."
 heroImage: "img/logo.svg"
 heroButtons:
+  - label: "Google Play"
+    url: "https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge"
   - label: "Explore Docs"
     url: "/docs/"
   - label: "View Changelog"
@@ -12,6 +14,8 @@ heroButtons:
   - label: "GitHub"
     url: "https://github.com/D4vidDf/HyperBridge"
 ---
+
+By default, only system apps utilize the HyperIsland. Hyper Bridge changes that. It acts as a bridge, reading your standard Android notifications and transforming them into sleek, native HyperOS visual elements.
 
 ## Key Features
 
@@ -30,7 +34,7 @@ Quickly copy 2FA verification codes, open tracking links, jump into navigation, 
 {{< /feature >}}
 
 {{< feature icon="shield" title="Privacy & Local Processing" >}}
-Runs 100% on-device with zero telemetry and optional privileged Shizuku integration for granular system controls without root.
+Runs 100% on-device with zero telemetry. Shizuku is only needed as an optional workaround for Chinese ROM users to manage system permissions without root.
 {{< /feature >}}
 
 {{< /feature-grid >}}
@@ -41,8 +45,8 @@ Runs 100% on-device with zero telemetry and optional privileged Shizuku integrat
 
 HyperBridge is designed to work seamlessly on Xiaomi HyperOS devices.
 
-1. **Download & Install**: Grab the latest APK release from [GitHub Releases](https://github.com/D4vidDf/HyperBridge/releases).
-2. **Grant Permissions**: Enable Notification Listener and set up Shizuku for enhanced island management.
+1. **Download & Install**: Get it on [Google Play](https://play.google.com/store/apps/details?id=com.d4viddf.hyperbridge) or grab the latest APK release from [GitHub Releases](https://github.com/D4vidDf/HyperBridge/releases).
+2. **Grant Permissions**: Enable Notification Listener (Shizuku is only required as a workaround on Chinese ROMs).
 3. **Customize Themes**: Tailor colors, icons, and island behavior to match your personal setup.
 
 Check out our [Documentation](/docs/) for step-by-step guides and configuration tips.

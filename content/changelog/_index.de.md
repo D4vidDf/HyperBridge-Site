@@ -1,6 +1,6 @@
 ---
 title: "Changelog"
-description: "Release history and updates for HyperBridge (English)."
+description: "Release history and updates for HyperBridge (Deutsch)."
 layout: "simple"
 ---
 
@@ -9,7 +9,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.7: Performance & Sync Update `Latest`
+### v0.5.7: Performance & Sync Update `Latest` *(English)*
 
 **Optimizations & Fixes**
 
@@ -19,7 +19,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.6: Landscape Hide & Stability Fixes
+### v0.5.6: Landscape Hide & Stability Fixes *(English)*
 
 **Fixes & Improvements**
 
@@ -31,7 +31,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.5: Messaging & Update Fixes
+### v0.5.5: Messaging & Update Fixes *(English)*
 
 **Live Updates & Islands**
 
@@ -57,33 +57,23 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
-### v0.5.2: Inline Reply, Performance & Stability
-
-**New Inline Reply Feature!**
-
-- **Inline Reply:** You can now reply to messages directly from the island without opening the app!
-
-- **Customization:** Fully customize the look of the new inline reply editor globally or per-app.
-
-- **Global Settings:** Access the new Reply customization section directly from the Global Settings -> Inline reply.
-
-
+### v0.5.2: Performance & Stability Update
 
 **Play Store Crash Fixes & Stability**
 
-- **Theme Creator:** Fixed a crash when parsing large sets of custom assets.
+? **Theme Creator:** Fixed a crash when parsing large sets of custom assets.
 
-- **Performance:** Resolved an ANR (Application Not Responding) issue on the initial Welcome Screen.
+? **Performance:** Resolved an ANR (Application Not Responding) issue on the initial Welcome Screen.
 
-- **Widget Picker:** Eliminated crashes and Out-Of-Memory (OOM) errors caused by extremely large widget previews.
+? **Widget Picker:** Eliminated crashes and Out-Of-Memory (OOM) errors caused by extremely large widget previews.
 
-- **UI Layouts:** Fixed Jetpack Compose layout constraint exceptions that crashed the app when resizing certain menus.
+? **UI Layouts:** Fixed Jetpack Compose layout constraint exceptions that crashed the app when resizing certain menus.
 
-- **Backups:** Resolved OOM errors when importing large backup files by optimizing JSON parsing.
+? **Backups:** Resolved OOM errors when importing large backup files by optimizing JSON parsing.
 
-- **Warm Starts:** Significantly improved app launch speeds and eliminated UI thread blocking on mid-range devices.
+? **Warm Starts:** Significantly improved app launch speeds and eliminated UI thread blocking on mid-range devices.
 
-- **Background Service:** Completely overhauled the Notification Listener memory architecture, dropping background overhead to 0% and improving battery life.
+? **Background Service:** Completely overhauled the Notification Listener memory architecture, dropping background overhead to 0% and improving battery life.
 
 ---
 
@@ -234,120 +224,119 @@ A complete rewrite of the core logic for better stability:
 
 ---
 
-### v0.3.1: Backup & Polyglot Update
+### v0.3.1: Sicherung & Polyglott-Update
 
-**Backup & Restore 📦**
+**Backup & Wiederherstellung 📦**
 
-New power-user feature! Securely export your settings, blocklists, and app priorities to a .hbr file and restore them anytime.
-
-
-**New Languages 🌍**
-
-Added support for:
-
-- 🇩🇪 German
-
-- 🇷🇺 Russian
-
-- 🇺🇦 Ukrainian (Improved)
-
-<i>Plus: A new in-app Language Selector to change languages without affecting your system settings.</i>
+Neues Feature für Power-User! Exportieren Sie Ihre Einstellungen, Blocklisten und App-Prioritäten sicher in eine .hbr-Datei und stellen Sie sie jederzeit wieder her.
 
 
-**Visual Refresh 🎨**
+**Neue Sprachen 🌍**
 
-The app has been updated with **Material 3 Expressive** design. Enjoy larger headers, rounder shapes, and a smoother experience.
+Unterstützung hinzugefügt für:
 
+- 🇩🇪 Deutsch
 
-**Privacy & Setup 🛡️**
+- 🇷🇺 Russisch
 
-- Improved Onboarding with a dedicated Privacy page clarifying offline-first architecture.
+- 🇺🇦 Ukrainisch (verbessert)
 
-- Stricter compatibility checks to ensure the best experience on HyperOS 3.0.
-
-
-**Fixes 🛠️**
-
-- Fixed a critical issue where settings were lost after device reboot (migrated to database).
-
-- Fixed "Exit" button in Navigation island showing as an icon instead of text.
-
-- Fixed App Icon loading in Settings.
-
----
-
-### v0.3.0: The Global Update
-
-**Hidden Notification 👻**
-
-New option to hide notifications from the system panel while keeping the Island active. Check Global Settings!
+<i>Außerdem: Ein neuer Sprachwahlschalter in der App, um die Sprache zu ändern, ohne die Systemeinstellungen anzupassen.</i>
 
 
-**New Languages 🌍**
+**Visuelles Update 🎨**
 
-Special thanks to our community for these translations:
-
-- 🇧🇷 Portuguese (Brazil)
-
-- 🇵🇱 Polish
-
-- 🇰🇷 Korean
+Die App wurde auf das **Material 3 Expressive** Design aktualisiert. Genießen Sie größere Überschriften, rundere Formen und ein flüssigeres Nutzererlebnis.
 
 
-- 🇺🇦 Ukranian
+**Datenschutz & Einrichtung 🛡️**
+
+- Verbesserter Onboarding-Prozess mit einer eigenen Datenschutzseite, die die Offline-First-Architektur erklärt.
+
+- Strengere Kompatibilitätsprüfungen für das beste Erlebnis unter HyperOS 3.0.
 
 
-**Navigation Customization 🧭**
+**Fehlerbehebungen 🛠️**
 
-You can now choose what information appears on the Left and Right sides of the Navigation Island (Distance, ETA, Instruction).
+- Kritischer Fehler behoben, bei dem Einstellungen nach dem Neustart des Geräts verloren gingen (in Datenbank migriert).
 
+- „Beenden“-Taste in der Navigation Island behoben – sie zeigte ein Symbol statt Text an.
 
-**Spoiler Protection 🛡️**
-
-New "Blocked Terms" feature. Define words globally or per-app to prevent specific notifications from showing up on the Island.
-
-
-**Call Improvements 📞**
-
-Improved detection logic to support a wider range of VoIP and Dialer applications.
-
-
-**Fixes & Improvements 🛠️**
-
-- Fixed a critical bug where the app would get stuck loading after a reboot.
-
-- Fixed notifications sometimes showing raw package names (e.g. "com.google...") instead of content.
-
-- Redesigned App Configuration sheet for better usability.
-
-- Improved Compatibility Check screen with detailed device info.
+- Fehler beim Laden von App-Icons in den Einstellungen behoben.
 
 ---
 
-### v0.2.0: The Information Update
+### v0.3.0: Das Globale Update
 
-- **Advanced Progress:** Added support for "Step Progress" (e.g. 1 of 3) and progress bars with icons inside the notification shade.
+**Versteckte Benachrichtigungen 👻**
 
-- **Priority System:** New "Island Behavior" settings. Choose between "Most Recent", "First Come", or a custom "App Priority" list.
+Neue Option, um Benachrichtigungen im System-Panel auszublenden, während die Island aktiv bleibt. Siehe Globale Einstellungen!
 
-- **Smart Filtering:** Improved detection of duplicate notifications and grouped downloads.
 
-- **Visual Improvements:** Fixed layout issues with Navigation instructions.
 
-- **Per-App Config:** Customize Timeout and Floating behavior per app.
+**Neue Sprachen 🌍**
+
+Besonderer Dank an unsere Community für diese Übersetzungen:
+
+- 🇧🇷 Portugiesisch (Brasilien)
+
+- 🇵🇱 Polnisch
+
+- 🇰🇷 Koreanisch
+
+- 🇺🇦 Ukrainisch
+
+**Navigation-Anpassung 🧭**
+
+Du kannst nun auswählen, welche Informationen links und rechts auf der Navigations-Island erscheinen (Entfernung, ETA, Anweisung).
+
+
+**Spoiler-Schutz 🛡️**
+
+Neue Funktion „Blockierte Begriffe“. Definiere Wörter global oder pro App, um bestimmte Benachrichtigungen zu blockieren.
+
+
+**Verbesserte Anrufe 📞**
+
+Verbesserte Erkennung für mehr VoIP- und Dialer-Apps.
+
+
+**Fehlerbehebungen & Verbesserungen 🛠️**
+
+- Behoben: App blieb nach Neustart im Ladebildschirm hängen.
+
+- Behebung eines Problems, bei dem Paketnamen (z. B. „com.google…“) statt Inhalt angezeigt wurden.
+
+- Überarbeitetes App-Konfigurationspanel.
+
+- Verbesserte Kompatibilitätsprüfung mit detaillierten Geräteinformationen.
 
 ---
 
-### v0.1.0: The Expressive Update
+### v0.2.0: Das Informations-Update
 
-- **Major UI Overhaul:** New Material 3 Expressive design with smooth animations.
+- **Erweiterter Fortschritt:** Unterstützung für „Schritt-Fortschritt“ (z. B. 1 von 3) und Fortschrittsbalken in der Benachrichtigungsleiste.
 
-- **Better Island:** Text now appears on the right side. Added Green Tick for finished downloads.
+- **Prioritätssystem:** Neue Einstellungen für das Island-Verhalten.
 
-- **Per-App Config:** Select specific notification types (Music, Maps, Calls) per app.
+- **Intelligente Filter:** Bessere Erkennung doppelter Benachrichtigungen.
 
-- **Smart Filters:** Blocks duplicate notifications and saves battery.
+- **Visuelle Verbesserungen:** Verbesserte Navigation-Layouts.
 
-- **New Library:** Filter apps by category and sort order.
+- **App-Konfiguration:** Timeout & Floating-Verhalten pro App anpassbar.
 
-- **Localization:** Added Spanish support.
+---
+
+### v0.1.0: Das Expressive Update
+
+- **Großes UI-Update:** Neues Material-3-Expressive-Design mit flüssigen Animationen.
+
+- **Verbesserte Island:** Text erscheint nun rechts. Grüner Haken für abgeschlossene Downloads.
+
+- **Pro-App-Konfiguration:** Auswahl spezifischer Benachrichtigungstypen.
+
+- **Intelligente Filter:** Entfernt doppelte Benachrichtigungen und spart Akku.
+
+- **Neue Bibliothek:** Filter nach Kategorien und Sortierung.
+
+- **Lokalisierung:** Spanische Übersetzung hinzugefügt.

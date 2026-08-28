@@ -1,0 +1,15 @@
+/* Header / Navbar logo sizing */
+.main-menu .logo svg,
+.main-menu .logo img,
+.main-menu img.logo,
+.main-menu span.logo svg {
+  height: 1.75rem !important;
+  width: 1.75rem !important;
+  max-height: 1.75rem !important;
+  max-width: 1.75rem !important;
+}
+
+.main-menu .logo {
+  display: flex;
+  align-items: center;
+}

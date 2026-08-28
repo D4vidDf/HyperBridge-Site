@@ -1,12 +1,12 @@
-locale = "en"
-label = "English"
-displayName = "English"
-weight = 1
+locale = "pt-br"
+label = "Português (Brasil)"
+displayName = "Português (BR)"
+weight = 15
 title = "HyperBridge"
 
 [params]
-  displayName = "English"
-  isoCode = "en"
+  displayName = "Português (BR)"
+  isoCode = "pt-br"
   dateFormat = "2 January 2006"
   logo = "img/logo.svg"
   description = "Next-Gen Dynamic Island and Notification Enhancement for Xiaomi HyperOS."

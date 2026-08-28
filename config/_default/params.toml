@@ -1,4 +1,4 @@
-colorScheme = "emerald"
+colorScheme = "slate"
 defaultAppearance = "dark"
 autoSwitchAppearance = true
 
@@ -7,7 +7,7 @@ enableCodeCopy = true
 logo = "img/logo.svg"
 
 [header]
-  layout = "fixed-fill-blur"
+  layout = "floating"
   logo = "img/logo.svg"
   showTitle = true
 
