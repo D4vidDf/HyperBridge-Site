@@ -37,7 +37,7 @@
 
             {{/* Mobile Docs Navigation Dropdown */}}
             <div class="not-prose block lg:hidden mb-6">
-              <details class="rounded-2xl border border-neutral-200/80 bg-white/60 p-3 shadow-sm backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-900/50">
+              <details class="docs-sidebar-box rounded-2xl p-3">
                 <summary class="cursor-pointer font-semibold text-sm text-primary-600 dark:text-primary-400 flex items-center justify-between">
                   <span>📖 Documentation Menu</span>
                   <span class="text-xs text-neutral-500 dark:text-neutral-400">Tap to expand</span>
@@ -55,32 +55,36 @@
               </div>
             {{ end }}
 
-            {{/* Blowfish Native Feature Cards Grid */}}
+            {{/* Blowfish High-Contrast Feature Cards Grid */}}
             {{ if gt .Pages 0 }}
               <div class="not-prose my-8 grid gap-4 sm:grid-cols-2 grid-balance lg:grid-cols-3 grid-balance-3">
                 {{ range .Pages.ByWeight }}
-                  <article class="group rounded-2xl border border-neutral-200/80 bg-white/60 p-6 shadow-sm backdrop-blur-xl transition duration-200 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-primary-700 flex flex-col justify-between">
+                  <article class="docs-feature-card group rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                       {{ with .Params.icon }}
-                        <span class="mb-5 inline-flex rounded-xl bg-primary-100 p-3 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
-                          {{ partial "icon.html" . }}
+                        <span class="docs-icon-badge mb-5 inline-flex rounded-xl p-3">
+                          <span class="h-5 w-5 block">
+                            {{ partial "icon.html" . }}
+                          </span>
                         </span>
                       {{ else }}
-                        <span class="mb-5 inline-flex rounded-xl bg-primary-100 p-3 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
-                          {{ partial "icon.html" "file-lines" }}
+                        <span class="docs-icon-badge mb-5 inline-flex rounded-xl p-3">
+                          <span class="h-5 w-5 block">
+                            {{ partial "icon.html" "file-lines" }}
+                          </span>
                         </span>
                       {{ end }}
-                      <h2 class="text-lg font-bold text-neutral-900 dark:text-white">
+                      <h2 class="text-lg font-bold">
                         {{ .Title }}
                       </h2>
                       {{ with .Description }}
-                        <div class="mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+                        <div class="docs-card-desc mt-2 text-sm leading-6">
                           {{ . }}
                         </div>
                       {{ end }}
                     </div>
                     <div>
-                      <a class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary-600 hover:text-primary-500 dark:text-primary-400" href="{{ .RelPermalink }}">
+                      <a class="docs-card-link mt-5 inline-flex items-center gap-2 text-sm font-bold" href="{{ .RelPermalink }}">
                         {{ if .IsSection }}Explore{{ else }}Read guide{{ end }}
                         {{ partial "icon.html" "link" }}
                       </a>

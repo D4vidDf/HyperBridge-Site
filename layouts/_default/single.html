@@ -38,7 +38,7 @@
 
             {{/* Mobile Docs Navigation Dropdown */}}
             <div class="not-prose block lg:hidden mb-6">
-              <details class="rounded-2xl border border-neutral-200/80 bg-white/60 p-3 shadow-sm backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-900/50">
+              <details class="docs-sidebar-box rounded-2xl p-3">
                 <summary class="cursor-pointer font-semibold text-sm text-primary-600 dark:text-primary-400 flex items-center justify-between">
                   <span>📖 Documentation Menu</span>
                   <span class="text-xs text-neutral-500 dark:text-neutral-400">Tap to expand</span>
@@ -58,7 +58,7 @@
             <footer class="not-prose mt-12 pt-6 border-t border-neutral-200/80 dark:border-neutral-700/80 print:hidden">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {{ with .PrevInSection }}
-                  <a href="{{ .RelPermalink }}" class="group rounded-2xl border border-neutral-200/80 bg-white/60 p-4 shadow-sm backdrop-blur-xl transition duration-200 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-primary-700 flex flex-col">
+                  <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-4 flex flex-col">
                     <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1">
                       &larr; Previous
                     </span>
@@ -71,7 +71,7 @@
                 {{ end }}
 
                 {{ with .NextInSection }}
-                  <a href="{{ .RelPermalink }}" class="group rounded-2xl border border-neutral-200/80 bg-white/60 p-4 shadow-sm backdrop-blur-xl transition duration-200 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-primary-700 flex flex-col items-end text-right">
+                  <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-4 flex flex-col items-end text-right">
                     <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1">
                       Next &rarr;
                     </span>
@@ -91,7 +91,7 @@
         {{ $showToc := and $enableToc (in .TableOfContents "<ul") }}
         {{ if $showToc }}
           <div class="hidden xl:block w-60 shrink-0 sticky top-[100px] max-h-[calc(100vh-120px)] overflow-y-auto bf-scrollbar">
-            <div class="rounded-2xl border border-neutral-200/80 bg-white/60 p-4 shadow-sm backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-900/50 dark:shadow-none">
+            <div class="docs-sidebar-box rounded-2xl p-4">
               <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">
                 On this page
               </h4>
