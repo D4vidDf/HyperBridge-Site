@@ -1,4 +1,5 @@
 ---
+icon: "code"
 title: "Shizuku Integration"
 description: "Guide to setting up Shizuku for elevated HyperOS system integration."
 weight: 30

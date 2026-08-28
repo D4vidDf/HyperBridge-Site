@@ -1,4 +1,5 @@
 ---
+icon: "shield"
 title: "Permissions & HyperOS Setup"
 description: "Detailed guides on granting required Android and Xiaomi HyperOS permissions."
 weight: 20

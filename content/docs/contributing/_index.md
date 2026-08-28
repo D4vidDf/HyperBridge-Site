@@ -1,4 +1,5 @@
 ---
+icon: "scale-balanced"
 title: "Community & Contributing"
 description: "Join the HyperBridge community, contribute code, and help translate."
 weight: 70
