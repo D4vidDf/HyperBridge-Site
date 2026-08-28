@@ -1,6 +1,7 @@
 ---
 title: "Documentation"
 description: "Everything you need to set up, configure, and customize Hyper Bridge on Xiaomi HyperOS."
+icon: "rocket"
 showTableOfContents: false
 cascade:
   type: "docs"
