@@ -2,6 +2,9 @@
 title: "Documentation & Tutorials"
 description: "Comprehensive guides, HyperOS setup, Shizuku pairing, and custom island creation for HyperBridge."
 showTableOfContents: true
+cascade:
+  type: "docs"
+  showTableOfContents: true
 ---
 
 Welcome to the official **HyperBridge Documentation**! Here you will find everything you need to set up, configure, and unleash the full potential of dynamic island notifications on Xiaomi HyperOS.
