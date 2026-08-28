@@ -43,7 +43,7 @@ a {
 }
 
 /* =========================================================================
-   Documentation Cards & Sidebar (Lotus Docs Style + Blowfish Colors)
+   Documentation Cards & Sidebar (Lotus Docs Style + GitHub Blue Scheme)
    ========================================================================= */
 
 /* --- Light Mode --- */
@@ -66,7 +66,7 @@ a {
   color: #475569;
 }
 .docs-feature-card .docs-card-link {
-  color: #059669;
+  color: rgb(var(--color-primary-600));
 }
 
 .docs-sidebar-box {
@@ -76,12 +76,26 @@ a {
 }
 
 .docs-icon-badge {
-  background-color: rgba(16, 185, 129, 0.1);
-  color: #059669;
+  background-color: rgba(var(--color-primary-500), 0.1);
+  color: rgb(var(--color-primary-600));
 }
 
 .docs-sidebar a {
   text-decoration: none !important;
+}
+
+/* Sidebar Active Items (Light Mode) */
+.docs-sidebar a[aria-current="page"],
+.docs-sidebar summary[aria-current="page"] {
+  background-color: rgba(9, 105, 218, 0.08) !important;
+  color: #0969da !important;
+  border-right: 3px solid #0969da !important;
+  font-weight: 700 !important;
+}
+.docs-sidebar a[aria-current="page"] span,
+.docs-sidebar summary[aria-current="page"] a,
+.docs-sidebar summary[aria-current="page"] span {
+  color: #0969da !important;
 }
 
 /* --- Dark Mode (Triggered by .dark, [data-appearance="dark"], or html.dark) --- */
@@ -97,7 +111,7 @@ html.dark .docs-feature-card {
 [data-appearance="dark"] .docs-feature-card:hover,
 html.dark .docs-feature-card:hover {
   background-color: #1b2431 !important;
-  border-color: #10b981 !important;
+  border-color: rgb(var(--color-primary-500)) !important;
   box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.5) !important;
   transform: translateY(-2px);
 }
@@ -120,12 +134,12 @@ html.dark .docs-feature-card .docs-card-desc {
 .dark .docs-feature-card .docs-card-link,
 [data-appearance="dark"] .docs-feature-card .docs-card-link,
 html.dark .docs-feature-card .docs-card-link {
-  color: #34d399 !important;
+  color: #58a6ff !important;
 }
 .dark .docs-feature-card:hover .docs-card-link,
 [data-appearance="dark"] .docs-feature-card:hover .docs-card-link,
 html.dark .docs-feature-card:hover .docs-card-link {
-  color: #6ee7b7 !important;
+  color: #79c0ff !important;
 }
 
 .dark .docs-sidebar-box,
@@ -139,27 +153,33 @@ html.dark .docs-sidebar-box {
 .dark .docs-icon-badge,
 [data-appearance="dark"] .docs-icon-badge,
 html.dark .docs-icon-badge {
-  background-color: rgba(16, 185, 129, 0.15) !important;
-  color: #34d399 !important;
+  background-color: rgba(31, 111, 235, 0.2) !important;
+  color: #58a6ff !important;
 }
 
-/* Sidebar Active Items (Blowfish Theme Color Enforced in Dark Mode) */
+/* Sidebar Active Items (Darker Blue Background + High-Contrast #58a6ff Text in Dark Mode) */
 .dark .docs-sidebar a[aria-current="page"],
-.dark .docs-sidebar a[aria-current="page"] span,
 .dark .docs-sidebar summary[aria-current="page"],
+[data-appearance="dark"] .docs-sidebar a[aria-current="page"],
+[data-appearance="dark"] .docs-sidebar summary[aria-current="page"],
+html.dark .docs-sidebar a[aria-current="page"],
+html.dark .docs-sidebar summary[aria-current="page"] {
+  background-color: rgba(31, 111, 235, 0.2) !important;
+  color: #58a6ff !important;
+  border-right: 3px solid #388bfd !important;
+  font-weight: 700 !important;
+}
+
+.dark .docs-sidebar a[aria-current="page"] span,
 .dark .docs-sidebar summary[aria-current="page"] a,
 .dark .docs-sidebar summary[aria-current="page"] span,
-[data-appearance="dark"] .docs-sidebar a[aria-current="page"],
 [data-appearance="dark"] .docs-sidebar a[aria-current="page"] span,
-[data-appearance="dark"] .docs-sidebar summary[aria-current="page"],
 [data-appearance="dark"] .docs-sidebar summary[aria-current="page"] a,
 [data-appearance="dark"] .docs-sidebar summary[aria-current="page"] span,
-html.dark .docs-sidebar a[aria-current="page"],
 html.dark .docs-sidebar a[aria-current="page"] span,
-html.dark .docs-sidebar summary[aria-current="page"],
 html.dark .docs-sidebar summary[aria-current="page"] a,
 html.dark .docs-sidebar summary[aria-current="page"] span {
-  color: rgb(var(--color-primary-400)) !important;
+  color: #58a6ff !important;
 }
 
 /* Headings in Dark Mode (Excluding Sidebar Links) */
