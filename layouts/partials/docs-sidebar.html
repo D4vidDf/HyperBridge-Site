@@ -3,12 +3,12 @@
 {{ $docsSection := .Site.GetPage "docs" }}
 
 <aside class="docs-sidebar w-full">
-  <div class="rounded-2xl border border-neutral-200/80 bg-white/60 p-4 shadow-sm backdrop-blur-xl dark:border-neutral-700/80 dark:bg-neutral-900/50 dark:shadow-none">
+  <div class="docs-sidebar-box rounded-2xl p-4 shadow-sm">
     
     {{/* Sidebar Header */}}
     <div class="mb-4 flex items-center justify-between border-b border-neutral-200/60 pb-3 dark:border-neutral-700/60">
       <a href="{{ "docs/" | relLangURL }}" class="flex items-center gap-2.5 text-sm font-bold text-neutral-900 hover:text-primary-600 dark:text-neutral-100 dark:hover:text-primary-400">
-        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/40 dark:text-primary-400">
+        <span class="docs-icon-badge flex h-7 w-7 items-center justify-center rounded-lg">
           {{ partial "icon.html" "file-lines" }}
         </span>
         <span class="tracking-tight">HyperBridge Docs</span>
@@ -51,7 +51,7 @@
                 <li>
                   <a
                     href="{{ $page.RelPermalink }}"
-                    class="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs transition-all duration-150 {{ if $isActive }}font-semibold bg-primary-100/80 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 shadow-sm border-s-2 border-primary-500 -ms-[11px] ps-2{{ else }}text-neutral-600 hover:bg-neutral-100/70 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-100{{ end }}">
+                    class="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs transition-all duration-150 {{ if $isActive }}font-semibold bg-primary-100/80 text-primary-700 dark:bg-primary-900/50 dark:text-primary-300 shadow-sm border-s-2 border-primary-500 -ms-[11px] ps-2{{ else }}text-neutral-600 hover:bg-neutral-100/70 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-100{{ end }}">
                     {{ with $page.Params.icon }}
                       <span class="h-3.5 w-3.5 shrink-0 text-neutral-400 dark:text-neutral-500">
                         {{ partial "icon.html" . }}

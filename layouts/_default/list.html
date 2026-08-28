@@ -7,8 +7,8 @@
     {{/* =========================================================================
          LOTUS DOCS LIST LAYOUT (Documentation Sections & Home)
          ========================================================================= */}}
-    <div class="relative w-full max-w-7xl mx-auto py-6">
-      <div class="flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
+    <div class="relative w-full py-6">
+      <div class="flex flex-col lg:flex-row items-start gap-8 xl:gap-10">
 
         {{/* 1. Left Floating Glassmorphic Sidebar Menu (Desktop) */}}
         <div class="hidden lg:block w-64 xl:w-72 shrink-0 sticky top-[100px] max-h-[calc(100vh-120px)] overflow-y-auto bf-scrollbar">
@@ -16,7 +16,7 @@
         </div>
 
         {{/* 2. Middle Main Documentation Content & Card Grid */}}
-        <main class="w-full flex-1 min-w-0 mx-auto">
+        <main class="w-full flex-1 min-w-0">
           <article class="prose dark:prose-invert max-w-none">
             
             {{/* Breadcrumbs & Header */}}
@@ -37,7 +37,7 @@
 
             {{/* Mobile Docs Navigation Dropdown */}}
             <div class="not-prose block lg:hidden mb-6">
-              <details class="rounded-xl border border-neutral-200/80 bg-white/60 p-3 backdrop-blur-md dark:border-neutral-700/80 dark:bg-neutral-900/50 shadow-sm">
+              <details class="docs-sidebar-box rounded-xl p-3 shadow-sm">
                 <summary class="cursor-pointer font-semibold text-sm text-primary-600 dark:text-primary-400 flex items-center justify-between">
                   <span>📖 Documentation Menu</span>
                   <span class="text-xs text-neutral-500 dark:text-neutral-400">Tap to expand</span>
@@ -55,28 +55,28 @@
               </div>
             {{ end }}
 
-            {{/* Sub-Pages Cards Grid (Blowfish Design & Dark Colors) */}}
+            {{/* Sub-Pages Cards Grid (Blowfish Theme Synchronized) */}}
             {{ if gt .Pages 0 }}
-              <div class="not-prose mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              <div class="not-prose mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                 {{ range .Pages.ByWeight }}
                   <a
                     href="{{ .RelPermalink }}"
-                    class="group relative flex flex-col justify-between rounded-2xl border border-neutral-200/80 bg-white/60 p-6 shadow-sm backdrop-blur-xl transition duration-200 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-primary-700">
+                    class="docs-card group relative flex flex-col justify-between rounded-2xl p-6 shadow-sm">
                     <div>
                       {{ with .Params.icon }}
-                        <span class="mb-4 inline-flex rounded-xl bg-primary-100 p-3 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+                        <span class="docs-icon-badge mb-5 inline-flex rounded-xl p-3">
                           <span class="h-5 w-5 block">
                             {{ partial "icon.html" . }}
                           </span>
                         </span>
                       {{ else }}
-                        <span class="mb-4 inline-flex rounded-xl bg-primary-100 p-3 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+                        <span class="docs-icon-badge mb-5 inline-flex rounded-xl p-3">
                           <span class="h-5 w-5 block">
                             {{ partial "icon.html" "file-lines" }}
                           </span>
                         </span>
                       {{ end }}
-                      <h3 class="text-lg font-bold text-neutral-900 dark:text-white transition-colors">
+                      <h3 class="text-lg font-bold text-neutral-900 dark:text-white transition-colors group-hover:text-primary-600 dark:group-hover:text-primary-400">
                         {{ .Title }}
                       </h3>
                       {{ with .Description }}
@@ -85,7 +85,7 @@
                         </p>
                       {{ end }}
                     </div>
-                    <div class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary-600 hover:text-primary-500 dark:text-primary-400">
+                    <div class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-primary-600 dark:text-primary-400 group-hover:text-primary-500 dark:group-hover:text-primary-300">
                       <span>{{ if .IsSection }}Explore section{{ else }}Read guide{{ end }}</span>
                       <span class="group-hover:translate-x-1 transition-transform duration-150">&rarr;</span>
                     </div>

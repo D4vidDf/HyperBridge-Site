@@ -41,3 +41,62 @@ a {
   font-weight: 800 !important;
   letter-spacing: -0.01em;
 }
+
+/* =========================================================================
+   Documentation Cards, Sidebars & Theme Synchronization
+   ========================================================================= */
+
+/* Light Theme Card & Sidebar */
+.docs-card {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(var(--color-neutral-200), 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.docs-card:hover {
+  border-color: rgba(var(--color-primary-400), 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.docs-sidebar-box {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(var(--color-neutral-200), 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.docs-icon-badge {
+  background-color: rgba(var(--color-primary-500), 0.1);
+  color: rgb(var(--color-primary-600));
+}
+
+/* Dark Theme Card & Sidebar (Blowfish Theme Compatible) */
+.dark .docs-card,
+[data-appearance="dark"] .docs-card,
+html.dark .docs-card {
+  background-color: rgba(var(--color-neutral-800), 0.6) !important;
+  border-color: rgba(var(--color-neutral-700), 0.8) !important;
+}
+.dark .docs-card:hover,
+[data-appearance="dark"] .docs-card:hover,
+html.dark .docs-card:hover {
+  background-color: rgba(var(--color-neutral-800), 0.85) !important;
+  border-color: rgba(var(--color-primary-400), 0.8) !important;
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark .docs-sidebar-box,
+[data-appearance="dark"] .docs-sidebar-box,
+html.dark .docs-sidebar-box {
+  background-color: rgba(var(--color-neutral-800), 0.65) !important;
+  border-color: rgba(var(--color-neutral-700), 0.8) !important;
+}
+
+.dark .docs-icon-badge,
+[data-appearance="dark"] .docs-icon-badge,
+html.dark .docs-icon-badge {
+  background-color: rgba(var(--color-primary-500), 0.15) !important;
+  color: rgb(var(--color-primary-400)) !important;
+}
