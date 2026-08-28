@@ -94,6 +94,56 @@
               </div>
             {{ end }}
 
+            {{/* Sequential Section Navigation for Section List Pages */}}
+            {{ if and .IsSection (ne .RelPermalink "/docs/") }}
+              {{ $docsSection := site.GetPage "section" "docs" }}
+              {{ $sections := $docsSection.Sections.ByWeight }}
+              {{ $currentSec := . }}
+              {{ $prevSec := false }}
+              {{ $nextSec := false }}
+
+              {{ range $idx, $sec := $sections }}
+                {{ if eq $sec.RelPermalink $currentSec.RelPermalink }}
+                  {{ if gt $idx 0 }}
+                    {{ $prevSec = index $sections (sub $idx 1) }}
+                  {{ end }}
+                  {{ if lt (add $idx 1) (len $sections) }}
+                    {{ $nextSec = index $sections (add $idx 1) }}
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+
+              <footer class="not-prose mt-16 pt-8 mb-12 border-t border-neutral-200/80 dark:border-neutral-700/80 print:hidden">
+                <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {{ with $prevSec }}
+                    <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-5 flex flex-col">
+                      <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 font-medium">
+                        &larr; Previous Section
+                      </span>
+                      <span class="mt-2 font-bold text-base text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                        {{ .Title }}
+                      </span>
+                    </a>
+                  {{ else }}
+                    <div></div>
+                  {{ end }}
+
+                  {{ with $nextSec }}
+                    <a href="{{ .RelPermalink }}" class="docs-feature-card group rounded-2xl p-5 flex flex-col items-end text-right">
+                      <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 font-medium">
+                        Next Section &rarr;
+                      </span>
+                      <span class="mt-2 font-bold text-base text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                        {{ .Title }}
+                      </span>
+                    </a>
+                  {{ else }}
+                    <div></div>
+                  {{ end }}
+                </div>
+              </footer>
+            {{ end }}
+
           </article>
         </main>
 
