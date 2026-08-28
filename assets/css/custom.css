@@ -256,6 +256,19 @@ html.dark article h4 {
 }
 
 /* =========================================================================
+   Sticky Documentation Sidebar & TOC on Desktop
+   ========================================================================= */
+@media (min-width: 1024px) {
+  .docs-sidebar-sticky {
+    position: sticky !important;
+    top: 6.5rem !important; /* 104px top offset below floating header */
+    max-height: calc(100vh - 8rem) !important;
+    overflow-y: auto !important;
+    scrollbar-gutter: stable;
+  }
+}
+
+/* =========================================================================
    Mobile Menu Fixes (Blowfish PR #3073)
    ========================================================================= */
 /* Prevent body scroll when fullscreen mobile menu is open, except for dropdown style */
