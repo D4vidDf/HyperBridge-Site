@@ -1,4 +1,5 @@
 ---
+icon: "list-check"
 title: "Features Overview"
 description: "Explore all features and modules provided by HyperBridge."
 weight: 50

@@ -1,4 +1,5 @@
 ---
+icon: "wand-magic-sparkles"
 title: "Getting Started"
 description: "Start here to learn how to download, install, and configure HyperBridge on Xiaomi HyperOS."
 weight: 10

@@ -1,4 +1,5 @@
 ---
+icon: "image"
 title: "Customization & Guides"
 description: "Learn how to build themes, translators, and custom spatial micro-widgets."
 weight: 40

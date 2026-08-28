@@ -1,4 +1,5 @@
 ---
+icon: "circle-question"
 title: "Troubleshooting & FAQ"
 description: "Find solutions to common issues, Xiaomi ROM restrictions, and frequently asked questions."
 weight: 60
