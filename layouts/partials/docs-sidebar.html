@@ -1,4 +1,4 @@
-{{/* Lotus Docs-Style Floating Sidebar Menu with Blowfish Colors */}}
+{{/* Lotus Docs-Style Floating Sidebar Menu with High-Contrast Icons */}}
 {{ $currentPage := . }}
 {{ $docsSection := .Site.GetPage "docs" }}
 {{ $isDocsHome := eq $currentPage.RelPermalink "/docs/" }}
@@ -25,7 +25,7 @@
         class="flex items-center justify-between rounded-lg p-1.5 transition-all duration-150 {{ if $isDocsHome }}bg-primary-100 text-primary-700 dark:bg-primary-950/70 dark:text-primary-400 font-bold border-r-[3px] border-primary-600 dark:border-primary-500 shadow-sm{{ else }}text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100/80 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800/60 font-semibold{{ end }}"
         {{ if $isDocsHome }}aria-current="page"{{ end }}>
         <div class="flex items-center gap-3 min-w-0">
-          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ if $isDocsHome }}bg-primary-200 text-primary-700 dark:bg-primary-900/80 dark:text-primary-400{{ else }}bg-neutral-100 text-neutral-600 dark:bg-neutral-800/80 dark:text-neutral-400{{ end }}" aria-hidden="true">
+          <span class="docs-sidebar-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ if $isDocsHome }}active{{ end }}" aria-hidden="true">
             <span class="h-4 w-4 block">
               {{ partial "icon.html" "circle" }}
             </span>
@@ -49,7 +49,7 @@
                 class="flex items-center justify-between cursor-pointer rounded-lg p-1.5 transition-all duration-150 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/60 list-none select-none focus-visible:outline-2 focus-visible:outline-primary-500 [&::-webkit-details-marker]:hidden {{ if $isSectionActive }}bg-primary-100 text-primary-700 dark:bg-primary-950/70 dark:text-primary-400 border-r-[3px] border-primary-600 dark:border-primary-500 shadow-sm{{ end }}"
                 {{ if $isSectionActive }}aria-current="page"{{ end }}>
                 <div class="flex items-center gap-3 min-w-0">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ if $isSectionActive }}bg-primary-200 text-primary-700 dark:bg-primary-900/80 dark:text-primary-400{{ else }}bg-neutral-100 text-neutral-600 dark:bg-neutral-800/80 dark:text-neutral-400{{ end }}" aria-hidden="true">
+                  <span class="docs-sidebar-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ if $isSectionActive }}active{{ end }}" aria-hidden="true">
                     <span class="h-4 w-4 block">
                       {{ with $section.Params.icon }}
                         {{ partial "icon.html" . }}
@@ -65,7 +65,7 @@
                     {{ $section.Title }}
                   </a>
                 </div>
-                <span class="shrink-0 pe-2 text-neutral-400 dark:text-neutral-500 group-open:rotate-90 transition-transform duration-200" aria-hidden="true">
+                <span class="shrink-0 pe-2 text-neutral-400 dark:text-neutral-400 group-open:rotate-90 transition-transform duration-200" aria-hidden="true">
                   <span class="h-3.5 w-3.5 block">
                     {{ partial "icon.html" "chevron-right" }}
                   </span>
@@ -91,7 +91,7 @@
               class="flex items-center justify-between rounded-lg p-1.5 transition-all duration-150 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/60 {{ if $isSectionActive }}bg-primary-100 text-primary-700 dark:bg-primary-950/70 dark:text-primary-400 border-r-[3px] border-primary-600 dark:border-primary-500 font-bold shadow-sm{{ end }}"
               {{ if $isSectionActive }}aria-current="page"{{ end }}>
               <div class="flex items-center gap-3 min-w-0">
-                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ if $isSectionActive }}bg-primary-200 text-primary-700 dark:bg-primary-900/80 dark:text-primary-400{{ else }}bg-neutral-100 text-neutral-600 dark:bg-neutral-800/80 dark:text-neutral-400{{ end }}" aria-hidden="true">
+                <span class="docs-sidebar-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ if $isSectionActive }}active{{ end }}" aria-hidden="true">
                   <span class="h-4 w-4 block">
                     {{ with $section.Params.icon }}
                       {{ partial "icon.html" . }}

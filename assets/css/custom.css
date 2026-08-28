@@ -75,9 +75,22 @@ a {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
+/* High Contrast Icon Badges (Light Mode) */
 .docs-icon-badge {
-  background-color: rgba(var(--color-primary-500), 0.1);
-  color: rgb(var(--color-primary-600));
+  background-color: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+}
+
+.docs-sidebar-icon {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+.docs-sidebar-icon.active {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
 }
 
 .docs-sidebar a {
@@ -158,11 +171,31 @@ html.dark .docs-sidebar-box {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
+/* High Contrast Icon Badges (Dark Mode) */
 .dark .docs-icon-badge,
 [data-appearance="dark"] .docs-icon-badge,
 html.dark .docs-icon-badge {
-  background-color: rgba(31, 111, 235, 0.2) !important;
-  color: #58a6ff !important;
+  background-color: #1e293b !important;
+  color: #79c0ff !important;
+  border: 1px solid #388bfd !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .docs-sidebar-icon,
+[data-appearance="dark"] .docs-sidebar-icon,
+html.dark .docs-sidebar-icon {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #334155 !important;
+}
+
+.dark .docs-sidebar-icon.active,
+[data-appearance="dark"] .docs-sidebar-icon.active,
+html.dark .docs-sidebar-icon.active {
+  background-color: #1e3a8a !important;
+  color: #79c0ff !important;
+  border: 1px solid #3b82f6 !important;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25) !important;
 }
 
 /* Sidebar Active Items (Dark Mode) */
@@ -178,15 +211,15 @@ html.dark .docs-sidebar summary[aria-current="page"] {
   font-weight: 700 !important;
 }
 
-.dark .docs-sidebar a[aria-current="page"] span,
+.dark .docs-sidebar a[aria-current="page"] span:not(.docs-sidebar-icon),
 .dark .docs-sidebar summary[aria-current="page"] a,
-.dark .docs-sidebar summary[aria-current="page"] span,
-[data-appearance="dark"] .docs-sidebar a[aria-current="page"] span,
+.dark .docs-sidebar summary[aria-current="page"] span:not(.docs-sidebar-icon),
+[data-appearance="dark"] .docs-sidebar a[aria-current="page"] span:not(.docs-sidebar-icon),
 [data-appearance="dark"] .docs-sidebar summary[aria-current="page"] a,
-[data-appearance="dark"] .docs-sidebar summary[aria-current="page"] span,
-html.dark .docs-sidebar a[aria-current="page"] span,
+[data-appearance="dark"] .docs-sidebar summary[aria-current="page"] span:not(.docs-sidebar-icon),
+html.dark .docs-sidebar a[aria-current="page"] span:not(.docs-sidebar-icon),
 html.dark .docs-sidebar summary[aria-current="page"] a,
-html.dark .docs-sidebar summary[aria-current="page"] span {
+html.dark .docs-sidebar summary[aria-current="page"] span:not(.docs-sidebar-icon) {
   color: #58a6ff !important;
 }
 
