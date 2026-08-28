@@ -1,7 +1,7 @@
 ---
 title: "Customization & Guides"
 description: "Learn how to build themes, translators, and custom spatial micro-widgets."
-icon: "image"
+icon: "palette"
 weight: 40
 showTableOfContents: false
 ---
