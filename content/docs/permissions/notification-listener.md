@@ -12,7 +12,4 @@ HyperBridge processes notification data **100% locally in ephemeral memory**. No
 
 ## How to Enable
 
-1. Open **Settings** > **Apps** > **Special app access** > **Notification access**.
-2. Locate **HyperBridge** in the list.
-3. Toggle the switch to **Allow**.
-4. Confirm the system security prompt.
+Work in Progress

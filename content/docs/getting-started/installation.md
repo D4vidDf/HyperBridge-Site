@@ -9,8 +9,8 @@ Learn about system requirements and how to install HyperBridge on your device.
 
 ## System Requirements
 
-- **Operating System:** Xiaomi HyperOS 1.0, HyperOS 2.0, or HyperOS 3.0+ (Android 14 / Android 15 / Android 16).
-- **Supported ROMs:** Global, EEA, India, Taiwan, and CN (China) ROMs (CN ROMs require Shizuku or Sui for Super Island rendering).
+- **Operating System:** Xiaomi HyperOS 3.0 or Xiaomi HyperOS 4.0 (to be confirmed) (Android 15 / Android 16 / Android 17).
+- **Supported ROMs:** Global, EEA, India, Taiwan, and CN (China) ROMs (CN ROMs require Shizuku or Sui for the Xiaomi bypass).
 - **Root:** **Not required!** HyperBridge operates without root access.
 
 ---

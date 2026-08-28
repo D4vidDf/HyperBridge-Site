@@ -7,18 +7,27 @@ showTableOfContents: true
 
 We welcome all contributions to HyperBridge!
 
-## Development Setup
+## Getting Started
+1.  Clone the repo.
+2.  Open in Android Studio (Ladybug or newer recommended).
+3.  Sync Gradle and run on a device/emulator (API 26+).
 
-1. Fork the [HyperBridge repository](https://github.com/D4vidDf/HyperBridge).
-2. Clone your fork locally:
-   ```shell
-   git clone https://github.com/<your-username>/HyperBridge.git
-   ```
-3. Open the project in **Android Studio Ladybug (or newer)**.
-4. Ensure Android SDK 36 (VanillaIceCream) is installed.
-5. Build and deploy to your test device.
+## Code Style
+* We use **Kotlin** exclusively.
+* UI must be written in **Jetpack Compose** (Material 3).
+* Follow the existing package structure:
+    * `ui/`: Screens and Components.
+    * `service/`: Background logic and Translators.
+    * `data/`: Preferences and Models.
 
-## Submitting Pull Requests
-- Keep changes modular and focused.
-- Ensure all Kotlin code conforms to project code style.
-- Test both standard and Shizuku-enabled modes before submitting.
+## Pull Requests
+* **Do not push directly to `main`.**
+* Create a branch for your feature/fix.
+* Provide a clear description of what you changed.
+* If you are adding a UI feature, **attach a screenshot** to the PR.
+
+## Reporting Bugs
+Please use the Issues tab and provide:
+* Device Model & MIUI/HyperOS Version.
+* Steps to reproduce.
+* Crash logs (if applicable).
