@@ -13,7 +13,6 @@ Setting up Shizuku is completely rootless and takes less than two minutes using 
 
 ## Setup Steps
 
-{{< steps >}}
 
 ### Install Shizuku
 Install [Shizuku from Google Play](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api) or GitHub.
@@ -27,4 +26,3 @@ In Shizuku, tap **Pairing**, then enter the 6-digit Wi-Fi pairing code displayed
 ### Start Shizuku
 Return to the Shizuku app and tap **Start**. Once running, grant HyperBridge access under **Authorized applications**.
 
-{{< /steps >}}
