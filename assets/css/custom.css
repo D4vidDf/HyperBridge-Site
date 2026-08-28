@@ -143,18 +143,37 @@ html.dark .docs-icon-badge {
   color: #34d399 !important;
 }
 
-/* Headings in Dark Mode */
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-[data-appearance="dark"] h1,
-[data-appearance="dark"] h2,
-[data-appearance="dark"] h3,
-[data-appearance="dark"] h4,
-html.dark h1,
-html.dark h2,
-html.dark h3,
-html.dark h4 {
+/* Sidebar Active Items (Blowfish Theme Color Enforced in Dark Mode) */
+.dark .docs-sidebar a[aria-current="page"],
+.dark .docs-sidebar a[aria-current="page"] span,
+.dark .docs-sidebar summary[aria-current="page"],
+.dark .docs-sidebar summary[aria-current="page"] a,
+.dark .docs-sidebar summary[aria-current="page"] span,
+[data-appearance="dark"] .docs-sidebar a[aria-current="page"],
+[data-appearance="dark"] .docs-sidebar a[aria-current="page"] span,
+[data-appearance="dark"] .docs-sidebar summary[aria-current="page"],
+[data-appearance="dark"] .docs-sidebar summary[aria-current="page"] a,
+[data-appearance="dark"] .docs-sidebar summary[aria-current="page"] span,
+html.dark .docs-sidebar a[aria-current="page"],
+html.dark .docs-sidebar a[aria-current="page"] span,
+html.dark .docs-sidebar summary[aria-current="page"],
+html.dark .docs-sidebar summary[aria-current="page"] a,
+html.dark .docs-sidebar summary[aria-current="page"] span {
+  color: rgb(var(--color-primary-400)) !important;
+}
+
+/* Headings in Dark Mode (Excluding Sidebar Links) */
+.dark article h1,
+.dark article h2,
+.dark article h3,
+.dark article h4,
+[data-appearance="dark"] article h1,
+[data-appearance="dark"] article h2,
+[data-appearance="dark"] article h3,
+[data-appearance="dark"] article h4,
+html.dark article h1,
+html.dark article h2,
+html.dark article h3,
+html.dark article h4 {
   color: #ffffff !important;
 }
