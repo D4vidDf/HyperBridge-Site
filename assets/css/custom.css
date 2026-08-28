@@ -100,3 +100,70 @@ html.dark .docs-icon-badge {
   background-color: rgba(var(--color-primary-500), 0.15) !important;
   color: rgb(var(--color-primary-400)) !important;
 }
+
+/* Headings & Text Color Fix in Dark Mode */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+[data-appearance="dark"] h1,
+[data-appearance="dark"] h2,
+[data-appearance="dark"] h3,
+[data-appearance="dark"] h4,
+[data-appearance="dark"] h5,
+[data-appearance="dark"] h6,
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+.dark article.prose h1,
+.dark article.prose h2,
+.dark article.prose h3,
+.dark article.prose h4,
+[data-appearance="dark"] article.prose h1,
+[data-appearance="dark"] article.prose h2,
+[data-appearance="dark"] article.prose h3,
+[data-appearance="dark"] article.prose h4,
+html.dark article.prose h1,
+html.dark article.prose h2,
+html.dark article.prose h3,
+html.dark article.prose h4 {
+  color: #ffffff !important;
+}
+
+.dark .docs-card h2,
+.dark .docs-card h3,
+.dark .docs-card h4,
+[data-appearance="dark"] .docs-card h2,
+[data-appearance="dark"] .docs-card h3,
+[data-appearance="dark"] .docs-card h4,
+html.dark .docs-card h2,
+html.dark .docs-card h3,
+html.dark .docs-card h4 {
+  color: #ffffff !important;
+}
+
+.dark .docs-card:hover h2,
+.dark .docs-card:hover h3,
+.dark .docs-card:hover h4,
+[data-appearance="dark"] .docs-card:hover h2,
+[data-appearance="dark"] .docs-card:hover h3,
+[data-appearance="dark"] .docs-card:hover h4,
+html.dark .docs-card:hover h2,
+html.dark .docs-card:hover h3,
+html.dark .docs-card:hover h4 {
+  color: rgb(var(--color-primary-400)) !important;
+}
+
+.dark .docs-card p,
+[data-appearance="dark"] .docs-card p,
+html.dark .docs-card p,
+.dark .docs-desc,
+[data-appearance="dark"] .docs-desc,
+html.dark .docs-desc {
+  color: rgba(var(--color-neutral-400), 1) !important;
+}
