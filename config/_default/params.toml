@@ -10,6 +10,7 @@ logo = "img/logo.svg"
   layout = "floating"
   logo = "img/logo.svg"
   showTitle = true
+  mobileMenuStyle = "dropdown"
 
 [homepage]
   layout = "landing"
