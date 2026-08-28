@@ -11,16 +11,16 @@ Learn about system requirements and how to install Hyper Bridge on your device.
 
 - **Operating System:** Xiaomi HyperOS 3.0 or Xiaomi HyperOS 4.0 (to be confirmed) (Android 15 / Android 16 / Android 17).
 - **Supported ROMs:** Global, EEA, India, Taiwan, and CN (China) ROMs (CN ROMs require Shizuku or Sui for the Xiaomi bypass).
-- **Root:** **Not required!** HyperBridge operates without root access.
+- **Root:** **Not required!** Hyper Bridge operates without root access.
 
 ---
 
-## Downloading HyperBridge
+## Downloading Hyper Bridge
 
 1. Visit the official [GitHub Releases](https://github.com/D4vidDf/HyperBridge/releases) page.
 2. Download the latest `HyperBridge-vX.X.X.apk`.
 3. Open the downloaded file on your Xiaomi device and grant installation permission to your package installer.
 
 {{< alert icon="triangle-exclamation" >}}
-**Important:** Only download HyperBridge from official sources (our GitHub repository or verified Play Store links) to ensure APK integrity.
+**Important:** Only download Hyper Bridge from official sources (our GitHub repository or verified Play Store links) to ensure APK integrity.
 {{< /alert >}}
