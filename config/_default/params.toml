@@ -1,4 +1,4 @@
-colorScheme = "github"
+colorScheme = "hyperbridge"
 defaultAppearance = "dark"
 autoSwitchAppearance = true
 
@@ -16,6 +16,10 @@ logo = "img/logo.svg"
   layout = "landing"
   showRecent = false
   cardView = true
+
+[docs]
+  versionBadge = "v0.6.0 (dev)"
+  versionBadgeTextSize = "16px"
 
 [article]
   showDate = true

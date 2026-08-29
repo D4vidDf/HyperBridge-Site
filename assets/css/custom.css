@@ -43,15 +43,16 @@ a {
 }
 
 /* =========================================================================
-   Documentation Cards & Sidebar (Lotus Docs Style + GitHub Blue Scheme)
+   Documentation Cards, Sidebar & Tree Navigation (Theme Scheme Variables)
    ========================================================================= */
 
 /* --- Light Mode --- */
 .docs-feature-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: rgb(var(--color-neutral));
+  border: 1px solid rgb(var(--color-neutral-200));
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease-in-out;
+  text-decoration: none !important;
 }
 .docs-feature-card:hover {
   border-color: rgb(var(--color-primary-400));
@@ -60,37 +61,37 @@ a {
 }
 .docs-feature-card h2,
 .docs-feature-card h3 {
-  color: #0f172a;
+  color: rgb(var(--color-neutral-900));
 }
 .docs-feature-card .docs-card-desc {
-  color: #475569;
+  color: rgb(var(--color-neutral-600));
 }
 .docs-feature-card .docs-card-link {
   color: rgb(var(--color-primary-600));
 }
 
 .docs-sidebar-box {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: rgb(var(--color-neutral));
+  border: 1px solid rgb(var(--color-neutral-200));
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
 /* High Contrast Icon Badges (Light Mode) */
 .docs-icon-badge {
-  background-color: #e0f2fe;
-  color: #0284c7;
-  border: 1px solid #bae6fd;
+  background-color: rgba(var(--color-primary-500), 0.12) !important;
+  color: rgb(var(--color-primary-700)) !important;
+  border: 1px solid rgba(var(--color-primary-500), 0.28) !important;
 }
 
 .docs-sidebar-icon {
-  background-color: #f1f5f9;
-  color: #334155;
-  border: 1px solid #e2e8f0;
+  background-color: rgb(var(--color-neutral-100));
+  color: rgb(var(--color-neutral-700));
+  border: 1px solid rgb(var(--color-neutral-200));
 }
 .docs-sidebar-icon.active {
-  background-color: #dbeafe;
-  color: #1d4ed8;
-  border: 1px solid #bfdbfe;
+  background-color: rgba(var(--color-primary-500), 0.18) !important;
+  color: rgb(var(--color-primary-700)) !important;
+  border: 1px solid rgba(var(--color-primary-500), 0.35) !important;
 }
 
 .docs-sidebar a {
@@ -108,30 +109,30 @@ a {
 /* Sidebar Active Items (Light Mode) */
 .docs-sidebar a[aria-current="page"]:not(summary a),
 .docs-sidebar summary[aria-current="page"] {
-  background-color: rgba(9, 105, 218, 0.08) !important;
-  color: #0969da !important;
-  border-right: 3px solid #0969da !important;
+  background-color: rgba(var(--color-primary-600), 0.1) !important;
+  color: rgb(var(--color-primary-700)) !important;
+  border-right: 3px solid rgb(var(--color-primary-600)) !important;
   font-weight: 700 !important;
 }
 .docs-sidebar a[aria-current="page"] span,
 .docs-sidebar summary[aria-current="page"] a,
 .docs-sidebar summary[aria-current="page"] span {
-  color: #0969da !important;
+  color: rgb(var(--color-primary-700)) !important;
 }
 
 /* --- Dark Mode (Triggered by .dark, [data-appearance="dark"], or html.dark) --- */
 .dark .docs-feature-card,
 [data-appearance="dark"] .docs-feature-card,
 html.dark .docs-feature-card {
-  background-color: #161d27 !important;
-  border: 1px solid #283344 !important;
+  background-color: rgb(var(--color-neutral-900)) !important;
+  border: 1px solid rgb(var(--color-neutral-800)) !important;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
 .dark .docs-feature-card:hover,
 [data-appearance="dark"] .docs-feature-card:hover,
 html.dark .docs-feature-card:hover {
-  background-color: #1b2431 !important;
+  background-color: rgb(var(--color-neutral-800)) !important;
   border-color: rgb(var(--color-primary-500)) !important;
   box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.5) !important;
   transform: translateY(-2px);
@@ -149,25 +150,25 @@ html.dark .docs-feature-card h3 {
 .dark .docs-feature-card .docs-card-desc,
 [data-appearance="dark"] .docs-feature-card .docs-card-desc,
 html.dark .docs-feature-card .docs-card-desc {
-  color: #94a3b8 !important;
+  color: rgb(var(--color-neutral-400)) !important;
 }
 
 .dark .docs-feature-card .docs-card-link,
 [data-appearance="dark"] .docs-feature-card .docs-card-link,
 html.dark .docs-feature-card .docs-card-link {
-  color: #58a6ff !important;
+  color: rgb(var(--color-primary-400)) !important;
 }
 .dark .docs-feature-card:hover .docs-card-link,
 [data-appearance="dark"] .docs-feature-card:hover .docs-card-link,
 html.dark .docs-feature-card:hover .docs-card-link {
-  color: #79c0ff !important;
+  color: rgb(var(--color-primary-300)) !important;
 }
 
 .dark .docs-sidebar-box,
 [data-appearance="dark"] .docs-sidebar-box,
 html.dark .docs-sidebar-box {
-  background-color: #161d27 !important;
-  border: 1px solid #283344 !important;
+  background-color: rgb(var(--color-neutral-900)) !important;
+  border: 1px solid rgb(var(--color-neutral-800)) !important;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -175,27 +176,27 @@ html.dark .docs-sidebar-box {
 .dark .docs-icon-badge,
 [data-appearance="dark"] .docs-icon-badge,
 html.dark .docs-icon-badge {
-  background-color: #1e293b !important;
-  color: #79c0ff !important;
-  border: 1px solid #388bfd !important;
+  background-color: rgba(var(--color-primary-900), 0.35) !important;
+  color: rgb(var(--color-primary-300)) !important;
+  border: 1px solid rgba(var(--color-primary-500), 0.4) !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 .dark .docs-sidebar-icon,
 [data-appearance="dark"] .docs-sidebar-icon,
 html.dark .docs-sidebar-icon {
-  background-color: #1e293b !important;
-  color: #f1f5f9 !important;
-  border: 1px solid #334155 !important;
+  background-color: rgb(var(--color-neutral-800)) !important;
+  color: rgb(var(--color-neutral-100)) !important;
+  border: 1px solid rgb(var(--color-neutral-700)) !important;
 }
 
 .dark .docs-sidebar-icon.active,
 [data-appearance="dark"] .docs-sidebar-icon.active,
 html.dark .docs-sidebar-icon.active {
-  background-color: #1e3a8a !important;
-  color: #79c0ff !important;
-  border: 1px solid #3b82f6 !important;
-  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25) !important;
+  background-color: rgba(var(--color-primary-900), 0.5) !important;
+  color: rgb(var(--color-primary-300)) !important;
+  border: 1px solid rgba(var(--color-primary-400), 0.6) !important;
+  box-shadow: 0 2px 6px rgba(var(--color-primary-500), 0.25) !important;
 }
 
 /* Sidebar Active Items (Dark Mode) */
@@ -205,9 +206,9 @@ html.dark .docs-sidebar-icon.active {
 [data-appearance="dark"] .docs-sidebar summary[aria-current="page"],
 html.dark .docs-sidebar a[aria-current="page"]:not(summary a),
 html.dark .docs-sidebar summary[aria-current="page"] {
-  background-color: rgba(31, 111, 235, 0.2) !important;
-  color: #58a6ff !important;
-  border-right: 3px solid #388bfd !important;
+  background-color: rgba(var(--color-primary-500), 0.18) !important;
+  color: rgb(var(--color-primary-300)) !important;
+  border-right: 3px solid rgb(var(--color-primary-400)) !important;
   font-weight: 700 !important;
 }
 
@@ -220,7 +221,7 @@ html.dark .docs-sidebar summary[aria-current="page"] {
 html.dark .docs-sidebar a[aria-current="page"] span:not(.docs-sidebar-icon),
 html.dark .docs-sidebar summary[aria-current="page"] a,
 html.dark .docs-sidebar summary[aria-current="page"] span:not(.docs-sidebar-icon) {
-  color: #58a6ff !important;
+  color: rgb(var(--color-primary-300)) !important;
 }
 
 /* Headings in Dark Mode (Excluding Sidebar Links) */
@@ -237,6 +238,25 @@ html.dark article h2,
 html.dark article h3,
 html.dark article h4 {
   color: #ffffff !important;
+}
+
+/* =========================================================================
+   Documentation Cards Grid & Column Spanning
+   ========================================================================= */
+.docs-card-span-full,
+.col-span-full,
+.sm\:col-span-2,
+.col-span-2 {
+  grid-column: 1 / -1 !important;
+}
+
+@media (min-width: 640px) {
+  .docs-card-span-full,
+  .col-span-full,
+  .sm\:col-span-2,
+  .col-span-2 {
+    grid-column: span 2 / span 2 !important;
+  }
 }
 
 /* =========================================================================
@@ -303,7 +323,7 @@ html.dark article h4 {
   font-size: 0.875rem !important; /* Matches content & sidebar text size (text-sm) */
   padding: 0.3rem 0.5rem !important;
   border-radius: 0.5rem !important;
-  color: #475569 !important;
+  color: rgb(var(--color-neutral-600)) !important;
   text-decoration: none !important;
   transition: all 0.15s ease-in-out !important;
   white-space: normal !important;
@@ -318,15 +338,15 @@ html.dark article h4 {
 [data-appearance="dark"] .docs-sidebar-box #TableOfContentsMobile a,
 html.dark .docs-sidebar-box #TableOfContents a,
 html.dark .docs-sidebar-box #TableOfContentsMobile a {
-  color: #94a3b8 !important;
+  color: rgb(var(--color-neutral-400)) !important;
 }
 
 .docs-sidebar-box #TableOfContents a:hover,
 .docs-sidebar-box #TableOfContents a.active,
 .docs-sidebar-box #TableOfContentsMobile a:hover,
 .docs-sidebar-box #TableOfContentsMobile a.active {
-  color: #0969da !important;
-  background-color: rgba(9, 105, 218, 0.08) !important;
+  color: rgb(var(--color-primary-700)) !important;
+  background-color: rgba(var(--color-primary-600), 0.1) !important;
   font-weight: 600 !important;
 }
 
@@ -342,8 +362,8 @@ html.dark .docs-sidebar-box #TableOfContents a:hover,
 html.dark .docs-sidebar-box #TableOfContents a.active,
 html.dark .docs-sidebar-box #TableOfContentsMobile a:hover,
 html.dark .docs-sidebar-box #TableOfContentsMobile a.active {
-  color: #58a6ff !important;
-  background-color: rgba(31, 111, 235, 0.2) !important;
+  color: rgb(var(--color-primary-300)) !important;
+  background-color: rgba(var(--color-primary-500), 0.18) !important;
   font-weight: 600 !important;
 }
 

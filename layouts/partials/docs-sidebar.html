@@ -3,6 +3,10 @@
 {{ $docsSection := .Site.GetPage "docs" }}
 {{ $isDocsHome := eq $currentPage.RelPermalink "/docs/" }}
 
+{{ $versionText := site.Params.docs.versionBadge | default "v0.6.0 (dev)" }}
+{{ $versionSize := site.Params.docs.versionBadgeTextSize | default "6.5px" }}
+{{ $isTailwindSize := strings.HasPrefix $versionSize "text-" }}
+
 <aside class="docs-sidebar w-full" role="complementary" aria-label="Documentation navigation sidebar">
   <div class="docs-sidebar-box rounded-2xl p-3 shadow-sm">
     
@@ -11,9 +15,14 @@
       <span class="text-xs font-extrabold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
         Documentation
       </span>
-      <span class="rounded-full bg-primary-100 dark:bg-primary-950 px-1.5 py-[1px] text-[6.5px] font-bold text-primary-700 dark:text-primary-300 leading-none select-none tracking-tight inline-flex items-center" aria-label="Version 0.6.0 in development">
-        v0.6.0 (dev)
-      </span>
+      {{ with $versionText }}
+        <span
+          class="rounded-full bg-primary-100 dark:bg-primary-950 px-1.5 py-[1px] font-bold text-primary-700 dark:text-primary-300 leading-none select-none tracking-tight inline-flex items-center {{ if $isTailwindSize }}{{ $versionSize }}{{ end }}"
+          {{ if not $isTailwindSize }}style="font-size: {{ $versionSize }};"{{ end }}
+          aria-label="Documentation version {{ . }}">
+          {{ . }}
+        </span>
+      {{ end }}
     </div>
 
     {{/* Navigation Tree */}}
