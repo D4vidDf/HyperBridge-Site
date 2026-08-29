@@ -50,13 +50,17 @@
             </div>
           {{ end }}
 
-          {{/* Sub-Pages Feature Cards Grid */}}
-          {{ if gt .Pages 0 }}
-            <div class="not-prose my-8 grid gap-4 sm:grid-cols-2 grid-balance lg:grid-cols-3 grid-balance-3">
-              {{ range .Pages.ByWeight }}
-                <article class="docs-feature-card group rounded-2xl p-6 flex flex-col justify-between">
+          {{/* Sub-Pages Feature Cards Grid (2-Column Layout with Auto-Span for Odd Last Item) */}}
+          {{ $cardCount := len .Pages }}
+          {{ $isOddTotal := eq (mod $cardCount 2) 1 }}
+          {{ if gt $cardCount 0 }}
+            <div class="not-prose my-8 grid gap-4 sm:grid-cols-2">
+              {{ range $idx, $page := .Pages.ByWeight }}
+                {{ $isLast := eq (add $idx 1) $cardCount }}
+                {{ $shouldSpan := and $isLast $isOddTotal }}
+                <a href="{{ $page.RelPermalink }}" class="docs-feature-card group rounded-2xl p-6 flex flex-col justify-between transition-all duration-200 no-underline cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 {{ if $shouldSpan }}docs-card-span-full sm:col-span-2{{ end }}">
                   <div>
-                    {{ with .Params.icon }}
+                    {{ with $page.Params.icon }}
                       <span class="docs-icon-badge mb-5 inline-flex rounded-xl p-3">
                         <span class="h-5 w-5 block">
                           {{ partial "icon.html" . }}
@@ -69,22 +73,22 @@
                         </span>
                       </span>
                     {{ end }}
-                    <h2 class="text-lg font-bold">
-                      {{ .Title }}
+                    <h2 class="text-lg font-bold text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      {{ $page.Title }}
                     </h2>
-                    {{ with .Description }}
+                    {{ with $page.Description }}
                       <div class="docs-card-desc mt-2 text-sm leading-6">
                         {{ . }}
                       </div>
                     {{ end }}
                   </div>
                   <div>
-                    <a class="docs-card-link mt-5 inline-flex items-center gap-2 text-sm font-bold" href="{{ .RelPermalink }}">
-                      {{ if .IsSection }}Explore{{ else }}Read guide{{ end }}
+                    <span class="docs-card-link mt-5 inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all">
+                      {{ if $page.IsSection }}Explore{{ else }}Read guide{{ end }}
                       {{ partial "icon.html" "link" }}
-                    </a>
+                    </span>
                   </div>
-                </article>
+                </a>
               {{ end }}
             </div>
           {{ end }}

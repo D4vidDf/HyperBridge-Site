@@ -77,12 +77,29 @@
 {{ define "mobile-main-menu" }}
   {{ range .Site.Menus.main }}
     {{ $submenuId := printf "fullscreen-submenu-%s" (.Identifier | default .Name | anchorize) }}
+    {{ $menuURL := .URL }}
+    {{ if not $menuURL }}
+      {{ with .Page }}
+        {{ $menuURL = .RelPermalink }}
+      {{ else }}
+        {{ with site.GetPage .PageRef }}
+          {{ $menuURL = .RelPermalink }}
+        {{ else }}
+          {{ with (index site.Sites 0).GetPage .PageRef }}
+            {{ $menuURL = .RelPermalink }}
+          {{ else }}
+            {{ $menuURL = printf "/%s/" (strings.TrimPrefix "/" .PageRef) }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
     <div class="px-2">
       <div class="flex items-center gap-4">
         <a
-          href="{{ .URL }}"
+          href="{{ $menuURL }}"
           {{ with or .Name .Pre }}aria-label="{{ . }}"{{ end }}
-          {{ if or (strings.HasPrefix .URL "http:" ) (strings.HasPrefix .URL "https:" ) }}
+          {{ if or (strings.HasPrefix $menuURL "http:" ) (strings.HasPrefix $menuURL "https:" ) }}
             target="_blank"
           {{ end }}
           class="flex grow items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
@@ -113,10 +130,26 @@
           <div class="overflow-hidden">
             <div class="ms-7 mt-4">
               {{ range .Children }}
+                {{ $childURL := .URL }}
+                {{ if not $childURL }}
+                  {{ with .Page }}
+                    {{ $childURL = .RelPermalink }}
+                  {{ else }}
+                    {{ with site.GetPage .PageRef }}
+                      {{ $childURL = .RelPermalink }}
+                    {{ else }}
+                      {{ with (index site.Sites 0).GetPage .PageRef }}
+                        {{ $childURL = .RelPermalink }}
+                      {{ else }}
+                        {{ $childURL = printf "/%s/" (strings.TrimPrefix "/" .PageRef) }}
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
                 <a
-                  href="{{ .URL }}"
+                  href="{{ $childURL }}"
                   {{ with or .Name .Pre }}aria-label="{{ . }}"{{ end }}
-                  {{ if or (strings.HasPrefix .URL "http:" ) (strings.HasPrefix .URL "https:" ) }}
+                  {{ if or (strings.HasPrefix $childURL "http:" ) (strings.HasPrefix $childURL "https:" ) }}
                     target="_blank"
                   {{ end }}
                   class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
@@ -142,8 +175,24 @@
   {{ if .Site.Menus.subnavigation }}
     <div class="flex flex-wrap gap-4 mt-8 pt-8 border-t bf-border-color">
       {{ range .Site.Menus.subnavigation }}
+        {{ $subNavURL := .URL }}
+        {{ if not $subNavURL }}
+          {{ with .Page }}
+            {{ $subNavURL = .RelPermalink }}
+          {{ else }}
+            {{ with site.GetPage .PageRef }}
+              {{ $subNavURL = .RelPermalink }}
+            {{ else }}
+              {{ with (index site.Sites 0).GetPage .PageRef }}
+                {{ $subNavURL = .RelPermalink }}
+              {{ else }}
+                {{ $subNavURL = printf "/%s/" (strings.TrimPrefix "/" .PageRef) }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
         <a
-          href="{{ .URL }}"
+          href="{{ $subNavURL }}"
           {{ with or .Name .Pre }}aria-label="{{ . }}"{{ end }}
           class="inline-flex items-center gap-2 px-2 py-2 bf-icon-color-hover rounded-full text-sm">
           {{ if .Pre }}

@@ -1,0 +1,40 @@
+/* Hyper Bridge scheme based on app logo colors:
+   Primary: #2C502C (logo icon) and #C3EFBE (logo background) */
+:root {
+  --color-neutral: 255, 255, 255;
+  /* Sage Neutral */
+  --color-neutral-50: 250, 250, 249;
+  --color-neutral-100: 245, 245, 244;
+  --color-neutral-200: 229, 231, 228;
+  --color-neutral-300: 212, 215, 210;
+  --color-neutral-400: 156, 163, 153;
+  --color-neutral-500: 113, 119, 111;
+  --color-neutral-600: 79, 84, 77;
+  --color-neutral-700: 55, 59, 54;
+  --color-neutral-800: 32, 36, 31;
+  --color-neutral-900: 18, 22, 18;
+
+  /* Hyper Bridge Pine & Mint Green */
+  --color-primary-50: 240, 249, 239;
+  --color-primary-100: 195, 239, 190; /* Exact #C3EFBE (App Logo Background) */
+  --color-primary-200: 163, 227, 156;
+  --color-primary-300: 122, 209, 114;
+  --color-primary-400: 85, 184, 76;
+  --color-primary-500: 61, 151, 53;
+  --color-primary-600: 45, 120, 38;
+  --color-primary-700: 44, 80, 44;   /* Exact #2C502C (App Logo Icon) */
+  --color-primary-800: 33, 61, 33;
+  --color-primary-900: 23, 43, 23;
+
+  /* Jade Accent */
+  --color-secondary-50: 240, 253, 244;
+  --color-secondary-100: 220, 252, 231;
+  --color-secondary-200: 187, 247, 208;
+  --color-secondary-300: 134, 239, 172;
+  --color-secondary-400: 74, 222, 128;
+  --color-secondary-500: 34, 197, 94;
+  --color-secondary-600: 22, 163, 74;
+  --color-secondary-700: 21, 128, 61;
+  --color-secondary-800: 22, 101, 52;
+  --color-secondary-900: 20, 83, 45;
+}

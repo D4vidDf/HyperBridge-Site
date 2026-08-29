@@ -1,0 +1,85 @@
+{{ define "main" }}
+  <script>
+    (function () {
+      // Automatic language fallback redirect:
+      // If the current path has a language prefix (e.g. /es/docs/..., /fr/docs/...)
+      // that does not exist in that language, redirect directly to the default English URL.
+      try {
+        var pathname = window.location.pathname;
+        var supportedLangs = ["ca", "cs", "de", "es", "es-419", "fr", "gl", "hu", "id", "it", "ja", "ko", "pl", "pt-br", "ru", "sk", "tr", "uk", "zh-tw"];
+        var segments = pathname.split('/').filter(Boolean);
+        if (segments.length > 0 && supportedLangs.indexOf(segments[0].toLowerCase()) !== -1) {
+          // Remove the language segment to fallback to default (root / English)
+          var fallbackPath = '/' + segments.slice(1).join('/') + (pathname.endsWith('/') ? '/' : '');
+          window.location.replace(fallbackPath + window.location.search + window.location.hash);
+        }
+      } catch (e) {
+        // Continue rendering standard 404
+      }
+    })();
+  </script>
+
+  <section class="relative isolate flex grow flex-col items-center justify-center overflow-hidden py-24 text-center">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 -z-10 flex select-none items-center justify-center">
+      <span class="text-[16rem] font-black leading-none tracking-tighter text-neutral-900/5 dark:text-white/5 sm:text-[26rem]">404</span>
+    </div>
+
+    <p class="landing-rise mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400">
+      {{ i18n "error.404_error" | default "Error 404" | emojify }}
+    </p>
+    <h1 class="landing-rise landing-rise-1 text-balance text-5xl font-black leading-[1.05] tracking-tighter text-neutral-900 dark:text-white sm:text-7xl">
+      {{ i18n "error.404_title" | default "Page not found" | emojify }}
+    </h1>
+
+    <figure class="landing-rise landing-rise-2 mx-auto mt-8 max-w-2xl px-6">
+      <blockquote>
+        <p id="quote-404-line" class="text-balance text-xl italic leading-8 text-neutral-600 dark:text-neutral-300 sm:text-2xl sm:leading-9">
+          {{ i18n "error.404_description" | default "Sorry, we couldn't find the page you're looking for." | emojify }}
+        </p>
+      </blockquote>
+      <figcaption
+        id="quote-404-source"
+        class="mt-3 hidden text-sm font-semibold uppercase tracking-[0.15em] text-neutral-400 dark:text-neutral-500"></figcaption>
+    </figure>
+
+    <div class="landing-rise landing-rise-3 mt-10">
+      {{ partial "cta-button.html" (dict "url" site.Home.RelPermalink "label" (i18n "error.404_home" | default "Back to homepage")) }}
+    </div>
+
+    {{ with hugo.Data.quotes404 }}
+      {{ $lang := lower site.Language.Lang }}
+      {{ $base := index (split $lang "-") 0 }}
+      {{ $localized := slice }}
+      {{ $english := slice }}
+      {{ range . }}
+        {{ $qlang := lower (.lang | default "en") }}
+        {{ if or (eq $qlang $lang) (eq $qlang $base) }}
+          {{ $localized = $localized | append . }}
+        {{ end }}
+        {{ if eq $qlang "en" }}
+          {{ $english = $english | append . }}
+        {{ end }}
+      {{ end }}
+      {{ $quotes := $localized }}
+      {{ if not $quotes }}{{ $quotes = $english }}{{ end }}
+      {{ if not $quotes }}{{ $quotes = . }}{{ end }}
+      {{ $json := $quotes | jsonify }}
+      <script>
+        (function () {
+          var quotes = JSON.parse({{ $json }});
+          if (!quotes.length) return;
+          var pick = quotes[Math.floor(Math.random() * quotes.length)];
+          var line = document.getElementById("quote-404-line");
+          var source = document.getElementById("quote-404-source");
+          if (line && pick) line.textContent = "“" + pick.line + "”";
+          if (source && pick) {
+            source.textContent = "— " + pick.source;
+            source.classList.remove("hidden");
+          }
+        })();
+      </script>
+    {{ end }}
+  </section>
+{{ end }}
