@@ -8,6 +8,125 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## Hyper Bridge v0.6.0-dev1
+
+Hyper Bridge **v0.6.0-dev1** is the first development release of the v0.6.0 cycle! 
+
+This release introduces native system islands for Screen Recording and VPN, overhauls the core notification lifecycle for zero-latency performance, integrates messaging deduplication and call state machines, adds step-by-step floating notification setup guidance, connects to the new web documentation & changelog platform, brings brand-new dedicated **Diagnostics** and **Bug Report** screens, and completely redesigns the per-app configuration experience with dedicated subscreens and integrated Island Widget management.
+
+---
+
+### 📱 Redesigned App Configuration Screen & Subscreens
+
+* **Full-Screen Workspace Migration**: Migrated away from cramped modal bottom sheets on the Active Apps and Library tabs to a dedicated full-screen `AppConfigScreen` with complete gesture and hardware back-stack support.
+* **Expressive Card Grouping**: Replaced cluttered inline accordion dropdowns with 3 distinct connected card groups using variable-corner shapes inspired by the Theme Creator:
+  1. *Core Behavior & Filters* (Active Notification Types, Island Behavior, Blocked Terms).
+  2. *Island Widgets* (Per-app widget management).
+  3. *Future Extensions* (Custom Design & Custom Translators with prominent **"COMING SOON"** badges).
+* **Dedicated Subscreen Navigation**: Smooth horizontal animated transitions into dedicated subscreen containers (`SubscreenScaffold`), complete with tonal back buttons matching the `InfoScreen` design.
+* **Streamlined Island Behavior**: "Use Global Defaults" is now the top-level option; tweaking any slider or toggle seamlessly converts settings into custom overrides, while re-enabling global defaults instantly clears overrides back to defaults.
+* **Blocked Terms Vertical List**: Blocked keywords are now organized in clean, separate containers featuring an input box card on top and an expressive vertical list below with one-tap removal.
+* **Future Extension Previews**: Added dedicated placeholder subscreens for upcoming community Custom Designs and Custom Translators with direct links to track progress on GitHub.
+
+---
+
+### 🧩 Unified Island Widgets Management
+
+* **Reusable App-Filtered Widget Picker**: Clicking "Add Widget" in the app configuration screen opens the unified `WidgetPickerScreen` automatically filtered to providers from that specific application, auto-expanding its widget list and adapting the title to "Select Widget".
+* **Live Configuration & Editing**: Selecting any widget immediately transitions into `WidgetConfigScreen` to configure custom sizes, render modes, timeouts, and shade overlays. Configured widgets in the app list can also be tapped directly or edited via an edit icon button.
+* **Adaptive Live Previews**: Widget previews in the list dynamically scale their container height to match the configured `WidgetSize` (`SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `ORIGINAL`), with proper measure and layout constraints for crisp rendering.
+* **Floating Action Button**: Moved the "Add Widget" trigger to a prominent `FloatingActionButton` with comfortable bottom scroll padding.
+
+---
+
+### 🌐 New Documentation Website & Offloaded Changelogs
+* **Dedicated Docs Platform**: We have launched our official documentation website! Complete changelogs, setup guides, and technical explanations have moved to the web to keep the app lightweight and documentation easily searchable.
+* **Direct In-App Navigation**: The Info screen now links directly to the online documentation and release notes, ensuring you always have access to the latest guides and version history.
+
+---
+
+### 🔍 New Diagnostics & Bug Report Screens
+
+#### 🩺 Real-Time Diagnostics Screen
+* **Subsystem Health Checks**: Live status indicators for Notification Listener Service connection, `POST_NOTIFICATIONS` permission, HyperOS Island hardware support, and Featured Notification permissions.
+* **Live System Metrics**: Instant visibility into active island counts, active widget tracking, and selected allowed apps.
+* **Rolling Sanitized Event Log**: An in-app diagnostic log viewer showing recent notification events and translation statuses in real-time, making it effortless to see why a particular notification did or didn't become an island.
+* **Material 3 Expressive Design**: Clean card-based layout with full Compose preview support for faster development and inspection.
+
+#### 🐛 Streamlined Bug Report Screen
+* **Automated System Profiling**: Gathers device model, Android version, HyperOS build, active settings, and bridge status automatically.
+* **Privacy-Sanitized Exports**: Sensitive text, notification content, and personal information are automatically scrubbed and redacted.
+* **One-Tap GitHub Ready Formatting**: Formats your issue into a structured, clean Markdown template and copies it directly to your clipboard so you can paste it straight into GitHub Issues.
+
+---
+
+### 🚀 Key Highlights & New System Islands
+
+#### 🎥 Native Xiaomi Screen Recording System Island
+* **Live Recording Ticker**: Dynamic island ticker displaying active recording duration in real time.
+* **Direct IPC Controls**: Full interaction with Xiaomi’s screen recorder service (`com.miui.screenrecorder`) via IPC to pause, resume, and stop recordings directly from the island.
+* **Saved Completion Banner**: Quick-access summary and preview banner with action handlers when a screen recording finishes saving.
+* **Dedicated Settings**: Custom configuration screen to adjust screen recording island behavior.
+
+#### 🛡️ VPN Connectivity & System Island
+* **System-Level Observer**: Monitors VPN network capabilities (`TRANSPORT_VPN`) natively without needing root or Shizuku.
+* **Known Provider Adapters**: Out-of-the-box support for popular VPN providers (WireGuard, OpenVPN, Cloudflare 1.1.1.1 WARP, ProtonVPN, Tailscale, Mullvad, and more).
+* **Active Status & Disconnect**: Displays live connected duration, country flag resolution, and offers a one-tap disconnect button right from the island.
+* **System Integrations Tab**: Conveniently manage VPN and system island toggles separate from regular apps.
+
+---
+
+### ⚡ Performance & Core Lifecycle Overhaul
+
+* **Zero-Latency In-Memory Dispatch**: Moved preference lookups on the hot notification path to cached in-memory state flows, eliminating SQLite/DataStore I/O bottlenecks.
+* **Generation Gating (`SourceProcessingGeneration`)**: Automatically supersedes outdated translation jobs during rapid notification updates.
+* **Expiry Registry (`ExpiredIslandRegistry`)**: Tracks expired notification state to eliminate ghost islands, resurrecting dismissed notifications, and visual flicker.
+* **`IslandUpdateResolver`**: Reconciles incoming changes against existing active islands, updating state smoothly in-place.
+
+---
+
+### 💬 Messaging & Call Enhancements
+
+* **Presentation Family Tracking**: Correlates group summaries and per-conversation child notifications across apps like WhatsApp, Telegram, and Signal.
+* **Fingerprint Deduplication**: Identifies and suppresses duplicate notification popups during rapid message bursts ("chat storms").
+* **Call Lifecycle State Machine**: Classifies and manages Incoming, Ongoing, Held, and Ending call states with dedicated microphone live/muted indicators.
+
+---
+
+### 🎨 UI & Setup Guidance
+
+* **Floating Notification Setup**: Step-by-step guidance to disable Xiaomi's native floating heads-up notifications per app to avoid visual duplication over islands.
+* **System Integrations Section**: Separates built-in system modules (Screen Recording, VPN) from standard third-party apps for clearer management.
+
+---
+
+### 🛠️ Stability & Framework Fixes
+
+* **SecurityException Guard**: Safely guarded calls to `NotificationListenerService.activeNotifications` before the listener service connects or after disconnection.
+* **Safe Intent Dispatch**: Guarded against null or canceled `PendingIntent` executions.
+* **Unit Test Coverage**: Comprehensive suite of **243 passing unit tests** covering all reducers, trackers, and translation policies.
+
+---
+
+### 💖 Community & Credits
+Special thanks to **[Sykeptical](https://github.com/sykeptical)** for their foundational contributions to Screen Recording controls, messaging deduplication, call state handling, and VPN integration originally developed in their fork and integrated into HyperBridge v0.6.0.
+
+---
+
+### What's Changed
+* l10n: Update Korean translation by @alexkoala in https://github.com/D4vidDf/HyperBridge/pull/276
+* feat(i18n): add comprehensive Arabic language translation by @solom185 in https://github.com/D4vidDf/HyperBridge/pull/280
+* chore: bump version to 0.6.0-dev1 and migrate changelogs to web docum… by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/281
+* Epic/283 epic port integrate features and enhancements from sykeptical fork into hyper bridge v060 by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/300
+* Feature/app config screen by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/301
+
+### New Contributors
+* @solom185 made their first contribution in https://github.com/D4vidDf/HyperBridge/pull/280
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.5.7...v0.6.0-dev1
+
+---
+
 ## v0.5.7: Performance & Sync Update
 
 This release focuses on significant under-the-hood performance improvements and stability fixes. **Version 0.5.7 marks the final minor update for the 0.5.x branch**, as Hyper Bridge officially begins the development of the next major milestone: **v0.6.0**.
