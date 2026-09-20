@@ -1,15 +1,19 @@
 ---
 title: "Theme Creator Guide"
-description: "How to customize shapes, colors, and per-app styling using HyperThemes."
+description: "How to customize shapes, colors, per-app styling, and bundled custom translators using HyperThemes."
 weight: 1
 showTableOfContents: true
 ---
 
-This guide details how developers can create themes for **Hyper Bridge** and integrate a direct "Apply Theme" button in their own apps (e.g., icon pack dashboards, theme stores, or personalization tools).
+This guide details how developers and creators can build themes for **Hyper Bridge** and integrate a direct "Apply Theme" button in their own apps (such as icon pack dashboards, theme stores, or personalization tools).
+
+Starting with Hyper Bridge 0.6.0, theme packs can also bundle **[Custom Translators]({{< ref "docs/customization/custom-translators.md" >}})** directly inside the theme, allowing you to ship custom notification card designs, action buttons, and smart rules alongside your visual styles.
+
+---
 
 ## **1. The Strict Contract**
 
-Themes are distributed as **Hyper Bridge Packages** (.hbr), which are standard ZIP archives containing a specific folder structure and configuration file. Whether a user downloads the file manually or applies it via your app, the internal structure must be identical.
+Themes are distributed as **Hyper Bridge Packages** (`.hbr` or `.htheme`), which are standard ZIP archives containing a specific folder structure and configuration file. Whether a user downloads the file manually or applies it via your app, the internal structure must be identical.
 
 ### **File Structure**
 
@@ -29,17 +33,34 @@ my_theme_project
 │   ├── nav_arrow.png  
 │   └── download_tick.png  
 │  
+├── translators/             <-- [NEW] Bundled Custom Translators (.htrans or .json)
+│   ├── spotify_enhanced.htrans  
+│   └── whatsapp_vip.json  
+│  
 └── global/                  <-- Backgrounds or overlays (Optional)  
     └── island_glow.png
 ```
 
-**Note:** Once built, rename the .zip file to .hbr (e.g., neon_theme.hbr).
+**Note:** Once built, rename the `.zip` file to `.hbr` (e.g., `neon_theme.hbr`).
 
 ---
 
-## **2. Configuration (theme_config.json)**
+## **2. Bundling Custom Translators (New in v0.6.0)**
 
-The theme_config.json maps your image files to HyperBridge logic.
+{{< alert icon="lightbulb" >}}
+**Ship custom behaviors with your visual style:** Theme packs can bundle complete notification translation rules directly in the `translators/` folder!
+{{< /alert >}}
+
+When Hyper Bridge installs a theme (`.hbr` or `.htheme`), it automatically scans for a `translators/` directory:
+- Any **`.htrans`** packages (ZIP archives containing `translator.json` and custom icons) or standalone **`.json`** translator files found inside are automatically unpacked and registered into the user's database.
+- The bundled translators can link to your theme's highlight colors, override notification actions, inject [Smart Actions]({{< ref "docs/features/smart-actions.md" >}}), and apply custom templates (e.g., music playback cards, delivery trackers, VIP chat designs).
+- Learn how to build and configure translators in the [Custom Translators Guide]({{< ref "docs/customization/custom-translators.md" >}}) and the [Translators Technical Specification]({{< ref "docs/customization/translators-specification.md" >}}).
+
+---
+
+## **3. Configuration (theme_config.json)**
+
+The `theme_config.json` maps your image files to HyperBridge logic.
 
 ### **JSON Specification**
 
@@ -63,8 +84,8 @@ The theme_config.json maps your image files to HyperBridge logic.
   "call_config": {
     "answer_color": "#34C759",
     "decline_color": "#FF3B30",
-    "answer_shape_id": "circle",      // [NEW] Shape override for answer button
-    "decline_shape_id": "circle",     // [NEW] Shape override for decline button
+    "answer_shape_id": "circle",      // Shape override for answer button
+    "decline_shape_id": "circle",     // Shape override for decline button
     "answer_icon": {
       "type": "LOCAL_FILE",
       "value": "icons/call_answer.png"
@@ -137,19 +158,19 @@ The theme_config.json maps your image files to HyperBridge logic.
 ```
 ---
 
-## **3. Applying the Theme (Intent Code)**
+## **4. Applying the Theme (Intent Code)**
 
-To apply the theme programmatically from your app, you must send the .hbr file via a specific Android Intent. This requires saving the file to your cache (so it is accessible) and sharing it via FileProvider.
+To apply the theme programmatically from your app, you must send the `.hbr` file via a specific Android Intent. This requires saving the file to your cache (so it is accessible) and sharing it via FileProvider.
 
 ### **Prerequisites**
 
-1. **File Extension:** Ensure the file ends in .hbr or .zip.  
-2. **MIME Type:** Use application/zip or application/octet-stream.  
-3. **Permissions:** The FLAG_GRANT_READ_URI_PERMISSION is critical.
+1. **File Extension:** Ensure the file ends in `.hbr`, `.htheme`, or `.zip`.  
+2. **MIME Type:** Use `application/zip` or `application/octet-stream`.  
+3. **Permissions:** The `FLAG_GRANT_READ_URI_PERMISSION` is critical.
 
 ### **Kotlin Implementation**
 
-Copy this function into your app to handle the "Apply" button click.
+Copy this function into your app to handle the "Apply" button click:
 
 ```Kotlin  
 import android.content.Context  
@@ -193,33 +214,27 @@ fun applyThemeToHyperBridge(context: Context) {
         // TODO: Prompt user to install HyperBridge  
     }  
 }
-
 ```
 
 ### **Flutter Implementation**
 
-For Flutter, use the android_intent_plus package (or similar) to construct the specific intent.
+For Flutter, use the `android_intent_plus` package (or similar) to construct the specific intent:
 
 ```Dart  
 import 'dart:io';  
 import 'package:android_intent_plus/android_intent.dart';  
 import 'package:path_provider/path_provider.dart';  
-// Note: You must handle copying the asset to a file path first.
 
 Future<void> applyTheme() async {  
-  // 1. Get the path to your .hbr file (e.g., from temporary directory)  
   final dir = await getTemporaryDirectory();  
   final filePath = '${dir.path}/neon_theme.hbr';  
     
   // (Ensure file exists at filePath...)
 
-  // 2. Create the Intent  
-  // Note: Flutter's ability to grant URI permissions directly is limited compared to native.  
-  // Using 'action_view' is often more reliable for cross-app file opening in Flutter.  
   final intent = AndroidIntent(  
     action: 'com.d4viddf.hyperbridge.APPLY_THEME',  
     type: 'application/zip',  
-    data: Uri.parse('content://$filePath').toString(), // This often requires a platform channel for proper FileProvider URI  
+    data: Uri.parse('content://$filePath').toString(),  
     flags: <int>[  
       0x00000001, // FLAG_GRANT_READ_URI_PERMISSION  
       0x10000000, // FLAG_ACTIVITY_NEW_TASK  
@@ -230,19 +245,17 @@ Future<void> applyTheme() async {
 }
 ```
 
-*Note: For complex file sharing in Flutter (generating a content:// URI), it is highly recommended to use a native MethodChannel that implements the Kotlin code above.*
-
 ---
 
-## **4. Summary of the Public API**
+## **5. Summary of the Public API**
 
 | Component | Specification |
 | :---- | :---- |
-| **Structure** | Folder with theme_config.json + icons/ folder. |
-| **Package** | ZIP format, renamed to .hbr. |
-| **Intent Action** | com.d4viddf.hyperbridge.APPLY_THEME |
-| **Data Type** | application/zip |
+| **Structure** | Folder with `theme_config.json`, `icons/` folder, and optional `translators/` folder. |
+| **Package** | ZIP format, renamed to `.hbr` or `.htheme`. |
+| **Custom Translators** | Optional `translators/` folder containing `.htrans` or `.json` files. |
+| **Intent Action** | `com.d4viddf.hyperbridge.APPLY_THEME` |
+| **Data Type** | `application/zip` |
 | **Security** | Requires FileProvider URI + Read Permission Flag. |
 
-This format is universal. A .hbr file created for this intent can also be uploaded to Telegram, Discord, or Google Drive for users to install manually via the HyperBridge "Import" menu.
-
+This format is universal. A `.hbr` file created for this intent can also be uploaded to Telegram, Discord, GitHub, or shared directly for users to install via the Hyper Bridge "Import" menu.
