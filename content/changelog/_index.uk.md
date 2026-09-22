@@ -9,6 +9,81 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## HyperBridge v0.6.0-beta1 🚀
+
+Welcome to **HyperBridge v0.6.0-beta1**! This milestone release marks the arrival of the all-new **Custom Translators Framework (`.htrans`)**, powerful **RAW_PARAM_V2 presentation modes**, built-in **Visual Translator Editor**, **System Update Islands**, and key stability fixes for Android 15 & 16.
+
+---
+
+{{< alert icon="triangle-exclamation" >}}
+### ⚠️ Beta Notice: Custom Translators & Full Engine Rework
+This release includes a **complete architectural rework of our translation engine** and the very first public implementation of the Custom Translators system. 
+
+Because this is a major transition:
+- Some advanced features, custom edge-case layouts, or specific token interpolations may still behave unexpectedly or contain bugs.
+- Certain legacy behaviors or templates may require minor adjustments.
+
+**We need your feedback!** If you encounter any bugs, crashes, broken presentations, or missing features, please let us know by [opening a GitHub Issue](https://github.com/D4vidDf/HyperBridge/issues/new/choose) or posting in our [Discussions](https://github.com/D4vidDf/HyperBridge/discussions). Your reports directly help us stabilize the engine for the final 0.6.0 release.
+{{< /alert >}}
+
+---
+
+### 🌟 Highlights & Major Features
+
+#### 🧩 Custom Translators Framework (`.htrans`)
+Take total control over how any app's notifications render on Xiaomi HyperOS Super Island. Define custom matching rules, regex extractions, variable tokens, dynamic actions, and theme bindings without waiting for app updates.
+- **Import, Export & Share**: Seamlessly package `.htrans` or `.htrans.zip` packages with embedded artwork and share them across devices via Storage Access Framework (SAF).
+- **Built-in Visual Editor**: Build and test translators directly inside the HyperBridge app.
+
+📖 **Learn more in our documentation:**
+- [Custom Translators Overview](https://hyper-bridge.app/docs/customization/custom-translators/)
+- [Translators Specification & Schema Reference](https://hyper-bridge.app/docs/customization/translators-specification/)
+- [Theme Creator & Bundling Guide](https://hyper-bridge.app/docs/customization/theme-creator/)
+
+---
+
+#### ⚡ Advanced Custom Translations: `RAW_PARAM_V2` Mode
+For advanced creators, the new `RAW_PARAM_V2` presentation mode lets you bypass standard layout constraints and write pure HyperOS Super Island JSON contracts with dynamic token interpolation (`{notif.title}`, `{media.artist}`, `{var.custom}`, `{pic.key}`).
+- **Dynamic Elements**: Full support for `coverInfo`, `progressInfo`, `chatInfo`, `baseInfo`, and `bgInfo` (color & picture background).
+- **Dual Island Layouts**: Full custom configurations for both `smallIslandArea` and `bigIslandArea` (`imageTextInfoLeft` / `imageTextInfoRight`).
+- **Dynamic Variables & Actions**: Extract progress percentages, live timestamps (`startText`/`endText`), and map custom intents or smart actions on the fly.
+
+🔗 **Official Xiaomi Specifications & Guides:**
+- [Official Xiaomi HyperOS Focus Notification & Island Parameters Guide](https://dev.mi.com/xiaomihyperos/documentation/detail?pId=2131)
+- [Official Xiaomi Super Island Template Library Specification (PDF)](https://mag-admin.cnbj1.mi-fds.com/mag-admin/island/%E5%B0%8F%E7%B1%B3%E8%B6%85%E7%BA%A7%E5%B2%9B%E6%A8%A1%E6%9D%BF%E5%BA%9320260129.pdf?GalaxyAccessKeyId=5151729087601&Expires=9223372036854775807&Signature=BAXCOHXbEjDgaKSfEnU3UScw4KQ%3D)
+
+---
+
+#### 🔄 System Update Island Integration
+HyperBridge now brings a native-like experience to Xiaomi System Updates:
+- Track download and install progress directly on the Super Island.
+- Dedicated customization and timeout settings within the app.
+
+---
+
+### 🐛 Fixes & Improvements
+
+- **Android 15+ Message Interaction**: Fixed an issue where tapping a messaging island did not open the target application.
+- **Android 16+ Island Grouping**: Fixed force-grouping behavior so bridged islands are only grouped where Android 16+ grouping APIs exist.
+- **Summary Island Clean-up**: Fixed an issue where the island group summary lingered after all individual islands were dismissed.
+- **CI / Quality Gating**: Added GitHub Actions workflow for automated PR test verification and APK artifact generation.
+
+---
+
+### 📋 What's Changed
+
+* ci: add GitHub Actions workflow for PR test gating and debug APK artifact (#349) by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/352
+* feat: add system update island integration and customization settings by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/365
+* fix: only group bridged islands on Android 16+, where force grouping exists (#358) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/368
+* feat(translators): Custom Translators Framework (.htrans), Visual Editor, Dynamic Engine, Theme Bundling & SAF Sharing (#271) by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/353
+* feat: add RAW_PARAM_V2 presentation mode with custom variables and actions by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/369
+* fix: message island tap opens the app again on Android 15+ (#359) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/366
+* fix: drop the island group summary once no island is left (#372) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/373
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-dev4...v0.6.0-beta1
+
+---
+
 ## Hyper Bridge v0.6.0-dev2
 
 Hyper Bridge **v0.6.0-dev2** is the second development release of the v0.6.0 cycle!
