@@ -116,9 +116,14 @@ Customize the visual card and its status bar appearance:
      - `tpl_parking_meter`: Parking timer with live countdown.
      - `tpl_file_transfer`: File download/upload with percentage bar.
      - `tpl_media_compact`: Music card with artist, track, and playback controls.
-2. **Dynamic Text Templates:** Use variable chips to insert live information into the title and subtitle:
-   - `{notif.title}`, `{notif.text}`, `{notif.sender}`, `{notif.conversation_title}`, `{notif.media_artist}`, `{notif.progress}`, `{app.name}`.
-3. **Compact Pill Customization:** Configure how the pill looks in the top status bar when collapsed:
+   - **RAW_PARAM_V2 (Direct Xiaomi Island Protocol):** Advanced mode for developers and theme authors. Allows supplying a raw Xiaomi HyperOS `param_v2` JSON payload template with variable tokens, custom image injections, and direct action key bindings.
+     {{< alert icon="gear" >}}
+     **Streamlined Editor Experience:** When `RAW_PARAM_V2` is active, Hyper Bridge automatically hides manual visual builder tabs (Pill, Presentation slots, Progress, Action slots). The visual editor streamlines its interface to focus exclusively on Target Apps & Scope, Matching Conditions, Custom Variables & Regex, and Behavior Overrides.
+     {{< /alert >}}
+2. **Dynamic Text Templates & Cascading Fallbacks:** Use variable chips or syntax to insert live information into titles, subtitles, or raw JSON templates:
+   - Built-in tokens: `{notif.title}`, `{notif.text}`, `{notif.sender}`, `{notif.conversation_title}`, `{notif.media_artist}`, `{notif.progress}`, `{app.name}`.
+   - Cascading fallbacks: `{media.artist | notif.text | "Unknown Artist"}` or `{var.driver ?: "Driver"}` evaluate candidates from left to right, preventing blank placeholders.
+3. **Compact Pill Customization:** Configure how the pill looks in the top status bar when collapsed (for Standard & Template modes):
    - **Left Slot:** Choose between `Icon and Text`, `Icon Only`, `Text Only`, `Contact Avatar`, or `Hidden`.
    - **Right Slot:** Choose between `Auto`, `Progress Percent (%)`, `Live Timer`, `Highlight Text`, or `None`.
 
