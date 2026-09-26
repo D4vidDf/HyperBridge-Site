@@ -53,41 +53,63 @@ The following table details all 10 official layout templates available in the in
 
 ---
 
-## 3. Step-by-Step: Adding a Design in the App
+## 3. Step-by-Step: Adding a Design from a Template
 
-Follow these steps to activate a template design in seconds:
+Follow these steps to activate a template design in seconds directly from the Design Bento Hub:
 
-### Step 1: Open the Add Design Flow
-1. Navigate to the **Design** screen.
-2. Tap the **`+` (Add)** FAB and choose **Custom Design** (or tap **`+`** on the **Designs** Bento card).
+### Step 1: Open the Designs Manager & Add Design
+Navigate to the **Design** screen and tap the **Designs** Bento card. If you don't have any active custom designs yet, you will be greeted by the Designs Manager empty state. Tap **Add Design** (or tap the **`+`** FAB and choose **Custom Design**).
 
-### Step 2: Choose Source
-- Select **From Template Gallery** to browse the visual template presets.
-
-### Step 3: Select Your Template
-- Browse the interactive **Island Template Gallery**. Each card displays a true-to-life mockup of how Xiaomi HyperOS renders the card.
-- Tap the template that fits your use case (e.g., *Ride & Delivery* or *Payment & Wallet*).
-
-### Step 4: Choose the Notification Type
-- Pick the category of notification you want this design to apply to:
-  - **Messaging**: WhatsApp, Telegram, SMS, WeChat.
-  - **Media**: Spotify, YouTube Music, Podcasts.
-  - **Calls**: Phone, WhatsApp Call, Telegram Call.
-  - **Downloads & Progress**: Google Play Store, browser downloads, cloud sync.
-  - **Navigation**: Google Maps, Waze.
-  - **Standard**: All other notifications.
-
-### Step 5: Save & Enjoy!
-- Tap **Create Design**. Hyper Bridge will instantly activate your design. The next time a matching notification arrives, it will present itself using your chosen template!
+{{< figure src="/img/docs/designs/en/01-designs-manager-empty.jpg" title="Designs Manager - Empty State" alt="Designs Manager Empty State" width="300" >}}
 
 ---
 
-## 4. Managing & Customizing Designs (`DesignManagerScreen`)
+### Step 2: Choose Design Creation Method
+From the bottom sheet, select **From a template** to browse Xiaomi's official HyperIsland layout templates, or choose **Custom design** to create an empty canvas.
 
-To inspect and customize your designs:
-1. Tap the **Designs** card on the Design Hub Bento Grid to enter the **Design Manager**.
-2. **Interactive Preview**: Tap the preview switch to see how your active designs look on a live HyperOS HyperIsland mockup.
-3. **Edit in Visual Editor**: Tap the **Edit (Pencil)** icon on any design card to modify matching conditions, target specific packages, change action buttons, or customize colors.
-4. **Duplicate & Share**:
-   - Tap **Duplicate** to create a modified clone of a design for a specific app.
-   - Tap **Export** to save the design as a standalone `.htrans` file to share with friends or include in theme packs.
+{{< figure src="/img/docs/designs/en/02-add-design-sheet.jpg" title="Add a Design Modal" alt="Add a Design Bottom Sheet" width="300" >}}
+
+---
+
+### Step 3: Browse the Island Template Picker
+Browse the interactive catalog containing Xiaomi's 10 official HyperIsland templates. Each entry showcases the layout archetype (e.g. *Weather & Navigation*, *Payment & Wallet*, *Call Management*, *Ride & Delivery Tracker*).
+
+{{< figure src="/img/docs/designs/en/03-select-template-picker.jpg" title="Select Template Picker" alt="Select Template Picker" width="300" >}}
+
+---
+
+### Step 4: Preview Template Layout
+Tap any template to inspect its live preview, including its compact pill presentation, expanded island hierarchy, and default action button slots.
+
+{{< figure src="/img/docs/designs/en/04-template-preview-weather-nav.jpg" title="Template Preview & Details" alt="Template Preview Screen" width="300" >}}
+
+---
+
+### Step 5: Configure Target Scope & Application
+Set the target scope for this design. You can assign the template to a specific notification type (Navigation, Messaging, Media, Calls, Downloads & Progress, or Standard), or restrict it to specific applications.
+
+{{< figure src="/img/docs/designs/en/05-template-configuration-scope.jpg" title="Template Configuration & Target Scope" alt="Template Configuration Scope" width="300" >}}
+
+---
+
+### Step 6: Save & Manage Active Designs
+Tap **Save Design**. Your new template-driven design is immediately registered and displayed in the **Designs Manager** with a live interactive HyperIsland preview toggle.
+
+{{< figure src="/img/docs/designs/en/06-designs-manager-active.jpg" title="Active Design in Designs Manager" alt="Designs Manager with Active Template Design" width="300" >}}
+
+---
+
+## 4. Editing & Customizing Design Properties
+
+Every design created from a template is powered under the hood by Hyper Bridge's **Custom Translator Engine**. 
+
+{{< alert icon="lightbulb" >}}
+**Need to customize individual elements, regex matching, or button actions?**  
+Custom designs share the exact same visual editing options as custom translators! To learn how to customize text variable tokens (`{notif.title}`, `{notif.text}`), regex patterns, compact pill slots, progress meters, action button intents, and themes, follow the complete **[Custom Translators User Guide]({{< ref "docs/customization/custom-translators.md" >}})**.
+{{< /alert >}}
+
+From the **Designs Manager**:
+- **Edit in Visual Editor**: Tap the **Edit (Pencil)** icon on any active design card to open the complete visual editor.
+- **Interactive Preview**: Tap the top switch to toggle between **Expanded Island** and **Compact Pill** previews in real-time.
+- **Duplicate & Specialize**: Tap **Duplicate** to clone an existing template design for another app.
+- **Export & Share**: Tap **Export** to save your design as a standalone `.htrans` file.
