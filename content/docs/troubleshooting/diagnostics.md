@@ -26,6 +26,8 @@ At the top of the Diagnostics screen, an aggregated **Health Status Card** summa
 - **Restricted Settings:** Whether Android 13+ restricted settings have been authorized for sideloaded APKs.
 - **HyperOS Focus Notifications:** Whether Xiaomi's native focus/island notification channel permission is active.
 
+{{< figure src="/img/docs/troubleshooting/en/diagnostics-dashboard.jpg" alt="Hyper Bridge Diagnostics and Health Monitor Dashboard" caption="Figure 1: Real-time service metrics, health status, and live event log on the Diagnostics screen." >}}
+
 {{< alert icon="lightbulb" >}}
 Tapping the health card immediately navigates to the interactive [System Health & Setup Guide]({{< ref "docs/permissions/system-setup.md" >}}), where you can resolve any missing permissions in one tap.
 {{< /alert >}}
