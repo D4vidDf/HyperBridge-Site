@@ -289,6 +289,8 @@ Want your camera punch hole to always look like an integrated dynamic island eve
 
 Congratulations! Hyper Bridge is now fully configured and actively running.
 
+- **[Managing & Enabling Apps]({{< ref "docs/getting-started/enabling-apps.md" >}})**: Choose which apps trigger dynamic islands and enable auto-bridging.
+- **[Native System Apps & Options]({{< ref "docs/features/system-apps.md" >}})**: Configure Screen Recording, System Update, and VPN islands.
 - **[Design Studio & Hub]({{< ref "docs/customization/design-hub.md" >}})**: Customize colors, styles, and templates.
 - **[System Widgets Guide]({{< ref "docs/customization/widgets-guide.md" >}})**: Add widgets from your favorite apps.
 - **[Custom Translators Guide]({{< ref "docs/customization/custom-translators.md" >}})**: Create custom notification rules with regex matching and smart actions.
