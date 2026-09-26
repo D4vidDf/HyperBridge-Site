@@ -1,7 +1,9 @@
 ---
 title: "Translators Technical Specification"
 description: "Complete technical JSON schema, runtime interception architecture, condition evaluation, and .htrans package specification."
-weight: 3
+weight: 1
+aliases:
+  - /docs/customization/translators-specification/
 showTableOfContents: true
 ---
 

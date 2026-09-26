@@ -119,4 +119,4 @@ Available `smart_action_type` targets in Custom Translators:
 - `DIAL_NUMBER`: Launches dialer for extracted contact numbers.
 - `TRACK_PACKAGE`: Opens the carrier tracking page.
 
-For detailed schema specifications, see the [Translators Technical Specification]({{< ref "docs/customization/translators-specification.md" >}}).
+For detailed schema specifications, see the [Translators Technical Specification]({{< ref "docs/advanced/translators-specification.md" >}}).

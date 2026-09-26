@@ -11,7 +11,7 @@ Whether you want to highlight messages from VIP contacts, turn delivery progress
 
 {{< alert icon="lightbulb" >}}
 **Looking for the complete technical JSON schema and developer architecture?**  
-Check out the [Advanced Translators Technical Specification]({{< ref "translators-specification.md" >}}).
+Check out the [Advanced Translators Technical Specification]({{< ref "docs/advanced/translators-specification.md" >}}).
 {{< /alert >}}
 
 ---
@@ -192,6 +192,6 @@ Simply include a `translators/` folder inside your `.htheme` archive containing 
 
 ## Next Steps
 
-- Check out the full [Advanced Translators Technical Specification]({{< ref "translators-specification.md" >}}) for complete JSON schemas, Room database entity structures, and runtime pipeline details.
+- Check out the full [Advanced Translators Technical Specification]({{< ref "docs/advanced/translators-specification.md" >}}) for complete JSON schemas, Room database entity structures, and runtime pipeline details.
 - Explore the [Theme Creator Guide]({{< ref "theme-creator.md" >}}) to build complete icon and color themes for Hyper Bridge.
 - Learn about [Smart Actions]({{< ref "docs/features/smart-actions.md" >}}) to supercharge your notification buttons.
