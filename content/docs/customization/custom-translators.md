@@ -122,11 +122,20 @@ Define regular expression patterns and criteria to match incoming notifications:
 
 ### Module 5: Presentation & Layout Templates
 Control visual rendering mode and variable text templates:
-1. **Presentation Mode**: Choose between **Standard**, **Template** (official predefined HyperIsland layouts), or **Widget** (interactive rich widget component).
+1. **Presentation Mode**: Choose between:
+   - **Standard**: Clean default card layout with avatar/icon, title, subtitle, and action buttons.
+   - **Template**: Official predefined Xiaomi HyperIsland layouts (`tpl_weather_nav`, `tpl_payment_wallet`, `tpl_call_kit`, `tpl_ride_delivery`, `tpl_queue_wait`, `tpl_parking_meter`, `tpl_file_transfer`, `tpl_media_compact`).
+   - **Widget**: Interactive rich Android widget component.
+   - **RAW_PARAM_V2 (Direct Xiaomi Island Protocol)**: Advanced mode for developers and theme authors. Allows supplying a raw Xiaomi HyperOS `param_v2` JSON payload template with variable tokens, custom image injections, and direct action key bindings.
+     {{< alert icon="gear" >}}
+     **Streamlined Editor Experience:** When `RAW_PARAM_V2` is active, Hyper Bridge automatically hides manual visual builder tabs (Pill, Presentation slots, Progress, Action slots). The visual editor streamlines its interface to focus exclusively on Target Apps & Scope, Matching Conditions, Custom Variables & Regex, and Behavior Overrides.
+     {{< /alert >}}
 2. **Template Selector**: Switch between Xiaomi's 10 official templates.
 3. **Linked Theme**: Inherit the globally active theme or bind to a custom installed theme.
 4. **Left Icon Slot**: Set the source icon displayed on the left side of the island (e.g., App Icon, Custom Icon, Contact Avatar).
-5. **Text & Templates with Variable Tokens**: Customize the **Title Template**, **Subtitle Template**, and **Highlight Text Template** using dynamic variable chips like `{notif.title}`, `{notif.text}`, `{notif.subtext}`.
+5. **Text & Templates with Dynamic Tokens & Cascading Fallbacks**: Customize the **Title Template**, **Subtitle Template**, and **Highlight Text Template** using dynamic variable chips like `{notif.title}`, `{notif.text}`, `{notif.subtext}`:
+   - Built-in tokens: `{notif.title}`, `{notif.text}`, `{notif.sender}`, `{notif.conversation_title}`, `{notif.media_artist}`, `{notif.progress}`, `{app.name}`.
+   - Cascading fallbacks: `{media.artist | notif.text | "Unknown Artist"}` or `{var.driver ?: "Driver"}` evaluate candidates from left to right, preventing blank placeholders.
 
 {{< figure src="/img/docs/translators/en/10-edit-presentation-layout-overview.jpg" title="Presentation & Layout Overview" alt="Presentation & Layout Screen" width="300" >}}
 
@@ -214,12 +223,10 @@ Configure notification lifecycle, dismissal rules, and delivery engines:
   - **Enable inline reply**: Launch a custom inline reply overlay when replying directly from the island.
 
 {{< figure src="/img/docs/translators/en/26-edit-behavior-and-engine.jpg" title="Behavior & Engine Settings" alt="Behavior & Engine Configuration" width="300" >}}
-- **Island Timeout:** Automatically dismiss the island after a set time (e.g., 30 seconds for quick alerts).
-- **Shade Display:** Choose whether the notification remains visible in the standard Android notification shade.
 
 ---
 
-### Step 7: Testing with the Live Preview
+### Module 10: Testing with the Live Preview
 At the top of the editor, an interactive **HyperOS 3 Island Preview** updates in real-time as you tweak settings:
 - Tap the **Expanded Island / Compact Pill** toggle to verify both states.
 - Verify text wrapping, variable replacement, button styling, and theme colors before saving.
