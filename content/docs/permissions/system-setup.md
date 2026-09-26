@@ -29,11 +29,15 @@ At the top of the screen, an expressive **Hero Banner** tracks your setup progre
 - **Green ("System Health: Good"):** All essential permissions are granted and the listener watchdog is active.
 - **Amber / Orange ("Needs Attention"):** One or more required permissions are missing or restricted, preventing islands from displaying properly.
 
+{{< figure src="/img/docs/permissions/en/system-setup-permissions.jpg" alt="System Health Dashboard Permissions Overview" caption="Figure 1: Core system permissions checklist on the System Health screen." >}}
+
 ---
 
 ## 2. Essential Permissions Checklist
 
 Each card on the System Health screen provides a 1-tap shortcut directly to the corresponding Xiaomi system settings page:
+
+{{< figure src="/img/docs/permissions/en/system-setup-optimizations.jpg" alt="Battery and Background Optimization Checks" caption="Figure 2: Battery Saver ('No restrictions') and Autostart configuration cards." >}}
 
 ### Step 1: Notification Listener Access
 - **Why it is required:** Android prohibits regular apps from reading alerts from other apps. Notification Listener access allows Hyper Bridge to observe incoming notifications and forward them to the island engine.
@@ -88,7 +92,7 @@ When an app (such as WhatsApp, Telegram, or Spotify) posts a notification while 
 
 At the exact same time, Hyper Bridge renders the **HyperIsland** card. This can result in **two overlapping popups** appearing simultaneously:
 1. The native Xiaomi floating notification banner.
-2. The custom Hyper Bridge Super Island card.
+2. The custom Hyper Bridge HyperIsland card.
 
 ```mermaid
 flowchart TD
@@ -123,6 +127,8 @@ If you prefer Xiaomi's native floating heads-up popups over the island's floatin
 
 ### Using the Floating Setup Screen
 Navigate to **Settings** &rarr; **Floating Notification Setup** (or tap the checklist card in System Health):
+
+{{< figure src="/img/docs/permissions/en/floating-notification-setup.jpg" alt="Floating Notification Setup Screen" caption="Figure 3: Floating Notification Setup manager with review filters and confirmation toggles." >}}
 
 1. **Status Filter Chips:**
    - **All:** Displays all applications enabled in your Hyper Bridge library.

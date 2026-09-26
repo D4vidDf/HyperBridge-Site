@@ -23,6 +23,8 @@ You can access the bug reporter in two ways:
 
 To ensure the issue can be reproduced and resolved quickly, the reporter provides structured input fields:
 
+{{< figure src="/img/docs/troubleshooting/en/bug-report-form.jpg" alt="Bug Report Input Form" caption="Figure 1: Issue title, description, and steps to reproduce inputs." >}}
+
 ### A. Description (Required)
 Provide a clear explanation of what went wrong:
 - Describe the unexpected behavior (e.g. *"WhatsApp messages do not show custom avatar"* or *"Island doesn't dismiss after audio stops"*).
@@ -48,6 +50,8 @@ If the bug occurs exclusively with a particular app (e.g., Spotify, Telegram, Ub
 ## 2. Automated Diagnostic Snapshot
 
 When you generate a report, `BugReportCollector` gathers an automated technical environment snapshot. You can preview all collected data directly on the screen before sending:
+
+{{< figure src="/img/docs/troubleshooting/en/bug-report-system-info.jpg" alt="Automated Diagnostic Snapshot" caption="Figure 2: Device, firmware, permission flags, and sanitized event logs automatically compiled into the report." >}}
 
 ### Device & Firmware Environment
 - **Device Model & Name:** Marketing name (e.g., `Xiaomi 14 Ultra`, `POCO F6 Pro`) and hardware codename.
@@ -87,6 +91,8 @@ Hyper Bridge is committed to user privacy:
 ## 4. Submission Options
 
 Once your report is composed, tap the action button that best suits your workflow:
+
+{{< figure src="/img/docs/troubleshooting/en/bug-report-actions.jpg" alt="Bug Report Submission Actions" caption="Figure 3: Submission choices: Submit on GitHub, Send via Email, or Copy Report to Clipboard." >}}
 
 ### Option 1: Submit via GitHub Issues (Recommended)
 Tap **Submit on GitHub**:

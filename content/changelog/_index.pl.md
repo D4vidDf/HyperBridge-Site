@@ -37,7 +37,7 @@ Take total control over how any app's notifications render on Xiaomi HyperOS Sup
 
 📖 **Learn more in our documentation:**
 - [Custom Translators Overview](https://hyper-bridge.app/docs/customization/custom-translators/)
-- [Translators Specification & Schema Reference](https://hyper-bridge.app/docs/customization/translators-specification/)
+- [Translators Specification & Schema Reference](https://hyper-bridge.app/docs/advanced/translators-specification/)
 - [Theme Creator & Bundling Guide](https://hyper-bridge.app/docs/customization/theme-creator/)
 
 ---

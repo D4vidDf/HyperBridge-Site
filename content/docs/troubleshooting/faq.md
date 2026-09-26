@@ -11,7 +11,7 @@ Find answers to common questions about how Hyper Bridge works, its architecture,
 
 ## What does Hyper Bridge do?
 
-Hyper Bridge is an application that acts as a bridge, reading standard Android notifications and translating them into native, featured notifications for Xiaomi HyperOS to display seamlessly on the **HyperIsland** (Super Island / Dynamic Island).
+Hyper Bridge is an application that acts as a bridge, reading standard Android notifications and translating them into native, featured notifications for Xiaomi HyperOS to display seamlessly on the **HyperIsland** (HyperIsland / Dynamic Island).
 
 ---
 

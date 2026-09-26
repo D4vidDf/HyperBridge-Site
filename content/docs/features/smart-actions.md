@@ -5,7 +5,7 @@ weight: 2
 showTableOfContents: true
 ---
 
-**Smart Actions** supercharge your notifications by automatically detecting actionable entities—such as 2FA verification codes, street addresses, map links, phone numbers, and package tracking numbers—and injecting contextual 1-tap action buttons directly onto the **HyperIsland** (Super Island) and notification shade.
+**Smart Actions** supercharge your notifications by automatically detecting actionable entities—such as 2FA verification codes, street addresses, map links, phone numbers, and package tracking numbers—and injecting contextual 1-tap action buttons directly onto the **HyperIsland** (HyperIsland) and notification shade.
 
 Instead of switching apps or memorizing codes, you can copy an OTP, jump into your preferred navigation app, or call a driver with a single tap.
 
@@ -92,9 +92,15 @@ In the Hyper Bridge app, navigate to **Settings** &rarr; **Smart Actions**:
 
 ### Per-App Privacy Overrides
 You can customize Smart Actions behavior for any specific application:
-1. Go to **Library** and select an app (e.g., your banking or password manager app).
-2. Scroll to the **Smart Actions** section.
-3. Choose to **Exclude App** completely or override individual features (e.g., turn off OTP scanning for Bank App while retaining it for SMS).
+1. Go to **Library** or **Active** tabs on the home screen and tap the gear/settings icon on any app card.
+2. Tap the **Smart Actions** menu item.
+3. Toggle Smart Actions specifically for that application or disable specific types (e.g., turn off OTP scanning for banking apps while keeping links and parcel tracking active).
+
+{{< figure 
+    src="/img/docs/app-config/en/04-app-smart-actions.jpg" 
+    alt="Per-App Smart Actions Configuration" 
+    caption="Granular per-app Smart Action toggles: Verification codes / OTP, Links, Phone numbers, Parcel tracking, and Directions." 
+>}}
 
 ---
 
@@ -119,4 +125,4 @@ Available `smart_action_type` targets in Custom Translators:
 - `DIAL_NUMBER`: Launches dialer for extracted contact numbers.
 - `TRACK_PACKAGE`: Opens the carrier tracking page.
 
-For detailed schema specifications, see the [Translators Technical Specification]({{< ref "docs/customization/translators-specification.md" >}}).
+For detailed schema specifications, see the [Translators Technical Specification]({{< ref "docs/advanced/translators-specification.md" >}}).
