@@ -34,6 +34,8 @@ When you switch to the **Design** tab, the screen is organized into clear visual
 - **App Title**: Displays the current workspace status.
 - **Settings Shortcut**: A top-right quick-action button provides instant access to **Global Settings**, island timeouts, diagnostics, and system setup guides.
 
+{{< figure src="/img/docs/design/en/01-design-hub-dashboard.jpg" alt="Design Hub Dashboard" caption="Figure 1: Design Hub overview with Hero Showcase, Bento Grid (Themes, Widgets, Designs, Translators), and active tabs." >}}
+
 ### Hero Showcase Carousel
 At the very top, a responsive hero carousel highlights key personalization features with interactive links:
 - **Customization Guide**: Quick access to official styling documentation.
@@ -58,6 +60,8 @@ Directly below the hero carousel sits the **Design Variant Bento Grid** — four
 ## 3. The Central FAB (`+` Add Action Sheet)
 
 Tapping the prominent **Floating Action Button (`+`)** in the bottom-right corner reveals an expressive Material 3 modal sheet with four core creation pathways:
+
+{{< figure src="/img/docs/design/en/02-design-hub-fab-sheet.jpg" alt="Design Hub Floating Action Menu" caption="Figure 2: The Add to Island sheet providing one-tap access to create custom designs, widgets, themes, and translators." >}}
 
 1. **Custom Design**: Choose from official Xiaomi Super Island layout presets (delivery waypoints, payment cards, timers, boarding passes) and bind them to your notification channels.
 2. **System Widget**: Browse all Android widgets installed on your device (Spotify, weather, calendar, clock) and mount them directly inside your HyperOS Super Island.

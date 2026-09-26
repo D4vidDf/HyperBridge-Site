@@ -35,59 +35,143 @@ flowchart TD
     Sections --> SecApps["📱 App-Specific Overrides\nPer-app highlight & button customizations"]
 ```
 
-### 1. Launching the Theme Creator
-- **From Design Hub**: Tap the **`+` (Add)** FAB and select **Theme & Styles**, or tap the `+` action on the **Themes** Bento card.
-- **From Theme Manager**: Open **Themes & Styles** &rarr; tap the floating action button to create a new theme, or tap the **Edit (Pencil)** icon on any installed theme to customize it.
+### 1. Accessing Theme Management
+
+Open **Design Hub** &rarr; tap the **Themes & Styles** Bento card:
+
+{{< figure src="/img/docs/themes/en/01-themes-manager-list.jpg" alt="Theme Manager Library" caption="Figure 1: The Theme Manager library showing installed themes, active selection checkmark, and edit/export actions." >}}
+
+From here you can:
+- **Switch Active Theme:** Tap any theme card to activate it immediately.
+- **Manage Custom Themes:** Tap the **Edit (Pencil)** icon to modify an existing theme, **Share** to export as an `.hbr` bundle, or **Trash** to delete it.
+- **Add New Theme:** Tap the **`+` (Floating Action Button)** in the bottom right corner:
+
+{{< figure src="/img/docs/themes/en/02-add-new-theme-sheet.jpg" alt="Add New Theme Action Sheet" caption="Figure 2: Add New Theme sheet with options to Create New Theme, Search online catalog, or Import from file." >}}
+
+Choose **Create New Theme** to launch the visual studio, **Import** to load a local `.hbr`/`.htheme` archive, or **Search** to browse community creations.
 
 ---
 
-### 2. Live Interactive Preview
-At the top of the Theme Creator, a live **HyperOS Super Island Preview** renders your adjustments instantly:
-- Watch call answer/decline button shapes and colors change as you pick them.
-- See how app icon padding and geometric corner radiuses look against the dark island canvas.
-- Toggle between dark, light, or accent states in real time.
+### 2. The Theme Creator Studio Overview
+
+When you create or edit a theme, the **Theme Creator Studio** (`ThemeCreatorScreen`) opens with an interactive live canvas at the top:
+
+{{< figure src="/img/docs/themes/en/03-create-theme-overview.jpg" alt="Theme Creator Studio Overview" caption="Figure 3: Theme Creator main studio featuring the live island simulator, Theme Info button, and module navigation." >}}
+
+#### Theme Info & Metadata
+Tap **Edit Theme Info** to brand your creation:
+
+{{< figure src="/img/docs/themes/en/04-theme-info-metadata.jpg" alt="Theme Info & Metadata Sheet" caption="Figure 4: Setting the theme icon, name, author credits, and description." >}}
+
+- **Select Icon:** Pick an emblem or custom artwork for your theme card.
+- **Theme Name & Author Name:** Give your theme a distinctive identity.
+- **Description:** Add release notes or styling tips.
 
 ---
 
-### 3. Understanding the Theme Creator Modules
+### 3. Step-by-Step Theme Modules
 
 The creator organizes theme properties into modular, focused subscreens:
 
+#### ⚡ Behavior & Triggers (`CreatorRoute.BEHAVIOR_MENU`)
+Configure how the notification engine treats this theme:
+
+{{< figure src="/img/docs/themes/en/05-theme-behavior-triggers.jpg" alt="Behavior & Triggers Menu" caption="Figure 5: Engine mode selection, island behavior timeouts, and triggered notification event types." >}}
+
+- **Engine:** Switch between **Live Updates (Custom Island Engine)** and **Native Xiaomi Live Updates**.
+- **Island Behavior:** Fine-tune auto-dismiss durations, duplicate handling, and lock screen visibility.
+- **Notification Types:** Choose which event categories trigger islands for this theme.
+
+---
+
 #### 🎨 Colors & Color Mode (`CreatorRoute.COLORS`)
-- **Highlight Color**: The primary accent color for progress bars, highlights, and status badges (e.g. Electric Cyan `#00FFDD`, Sunset Orange `#FF6900`, Lime `#34C759`).
-- **Color Mode**:
-  - **Custom Color**: Uses your designated hex highlight color across all applications.
-  - **App Icon Color (Dynamic Extraction)**: Automatically extracts and applies the dominant color from each notification app's icon for a dynamic, tailored feel.
+Define the visual color palette across your island:
+
+{{< figure src="/img/docs/themes/en/06-colors-palette-presets.jpg" alt="Colors & Presets" caption="Figure 6: Preset color chips, dynamic app color extraction, and Material You system wallpaper matching." >}}
+
+- **Preset Colors:** Tap quick accent swatches (Green, Red, Blue, Orange, Purple).
+- **Dynamic Colors:**
+  - **Use App Colors:** Automatically extracts and applies the dominant color from each notification app's icon for a customized look.
+  - **Material You (System):** Extracts tonal palettes directly from your Android wallpaper.
+- **Custom Color Picker:** Tap the **Custom** tab to choose any precise hex code:
+
+{{< figure src="/img/docs/themes/en/07-colors-custom-hex.jpg" alt="Custom Hex Color Picker" caption="Figure 7: Custom hex color selection." >}}
+
+---
 
 #### 📐 Icons & Shapes (`CreatorRoute.ICONS`)
-- **Icon Shape Mask**: Pick the geometric mask applied to notification icons:
-  - `circle`: Traditional smooth circular mask.
-  - `squircle`: Modern continuous-curvature squircle matching HyperOS design.
-  - `cookie`: Playful scallop-edged cookie shape.
-  - `clover8`: 8-petal clover geometry.
-  - `square` / `arch`: Sharp or arched framing.
-- **Icon Inner Padding (0% to 30%)**: Adjust breathing room between the icon graphic and the geometric boundary.
+Style the geometric framing and proportions of notification avatars and status indicators:
 
-#### 📞 Calls Style (`CreatorRoute.CALLS`)
-- **Answer Button**: Set custom button background color (default `#34C759`), geometric shape mask, and optional custom call answer PNG icon.
-- **Decline Button**: Set custom button background color (default `#FF3B30`), geometric shape mask, and optional custom call decline PNG icon.
+{{< figure src="/img/docs/themes/en/08-icons-shapes-size.jpg" alt="Icon Size & Proportions" caption="Figure 8: Icon Size slider adjusting proportions between Full and Minimal." >}}
 
-#### ⚡ Behavior & Engine Motor (`CreatorRoute.BEHAVIOR_MENU`)
-- **Engine Selection**: Toggle between **Custom Island** (Hyper Bridge's native floating island motor) and **Native Live Update** (Xiaomi's official live channel).
-- **Float & Dismissal Timeouts**: Configure default display durations before the expanded island card collapses into the compact pill.
+- **Icon Size Slider:** Scale notification icons between full-bleed and compact minimalism.
+- **Live State Previews:** Swipe horizontally on the preview card at the top to see your changes across notifications, calls, and media:
 
-#### 🧭 Navigation & Inline Reply
-- **Navigation Layout (`CreatorRoute.NAVIGATION`)**: Adjust waypoint colors, swap left/right turn indicator positions, and assign custom arrow/flag icons for turn-by-turn guidance.
-- **Inline Reply (`CreatorRoute.REPLY`)**: Customize the input field background, placeholder text, and send button styling for interactive island replies.
+{{< figure src="/img/docs/themes/en/09-icons-shapes-preview.jpg" alt="Call and Media Live State Preview" caption="Figure 9: Real-time simulator rendering call buttons and status icons with active theme settings." >}}
 
-#### 🔘 Default Actions & App Overrides
-- **Default Actions (`CreatorRoute.ACTIONS`)**: Set default visual modes for standard actions (`ICON`, `TEXT`, or `ICON_AND_TEXT`) and assign custom graphic assets.
-- **App-Specific Customizations (`CreatorRoute.APPS`)**: Override any color, action button, or icon mask for individual applications (e.g., WhatsApp in Emerald Green, Spotify in Black & Neon).
+- **Navigation & Progress Icons:** Choose custom vector glyphs for turn-by-turn guidance and completion badges:
+
+{{< figure src="/img/docs/themes/en/10-icons-shapes-navigation.jpg" alt="Navigation and Progress Icon Options" caption="Figure 10: Customizable navigation waypoints and progress success icons." >}}
+
+- **Geometric Mask Picker:** Apply custom corner masks to all icons:
+
+{{< figure src="/img/docs/themes/en/11-icons-shapes-mask-picker.jpg" alt="Icon Shape Masks" caption="Figure 11: Geometric shape masks: Circle, Rounded Squircle, Cookie, Arch, and Clover." >}}
+
+---
+
+#### 📞 Call Controls Style (`CreatorRoute.CALLS`)
+Customize incoming and ongoing phone call cards:
+
+{{< figure src="/img/docs/themes/en/12-call-style-answer.jpg" alt="Answer Call Button Styling" caption="Figure 12: Customizing Answer button color (#34C759) and geometric shape mask." >}}
+
+- **Answer Button:** Configure custom hex colors (default `#34C759`) and geometric masks.
+- **Decline Button:** Configure end-call accents (default `#FF3B30`) and button shapes:
+
+{{< figure src="/img/docs/themes/en/13-call-style-decline.jpg" alt="Decline Call Button Styling" caption="Figure 13: Customizing Decline button color (#FF3B30) and geometric shape mask." >}}
+
+---
+
+#### 🧭 Navigation Layout (`CreatorRoute.NAVIGATION`)
+Fine-tune turn-by-turn GPS heads-up islands:
+
+{{< figure src="/img/docs/themes/en/14-navigation-layout-config.jpg" alt="Navigation Layout Configuration" caption="Figure 14: Navigation layout configuration for distance, time, and maneuver instructions." >}}
+
+- **Left Side:** Distance & Remaining Time.
+- **Right Side:** Maneuver instruction (e.g., Turn Right).
+- *Note:* In the Native Live Update engine, right-side content is prioritized to maintain status bar alignment.
+
+---
+
+#### 🔘 Global Actions & Quick Buttons (`CreatorRoute.ACTIONS`)
+Configure smart action buttons attached to notifications (such as Reply, Archive, Like, Mark as Read):
+
+{{< figure src="/img/docs/themes/en/15-global-actions-empty.jpg" alt="Global Actions Empty State" caption="Figure 15: Global Actions manager for styling action buttons based on label keywords." >}}
+
+Tap the **`+` (Add Action)** button to create keyword matching rules:
+
+{{< figure src="/img/docs/themes/en/16-global-actions-configure.jpg" alt="Configure Action Dialog" caption="Figure 16: Action styling rule: keyword trigger, display mode (Icon Only, Text, Both), background color, and text color." >}}
+
+- **Keyword Matching:** Enter keywords (e.g. `'Reply'`, `'Archive'`, `'Skip'`).
+- **Display Mode:** Choose between **Icon Only**, **Text**, or **Both**.
+- **Colors:** Set custom button background and text/icon contrast colors.
+
+---
+
+#### 📱 Per-App Custom Overrides (`CreatorRoute.APPS`)
+Override theme rules for specific individual applications:
+
+{{< figure src="/img/docs/themes/en/17-app-config-empty.jpg" alt="App Configuration Overview" caption="Figure 17: App-specific styling override manager." >}}
+
+Tap **`+`** to select an app from your device:
+
+{{< figure src="/img/docs/themes/en/18-app-config-select-app.jpg" alt="Select Target App for Styling" caption="Figure 18: Selecting an installed application to apply custom per-app styling." >}}
+
+You can assign unique highlight colors, distinct geometric shapes, or special button layouts for specific apps (e.g., WhatsApp in emerald green, Spotify in neon green, YouTube Music in crimson).
 
 ---
 
 ### 4. Saving & Applying Your Theme
-1. Tap the **Save** button in the top-right corner.
+1. Tap the **Save** button in the top-right corner of the studio.
 2. In the dialog:
    - **Save & Apply**: Immediately activates your new theme as the default system style.
    - **Save Only**: Saves the theme to your library without applying it.
