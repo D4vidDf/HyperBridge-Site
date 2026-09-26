@@ -13,7 +13,7 @@ This document provides the authoritative technical reference for the **Custom Tr
 
 ## Architectural Overview
 
-Hyper Bridge operates as an event-driven translation engine that intercepts incoming `StatusBarNotification` events from the Android Notification Listener Service and transforms them into native Xiaomi HyperOS Super Island specifications.
+Hyper Bridge operates as an event-driven translation engine that intercepts incoming `StatusBarNotification` events from the Android Notification Listener Service and transforms them into native Xiaomi HyperOS HyperIsland specifications.
 
 ```mermaid
 flowchart TD
@@ -33,7 +33,7 @@ flowchart TD
     K -- "CUSTOM_ISLAND (Default)" --> L["HyperIslandNotification.Builder"]
     K -- "NATIVE_LIVE_UPDATE" --> M["LiveUpdateTranslator (Xiaomi Live Channel)"]
     
-    L --> N["Xiaomi HyperIsland Framework (Super Island)"]
+    L --> N["Xiaomi HyperIsland Framework (HyperIsland)"]
     M --> N
     F --> N
 ```
@@ -338,7 +338,7 @@ The `custom_actions` pipeline enables binding native notification actions, Smart
 
 ### 12. Direct Xiaomi Island Protocol: `PresentationMode.RAW_PARAM_V2`
 
-For advanced developers and reverse-engineers who want byte-level control over the native Xiaomi HyperOS Super Island payload, Hyper Bridge 0.6.0 introduces `PresentationMode.RAW_PARAM_V2`.
+For advanced developers and reverse-engineers who want byte-level control over the native Xiaomi HyperOS HyperIsland payload, Hyper Bridge 0.6.0 introduces `PresentationMode.RAW_PARAM_V2`.
 
 Instead of relying on predefined visual slots (`text_slot`, `progress_slot`, `pill`), you provide a native Xiaomi `param_v2` JSON template string. Hyper Bridge handles the heavy lifting: evaluating variables, extracting graphics, wiring `PendingIntent`s into the Android resource bundle, validating the JSON schema, and transmitting the packet directly to HyperOS.
 
@@ -660,13 +660,13 @@ Detects incoming SMS or authenticator codes, extracts the verification code, and
 ---
 
 ### Example 4: Direct `RAW_PARAM_V2` Ride-Share Live Tracker
-An advanced developer example using `PresentationMode.RAW_PARAM_V2`. It parses driver name, ETA minutes, and vehicle model via regular expressions, bundles a custom driver avatar and call button, and renders a native Xiaomi HyperOS Super Island directly:
+An advanced developer example using `PresentationMode.RAW_PARAM_V2`. It parses driver name, ETA minutes, and vehicle model via regular expressions, bundles a custom driver avatar and call button, and renders a native Xiaomi HyperOS HyperIsland directly:
 
 ```json
 {
   "id": "com.rideshare.live_driver_v2",
   "meta": {
-    "name": "Ride-Share Super Island (RAW_PARAM_V2)",
+    "name": "Ride-Share HyperIsland (RAW_PARAM_V2)",
     "author": "HyperBridge Pro Dev",
     "version": 2,
     "description": "Native Xiaomi param_v2 ride tracker with regex extraction, dynamic fallback cascade, and direct action bundling.",

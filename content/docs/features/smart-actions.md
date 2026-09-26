@@ -5,7 +5,7 @@ weight: 2
 showTableOfContents: true
 ---
 
-**Smart Actions** supercharge your notifications by automatically detecting actionable entities—such as 2FA verification codes, street addresses, map links, phone numbers, and package tracking numbers—and injecting contextual 1-tap action buttons directly onto the **HyperIsland** (Super Island) and notification shade.
+**Smart Actions** supercharge your notifications by automatically detecting actionable entities—such as 2FA verification codes, street addresses, map links, phone numbers, and package tracking numbers—and injecting contextual 1-tap action buttons directly onto the **HyperIsland** (HyperIsland) and notification shade.
 
 Instead of switching apps or memorizing codes, you can copy an OTP, jump into your preferred navigation app, or call a driver with a single tap.
 

@@ -5,7 +5,7 @@ weight: 2
 showTableOfContents: true
 ---
 
-Hyper Bridge 0.6.0 introduces the **Custom Translators Framework**, a declarative engine that lets you customize exactly how notifications from any app are transformed into native Xiaomi HyperOS **HyperIsland** (Super Island) cards and compact status pills.
+Hyper Bridge 0.6.0 introduces the **Custom Translators Framework**, a declarative engine that lets you customize exactly how notifications from any app are transformed into native Xiaomi HyperOS **HyperIsland** (HyperIsland) cards and compact status pills.
 
 Whether you want to highlight messages from VIP contacts, turn delivery progress notifications into live tracked waypoints, add 1-tap OTP verification buttons, or hide redundant notification actions, Custom Translators give you full control.
 
@@ -145,7 +145,7 @@ Control the color palette and graphic styling:
 Configure how the island animates and dismisses:
 - **Engine Mode:**
   - **Inherit:** Uses the global motor setting configured in Hyper Bridge.
-  - **Custom Island:** Renders via Hyper Bridge's native floating Super Island engine.
+  - **Custom Island:** Renders via Hyper Bridge's native floating HyperIsland engine.
   - **Native Live Update:** Routes the notification through Xiaomi's native HyperOS live update notification channel.
 - **Float Duration:** Set how many seconds the expanded island stays open before collapsing into the compact pill.
 - **Island Timeout:** Automatically dismiss the island after a set time (e.g., 30 seconds for quick alerts).

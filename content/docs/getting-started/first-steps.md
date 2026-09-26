@@ -50,7 +50,7 @@ To convert standard notifications into floating dynamic islands, Hyper Bridge re
 {{< figure 
     src="/img/docs/onboarding/en/03-permission-show-island.jpg" 
     alt="Show Island Notification Permission" 
-    caption="Step 3: Permission to post floating notifications and Super Islands." 
+    caption="Step 3: Permission to post floating notifications and HyperIslands." 
 >}}
 
 ### Step 3: Show Island (POST_NOTIFICATIONS)
@@ -120,7 +120,7 @@ Xiaomi HyperOS features strict memory and background management. To ensure your 
 
 ### Step 8: How it Works
 - Shows a live interactive call preview.
-- **Tip on Floating Banners**: To avoid seeing both the default Android floating pop-up banner and the Xiaomi Super Island at the same time, you can selectively disable floating banner notifications in the target app's system notification channel. (This is completely optional and never requires root or Shizuku).
+- **Tip on Floating Banners**: To avoid seeing both the default Android floating pop-up banner and the Xiaomi HyperIsland at the same time, you can selectively disable floating banner notifications in the target app's system notification channel. (This is completely optional and never requires root or Shizuku).
 
 ---
 
@@ -145,7 +145,7 @@ Xiaomi HyperOS features strict memory and background management. To ensure your 
 ### Step 10: Personalization Capabilities
 Hyper Bridge introduces you to the visual customization tools:
 - **Themes**: Full control over highlight colors, icon shape masks (cookie, squircle, clover8), and call controls.
-- **Widgets**: Ability to mount standard Android home-screen widgets (clocks, battery bars, Spotify cards) directly into the Super Island.
+- **Widgets**: Ability to mount standard Android home-screen widgets (clocks, battery bars, Spotify cards) directly into the HyperIsland.
 
 ---
 
@@ -198,7 +198,7 @@ Hyper Bridge supports two rendering engines tailored to different ROM variants:
 >}}
 
 ### Steps 13 – 15: Engine Selection
-- **Xiaomi Featured Design (Recommended for Global/EEA)**: Renders the full modern Xiaomi HyperOS Super Island with rich card layouts, status pills, and expressive animations.
+- **Xiaomi Featured Design (Recommended for Global/EEA)**: Renders the full modern Xiaomi HyperOS HyperIsland with rich card layouts, status pills, and expressive animations.
 - **Live Update Design (Recommended for CN ROMs)**: Utilizes native Android notification channels and Live Update designs to bypass CN ROM system UI restrictions without Shizuku.
 
 ---

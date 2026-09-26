@@ -161,7 +161,7 @@ Para páginas con encabezado Hero (como la página de inicio o portadas de secci
 ```yaml
 ---
 title: "Hyper Bridge"
-heroCaption: "Expande tu Super Island"
+heroCaption: "Expande tu HyperIsland"
 heroLead: "Desbloquea el sistema nativo de notificaciones visuales de HyperOS."
 heroImage: "img/es/hero.png"    # Ruta a la imagen hero localizada
 ---
@@ -301,7 +301,7 @@ title = "Hyper Bridge"
 [params.author]
   name = "Hyper Bridge"
   image = "img/logo.svg"
-  headline = "Étendez votre Super Island"
+  headline = "Étendez votre HyperIsland"
   bio = "Hyper Bridge déverrouille le système de notifications visuelles natif d'HyperOS."
   links = [
     { github = "https://github.com/D4vidDf/HyperBridge" },
@@ -350,7 +350,7 @@ Para mantener la coherencia y calidad entre traducciones:
 
 | Término en Inglés | Recomendación de Traducción |
 | :--- | :--- |
-| **HyperIsland / Super Island** | Mantener como nombre propio (o término oficial en Xiaomi HyperOS). |
+| **HyperIsland / HyperIsland** | Mantener como nombre propio (o término oficial en Xiaomi HyperOS). |
 | **Smart Translators** | Traducir descriptivamente (*Traductores Inteligentes*). |
 | **Notification Listener** | Referirse al servicio (*Acceso a Notificaciones*, *Notification Listener*). |
 | **Shizuku** | Mantener como nombre de herramienta (*Shizuku*). |

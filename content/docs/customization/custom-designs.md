@@ -1,13 +1,13 @@
 ---
 title: "Island Templates & Designs"
-description: "How to use Xiaomi's 10 official Super Island layout templates and configure them in Hyper Bridge."
+description: "How to use Xiaomi's 10 official HyperIsland layout templates and configure them in Hyper Bridge."
 weight: 3
 showTableOfContents: true
 ---
 
-Starting with Hyper Bridge 0.6.0, you can display incoming notifications using **Xiaomi's 10 Official Super Island Layout Templates** (`IslandTemplateCatalog`).
+Starting with Hyper Bridge 0.6.0, you can display incoming notifications using **Xiaomi's 10 Official HyperIsland Layout Templates** (`IslandTemplateCatalog`).
 
-Templates take the guesswork out of designing notification cards: each template provides a purpose-built visual architecture with optimal typography, progress elements, and button layouts optimized specifically for HyperOS 3 Super Island.
+Templates take the guesswork out of designing notification cards: each template provides a purpose-built visual architecture with optimal typography, progress elements, and button layouts optimized specifically for HyperOS 3 HyperIsland.
 
 ```mermaid
 flowchart TD
@@ -86,7 +86,7 @@ Follow these steps to activate a template design in seconds:
 
 To inspect and customize your designs:
 1. Tap the **Designs** card on the Design Hub Bento Grid to enter the **Design Manager**.
-2. **Interactive Preview**: Tap the preview switch to see how your active designs look on a live HyperOS Super Island mockup.
+2. **Interactive Preview**: Tap the preview switch to see how your active designs look on a live HyperOS HyperIsland mockup.
 3. **Edit in Visual Editor**: Tap the **Edit (Pencil)** icon on any design card to modify matching conditions, target specific packages, change action buttons, or customize colors.
 4. **Duplicate & Share**:
    - Tap **Duplicate** to create a modified clone of a design for a specific app.

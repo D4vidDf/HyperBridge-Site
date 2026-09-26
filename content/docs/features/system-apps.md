@@ -122,5 +122,5 @@ In addition to Screen Recording and System Updates, HyperOS system services like
 
 ## Next Steps
 
-- **[Dynamic Island Engine]({{< ref "docs/features/dynamic-islands.md" >}})**: Learn how notifications and system events are mapped into Super Islands.
+- **[Dynamic Island Engine]({{< ref "docs/features/dynamic-islands.md" >}})**: Learn how notifications and system events are mapped into HyperIslands.
 - **[Design Hub & Custom Themes]({{< ref "docs/customization/design-hub.md" >}})**: Customize colors, shapes, and layouts across all your islands.

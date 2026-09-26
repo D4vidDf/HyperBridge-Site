@@ -92,7 +92,7 @@ When an app (such as WhatsApp, Telegram, or Spotify) posts a notification while 
 
 At the exact same time, Hyper Bridge renders the **HyperIsland** card. This can result in **two overlapping popups** appearing simultaneously:
 1. The native Xiaomi floating notification banner.
-2. The custom Hyper Bridge Super Island card.
+2. The custom Hyper Bridge HyperIsland card.
 
 ```mermaid
 flowchart TD

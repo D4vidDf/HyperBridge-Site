@@ -1,6 +1,6 @@
 ---
 title: "Dynamic Island Engine"
-description: "Understanding how Hyper Bridge renders notifications into Super Islands."
+description: "Understanding how Hyper Bridge renders notifications into HyperIslands."
 weight: 1
 showTableOfContents: true
 ---

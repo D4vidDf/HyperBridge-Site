@@ -1,17 +1,17 @@
 ---
 title: "Customization & User Guides"
-description: "User guides for customizing your Xiaomi HyperOS Super Island: Design Hub, Themes, System Widgets, Island Templates, and Translators."
+description: "User guides for customizing your Xiaomi HyperOS HyperIsland: Design Hub, Themes, System Widgets, Island Templates, and Translators."
 icon: "palette"
 weight: 40
 showTableOfContents: false
 ---
 
-Explore step-by-step guides on personalizing your Xiaomi HyperOS Super Island using Hyper Bridge's built-in visual tools:
+Explore step-by-step guides on personalizing your Xiaomi HyperOS HyperIsland using Hyper Bridge's built-in visual tools:
 
 - **[Design Studio & Hub]({{< ref "design-hub.md" >}})**: Learn how the Bento grid, hero showcase, and central creation action sheet work.
 - **[Visual Theme Creator]({{< ref "theme-creator.md" >}})**: Customize colors, dynamic app extraction, geometric masks, call buttons, and export/import `.hbr` themes without code.
-- **[System Widgets Guide]({{< ref "widgets-guide.md" >}})**: Mount any Android home-screen widget (Spotify, Google Calendar, Weather) directly into your Super Island.
-- **[Island Templates & Designs]({{< ref "custom-designs.md" >}})**: Browse and apply Xiaomi's 10 official Super Island layouts (waypoint delivery, OTP payment, boarding pass, etc.).
+- **[System Widgets Guide]({{< ref "widgets-guide.md" >}})**: Mount any Android home-screen widget (Spotify, Google Calendar, Weather) directly into your HyperIsland.
+- **[Island Templates & Designs]({{< ref "custom-designs.md" >}})**: Browse and apply Xiaomi's 10 official HyperIsland layouts (waypoint delivery, OTP payment, boarding pass, etc.).
 - **[Custom Translators Guide]({{< ref "custom-translators.md" >}})**: Build notification rules using the in-app visual editor, regex matching, and smart action buttons.
 
 ---

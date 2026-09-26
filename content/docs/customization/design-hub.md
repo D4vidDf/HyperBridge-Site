@@ -5,7 +5,7 @@ weight: 1
 showTableOfContents: true
 ---
 
-The **Design Hub** (`DesignScreen`) in Hyper Bridge 0.6.0 is your creative control center. Located in the bottom navigation bar alongside **Active Apps** and **Library**, the Design screen brings together all personalization aspects of your Xiaomi HyperOS Super Island experience in a unified Material 3 Expressive interface.
+The **Design Hub** (`DesignScreen`) in Hyper Bridge 0.6.0 is your creative control center. Located in the bottom navigation bar alongside **Active Apps** and **Library**, the Design screen brings together all personalization aspects of your Xiaomi HyperOS HyperIsland experience in a unified Material 3 Expressive interface.
 
 ```mermaid
 flowchart TD
@@ -63,8 +63,8 @@ Tapping the prominent **Floating Action Button (`+`)** in the bottom-right corne
 
 {{< figure src="/img/docs/design/en/02-design-hub-fab-sheet.jpg" alt="Design Hub Floating Action Menu" caption="Figure 2: The Add to Island sheet providing one-tap access to create custom designs, widgets, themes, and translators." >}}
 
-1. **Custom Design**: Choose from official Xiaomi Super Island layout presets (delivery waypoints, payment cards, timers, boarding passes) and bind them to your notification channels.
-2. **System Widget**: Browse all Android widgets installed on your device (Spotify, weather, calendar, clock) and mount them directly inside your HyperOS Super Island.
+1. **Custom Design**: Choose from official Xiaomi HyperIsland layout presets (delivery waypoints, payment cards, timers, boarding passes) and bind them to your notification channels.
+2. **System Widget**: Browse all Android widgets installed on your device (Spotify, weather, calendar, clock) and mount them directly inside your HyperOS HyperIsland.
 3. **Theme & Styles**: Create a new visual style, adjusting primary accents, call button designs, icon padding, and geometric shapes.
 4. **Smart Translator**: Launch the comprehensive declarative rule builder to intercept, reformat, and enhance notifications with regex, custom actions, and smart buttons.
 

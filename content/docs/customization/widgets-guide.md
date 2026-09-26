@@ -1,19 +1,19 @@
 ---
-title: "System Widgets on Super Island"
-description: "How to mount, configure, resize, and automate Android home-screen widgets inside Xiaomi HyperOS Super Island."
+title: "System Widgets on HyperIsland"
+description: "How to mount, configure, resize, and automate Android home-screen widgets inside Xiaomi HyperOS HyperIsland."
 weight: 4
 showTableOfContents: true
 ---
 
-Hyper Bridge 0.6.0 features a native **Android AppWidget Host**, allowing you to place any standard Android home-screen widget (Spotify, Google Keep, Weather, Clock, Calendar, Smart Home toggles, etc.) directly into your Xiaomi HyperOS **Super Island**!
+Hyper Bridge 0.6.0 features a native **Android AppWidget Host**, allowing you to place any standard Android home-screen widget (Spotify, Google Keep, Weather, Clock, Calendar, Smart Home toggles, etc.) directly into your Xiaomi HyperOS **HyperIsland**!
 
-Instead of being confined to static notifications, widgets running inside Super Island can remain interactive, refresh automatically in the background, or appear when needed.
+Instead of being confined to static notifications, widgets running inside HyperIsland can remain interactive, refresh automatically in the background, or appear when needed.
 
 ```mermaid
 flowchart LR
     Picker["Widget Picker\n(App filter, Search, Favorites)"] --> Bind["AppWidget Host Bind\n(Android SAF / Widget Permissions)"]
     Bind --> Config["Widget Configuration\n(Size, Render Mode, Timeouts, Auto-Update)"]
-    Config --> Island["Live HyperOS Super Island\n(Expanded Card & Shade Display)"]
+    Config --> Island["Live HyperOS HyperIsland\n(Expanded Card & Shade Display)"]
 ```
 
 ---
@@ -63,7 +63,7 @@ Once you pick a widget, you will enter the **Widget Configuration Screen**. Here
 
 ```text
 ┌──────────────────────────────────────────────────────────┐
-│              Live Super Island Widget Preview            │
+│              Live HyperIsland Widget Preview            │
 │  [ Spotify Player: Playing Song - Album Art - Controls ]  │
 └──────────────────────────────────────────────────────────┘
  [ Appearance Tab ]                     [ Behavior Tab ]
@@ -95,7 +95,7 @@ Switch to the **Behavior** tab to manage how and when the widget appears:
 
 | Setting | Default | Description |
 |---|---|---|
-| **Show in Shade** | Enabled (`true`) | When enabled, keeps the widget accessible in the standard Android notification pull-down shade in addition to the floating Super Island. |
+| **Show in Shade** | Enabled (`true`) | When enabled, keeps the widget accessible in the standard Android notification pull-down shade in addition to the floating HyperIsland. |
 | **Auto Close** | Disabled / Enabled | When turned on, you can configure an idle slider (e.g., 5 to 60 seconds). The island card will automatically dismiss after the duration expires. |
 
 {{< figure src="/img/docs/widgets/en/07-widget-config-behavior-persistent.jpg" alt="Widget Behavior Configuration - Persistent Mode" caption="Figure 7: Persistent widget configuration (Auto Close disabled) for persistent media controls or smart home toggles." >}}
@@ -110,16 +110,16 @@ After configuring your widget, tap **Save** (or the Play button) to store it in 
 
 In the **Saved Widgets** list:
 - **Live Preview Container**: Shows the live interactive widget rendering in its assigned size.
-- **Show on Island**: Tap to immediately spawn the widget on your device's Super Island to test how it looks and behaves!
+- **Show on Island**: Tap to immediately spawn the widget on your device's HyperIsland to test how it looks and behaves!
 - **Delete (`Trash`)**: Remove the widget from the island host.
 
 ---
 
 ## 5. Live Island Experience on Home Screen
 
-When triggered, the widget renders seamlessly at the top of your screen as a native Xiaomi HyperOS Super Island card:
+When triggered, the widget renders seamlessly at the top of your screen as a native Xiaomi HyperOS HyperIsland card:
 
-{{< figure src="/img/docs/widgets/en/09-widget-island-live-expanded.jpg" alt="Live Widget Island on Home Screen" caption="Figure 9: Live YouTube Music widget running inside the expanded Super Island over the HyperOS home screen." >}}
+{{< figure src="/img/docs/widgets/en/09-widget-island-live-expanded.jpg" alt="Live Widget Island on Home Screen" caption="Figure 9: Live YouTube Music widget running inside the expanded HyperIsland over the HyperOS home screen." >}}
 
 {{< figure src="/img/docs/widgets/en/10-widget-island-blurred-shade.jpg" alt="Widget Island with Blurred Shade" caption="Figure 10: Seamless presentation with translucent glassmorphic blur and system status indicators." >}}
 

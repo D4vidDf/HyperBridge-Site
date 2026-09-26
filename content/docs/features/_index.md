@@ -8,7 +8,7 @@ showTableOfContents: false
 
 Discover the core notification engine capabilities, media controls, smart 1-tap OTP copy, and native HyperOS system integrations in Hyper Bridge:
 
-- **[Dynamic Island Engine]({{< ref "dynamic-islands.md" >}})**: How notifications and live events are transformed into Super Islands.
+- **[Dynamic Island Engine]({{< ref "dynamic-islands.md" >}})**: How notifications and live events are transformed into HyperIslands.
 - **[Permanent Island]({{< ref "permanent-island.md" >}})**: Keep an elegant camera cutout pill displayed continuously during idle state.
 - **[Inline Reply]({{< ref "inline-reply.md" >}})**: Seamless floating chat reply box with glassmorphism and custom color modes.
 - **[Native System Apps & Options]({{< ref "system-apps.md" >}})**: Specialized live indicators for Screen Recording, System Updates, and VPN.
