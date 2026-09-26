@@ -34,11 +34,14 @@ Each translator defines:
 
 Hyper Bridge provides intuitive access to your translators across the application:
 
-### 1. Design Hub Carousel
-Navigate to the **Design** screen in Hyper Bridge to find the **Custom Translators** carousel. Here you can quickly view your active translators, inspect their scope badges, and tap **Manage All** to enter the manager.
+### 1. From the Design Hub
+In the **Design** tab of Hyper Bridge:
+- **Bento Card (`Translators`)**: Tap the card to open the **Translator Manager**, or tap the `+` action on the card to launch the **Visual Translator Editor** immediately.
+- **Floating Action Button (`+`)**: Tap the main `+` FAB and select **Smart Translator**.
 
 ### 2. Translator Manager Screen
-The **Translator Manager** is your central control panel:
+The **Translator Manager** (`DesignRoute.TRANSLATOR_MANAGER`) is your central control panel:
+- **Live Preview Toggle**: Toggle the top preview bar to visualize your active rules in real time.
 - **Multi-Dimensional Filtering:** Filter translators by:
   - **Scope:** Global, Specific Apps, System Apps, or Notification Type.
   - **Status:** Active or Inactive.
@@ -47,6 +50,7 @@ The **Translator Manager** is your central control panel:
 - **Search:** Quickly search translators by name, description, or target package name.
 - **Priority Reordering:** Translators are evaluated by priority (highest number first). You can adjust priorities directly to ensure specific rules override generic ones.
 - **Quick Toggles:** Enable or disable any translator with a single tap without deleting its configuration.
+- **SAF Import & Export**: Import community `.htrans` / `.json` rules or export your own creations directly to device storage.
 
 ### 3. App Configuration Screen
 When configuring any individual app under **Library** &rarr; **App Settings**, you will find a dedicated **Custom Translators** section:

@@ -5,13 +5,94 @@ weight: 1
 showTableOfContents: true
 ---
 
-This guide details how developers and creators can build themes for **Hyper Bridge** and integrate a direct "Apply Theme" button in their own apps (such as icon pack dashboards, theme stores, or personalization tools).
-
-Starting with Hyper Bridge 0.6.0, theme packs can also bundle **[Custom Translators]({{< ref "docs/customization/custom-translators.md" >}})** directly inside the theme, allowing you to ship custom notification card designs, action buttons, and smart rules alongside your visual styles.
+This guide covers everything you need to create and customize themes for **Hyper Bridge**:
+1. **[Part A: In-App Theme Creator](#part-a-in-app-theme-creator-no-code)** — The visual editor built directly inside the Hyper Bridge app for normal users.
+2. **[Part B: Theme Package Specification (`.hbr` / `.htheme`)](#part-b-theme-package-specification-hbr--htheme)** — The ZIP archive structure, JSON contract, custom translator bundling, and Intent APIs for icon pack developers and third-party launchers.
 
 ---
 
-## **1. The Strict Contract**
+## **Part A: In-App Theme Creator (No-Code)**
+
+Hyper Bridge 0.6.0 includes a full-featured **Visual Theme Creator** (`ThemeCreatorScreen`). You can build, preview, edit, and apply beautiful custom island themes directly on your phone without touching JSON or ZIP files.
+
+```mermaid
+flowchart TD
+    Hub["Design Hub"] --> Create["Create Theme / Edit Theme"]
+    Create --> LivePrev["Interactive Island Preview\n(Accept/Decline, App Colors, Masks)"]
+    Create --> Sections["Theme Creator Sub-Menus"]
+    
+    Sections --> SecColors["🎨 Colors & Color Mode\nHex picker, App Icon color sampling"]
+    Sections --> SecIcons["📐 Icons & Shapes\nCircle, Squircle, Cookie, Clover, Padding"]
+    Sections --> SecCalls["📞 Call Controls\nAnswer & Decline colors, shapes, custom icons"]
+    Sections --> SecBeh["⚡ Engine & Behavior\nFloat duration, timeout, Live Update engine"]
+    Sections --> SecNav["🧭 Navigation & Reply\nTurn-by-turn colors, inline reply appearance"]
+    Sections --> SecActions["🔘 Default Actions\nReply, Archive button styles & icons"]
+    Sections --> SecApps["📱 App-Specific Overrides\nPer-app highlight & button customizations"]
+```
+
+### 1. Launching the Theme Creator
+- **From Design Hub**: Tap the **`+` (Add)** FAB and select **Theme & Styles**, or tap the `+` action on the **Themes** Bento card.
+- **From Theme Manager**: Open **Themes & Styles** &rarr; tap the floating action button to create a new theme, or tap the **Edit (Pencil)** icon on any installed theme to customize it.
+
+---
+
+### 2. Live Interactive Preview
+At the top of the Theme Creator, a live **HyperOS Super Island Preview** renders your adjustments instantly:
+- Watch call answer/decline button shapes and colors change as you pick them.
+- See how app icon padding and geometric corner radiuses look against the dark island canvas.
+- Toggle between dark, light, or accent states in real time.
+
+---
+
+### 3. Understanding the Theme Creator Modules
+
+The creator organizes theme properties into modular, focused subscreens:
+
+#### 🎨 Colors & Color Mode (`CreatorRoute.COLORS`)
+- **Highlight Color**: The primary accent color for progress bars, highlights, and status badges (e.g. Electric Cyan `#00FFDD`, Sunset Orange `#FF6900`, Lime `#34C759`).
+- **Color Mode**:
+  - **Custom Color**: Uses your designated hex highlight color across all applications.
+  - **App Icon Color (Dynamic Extraction)**: Automatically extracts and applies the dominant color from each notification app's icon for a dynamic, tailored feel.
+
+#### 📐 Icons & Shapes (`CreatorRoute.ICONS`)
+- **Icon Shape Mask**: Pick the geometric mask applied to notification icons:
+  - `circle`: Traditional smooth circular mask.
+  - `squircle`: Modern continuous-curvature squircle matching HyperOS design.
+  - `cookie`: Playful scallop-edged cookie shape.
+  - `clover8`: 8-petal clover geometry.
+  - `square` / `arch`: Sharp or arched framing.
+- **Icon Inner Padding (0% to 30%)**: Adjust breathing room between the icon graphic and the geometric boundary.
+
+#### 📞 Calls Style (`CreatorRoute.CALLS`)
+- **Answer Button**: Set custom button background color (default `#34C759`), geometric shape mask, and optional custom call answer PNG icon.
+- **Decline Button**: Set custom button background color (default `#FF3B30`), geometric shape mask, and optional custom call decline PNG icon.
+
+#### ⚡ Behavior & Engine Motor (`CreatorRoute.BEHAVIOR_MENU`)
+- **Engine Selection**: Toggle between **Custom Island** (Hyper Bridge's native floating island motor) and **Native Live Update** (Xiaomi's official live channel).
+- **Float & Dismissal Timeouts**: Configure default display durations before the expanded island card collapses into the compact pill.
+
+#### 🧭 Navigation & Inline Reply
+- **Navigation Layout (`CreatorRoute.NAVIGATION`)**: Adjust waypoint colors, swap left/right turn indicator positions, and assign custom arrow/flag icons for turn-by-turn guidance.
+- **Inline Reply (`CreatorRoute.REPLY`)**: Customize the input field background, placeholder text, and send button styling for interactive island replies.
+
+#### 🔘 Default Actions & App Overrides
+- **Default Actions (`CreatorRoute.ACTIONS`)**: Set default visual modes for standard actions (`ICON`, `TEXT`, or `ICON_AND_TEXT`) and assign custom graphic assets.
+- **App-Specific Customizations (`CreatorRoute.APPS`)**: Override any color, action button, or icon mask for individual applications (e.g., WhatsApp in Emerald Green, Spotify in Black & Neon).
+
+---
+
+### 4. Saving & Applying Your Theme
+1. Tap the **Save** button in the top-right corner.
+2. In the dialog:
+   - **Save & Apply**: Immediately activates your new theme as the default system style.
+   - **Save Only**: Saves the theme to your library without applying it.
+3. Your theme is saved locally and can be exported as an `.hbr` package at any time!
+
+---
+
+## **Part B: Theme Package Specification (`.hbr` / `.htheme`)**
+
+For designers, icon pack developers, and theme stores distributing standalone packages, Hyper Bridge defines a strict packaging standard.
 
 Themes are distributed as **Hyper Bridge Packages** (`.hbr` or `.htheme`), which are standard ZIP archives containing a specific folder structure and configuration file. Whether a user downloads the file manually or applies it via your app, the internal structure must be identical.
 
