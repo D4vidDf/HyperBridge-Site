@@ -8,6 +8,53 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## HyperBridge v0.6.0-beta3 🚀
+
+Welcome to **v0.6.0-beta3**! This release introduces the all-new **Design Hub** with a Bento Grid layout, a visual **Island Template Composer** supporting all 10 official Xiaomi HyperOS island layouts, critical fixes for Xiaomi HyperOS 4 Beta compatibility, and a streamlined documentation section.
+
+---
+
+### 🎨 Visual Island Template Composer & New Design Hub
+- **Redesigned Design Screen:** A modern Bento Grid interface that puts Themes, Island Widgets, Custom Designs, and Smart Translators at your fingertips.
+- **10 Official HyperOS Island Templates:** Compose rich Dynamic Island layouts directly within the app using official templates—ranging from delivery tracking, boarding passes, progress transfers, and call cards to media capsules.
+- **Visual Design Manager:** Easily filter, inspect, preview, and toggle active custom designs per app or system-wide.
+- 📖 **Learn more in the docs:**
+  - [Customization Overview](https://hyper-bridge.app/docs/customization/)
+  - [Design Hub Guide](https://hyper-bridge.app/docs/customization/design-hub/)
+  - [Custom Designs & Templates](https://hyper-bridge.app/docs/customization/custom-designs/)
+  - [Theme Creator](https://hyper-bridge.app/docs/customization/theme-creator/)
+  - [Widgets Guide](https://hyper-bridge.app/docs/customization/widgets-guide/)
+
+> ⚠️ **Note on the Featured Section:**  
+> The **Featured** section on the Design screen is currently a work in progress (preview placeholders). In the stable **HyperBridge 0.6.0** final release, this carousel will directly connect to the official website and community hub, allowing users to discover, browse, download, and install community themes, custom designs, and smart translators with a single tap.
+
+---
+
+### 🚀 Streamlined Guides & Direct Documentation Access
+- In-app help sheets and guide links have been consolidated into clean, direct section cards pointing straight to official, up-to-date online guides:
+  - 🎨 **[Customization](https://hyper-bridge.app/docs/customization/):** Themes, templates, custom translators, and island widgets.
+  - ⚡ **[Features](https://hyper-bridge.app/docs/features/):** System apps integration (Timer, Recorder, Screen Recording), Smart Actions, Inline Reply, and Permanent Island.
+  - 🛠️ **[Advanced](https://hyper-bridge.app/docs/advanced/):** Shizuku override, troubleshooting, diagnostics, and power-user configurations.
+  - 🧩 **[Custom Translators Specification](https://hyper-bridge.app/docs/customization/custom-translators/):** Build regex and condition-based interceptors for any notification.
+
+---
+
+### 🛠️ Fixes & Improvements
+- **HyperOS 4 Beta Compatibility:** Fixed an issue where standard and messaging notification islands were skipped by the system on HyperOS 4 Beta by ensuring the `dismissible` island parameter is explicitly set to `false`.
+- **Direct App Launching from Messaging Islands:** Tapping on message island capsules now opens the target application reliably via a direct activity intent rather than an intermediate broadcast trampoline.
+- **String Quota & Performance Optimization:** Massive reduction and deduplication of app string resources to keep Crowdin hosted translations within limits, while keeping guides richer and always current on the website.
+
+---
+
+## What's Changed
+* fix: message island tap opens the app through an activity, not a broadcast trampoline (#371, #382) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/386
+* fix: ensure small and big island visibility on HyperOS 4 Beta by setting dismissible to false by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/393
+* feat(design): Visual Island Template Composer with 10 official HyperOS templates, Design Hub Bento Grid & Design Manager (#272, #327, #383, #385) by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/390
+* refactor(strings): optimize string resources for Crowdin quota and streamline documentation guides by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/399
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-beta2...v0.6.0-beta3
+
+---
 ## HyperBridge v0.6.0-beta1 🚀
 
 Welcome to **HyperBridge v0.6.0-beta1**! This milestone release marks the arrival of the all-new **Custom Translators Framework (`.htrans`)**, powerful **RAW_PARAM_V2 presentation modes**, built-in **Visual Translator Editor**, **System Update Islands**, and key stability fixes for Android 15 & 16.
@@ -83,7 +130,7 @@ HyperBridge now brings a native-like experience to Xiaomi System Updates:
 
 ---
 
-## Hyper Bridge v0.6.0-dev2
+## HyperBridge v0.6.0-dev2 🚀
 
 Hyper Bridge **v0.6.0-dev2** is the second development release of the v0.6.0 cycle!
 
@@ -152,7 +199,7 @@ This milestone introduces contextual **Smart Action Buttons** (one-tap OTP copy,
 
 ---
 
-## Hyper Bridge v0.6.0-dev1
+## HyperBridge v0.6.0-dev1 🚀
 
 Hyper Bridge **v0.6.0-dev1** is the first development release of the v0.6.0 cycle! 
 
