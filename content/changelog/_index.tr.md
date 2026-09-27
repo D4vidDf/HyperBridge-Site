@@ -49,7 +49,7 @@ Welcome to **v0.6.0-beta3**! This release introduces the all-new **Design Hub** 
 
 ---
 
-## What's Changed
+### What's Changed
 * fix: message island tap opens the app through an activity, not a broadcast trampoline (#371, #382) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/386
 * fix: ensure small and big island visibility on HyperOS 4 Beta by setting dismissible to false by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/393
 * feat(design): Visual Island Template Composer with 10 official HyperOS templates, Design Hub Bento Grid & Design Manager (#272, #327, #383, #385) by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/390
