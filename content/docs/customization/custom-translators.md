@@ -127,9 +127,9 @@ Control visual rendering mode and variable text templates:
    - **Template**: Official predefined Xiaomi HyperIsland layouts (`tpl_weather_nav`, `tpl_payment_wallet`, `tpl_call_kit`, `tpl_ride_delivery`, `tpl_queue_wait`, `tpl_parking_meter`, `tpl_file_transfer`, `tpl_media_compact`).
    - **Widget**: Interactive rich Android widget component.
    - **RAW_PARAM_V2 (Direct Xiaomi Island Protocol)**: Advanced mode for developers and theme authors. Allows supplying a raw Xiaomi HyperOS `param_v2` JSON payload template with variable tokens, custom image injections, and direct action key bindings.
-     {{< alert icon="gear" >}}
-     **Streamlined Editor Experience:** When `RAW_PARAM_V2` is active, Hyper Bridge automatically hides manual visual builder tabs (Pill, Presentation slots, Progress, Action slots). The visual editor streamlines its interface to focus exclusively on Target Apps & Scope, Matching Conditions, Custom Variables & Regex, and Behavior Overrides.
-     {{< /alert >}}
+{{< alert icon="gear" >}}
+**Streamlined Editor Experience:** When `RAW_PARAM_V2` is active, Hyper Bridge automatically hides manual visual builder tabs (Pill, Presentation slots, Progress, Action slots). The visual editor streamlines its interface to focus exclusively on Target Apps & Scope, Matching Conditions, Custom Variables & Regex, and Behavior Overrides.
+{{< /alert >}}
 2. **Template Selector**: Switch between Xiaomi's 10 official templates.
 3. **Linked Theme**: Inherit the globally active theme or bind to a custom installed theme.
 4. **Left Icon Slot**: Set the source icon displayed on the left side of the island (e.g., App Icon, Custom Icon, Contact Avatar).
