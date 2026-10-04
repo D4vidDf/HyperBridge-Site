@@ -126,3 +126,9 @@ Available `smart_action_type` targets in Custom Translators:
 - `TRACK_PACKAGE`: Opens the carrier tracking page.
 
 For detailed schema specifications, see the [Translators Technical Specification]({{< ref "docs/advanced/translators-specification.md" >}}).
+
+---
+
+## Missing Your Language?
+
+Detection relies on keyword lists (words like "code", "Calle", "Straße"). If codes or addresses in your language aren't picked up, see [Adding Smart Actions Support for Your Language]({{< ref "docs/contributing/smart-actions-languages.md" >}}).
