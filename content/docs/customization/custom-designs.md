@@ -65,7 +65,12 @@ Navigate to the **Design** screen and tap the **Designs** Bento card. If you don
 ---
 
 ### Step 2: Choose Design Creation Method
-From the bottom sheet, select **From a template** to browse Xiaomi's official HyperIsland layout templates, or choose **Custom design** to create an empty canvas.
+From the bottom sheet, select **From a template** to browse Xiaomi's official HyperIsland layout templates, or choose **Custom design** to open the **Micro-Widgets Studio** on a clean canvas.
+
+{{< alert icon="wand-magic-sparkles" >}}
+**Looking to build custom micro-widgets element by element?**  
+Hyper Bridge 0.6.0-beta4 includes a full spatial KWGT-style builder with formulas, dynamic tokens, and Material 3 color schemes. Follow our 5-part **[Custom Widget Design Series]({{< ref "custom-widget-studio.md" >}})** to learn everything about it!
+{{< /alert >}}
 
 {{< figure src="/img/docs/designs/en/02-add-design-sheet.jpg" title="Add a Design Modal" alt="Add a Design Bottom Sheet" width="300" >}}
 

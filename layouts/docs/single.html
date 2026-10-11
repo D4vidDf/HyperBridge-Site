@@ -43,6 +43,13 @@
             </details>
           </div>
 
+          {{/* Blowfish Series Navigation */}}
+          {{ if .Params.series }}
+            <div class="not-prose mb-6">
+              {{ partial "series/series.html" . }}
+            </div>
+          {{ end }}
+
           {{/* Content Body */}}
           <div class="article-content">
             {{ .Content }}
