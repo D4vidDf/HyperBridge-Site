@@ -11,6 +11,93 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## HyperBridge v0.6.0-beta4 🚀
+
+Welcome to **v0.6.0-beta4**! This release introduces the all-new **Studio Design** & Spatial Island Builder, completing our initial development roadmap for 0.6.0 ([#268](https://github.com/D4vidDf/HyperBridge/issues/268)), alongside translator persistence, navigation state preservation, and critical fixes for messaging, calls, and progress tracking.
+
+---
+
+### 🎨 Spotlight: Studio Design & Micro-Widgets
+
+With Beta 4, HyperBridge evolves beyond fixed notification layouts. The new **Design Hub & Studio Design** empowers you to visually construct, style, and bind completely custom micro-widgets that render directly inside your Dynamic Island as rich native views.
+
+#### 🧱 Building Blocks: The Hierarchical Node System
+The Studio features a layer-based tree editor inspired by KWGT and modern UI builders. You can arrange, nest, lock, and style a wide variety of specialized **Node Types**:
+
+* **Layout Containers (`Row`, `Column`, `Box`):**  
+  Structure complex layouts with responsive spacing, alignments, and nesting. Group elements together to build balanced, multi-column or stacked widget cards.
+* **Text Nodes:**  
+  Display static labels or bind dynamic notification tokens (e.g., `{notif.title}`, `{notif.text}`, `{device.battery}`). Includes full control over typography, font families, sizing modes (fixed, fit-width, fit-box), auto-scrolling marquee for long titles, drop shadows, and blend modes.
+* **Button Nodes:**  
+  Turn your island into an interactive control center. Buttons can trigger:
+  * **Notification Actions:** Trigger action buttons directly from the notification (e.g., Archive, Mark as Read, Accept).
+  * **Interactive Triggers:** Quick inline reply, app launching, or custom deep links.
+  * **Smart Actions:** One-tap OTP copying, map navigation, or web shortcuts.
+  * **Media Controls:** Play/pause, next, and previous track controls.
+  * **Styling & Overrides:** Customize shapes (rounded rect, pill, circle, squircle), icons, sub-icons, borders, and set **conditional state overrides** (e.g., automatically swap between Play and Pause icons when media state changes).
+* **Image Nodes:**  
+  Display notification large icons, app icons, media album artwork, or custom imported assets with border radii and color tinting options.
+* **Progress Nodes:**  
+  Visualize live progress (downloads, timers, media playback, battery level) with configurable tracks, linear fills, multi-color gradient thresholds, and optional thumb indicators.
+* **Shape Nodes:**  
+  Add backgrounds, dividing lines, accent pills, and decorative containers with custom corner radiuses, strokes, and solid/gradient fills.
+
+#### 🏝️ Powering Custom Views on the Island
+* **Native Island Rendering:**  
+  Your custom widget documents are compiled directly into native Android views (`RemoteViews`) and presented dynamically within the HyperIsland overlay.
+* **Spatial Size Adaptation:**  
+  Design and preview custom layouts across all island configurations: **Small**, **Medium**, **Large**, **Extra-Large**, and **Snapshot**.
+* **Conditional Visibility (`showIf`):**  
+  Nodes can react intelligently to notification payload data. You can set rules to display certain nodes only when specific conditions are met (e.g., *"only show this button if the notification has an inline reply"*, *"only show progress when a download is active"*, or *"hide icon if empty"*).
+* **Live Scenario Switcher:**  
+  Preview and stress-test your design right inside the Studio against simulated real-world scenarios—including live audio playback, OTP messages, active downloads, and incoming calls.
+* **Translator Integration & Persistence:**  
+  Pair your custom widget documents with custom notification translators, configure compact pill media ordering, and save or duplicate designs with decoupled assets.
+* **Shareable Import / Export & Full Backups:**  
+  Import and export designs via `.hwidget` files, complete with file-association import modals and full system backup support.
+
+📖 **Learn More & Read the Guide:**  
+Find detailed walkthroughs, variable cheat sheets, and tutorials in the official documentation:  
+👉 **[Custom Widget Studio Documentation](https://hyper-bridge.app/docs/customization/custom-widget-studio/)**
+
+> ⚠️ **Early Development & Roadmap Notice:**  
+> This milestone completes the initial feature development roadmap for **HyperBridge 0.6.0** ([#268](https://github.com/D4vidDf/HyperBridge/issues/268)). However, **Studio Design is in an early development phase**—minor errors, layout quirks, and unexpected scenarios may still occur.  
+> Completing the initial roadmap does **not** mean 0.6.0 is ready for stable release yet. We are entering an extensive testing and refinement phase to address edge cases, optimize performance, and fine-tune customization across various device form factors.
+
+---
+
+### 🚀 Translator & Notification Enhancements
+- **Custom Widget Island Styling:** Translators can now bind directly to custom widget documents and adjust compact pill media ordering per application.
+- **Float Only on First Alert:** Added a dedicated toggle in translator settings to suppress repeated heads-up pop-ups when notifications frequently refresh their progress or contents.
+- **AndroidX MessagingStyle Avatars:** Full support for `MessagingStyle` contact profile avatars on messaging islands, fixing an issue where user avatar pictures were incorrectly tinted with system theme colors.
+- **Whole-Word Call Matching:** Refined call keyword classification so mute and unmute keywords are matched strictly as whole words, avoiding false-positive triggers on similar text.
+- **Discount Keyword Progress Filter:** Added keyword filtering to prevent e-commerce promotional discount percentages from being falsely categorized as active download progress.
+
+---
+
+### 🛠️ Fixes & Improvements
+- **Navigation & Screen State Retention:** Fixed an issue where rotating the device or switching between Light and Dark mode would wipe the navigation backstack and kick the user back to the Home Active apps tab. The navigation stack, current screen, and active tab (`Active`, `Library`, `Design`) are now properly preserved across configuration changes.
+- **Material 3 & Dependency Updates:** Updated core SDK versions, dependencies, and Material 3 theme configurations for improved system compatibility and smoother UI rendering.
+
+---
+
+### What's Changed
+* fix(messaging): support AndroidX MessagingStyle avatars and prevent photo tinting (#395) by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/406
+* PR: KWGT-Style Micro-Widgets Studio & Spatial Island Builder (#273, Phase 5) by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/411
+* fix(call): match mute/unmute keywords as whole words by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/408
+* feat: custom design translator persistence, file association import modals, and full backup support for translators/designs by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/413
+* fix: decouple widget ID and assets when duplicating a custom design by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/414
+* feat(translator): customizable compact pill media order and custom widget island styling by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/415
+* feat(translator): add 'float only on first alert' toggle to suppress repeated heads-up pop-ups on updates by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/416
+* chore: update SDK versions, dependencies, and Material 3 theme configuration by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/418
+* fix(progress): a discount percentage is not download progress (#408 follow-up) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/412
+* feat(studio): update button shape selector options and add shape serialization test by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/419
+* fix(nav): preserve navigation stack and home screen tab across configuration changes by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/420
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-beta3...v0.6.0-beta4
+
+---
+
 ## HyperBridge v0.6.0-beta3 🚀
 
 Welcome to **v0.6.0-beta3**! This release introduces the all-new **Design Hub** with a Bento Grid layout, a visual **Island Template Composer** supporting all 10 official Xiaomi HyperOS island layouts, critical fixes for Xiaomi HyperOS 4 Beta compatibility, and a streamlined documentation section.
