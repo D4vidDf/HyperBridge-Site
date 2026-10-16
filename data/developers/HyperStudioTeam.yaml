@@ -1,0 +1,14 @@
+id: "HyperStudioTeam"
+name: "HyperBridge Studio Team"
+role: "Official Design & Preset Contributors"
+bio: "Curated collection of official Xiaomi HyperIsland templates, Material 3 color schemes, and reference custom translators crafted for HyperBridge 0.6.0+."
+avatar: "/logo.svg"
+github: "https://github.com/D4vidDf/HyperBridge"
+website: "https://hyper-bridge.app/docs/customization/design-hub/"
+verified_maintainer: true
+repos:
+  - name: "HyperBridge Official Templates"
+    url: "https://github.com/D4vidDf/HyperBridge"
+    description: "Built-in studio widgets, themes, and translator specifications"
+socials:
+  github: "https://github.com/D4vidDf/HyperBridge"

@@ -1,0 +1,269 @@
+{{/*
+  Partial: developer-card.html
+  High-readability Developer Profile card with clear visual hierarchy:
+  1. Top Identity Header (Avatar, Verified Badge, Name, Handle, Role)
+  2. Full-Width Readable Bio
+  3. Contribution Breakdown Strip (Total Packages + Themes / Designs / Translators / Schemes counts)
+  4. Featured Repositories List with clear descriptions
+  5. Action Footer (GitHub, Website, and Browse Packages CTA)
+*/}}
+{{ $devId := .devId | default "D4vidDf" }}
+{{ $fallback := .authorFallback | default dict }}
+{{ $compact := .compact | default false }}
+
+{{ $devData := dict }}
+{{ if and hugo.Data.developers (index hugo.Data.developers $devId) }}
+  {{ $devData = index hugo.Data.developers $devId }}
+{{ end }}
+
+{{ $name := $devData.name | default ($fallback.name | default $devId) }}
+{{ $githubUser := $devData.id | default ($fallback.github | default $devId) }}
+{{ $role := $devData.role | default ($fallback.role | default "Community Creator") }}
+{{ $bio := $devData.bio | default ($fallback.bio | default "Contributor to the HyperBridge customization ecosystem.") }}
+{{ $avatar := $devData.avatar | default ($fallback.avatar | default (printf "https://github.com/%s.png" $githubUser)) }}
+{{ $githubUrl := $devData.github | default (cond (ne $githubUser "") (printf "https://github.com/%s" $githubUser) "") }}
+{{ $website := $devData.website | default ($fallback.website | default "") }}
+{{ $verified := $devData.verified_maintainer | default false }}
+{{ $repos := $devData.repos | default ($fallback.repos | default slice) }}
+
+{{/* Count showcase packages & category breakdown by this developer */}}
+{{ $showcaseRoot := site.GetPage "section" "showcase" }}
+{{ $allShowcase := slice }}
+{{ if $showcaseRoot }}
+  {{ $allShowcase = $showcaseRoot.RegularPagesRecursive }}
+{{ end }}
+
+{{ $devPackages := slice }}
+{{ $themeCount := 0 }}
+{{ $designCount := 0 }}
+{{ $translatorCount := 0 }}
+{{ $schemeCount := 0 }}
+
+{{ range $allShowcase }}
+  {{ $pageDev := .Params.developer_id | default (.Params.author.github | default "") }}
+  {{ if eq (lower $pageDev) (lower $devId) }}
+    {{ $devPackages = $devPackages | append . }}
+    {{ $t := lower (.Params.showcase_type | default "design") }}
+    {{ if eq $t "theme" }}
+      {{ $themeCount = add $themeCount 1 }}
+    {{ else if eq $t "translator" }}
+      {{ $translatorCount = add $translatorCount 1 }}
+    {{ else if eq $t "scheme" }}
+      {{ $schemeCount = add $schemeCount 1 }}
+    {{ else }}
+      {{ $designCount = add $designCount 1 }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if $compact }}
+  {{/* Simple Developer Card for Detail Info Page: Logo + Name on top, Badges/User Tag/Pkg Count below, Website/GitHub Links, Clickable to Filter on Showcase */}}
+  <article
+    class="sc-dev-card sc-dev-card-compact docs-feature-card"
+    data-dev-profile="{{ lower $devId }}"
+    data-card-url="/showcase/?dev={{ lower $devId }}"
+    title="View all packages by {{ $name }} on Showcase">
+    <a href="/showcase/?dev={{ lower $devId }}" class="sc-dev-compact-body">
+      <div class="sc-dev-header">
+        <div class="sc-dev-avatar-wrap">
+          <img
+            src="{{ $avatar }}"
+            alt="{{ $name }}"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='/logo.svg';"
+            class="sc-dev-avatar nozoom"
+          />
+          {{ if $verified }}
+            <span class="sc-dev-verified" title="Verified HyperBridge Maintainer">✓</span>
+          {{ end }}
+        </div>
+
+        <div class="sc-dev-identity">
+          <h3 class="sc-dev-name">{{ $name }}</h3>
+          <div class="sc-dev-role">{{ $role }}</div>
+        </div>
+      </div>
+
+      <div class="sc-dev-kicker-row">
+        {{ if $verified }}
+          <span class="sc-badge sc-badge-dev">
+            <span class="sc-icon">{{ partial "icon.html" "shield" }}</span>
+            <span>Core Maintainer</span>
+          </span>
+        {{ else }}
+          <span class="sc-badge sc-badge-type">
+            <span>Creator</span>
+          </span>
+        {{ end }}
+        <span class="sc-dev-handle">@{{ $githubUser }}</span>
+        <span class="sc-dev-pkg-tag">
+          {{ len $devPackages }} {{ if eq (len $devPackages) 1 }}pkg{{ else }}pkgs{{ end }}
+        </span>
+      </div>
+    </a>
+
+    <div class="sc-dev-compact-footer">
+      <div class="sc-dev-social-links">
+        {{ with $githubUrl }}
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="GitHub Profile">
+            <span class="sc-icon">{{ partial "icon.html" "github" }}</span>
+            <span>GitHub</span>
+          </a>
+        {{ end }}
+        {{ with $website }}
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="Developer Website">
+            <span class="sc-icon">{{ partial "icon.html" "globe" }}</span>
+            <span>Website</span>
+          </a>
+        {{ end }}
+      </div>
+
+      <a href="/showcase/?dev={{ lower $devId }}" class="sc-dev-compact-cta">
+        <span>All packages</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </article>
+{{ else }}
+  <article
+    class="sc-dev-card docs-feature-card"
+    data-dev-profile="{{ lower $devId }}"
+    data-card-url="/showcase/?dev={{ lower $devId }}">
+    <div class="sc-dev-card-top">
+      {{/* 1. Identity Header: Avatar Logo + Name/Role on top, Badges/Handle/Pkg Count below */}}
+      <div class="sc-dev-header">
+        <a href="/showcase/?dev={{ lower $devId }}" class="sc-dev-avatar-wrap" title="View packages by {{ $name }}">
+          <img
+            src="{{ $avatar }}"
+            alt="{{ $name }}"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='/logo.svg';"
+            class="sc-dev-avatar nozoom"
+          />
+          {{ if $verified }}
+            <span class="sc-dev-verified" title="Verified HyperBridge Maintainer">✓</span>
+          {{ end }}
+        </a>
+
+        <div class="sc-dev-identity">
+          <h3 class="sc-dev-name">
+            <a href="/showcase/?dev={{ lower $devId }}">{{ $name }}</a>
+          </h3>
+          <div class="sc-dev-role">{{ $role }}</div>
+        </div>
+      </div>
+
+      <div class="sc-dev-kicker-row">
+        {{ if $verified }}
+          <span class="sc-badge sc-badge-dev">
+            <span class="sc-icon">{{ partial "icon.html" "shield" }}</span>
+            <span>Core Maintainer</span>
+          </span>
+        {{ else }}
+          <span class="sc-badge sc-badge-type">
+            <span>Creator</span>
+          </span>
+        {{ end }}
+        <span class="sc-dev-handle">@{{ $githubUser }}</span>
+        <span class="sc-dev-pkg-tag">
+          {{ len $devPackages }} {{ if eq (len $devPackages) 1 }}pkg{{ else }}pkgs{{ end }}
+        </span>
+      </div>
+
+      {{/* 2. Full-Width High-Contrast Bio */}}
+      {{ with $bio }}
+        <p class="sc-dev-bio">{{ . }}</p>
+      {{ end }}
+
+      {{/* 3. Contribution Breakdown Strip */}}
+      <div class="sc-dev-stats-strip">
+        <div class="sc-dev-stat-total">
+          <strong>{{ len $devPackages }}</strong>
+          <span>{{ if eq (len $devPackages) 1 }}Package{{ else }}Packages{{ end }}</span>
+        </div>
+
+        <div class="sc-dev-stat-pills">
+          {{ if gt $themeCount 0 }}
+            <a href="/showcase/?dev={{ lower $devId }}&type=theme" class="sc-dev-stat-pill" title="Filter Themes by {{ $name }}">
+              🎨 {{ $themeCount }} {{ if eq $themeCount 1 }}Theme{{ else }}Themes{{ end }}
+            </a>
+          {{ end }}
+          {{ if gt $designCount 0 }}
+            <a href="/showcase/?dev={{ lower $devId }}&type=design" class="sc-dev-stat-pill" title="Filter Studio Designs by {{ $name }}">
+              📐 {{ $designCount }} {{ if eq $designCount 1 }}Design{{ else }}Designs{{ end }}
+            </a>
+          {{ end }}
+          {{ if gt $translatorCount 0 }}
+            <a href="/showcase/?dev={{ lower $devId }}&type=translator" class="sc-dev-stat-pill" title="Filter Translators by {{ $name }}">
+              ⚡ {{ $translatorCount }} {{ if eq $translatorCount 1 }}Translator{{ else }}Translators{{ end }}
+            </a>
+          {{ end }}
+          {{ if gt $schemeCount 0 }}
+            <a href="/showcase/?dev={{ lower $devId }}&type=scheme" class="sc-dev-stat-pill" title="Filter Color Schemes by {{ $name }}">
+              🌈 {{ $schemeCount }} {{ if eq $schemeCount 1 }}Scheme{{ else }}Schemes{{ end }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
+
+      {{/* 4. Repositories Section */}}
+      {{ if gt (len $repos) 0 }}
+        <div class="sc-dev-repos">
+          <div class="sc-dev-repos-label">
+            <span class="sc-icon">{{ partial "icon.html" "code" }}</span>
+            <span>Featured Repositories</span>
+          </div>
+          <div class="sc-dev-repos-list">
+            {{ range $repos }}
+              {{ if reflect.IsMap . }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="sc-repo-item">
+                  <div class="sc-repo-item-main">
+                    <div class="sc-repo-item-title">
+                      <span class="sc-icon">{{ partial "icon.html" "github" }}</span>
+                      <span>{{ .name }}</span>
+                    </div>
+                    {{ with .description }}
+                      <p class="sc-repo-item-desc">{{ . }}</p>
+                    {{ end }}
+                  </div>
+                  <span class="sc-repo-badge">Repo &nearr;</span>
+                </a>
+              {{ else }}
+                <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-repo-item">
+                  <div class="sc-repo-item-title">
+                    <span class="sc-icon">{{ partial "icon.html" "github" }}</span>
+                    <span>{{ . }}</span>
+                  </div>
+                  <span class="sc-repo-badge">Repo &nearr;</span>
+                </a>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    {{/* 5. Action Footer: External Links + Primary Browse Packages Button */}}
+    <div class="sc-dev-footer">
+      <div class="sc-dev-social-links">
+        {{ with $githubUrl }}
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="GitHub Profile">
+            <span class="sc-icon">{{ partial "icon.html" "github" }}</span>
+            <span>GitHub</span>
+          </a>
+        {{ end }}
+        {{ with $website }}
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="Developer Website">
+            <span class="sc-icon">{{ partial "icon.html" "globe" }}</span>
+            <span>Website</span>
+          </a>
+        {{ end }}
+      </div>
+
+      <a href="/showcase/?dev={{ lower $devId }}" class="sc-btn sc-btn-primary sc-dev-browse-btn">
+        <span>Browse {{ len $devPackages }} {{ if eq (len $devPackages) 1 }}Package{{ else }}Packages{{ end }}</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </article>
+{{ end }}

@@ -1,0 +1,421 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+  {{ $page := . }}
+
+  {{/* 1. Lookup Tamper-Proof Badges, Votes & Media Links from data/showcase_badges.json */}}
+  {{ $rel := strings.TrimPrefix "/showcase/" (strings.TrimSuffix "/" $page.RelPermalink) }}
+  {{ $itemKey := $page.Params.showcase_id | default $rel }}
+  {{ $badgeRegistry := hugo.Data.showcase_badges }}
+  {{ $itemBadgeData := dict }}
+  {{ if and $badgeRegistry $badgeRegistry.items (index $badgeRegistry.items $itemKey) }}
+    {{ $itemBadgeData = index $badgeRegistry.items $itemKey }}
+  {{ end }}
+
+  {{ $badges := $itemBadgeData.badges | default slice }}
+  {{ $votes := $itemBadgeData.votes | default 0 }}
+  {{ $mediaFeatures := $itemBadgeData.media_features | default slice }}
+  {{ $threshold := $badgeRegistry.threshold_likes_for_community_badge | default 15 }}
+  {{ if and (ge $votes $threshold) (not (in $badges "community_approved")) }}
+    {{ $badges = $badges | append "community_approved" }}
+  {{ end }}
+
+  {{/* 2. Resolve Package Metadata */}}
+  {{ $showcaseType := $page.Params.showcase_type | default "design" }}
+  {{ $fileExt := $page.Params.file_extension | default ".hwidget" }}
+  {{ $targetScope := $page.Params.target_scope | default "GLOBAL" }}
+  {{ $notifTypes := $page.Params.notification_types | default (slice "STANDARD") }}
+  {{ $colors := $page.Params.accent_colors | default (slice "#38BDF8" "#6366F1") }}
+  {{ $primaryAccent := index $colors 0 | default "#38BDF8" }}
+  {{ $devId := $page.Params.developer_id | default ($page.Params.author.github | default "D4vidDf") }}
+
+  {{ $typeLabel := "Studio Custom Design" }}
+  {{ $typeIcon := "wand-magic-sparkles" }}
+  {{ if eq $showcaseType "theme" }}
+    {{ $typeLabel = "HyperTheme Package" }}
+    {{ $typeIcon = "palette" }}
+  {{ else if eq $showcaseType "translator" }}
+    {{ $typeLabel = "Custom Translator" }}
+    {{ $typeIcon = "code" }}
+  {{ else if eq $showcaseType "scheme" }}
+    {{ $typeLabel = "Color Scheme" }}
+    {{ $typeIcon = "sun" }}
+  {{ end }}
+
+  {{/* Resolve Previews & Collect Unique Gallery Images */}}
+  {{ $previewImg := $page.Params.preview_image | default "" }}
+  {{ if and $previewImg (not (strings.HasPrefix $previewImg "http")) (not (strings.HasPrefix $previewImg "/")) }}
+    {{ $previewImg = printf "%s%s" $page.RelPermalink $previewImg }}
+  {{ end }}
+  {{ $previewCompact := $page.Params.preview_compact | default "" }}
+  {{ if and $previewCompact (not (strings.HasPrefix $previewCompact "http")) (not (strings.HasPrefix $previewCompact "/")) }}
+    {{ $previewCompact = printf "%s%s" $page.RelPermalink $previewCompact }}
+  {{ end }}
+
+  {{ $hasCompact := and $previewCompact (ne $previewCompact $previewImg) }}
+  {{ $galleryList := slice }}
+  {{ if $previewImg }}
+    {{ $firstLabel := cond $hasCompact "Expanded View" "Banner Preview" }}
+    {{ $galleryList = $galleryList | append (dict "src" $previewImg "label" $firstLabel) }}
+  {{ end }}
+  {{ if $hasCompact }}
+    {{ $galleryList = $galleryList | append (dict "src" $previewCompact "label" "Compact Pill") }}
+  {{ end }}
+  {{ range $idx, $shot := $page.Params.screenshots }}
+    {{ $shotUrl := $shot }}
+    {{ if and (not (strings.HasPrefix $shot "http")) (not (strings.HasPrefix $shot "/")) }}
+      {{ $shotUrl = printf "%s%s" $page.RelPermalink $shot }}
+    {{ end }}
+    {{ if and (ne $shotUrl $previewImg) (ne $shotUrl $previewCompact) }}
+      {{ $galleryList = $galleryList | append (dict "src" $shotUrl "label" (printf "Screenshot %d" (add $idx 1))) }}
+    {{ end }}
+  {{ end }}
+
+  {{ $schemeColors := $page.Params.specified_colors | default $colors }}
+  {{ $tags := $page.Params.tags | default slice }}
+
+  <div class="sc-page-wrap">
+    {{/* Breadcrumbs & Back Link */}}
+    <div class="sc-breadcrumbs-bar not-prose">
+      {{ partial "breadcrumbs.html" . }}
+      <a href="/showcase/" class="sc-back-link">&larr; Back to Community Showcase</a>
+    </div>
+
+    {{/* Main 2-Column Package Detail Layout */}}
+    <div class="sc-detail-layout">
+
+      {{/* =========================================================================
+           LEFT / MAIN COLUMN:
+           1. Title & Small Description (No badges above)
+           2. Banner / Optional Multi-Image Gallery
+           3. Scrollable Badges Row under Images
+           4. Specified Colors (ONLY for Color Schemes)
+           5. Overview (Markdown Content)
+           6. Trigger Scope & Compatibility Column below Overview
+           ========================================================================= */}}
+      <main class="sc-detail-main">
+        {{/* 1. Clean Package Header: Title & Small Description Only */}}
+        <header class="sc-detail-header not-prose">
+          <h1 class="sc-detail-title">{{ $page.Title | emojify }}</h1>
+          {{ with $page.Description }}
+            <p class="sc-detail-subtitle">{{ . }}</p>
+          {{ end }}
+        </header>
+
+        {{/* 2. Banner / Optional Screenshots Gallery */}}
+        {{ if or $previewImg (ne $showcaseType "scheme") }}
+          <section class="sc-gallery-box not-prose">
+            <div
+              class="sc-gallery-stage"
+              {{ if $previewImg }}
+                data-lightbox-trigger="{{ $previewImg }}"
+                data-lightbox-title="{{ $page.Title }}"
+              {{ end }}
+              id="detail-stage-trigger"
+              title="Click to view full-size image">
+              {{ if $previewImg }}
+                <img
+                  id="detail-main-preview"
+                  src="{{ $previewImg }}"
+                  alt="{{ $page.Title }} preview"
+                  class="sc-gallery-stage-img nozoom"
+                />
+                <span class="sc-zoom-hint sc-zoom-hint-lg">
+                  <span class="sc-icon">{{ partial "icon.html" "expand" }}</span>
+                  <span>Click to View Full Size</span>
+                </span>
+              {{ else }}
+                <div class="sc-card-banner-fallback">
+                  <div class="sc-island-mockup">
+                    <span class="sc-island-mockup-icon" style="background: {{ $primaryAccent }};">
+                      <span class="sc-icon">{{ partial "icon.html" $typeIcon }}</span>
+                    </span>
+                    <div class="sc-island-mockup-text">
+                      <div class="sc-island-mockup-title">{{ $page.Title }}</div>
+                      <div class="sc-island-mockup-sub">{{ $typeLabel }} ({{ $fileExt }})</div>
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+
+            {{/* Optional Thumbnail Switcher: ONLY rendered when 2+ images exist */}}
+            {{ if gt (len $galleryList) 1 }}
+              <div class="sc-gallery-controls">
+                <div class="sc-gallery-thumbs">
+                  {{ range $idx, $item := $galleryList }}
+                    <button
+                      type="button"
+                      data-detail-preview-src="{{ $item.src }}"
+                      class="sc-thumb-btn {{ if eq $idx 0 }}active{{ end }}">
+                      <img src="{{ $item.src }}" alt="{{ $item.label }}" class="sc-thumb-img nozoom" />
+                      <span>{{ $item.label }}</span>
+                    </button>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+          </section>
+        {{ end }}
+
+        {{/* 3. Scrollable Badges Row Under Images */}}
+        <div class="sc-badges-scroll-row not-prose" aria-label="Package badges and tags">
+          <span class="sc-badge sc-badge-type">
+            <span class="sc-icon">{{ partial "icon.html" $typeIcon }}</span>
+            <span>{{ $typeLabel }}</span>
+          </span>
+          <span class="sc-ext-pill">{{ $fileExt }}</span>
+          <span class="sc-version-tag">v{{ $page.Params.version | default "1.0.0" }}</span>
+
+          {{ range $badges }}
+            {{ if eq . "dev_approved" }}
+              <span class="sc-badge sc-badge-dev">
+                <span class="sc-icon">{{ partial "icon.html" "shield" }}</span>
+                <span>Developer Approved</span>
+              </span>
+            {{ else if eq . "community_approved" }}
+              <span class="sc-badge sc-badge-community">
+                <span class="sc-icon">{{ partial "icon.html" "heart" }}</span>
+                <span>Community Choice</span>
+              </span>
+            {{ else if eq . "featured_media" }}
+              <span class="sc-badge sc-badge-media">
+                <span class="sc-icon">{{ partial "icon.html" "youtube" }}</span>
+                <span>Featured in Media</span>
+              </span>
+            {{ else if eq . "official" }}
+              <span class="sc-badge sc-badge-official">
+                <span class="sc-icon">{{ partial "icon.html" "star" }}</span>
+                <span>Official Preset</span>
+              </span>
+            {{ end }}
+          {{ end }}
+
+          {{ range $tags }}
+            <span class="sc-scroll-tag">#{{ . }}</span>
+          {{ end }}
+        </div>
+
+        {{/* 4. Specified Colors Showcase (ONLY for Color Schemes) */}}
+        {{ if and (eq $showcaseType "scheme") (gt (len $schemeColors) 0) }}
+          <section class="sc-scheme-colors-box docs-sidebar-box not-prose">
+            <h2 class="sc-section-heading">🌈 Specified Scheme Colors</h2>
+            <div class="sc-scheme-colors-grid">
+              {{ range $schemeColors }}
+                {{ if reflect.IsMap . }}
+                  <div class="sc-scheme-swatch-card">
+                    <span class="sc-scheme-swatch-preview" style="background-color: {{ .hex }};"></span>
+                    <div class="sc-scheme-swatch-meta">
+                      <span class="sc-scheme-swatch-name">{{ .name }}</span>
+                      <code class="sc-scheme-swatch-hex">{{ .hex }}</code>
+                    </div>
+                  </div>
+                {{ else }}
+                  <div class="sc-scheme-swatch-card">
+                    <span class="sc-scheme-swatch-preview" style="background-color: {{ . }};"></span>
+                    <div class="sc-scheme-swatch-meta">
+                      <span class="sc-scheme-swatch-name">Color Token</span>
+                      <code class="sc-scheme-swatch-hex">{{ . }}</code>
+                    </div>
+                  </div>
+                {{ end }}
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+
+        {{/* 5. Overview & Rich Content Description (Markdown) */}}
+        <article class="prose dark:prose-invert max-w-none docs-sidebar-box sc-content-box">
+          {{ $page.Content }}
+        </article>
+
+        {{/* 6. Trigger Scope & Compatibility Column (Stacked Below Overview) */}}
+        <section class="sc-specs-panel docs-sidebar-box not-prose">
+          <h2 class="sc-section-heading">⚡ Trigger Scope &amp; Compatibility</h2>
+          <div class="sc-specs-column">
+            <div class="sc-spec-row">
+              <div class="sc-spec-row-label">Target Scope</div>
+              <div class="sc-spec-row-val">
+                <a href="/showcase/?scope={{ $targetScope }}" class="sc-meta-chip sc-meta-scope">🎯 {{ $targetScope }}</a>
+              </div>
+            </div>
+
+            {{ if gt (len $notifTypes) 0 }}
+              <div class="sc-spec-row">
+                <div class="sc-spec-row-label">Notification Types</div>
+                <div class="sc-spec-row-val">
+                  {{ range $notifTypes }}
+                    <a href="/showcase/?notif={{ . }}" class="sc-meta-chip sc-meta-notif">🔔 {{ . }}</a>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+
+            {{ if ne $showcaseType "scheme" }}
+              <div class="sc-spec-row">
+                <div class="sc-spec-row-label">Layout / Canvas</div>
+                <div class="sc-spec-row-val">
+                  <span class="sc-spec-inline-text">
+                    {{ with $page.Params.canvas_size }}Canvas: {{ . }}{{ else }}Standard Island{{ end }}
+                  </span>
+                  {{ with $page.Params.template_base }}
+                    <code class="sc-spec-subcode">{{ . }}</code>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+
+            {{ with $page.Params.target_apps }}
+              {{ if gt (len .) 0 }}
+                <div class="sc-spec-row">
+                  <div class="sc-spec-row-label">Supported Applications</div>
+                  <div class="sc-spec-row-val">
+                    {{ range . }}
+                      {{ if reflect.IsMap . }}
+                        <a href="/showcase/?app={{ .name | lower }}" class="sc-meta-chip sc-meta-app">
+                          <span>📱 {{ .name }}</span>
+                          {{ with .package }}<code>({{ . }})</code>{{ end }}
+                        </a>
+                      {{ else }}
+                        <a href="/showcase/?app={{ . | lower }}" class="sc-meta-chip sc-meta-app">
+                          <span>📱 {{ . }}</span>
+                        </a>
+                      {{ end }}
+                    {{ end }}
+                  </div>
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        </section>
+      </main>
+
+      {{/* =========================================================================
+           RIGHT STICKY SIDEBAR: Download, Upvote, Developer Card, Media & Info
+           ========================================================================= */}}
+      <aside class="sc-detail-sidebar not-prose">
+
+        {{/* 1. Download & Upvote Card */}}
+        <div class="sc-sidebar-card docs-sidebar-box">
+          {{ with $page.Params.download_url }}
+            <a
+              href="{{ . }}"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sc-btn sc-btn-primary sc-btn-block sc-btn-lg">
+              <span class="sc-icon">{{ partial "icon.html" "download" }}</span>
+              <span>Download Package ({{ $fileExt }})</span>
+            </a>
+          {{ end }}
+
+          <div class="sc-sidebar-btn-row">
+            <button
+              type="button"
+              data-like-button="{{ $itemKey }}"
+              data-base-votes="{{ $votes }}"
+              class="sc-btn sc-btn-like showcase-like-btn">
+              <span>❤️ Like</span>
+              <span data-like-count>{{ $votes }}</span>
+            </button>
+
+            {{ with $page.Params.repo_url }}
+              <a
+                href="{{ . }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sc-btn sc-btn-secondary">
+                <span class="sc-icon">{{ partial "icon.html" "github" }}</span>
+                <span>Source Repo</span>
+              </a>
+            {{ end }}
+          </div>
+
+          <div class="sc-threshold-row">
+            <span>❤️ Community Choice Threshold:</span>
+            <strong>{{ $votes }} / {{ $threshold }} likes</strong>
+          </div>
+
+          <div class="sc-privacy-note">
+            <strong>🔒 100% Offline Import:</strong> HyperBridge has zero internet permission for your safety. Download the <code>{{ $fileExt }}</code> file above, then tap it in your browser downloads to open directly in HyperBridge.
+          </div>
+        </div>
+
+        {{/* 2. Developer Profile Card */}}
+        <div class="sc-sidebar-section">
+          <div class="sc-sidebar-label">👩‍💻 Package Developer</div>
+          {{ partial "developer-card.html" (dict "devId" $devId "authorFallback" $page.Params.author "compact" true) }}
+        </div>
+
+        {{/* 3. Featured in Media Box */}}
+        {{ if gt (len $mediaFeatures) 0 }}
+          <div class="sc-sidebar-card docs-sidebar-box">
+            <h3 class="sc-section-heading">🎬 Showcased in Media</h3>
+            <div class="sc-dev-repos-list">
+              {{ range $mediaFeatures }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="sc-repo-item">
+                  <span class="sc-repo-item-title">
+                    <span class="sc-icon">{{ partial "icon.html" "youtube" }}</span>
+                    <span>{{ .title }}</span>
+                  </span>
+                  <span class="sc-repo-arrow">&nearr;</span>
+                </a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+
+        {{/* 4. Technical Metadata Summary */}}
+        <div class="sc-sidebar-card docs-sidebar-box">
+          <h3 class="sc-section-heading">📋 Package Information</h3>
+          <dl class="sc-info-dl">
+            <div class="sc-info-row">
+              <dt>Package ID</dt>
+              <dd><code>{{ $itemKey }}</code></dd>
+            </div>
+            <div class="sc-info-row">
+              <dt>Version</dt>
+              <dd>v{{ $page.Params.version | default "1.0.0" }}</dd>
+            </div>
+            <div class="sc-info-row">
+              <dt>Requires App</dt>
+              <dd>HyperBridge v{{ $page.Params.min_app_version | default "0.6.0" }}+</dd>
+            </div>
+            <div class="sc-info-row">
+              <dt>File Format</dt>
+              <dd><code>{{ $fileExt }}</code></dd>
+            </div>
+            <div class="sc-info-row">
+              <dt>License</dt>
+              <dd>{{ $page.Params.license | default "MIT" }}</dd>
+            </div>
+            <div class="sc-info-row">
+              <dt>Published</dt>
+              <dd>{{ $page.Date.Format "Jan 2, 2006" }}</dd>
+            </div>
+          </dl>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  {{/* Full-Screen Image Lightbox Modal */}}
+  <div id="sc-lightbox" class="sc-lightbox sc-hidden" role="dialog" aria-modal="true" aria-label="Image Preview">
+    <div class="sc-lightbox-backdrop" data-lightbox-close></div>
+    <div class="sc-lightbox-content">
+      <div class="sc-lightbox-topbar">
+        <span id="sc-lightbox-caption" class="sc-lightbox-caption">{{ $page.Title }}</span>
+        <button type="button" class="sc-lightbox-close-btn" data-lightbox-close aria-label="Close preview">&times; Close</button>
+      </div>
+      <div class="sc-lightbox-img-wrap">
+        <img id="sc-lightbox-img" src="" alt="Enlarged preview" class="sc-lightbox-img nozoom" />
+      </div>
+    </div>
+  </div>
+
+  {{ $showcaseJS := resources.Get "js/showcase.js" }}
+  {{ if $showcaseJS }}
+    {{ $showcaseJS = $showcaseJS | resources.Minify | resources.Fingerprint }}
+    <script defer src="{{ $showcaseJS.RelPermalink }}" integrity="{{ $showcaseJS.Data.Integrity }}"></script>
+  {{ end }}
+{{ end }}

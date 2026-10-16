@@ -54,7 +54,7 @@
       {{ with site.GetPage .PageRef }}
         {{ $menuURL = .RelPermalink }}
       {{ else }}
-        {{ with (index site.Sites 0).GetPage .PageRef }}
+        {{ with (index hugo.Sites 0).GetPage .PageRef }}
           {{ $menuURL = .RelPermalink }}
         {{ else }}
           {{ $menuURL = printf "/%s/" (strings.TrimPrefix "/" .PageRef) }}
@@ -78,7 +78,7 @@
           {{ with or .Name .Pre }}aria-label="{{ . }}"{{ end }}
           aria-haspopup="true"
           aria-expanded="false"
-          class="flex items-center text-sm font-medium bf-icon-color-hover"
+          class="flex items-center gap-1 text-sm font-medium bf-icon-color-hover"
           title="{{ .Title }}">
           {{ if .Pre }}
             <span {{ if and .Pre .Name }}class="mr-1"{{ end }}>
@@ -88,14 +88,15 @@
           <span class="text-sm font-medium break-normal" title="{{ .Title }}">
             {{ .Name | markdownify }}
           </span>
-          <span>
+          <span class="sc-nav-chevron">
             {{ partial "icon.html" "chevron-down" }}
           </span>
         </a>
       </div>
       <div class="menuhide">
-        <div class="p-5 mt-2 rounded-xl border border-neutral-200/80 bg-neutral/95 shadow-2xl shadow-neutral-900/20 dark:border-neutral-700/80 dark:bg-neutral-800/95">
-          <div class="flex flex-col space-y-3">
+        <div class="sc-topnav-dropdown rounded-2xl border border-neutral-200/80 shadow-lg shadow-neutral-900/10 dark:border-neutral-700/80">
+          <div class="sc-topnav-dropdown-bg rounded-2xl bg-neutral/85 backdrop-blur-xl dark:bg-neutral-800/90"></div>
+          <div class="sc-topnav-dropdown-list">
             {{ range .Children }}
               {{ $childURL := .URL }}
               {{ if not $childURL }}
@@ -105,7 +106,7 @@
                   {{ with site.GetPage .PageRef }}
                     {{ $childURL = .RelPermalink }}
                   {{ else }}
-                    {{ with (index site.Sites 0).GetPage .PageRef }}
+                    {{ with (index hugo.Sites 0).GetPage .PageRef }}
                       {{ $childURL = .RelPermalink }}
                     {{ else }}
                       {{ $childURL = printf "/%s/" (strings.TrimPrefix "/" .PageRef) }}
@@ -119,13 +120,13 @@
                   target="_blank"
                 {{ end }}
                 {{ with or .Name .Pre }}aria-label="{{ . }}"{{ end }}
-                class="flex items-center bf-icon-color-hover">
+                class="sc-topnav-dropdown-item bf-icon-color-hover">
                 {{ if .Pre }}
-                  <span {{ if and .Pre .Name }}class="mr-1"{{ end }}>
+                  <span class="sc-topnav-dropdown-icon">
                     {{ partial "icon.html" .Pre }}
                   </span>
                 {{ end }}
-                <span class="text-sm font-sm" title="{{ .Title }}">
+                <span class="text-sm font-medium" title="{{ .Title }}">
                   {{ .Name | markdownify }}
                 </span>
               </a>
