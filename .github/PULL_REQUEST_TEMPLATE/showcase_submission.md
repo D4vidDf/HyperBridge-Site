@@ -4,7 +4,7 @@ Thank you for contributing to the **HyperBridge Community Showcase**!
 
 ### 📦 Package Summary
 - **Package Name:** 
-- **Category:** [ ] Theme (`.htheme` / `.hbr`) | [ ] Studio Design (`.hwidget`) | [ ] Translator (`.htrans`) | [ ] Color Scheme (`.hscheme.yaml`)
+- **Category:** [ ] Theme (`.htheme` / `.hbr`) | [ ] Studio Design (`.hwidget`) | [ ] Translator (`.htrans`) | [ ] Color Scheme (`.hscheme`)
 - **Target Apps / Scope:** 
 - **Direct Download URL (GitHub Release / Raw):** 
 - **Source Repository URL:** 

@@ -6,7 +6,7 @@ date: {{ .Date }}
 # 1. Package Classification
 # showcase_type options: "theme" | "design" | "translator" | "scheme"
 showcase_type: "design"
-# file_extension options: ".htheme" | ".hbr" | ".htrans" | ".hwidget" | ".hscheme.yaml"
+# file_extension options: ".htheme" | ".hbr" | ".htrans" | ".hwidget" | ".hscheme"
 file_extension: ".hwidget"
 version: "1.0.0"
 min_app_version: "0.6.0"
@@ -25,7 +25,7 @@ author:
       url: "https://github.com/your-github-username/your-repo"
 
 # 3. Repository & Direct Download Link
-# IMPORTANT: Host your package file (.htheme, .htrans, .hwidget, .hscheme.yaml) on your
+# IMPORTANT: Host your package file (.htheme, .htrans, .hwidget, .hscheme) on your
 # GitHub Repository / GitHub Releases. Do NOT commit binary archives to this site repo.
 repo_url: "https://github.com/your-github-username/your-repo"
 download_url: "https://github.com/your-github-username/your-repo/releases/latest/download/package.hwidget"

@@ -1,6 +1,6 @@
 ---
 title: "Color Schemes & Material 3 Dynamic Palettes"
-description: "How to use Material 3 dynamic color schemes, wallpaper-adaptive palettes, and YAML scheme files (.hscheme.yaml) in Hyper Bridge."
+description: "How to use Material 3 dynamic color schemes, wallpaper-adaptive palettes, and YAML scheme files (.hscheme) in Hyper Bridge."
 weight: 13
 series: ["Custom Widget Design"]
 series_order: 4
@@ -20,7 +20,7 @@ flowchart TD
     Sources --> PhoneExp["2. Phone Expressive (Wallpaper)"]
     Sources --> AppIcon["3. App Icon Expressive"]
     Sources --> NotifMedia["4. Notification Media (Album Art / Avatar)"]
-    Sources --> CustomYaml["5. Custom YAML Scheme (.hscheme.yaml)"]
+    Sources --> CustomYaml["5. Custom YAML Scheme (.hscheme)"]
     
     Resolver --> Roles["20+ Material 3 Color Roles\n(primary, surfaceContainer, outline, etc.)"]
     Roles --> Elements["Widget Elements & Formulas\n({scheme.primary}, {scheme.surface})"]
@@ -51,7 +51,7 @@ Extracts color palettes on the fly from incoming image attachments:
 - **Sender Avatar**: Direct chat islands pull seed colors from the contact's profile photo.
 
 ### 5. Custom YAML Scheme
-Applies a custom creator-defined palette file (`.hscheme.yaml`) or one of Hyper Bridge's built-in curated presets:
+Applies a custom creator-defined palette file (`.hscheme`) or one of Hyper Bridge's built-in curated presets:
 - **HyperOS Classic**: HyperOS electric blue accent (`#0A84FF`).
 - **Emerald Mint**: Fresh vibrant emerald (`#10B981`).
 - **Sunset Orange**: Warm neon orange (`#FF5722`).
@@ -88,13 +88,13 @@ Hyper Bridge maps 20+ standard Material 3 color roles. You can reference any of 
 
 ---
 
-## 3. Authoring YAML Color Schemes (`.hscheme.yaml`)
+## 3. Authoring YAML Color Schemes (`.hscheme`)
 
 Hyper Bridge uses a clean, human-readable YAML specification for color schemes (`YamlColorSchemeParser`). You can write these files in any text editor and import them into the app.
 
 ### File Format Specification
 
-A color scheme file must use the extension `.yaml`, `.yml`, or `.hscheme.yaml`:
+A color scheme file must use the extension `.yaml`, `.yml`, or `.hscheme`:
 
 ```yaml
 id: sunset_neon
@@ -163,7 +163,7 @@ Whenever you edit a color in the Studio (e.g. text color, button background, con
 
 The **Global** tab of the Studio gives you full control over palette persistence:
 
-- **Import Palette (YAML)**: Tap **Import Palette** to select any `.hscheme.yaml` or `.yaml` file from your device storage. Hyper Bridge parses and validates the roles immediately.
+- **Import Palette (YAML)**: Tap **Import Palette** to select any `.hscheme` or `.yaml` file from your device storage. Hyper Bridge parses and validates the roles immediately.
 - **Export Palette (YAML)**: Tap **Export Palette** to serialize your current colors into clean YAML and share them with other users.
 - **Embed in Design (`embeddedColorSchemeYaml`)**: When enabled, the full YAML color scheme is saved directly inside your `widget.json` file. When you share the widget as a `.hwidget`, recipients get your custom color palette without needing to install separate scheme files!
 

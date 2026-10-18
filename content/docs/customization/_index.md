@@ -23,7 +23,7 @@ A comprehensive 5-part guide to building, styling, and packaging KWGT-style micr
 1. **[Part 1: Studio Overview & In-App Builder]({{< ref "custom-widget-studio.md" >}})**: Interface walkthrough, canvas controls (350dp), floating toolbar, scenario switcher, and draft persistence.
 2. **[Part 2: Elements & Visual Properties]({{< ref "custom-widget-elements.md" >}})**: All 6 building block elements (Text, Image, Progress, Button, Shape, Container) and their properties.
 3. **[Part 3: Formulas, Dynamic Data & Visibility Conditions]({{< ref "custom-widget-formulas-conditions.md" >}})**: Dynamic `{token}` interpolation, bindable properties, and `showIf` visibility conditions.
-4. **[Part 4: Color Schemes & Dynamic Palettes]({{< ref "custom-widget-color-schemes.md" >}})**: Material 3 dynamic color architecture, 5 palette sources, and YAML color scheme authoring (`.hscheme.yaml`).
+4. **[Part 4: Color Schemes & Dynamic Palettes]({{< ref "custom-widget-color-schemes.md" >}})**: Material 3 dynamic color architecture, 5 palette sources, and YAML color scheme authoring (`.hscheme`).
 5. **[Part 5: Packaging, Sharing & Handcrafting .hwidget Files]({{< ref "custom-widget-files-packaging.md" >}})**: Anatomy of `.hwidget` archives, handcrafting from scratch, in-app export/import, and safety guardrails.
 
 ---

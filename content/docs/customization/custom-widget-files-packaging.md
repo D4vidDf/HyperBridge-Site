@@ -244,5 +244,5 @@ Congratulations! You now have a complete mastery of the **Custom Widget Design**
 - 🎨 **[Part 1: Studio Overview & In-App Builder]({{< ref "custom-widget-studio.md" >}})** — Navigation, canvas controls, scenario switcher, and draft persistence.
 - 📐 **[Part 2: Elements & Visual Properties]({{< ref "custom-widget-elements.md" >}})** — The 6 core elements (Text, Image, Progress, Button, Shape, Container) and their visual properties.
 - ⚡ **[Part 3: Formulas, Dynamic Data & Visibility Conditions]({{< ref "custom-widget-formulas-conditions.md" >}})** — Dynamic tokens, property bindings, and smart visibility conditions.
-- 🌈 **[Part 4: Color Schemes & Dynamic Palettes]({{< ref "custom-widget-color-schemes.md" >}})** — Material 3 dynamic color engine and `.hscheme.yaml` authoring.
+- 🌈 **[Part 4: Color Schemes & Dynamic Palettes]({{< ref "custom-widget-color-schemes.md" >}})** — Material 3 dynamic color engine and `.hscheme` authoring.
 - 📦 **[Part 5: Packaging, Sharing & Handcrafting .hwidget Files]({{< ref "custom-widget-files-packaging.md" >}})** — Package structure, handcrafting files from scratch, importing, and safety guards.

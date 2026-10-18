@@ -1,12 +1,12 @@
 ---
 title: "Submit a Theme, Design, or Translator"
-description: "Complete developer guide to publishing Themes (.htheme / .hbt), Studio Designs (.hwidget), Translators (.htrans / .hbp), Color Schemes (.hscheme.yaml), and your Developer Profile to the HyperBridge Community Showcase."
+description: "Complete developer guide to publishing Themes (.htheme / .hbt), Studio Designs (.hwidget), Translators (.htrans / .hbp), Color Schemes (.hscheme), and your Developer Profile to the HyperBridge Community Showcase."
 weight: 2
 icon: "wand-magic-sparkles"
 showTableOfContents: true
 ---
 
-The **[HyperBridge Community Showcase](/showcase/)** is the official directory where users discover, filter, preview, and download community-built **Themes** (`.htheme` / `.hbt` / `.hbr`), **Studio Custom Designs** (`.hwidget`), **Smart Translators** (`.htrans` / `.hbp`), and **Material 3 Color Schemes** (`.hscheme.yaml`).
+The **[HyperBridge Community Showcase](/showcase/)** is the official directory where users discover, filter, preview, and download community-built **Themes** (`.htheme` / `.hbt` / `.hbr`), **Studio Custom Designs** (`.hwidget`), **Smart Translators** (`.htrans` / `.hbp`), and **Material 3 Color Schemes** (`.hscheme`).
 
 Because HyperBridge is **100% offline with zero internet permissions**, users browse the Showcase from the in-app **Design Hub** links or their browser, download your package directly, and tap the downloaded file to import it into HyperBridge via Android's local file association.
 
@@ -16,7 +16,7 @@ Because HyperBridge is **100% offline with zero internet permissions**, users br
 
 ```mermaid
 flowchart LR
-    Export["1. Export from HyperBridge\n(.htheme, .hwidget, .htrans, .hscheme.yaml)"] --> Host["2. Host on Your GitHub Repo\n(GitHub Releases / Raw Link)"]
+    Export["1. Export from HyperBridge\n(.htheme, .hwidget, .htrans, .hscheme)"] --> Host["2. Host on Your GitHub Repo\n(GitHub Releases / Raw Link)"]
     Host --> Profile["3. Add Developer Profile\ndata/developers/<username>.yaml"]
     Profile --> Entry["4. Add Showcase Markdown\ncontent/showcase/<type>/<slug>/index.md"]
     Entry --> PR["5. Open Pull Request\n(CI Verifies Schema & <300KB Images)"]
@@ -135,7 +135,7 @@ Place your package in the directory matching its `showcase_type`:
 | `description` | **Yes** | String (`90–150` chars recommended) | Short summary shown on the Showcase card (2 lines) and right under the detail page title. |
 | `date` | **Yes** | `YYYY-MM-DD` | Publication or last-updated date (used for `Newest First` sorting). |
 | `showcase_type` | **Yes** | `"theme"` \| `"design"` \| `"translator"` \| `"scheme"` | Primary category filter on `/showcase/`. |
-| `file_extension` | **Yes** | `".htheme"` \| `".hbt"` \| `".hwidget"` \| `".htrans"` \| `".hbp"` \| `".hscheme.yaml"` | File format badge shown on download buttons and under the detail gallery. |
+| `file_extension` | **Yes** | `".htheme"` \| `".hbt"` \| `".hwidget"` \| `".htrans"` \| `".hbp"` \| `".hscheme"` | File format badge shown on download buttons and under the detail gallery. |
 | `version` | **Yes** | SemVer String (e.g. `"1.2.0"`) | Package version number. |
 | `min_app_version` | Optional | SemVer String (default `"0.6.0"`) | Minimum required HyperBridge app version. |
 | `developer_id` | **Yes** | String | Must match your `data/developers/<id>.yaml` filename / GitHub username. |
@@ -228,13 +228,13 @@ description: "Deep ocean cyan-to-indigo Material 3 color scheme for Studio micro
 date: 2026-10-16
 
 showcase_type: "scheme"
-file_extension: ".hscheme.yaml"
+file_extension: ".hscheme"
 version: "1.0.0"
 min_app_version: "0.6.0"
 
 developer_id: "your-github-username"
 repo_url: "https://github.com/your-github-username/hyperbridge-packs"
-download_url: "https://github.com/your-github-username/hyperbridge-packs/releases/latest/download/ocean.hscheme.yaml"
+download_url: "https://github.com/your-github-username/hyperbridge-packs/releases/latest/download/ocean.hscheme"
 license: "MIT"
 
 target_scope: "GLOBAL"

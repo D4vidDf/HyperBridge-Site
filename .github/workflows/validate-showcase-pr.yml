@@ -81,7 +81,7 @@ jobs:
 
           # 3. Validate Showcase Submissions (No frontmatter badges, Max 300KB preview, No heavy binaries)
           MAX_IMAGE_BYTES = 300 * 1024  # 300 KB
-          FORBIDDEN_BINARY_EXTS = (".htheme", ".hbr", ".htrans", ".hwidget", ".zip", ".apk", ".tar", ".gz")
+          FORBIDDEN_BINARY_EXTS = (".htheme", ".hbr", ".htrans", ".hwidget", ".hscheme", ".zip", ".apk", ".tar", ".gz")
           REQUIRED_FIELDS = [
               "title:", "description:", "showcase_type:", "file_extension:",
               "version:", "developer_id:", "repo_url:", "download_url:",
