@@ -1,0 +1,41 @@
+id: retro_tech
+name: "Retro Tech"
+author: D4vidDf
+description: "Industrial burnt signal orange, brushed steel slate, deep blueprint navy, and vintage charcoal chassis over matte obsidian."
+is_dark: true
+
+roles:
+  # Primary — Industrial Signal Orange (#DB5227)
+  primary: "#DB5227"
+  on_primary: "#FFFFFF"
+  primary_container: "#5C1D09"
+  on_primary_container: "#FFDBD0"
+
+  # Secondary — Brushed Anodized Slate (#76828E)
+  secondary: "#76828E"
+  on_secondary: "#0A0C12"
+  secondary_container: "#283038"
+  on_secondary_container: "#D8E2EC"
+
+  # Tertiary — Deep Blueprint Navy (#023661) & Bright Cyan Readout
+  tertiary: "#4CA3E6"
+  on_tertiary: "#001E38"
+  tertiary_container: "#023661"
+  on_tertiary_container: "#CFE6FF"
+
+  # Surfaces — Matte Obsidian (#0A0C12) & Vintage Charcoal Chassis (#3F3A42)
+  surface: "#0A0C12"
+  on_surface: "#ECEEF2"
+  surface_variant: "#3F3A42"
+  on_surface_variant: "#B8C0C8"
+  surface_container: "#141720"
+  surface_container_high: "#232631"
+  surface_container_low: "#06080C"
+
+  # Outlines & Borders
+  outline: "#76828E"
+  outline_variant: "#3F3A42"
+
+  # Error / Alerts
+  error: "#FF6B57"
+  on_error: "#3B0800"
