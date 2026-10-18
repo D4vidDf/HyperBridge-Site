@@ -1373,13 +1373,11 @@ html.dark .sc-results-summary {
   color: rgb(var(--color-primary-500));
 }
 
-/* STRICT FIXED-SIZE 185px CARD BANNER (Unobstructed Preview) */
+/* 16:9 CARD BANNER (Matches 1280x720 / 16:9 documentation spec without cropping) */
 .sc-card-banner {
   position: relative;
   width: 100%;
-  height: 185px !important;
-  min-height: 185px !important;
-  max-height: 185px !important;
+  aspect-ratio: 16 / 9;
   background: radial-gradient(circle at 50% 30%, #1e293b 0%, #090d16 100%);
   border-bottom: 1px solid rgba(var(--color-neutral-300), 0.45);
   overflow: hidden;
@@ -1401,16 +1399,17 @@ html.dark .sc-card-banner {
 
 .sc-card-banner-img {
   width: 100% !important;
-  height: 185px !important;
-  max-height: 185px !important;
-  object-fit: cover;
-  object-position: center 20%;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain;
+  object-position: center;
   display: block;
   margin: 0 !important;
   transition: transform 0.25s ease;
 }
 .sc-card-top:hover .sc-card-banner-img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .sc-zoom-hint {
@@ -2521,13 +2520,12 @@ html.dark .sc-gallery-box {
   border-color: rgb(var(--color-neutral-800));
 }
 
-/* STRICT FIXED-SIZE 320px BANNER GALLERY STAGE ON DETAIL PAGE */
+/* 16:9 BANNER GALLERY STAGE ON DETAIL PAGE */
 .sc-gallery-stage {
   position: relative;
   width: 100%;
-  height: 320px !important;
-  min-height: 320px !important;
-  max-height: 320px !important;
+  aspect-ratio: 16 / 9;
+  max-height: 440px;
   background: radial-gradient(circle at 50% 35%, #1e293b 0%, #090d16 100%);
   display: flex;
   align-items: center;
@@ -2537,14 +2535,14 @@ html.dark .sc-gallery-box {
 }
 
 .sc-gallery-stage-img {
+  width: 100% !important;
+  height: 100% !important;
   max-width: 100% !important;
-  height: 296px !important;
-  max-height: 296px !important;
-  width: auto !important;
+  max-height: 100% !important;
   object-fit: contain;
-  border-radius: 0.75rem;
+  object-position: center;
   margin: 0 !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  display: block;
 }
 
 .sc-gallery-controls {
@@ -2600,16 +2598,30 @@ html.dark .sc-gallery-box {
   gap: 0.5rem;
   overflow-x: auto;
   white-space: nowrap;
-  padding: 0.25rem 0.1rem 0.4rem;
+  padding: 0.3rem 0.15rem 0.65rem;
   margin-bottom: 1.25rem;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--color-primary-500), 0.55) rgba(var(--color-neutral-400), 0.16);
   -webkit-overflow-scrolling: touch;
 }
 .sc-badges-scroll-row::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
+  height: 6px;
+}
+.sc-badges-scroll-row::-webkit-scrollbar-track {
+  background: rgba(var(--color-neutral-400), 0.16);
+  border-radius: 9999px;
+}
+.sc-badges-scroll-row::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-primary-500), 0.55);
+  border-radius: 9999px;
+}
+.sc-badges-scroll-row::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-primary-500));
+}
+.sc-badges-scroll-row:focus-visible {
+  outline: 2px solid rgb(var(--color-primary-500));
+  outline-offset: 2px;
+  border-radius: 0.5rem;
 }
 .sc-badges-scroll-row > * {
   flex-shrink: 0;

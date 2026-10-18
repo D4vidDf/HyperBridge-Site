@@ -70,7 +70,7 @@
 {{/* Resolve Preview Image */}}
 {{ $previewImg := $page.Params.preview_image | default "" }}
 {{ if and $previewImg (not (strings.HasPrefix $previewImg "http")) (not (strings.HasPrefix $previewImg "/")) }}
-  {{ $previewImg = printf "%s%s" $page.RelPermalink $previewImg }}
+  {{ $previewImg = printf "/showcase/%s/%s" $rel $previewImg }}
 {{ end }}
 
 {{/* Build quiet context subtitle (e.g. "Spotify, YouTube Music" or "MEDIA") */}}

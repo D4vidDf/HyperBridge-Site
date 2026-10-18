@@ -27,5 +27,11 @@
       "icon": "youtube"
     }
   },
-  "items": {}
+  "items": {
+    "schemes/silksong-sea-of-sorrow": {
+      "badges": ["dev_approved", "official"],
+      "votes": 0,
+      "downloads": 0
+    }
+  }
 }
