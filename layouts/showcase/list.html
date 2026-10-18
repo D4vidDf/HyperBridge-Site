@@ -58,7 +58,7 @@
   {{ end }}
   {{ $appNames = sort $appNames }}
 
-  <div class="sc-page-wrap not-prose" id="showcase-app" data-initial-type="{{ $initialType }}">
+  <div class="sc-page-wrap not-prose" id="showcase-app" data-initial-type="{{ $initialType }}" data-api-url="{{ site.Params.showcaseApiUrl | default "https://hyperbridge-api.d4viddf.com" }}">
     {{/* Breadcrumbs */}}
     <div class="sc-breadcrumbs">
       {{ partial "breadcrumbs.html" . }}

@@ -5,6 +5,7 @@ autoSwitchAppearance = true
 enableSearch = true
 enableCodeCopy = true
 logo = "img/logo.svg"
+showcaseApiUrl = "https://hyperbridge-api.d4viddf.com"
 
 [header]
   layout = "floating"

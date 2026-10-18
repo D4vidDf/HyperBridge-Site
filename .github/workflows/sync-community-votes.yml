@@ -2,12 +2,12 @@ name: "Sync Community Votes & Auto-Award Badges"
 
 on:
   schedule:
-    # Runs daily at 06:00 UTC to sync GitHub Stars / Reactions and auto-award Community Approved badges
-    - cron: "0 6 * * *"
+    # Runs every 6 hours to sync Showcase API Likes/Downloads + GitHub Stars and auto-award Community Approved badges
+    - cron: "0 */6 * * *"
   workflow_dispatch:
     inputs:
       package_id:
-        description: "Optional package ID (e.g. designs/compact-wave-music) to manually award a badge"
+        description: "Optional package ID (e.g. schemes/summer-breeze) to manually award a badge"
         required: false
         type: string
       award_badge:
@@ -35,6 +35,7 @@ jobs:
       - name: Update Votes & Evaluate Community Threshold
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHOWCASE_API_URL: "https://hyperbridge-api.d4viddf.com"
           INPUT_PACKAGE_ID: ${{ inputs.package_id }}
           INPUT_AWARD_BADGE: ${{ inputs.award_badge }}
         run: |
@@ -53,12 +54,29 @@ jobs:
           pkg_id = os.environ.get("INPUT_PACKAGE_ID", "").strip()
           award_badge = os.environ.get("INPUT_AWARD_BADGE", "").strip()
           if pkg_id and award_badge:
-              entry = items.setdefault(pkg_id, {"badges": [], "votes": 0, "media_features": []})
+              entry = items.setdefault(pkg_id, {"badges": [], "votes": 0, "downloads": 0})
               if award_badge not in entry["badges"]:
                   entry["badges"].append(award_badge)
                   print(f"Awarded `{award_badge}` to `{pkg_id}`")
 
-          # 2. Scan all showcase packages and sync GitHub repo stars for community repos
+          # 2. Fetch live Likes & Downloads from Showcase API
+          api_base = os.environ.get("SHOWCASE_API_URL", "https://hyperbridge-api.d4viddf.com").rstrip("/")
+          worker_stats = {}
+          if api_base:
+              try:
+                  req = urllib.request.Request(
+                      f"{api_base}/stats",
+                      headers={"User-Agent": "HyperBridge-Showcase-Sync", "Accept": "application/json"},
+                  )
+                  with urllib.request.urlopen(req, timeout=12) as resp:
+                      payload = json.loads(resp.read().decode("utf-8"))
+                      if isinstance(payload.get("items"), dict):
+                          worker_stats = payload["items"]
+                          print(f"Fetched live stats for {len(worker_stats)} item(s) from {api_base}/stats")
+              except Exception as ex:
+                  print(f"Notice: Could not reach {api_base}/stats ({ex})")
+
+          # 3. Scan all showcase packages and sync live stats + external GitHub repo stars
           token = os.environ.get("GITHUB_TOKEN", "")
           for md_path in sorted(glob.glob("content/showcase/*/*/index.md")):
               parts = md_path.replace("\\", "/").split("/")
@@ -69,9 +87,19 @@ jobs:
               if m_id:
                   item_key = m_id.group(1)
 
-              entry = items.setdefault(item_key, {"badges": [], "votes": 0, "media_features": []})
+              entry = items.setdefault(item_key, {"badges": [], "votes": 0, "downloads": 0})
 
-              # Check external GitHub repo stars (excluding main D4vidDf/HyperBridge repo)
+              # Sync from Showcase API stats (accept both increments and unlike decrements)
+              w_entry = worker_stats.get(item_key) or worker_stats.get(item_key.lower())
+              if isinstance(w_entry, dict):
+                  if "votes" in w_entry:
+                      entry["votes"] = max(0, int(w_entry.get("votes", 0) or 0))
+                  if "downloads" in w_entry:
+                      w_downloads = max(0, int(w_entry.get("downloads", 0) or 0))
+                      if w_downloads > int(entry.get("downloads", 0) or 0):
+                          entry["downloads"] = w_downloads
+
+              # Check external GitHub repo stars (excluding main D4vidDf/HyperBridge repos)
               m_repo = re.search(r'repo_url:\s*"https://github\.com/([^/]+/[^/"]+)"', text)
               if m_repo:
                   repo_slug = m_repo.group(1).strip("/")
@@ -89,10 +117,14 @@ jobs:
                       except Exception as ex:
                           print(f"Skipped star fetch for {repo_slug}: {ex}")
 
-              # 3. Auto-award `community_approved` if votes >= threshold
-              if entry.get("votes", 0) >= threshold and "community_approved" not in entry["badges"]:
-                  entry["badges"].append("community_approved")
-                  print(f"🎉 Auto-awarded `community_approved` to `{item_key}` ({entry['votes']} votes >= {threshold})")
+              # 4. Auto-award or revoke `community_approved` based on threshold
+              if entry.get("votes", 0) >= threshold:
+                  if "community_approved" not in entry["badges"]:
+                      entry["badges"].append("community_approved")
+                      print(f"🎉 Auto-awarded `community_approved` to `{item_key}` ({entry['votes']} votes >= {threshold})")
+              elif "community_approved" in entry["badges"]:
+                  entry["badges"].remove("community_approved")
+                  print(f"ℹ️ Removed `community_approved` from `{item_key}` ({entry['votes']} votes < {threshold})")
 
           registry["last_synced"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
           with open(badge_file, "w", encoding="utf-8") as f:
