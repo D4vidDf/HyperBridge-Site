@@ -1,0 +1,41 @@
+id: coruna_solar_eclipse
+name: "A Coruña Total Eclipse (12 Aug)"
+author: D4vidDf
+description: "Solar corona gold and horizon ember orange over deep totality umbra black, inspired by the August 12 total solar eclipse in La Coruña."
+is_dark: true
+
+roles:
+  # Primary — Horizon Chromosphere Ember (#D25C24)
+  primary: "#D25C24"
+  on_primary: "#FFFFFF"
+  primary_container: "#591F05"
+  on_primary_container: "#FFDBCD"
+
+  # Secondary — Solar Corona & Diamond Ring Gold (#FFB055)
+  secondary: "#FFB055"
+  on_secondary: "#2B1700"
+  secondary_container: "#4F3108"
+  on_secondary_container: "#FFDEA6"
+
+  # Tertiary — Warm Twilight Flare (#FF8652)
+  tertiary: "#FF8652"
+  on_tertiary: "#311000"
+  tertiary_container: "#4A1C07"
+  on_tertiary_container: "#FFDBCE"
+
+  # Surfaces — Totality Umbra Black (#080302) & Warm Shadow Elevations
+  surface: "#080302"
+  on_surface: "#F5E6DF"
+  surface_variant: "#24140E"
+  on_surface_variant: "#D8BFB4"
+  surface_container: "#140A07"
+  surface_container_high: "#21120D"
+  surface_container_low: "#040101"
+
+  # Outlines & Borders
+  outline: "#8C6756"
+  outline_variant: "#3D241B"
+
+  # Error / Alerts
+  error: "#FF5449"
+  on_error: "#FFFFFF"
