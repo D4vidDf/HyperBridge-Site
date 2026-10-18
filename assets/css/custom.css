@@ -2910,27 +2910,43 @@ html.dark .sc-info-row {
   border-radius: 1.5rem;
   padding: 3rem 1.5rem;
   text-align: center;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
 }
 .sc-empty-icon {
-  font-size: 2.25rem;
-  margin-bottom: 0.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  line-height: 1;
+  background-color: rgba(var(--color-primary-500), 0.12);
+  border: 1px solid rgba(var(--color-primary-500), 0.28);
+  box-shadow: 0 8px 24px rgba(var(--color-primary-500), 0.12);
 }
 .sc-empty-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   margin: 0;
+  color: rgb(var(--color-neutral-800));
 }
-.sc-empty-desc {
-  font-size: 0.85rem;
-  color: rgb(var(--color-neutral-500));
-  max-width: 26rem;
-  margin: 0.5rem auto 1.25rem;
+.dark .sc-empty-title,
+html.dark .sc-empty-title {
+  color: rgb(var(--color-neutral-100));
 }
 .sc-empty-actions {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  margin-top: 0.25rem;
 }
 
 /* --- Full-Screen Image Lightbox Modal --- */

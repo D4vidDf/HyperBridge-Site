@@ -1,1 +1,0 @@
-{"id":"com.fooddelivery.live_tracker","meta":{"name":"Food Delivery Live Tracker","author":"D4vidDf","version":1},"target_scope":"SPECIFIC_APPS","target_packages":["com.ubercab.eats","com.doordash.driverapp"],"priority":250,"is_enabled":true}

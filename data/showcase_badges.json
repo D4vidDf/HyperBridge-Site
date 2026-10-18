@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-10-16T19:30:00Z",
+  "last_synced": "2026-10-18T00:00:00Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -27,89 +27,5 @@
       "icon": "youtube"
     }
   },
-  "items": {
-    "themes/hyperos-native": {
-      "badges": ["official", "dev_approved", "community_approved"],
-      "votes": 64,
-      "media_features": []
-    },
-    "themes/neon-cyberpunk": {
-      "badges": ["official", "dev_approved", "featured_media"],
-      "votes": 38,
-      "media_features": [
-        {
-          "title": "HyperBridge 0.6.0 Theme Engine Showcase",
-          "url": "https://github.com/D4vidDf/HyperBridge",
-          "platform": "web"
-        }
-      ]
-    },
-    "themes/monochrome-minimal": {
-      "badges": ["official", "dev_approved", "community_approved"],
-      "votes": 51,
-      "media_features": []
-    },
-    "themes/gradient-glow": {
-      "badges": ["official", "dev_approved"],
-      "votes": 29,
-      "media_features": []
-    },
-    "designs/compact-wave-music": {
-      "badges": ["official", "dev_approved", "community_approved", "featured_media"],
-      "votes": 82,
-      "media_features": [
-        {
-          "title": "Custom Widget Studio & Wave Progress Demo",
-          "url": "https://hyper-bridge.app/docs/customization/custom-widget-studio/",
-          "platform": "web"
-        }
-      ]
-    },
-    "designs/ride-delivery-waypoint": {
-      "badges": ["official", "dev_approved", "community_approved"],
-      "votes": 47,
-      "media_features": []
-    },
-    "designs/payment-otp-wallet": {
-      "badges": ["official", "dev_approved"],
-      "votes": 34,
-      "media_features": []
-    },
-    "designs/boarding-pass-travel": {
-      "badges": ["official", "dev_approved"],
-      "votes": 26,
-      "media_features": []
-    },
-    "translators/food-delivery-tracker": {
-      "badges": ["official", "dev_approved", "community_approved"],
-      "votes": 58,
-      "media_features": []
-    },
-    "translators/whatsapp-vip-contact": {
-      "badges": ["official", "dev_approved", "community_approved"],
-      "votes": 73,
-      "media_features": []
-    },
-    "translators/smart-otp-copier": {
-      "badges": ["official", "dev_approved", "community_approved", "featured_media"],
-      "votes": 95,
-      "media_features": [
-        {
-          "title": "Smart Actions & 1-Tap OTP Guide",
-          "url": "https://hyper-bridge.app/docs/features/smart-actions/",
-          "platform": "web"
-        }
-      ]
-    },
-    "translators/rideshare-raw-param-v2": {
-      "badges": ["official", "dev_approved"],
-      "votes": 31,
-      "media_features": []
-    },
-    "schemes/material-expressive-ocean": {
-      "badges": ["official", "dev_approved", "community_approved"],
-      "votes": 41,
-      "media_features": []
-    }
-  }
+  "items": {}
 }

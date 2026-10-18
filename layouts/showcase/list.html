@@ -28,9 +28,15 @@
   {{ $initialType := .Params.default_filter_type | default "all" }}
   {{ $isDevelopersPage := eq $initialType "developers" }}
 
-  {{/* Collect unique developers & unique target apps across all showcase items */}}
+  {{/* Collect unique developers & unique target apps across all showcase items and data/developers */}}
   {{ $devIds := slice }}
   {{ $appNames := slice }}
+  {{ range $devKey, $devVal := hugo.Data.developers }}
+    {{ $id := $devVal.id | default $devKey }}
+    {{ if and $id (not (in $devIds $id)) }}
+      {{ $devIds = $devIds | append $id }}
+    {{ end }}
+  {{ end }}
   {{ range $allItems }}
     {{ $d := .Params.developer_id | default (.Params.author.github | default "D4vidDf") }}
     {{ if and $d (not (in $devIds $d)) }}
@@ -90,11 +96,23 @@
       {{/* =========================================================================
            DEVELOPERS DIRECTORY VIEW (/showcase/developers/)
            ========================================================================= */}}
-      <section class="sc-dev-grid">
-        {{ range $devIds }}
-          {{ partial "developer-card.html" (dict "devId" . "compact" false) }}
-        {{ end }}
-      </section>
+      {{ if gt (len $devIds) 0 }}
+        <section class="sc-dev-grid">
+          {{ range $devIds }}
+            {{ partial "developer-card.html" (dict "devId" . "compact" false) }}
+          {{ end }}
+        </section>
+      {{ else }}
+        <div class="sc-empty-state docs-sidebar-box">
+          <div class="sc-empty-icon">✨</div>
+          <h3 class="sc-empty-title">No creators found</h3>
+          <div class="sc-empty-actions">
+            <a href="/docs/contributing/showcase-submission/" class="sc-btn sc-btn-primary">
+              Learn how to create and submit &rarr;
+            </a>
+          </div>
+        </div>
+      {{ end }}
     {{ else }}
       {{/* =========================================================================
            TWO-COLUMN WORKSPACE: STICKY LEFT FILTER SIDEBAR + MAIN GRID & PAGINATION
@@ -330,18 +348,15 @@
             </div>
 
             {{/* Empty State */}}
-            <div id="showcase-empty-state" class="sc-empty-state docs-sidebar-box sc-hidden">
-              <div class="sc-empty-icon">🔍</div>
-              <h3 class="sc-empty-title">No matching customizations found</h3>
-              <p class="sc-empty-desc">
-                Try clearing one of your filters or submit your own Theme, Translator, or Studio Design via Pull Request!
-              </p>
+            <div id="showcase-empty-state" class="sc-empty-state docs-sidebar-box {{ if gt (len $allItems) 0 }}sc-hidden{{ end }}">
+              <div class="sc-empty-icon">✨</div>
+              <h3 id="sc-empty-title" class="sc-empty-title">No items found</h3>
               <div class="sc-empty-actions">
-                <button type="button" data-empty-reset class="sc-btn sc-btn-primary">
+                <button type="button" id="sc-empty-reset-btn" data-empty-reset class="sc-btn sc-btn-secondary sc-hidden">
                   Reset Filters
                 </button>
-                <a href="/docs/contributing/showcase-submission/" class="sc-btn sc-btn-secondary">
-                  Submit a Package
+                <a href="/docs/contributing/showcase-submission/" class="sc-btn sc-btn-primary">
+                  Learn how to create and submit &rarr;
                 </a>
               </div>
             </div>

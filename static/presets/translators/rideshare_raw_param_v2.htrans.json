@@ -1,1 +1,0 @@
-{"id":"com.rideshare.live_driver_v2","meta":{"name":"Ride-Share HyperIsland (RAW_PARAM_V2)","author":"HyperStudioTeam","version":2},"target_scope":"SPECIFIC_APPS","target_packages":["com.ubercab","ee.mtakso.driver"],"priority":750,"is_enabled":true}

@@ -324,6 +324,8 @@
     const rangeLabelEl = document.getElementById('showcase-range-label');
     const resetBtn = document.getElementById('showcase-reset-btn');
     const emptyState = document.getElementById('showcase-empty-state');
+    const emptyTitle = document.getElementById('sc-empty-title');
+    const emptyResetBtn = document.getElementById('sc-empty-reset-btn');
     const paginationEl = document.getElementById('showcase-pagination');
     const activeFilterBadge = document.getElementById('sc-active-filter-count');
     const devSpotlightContainer = document.getElementById('showcase-dev-spotlights');
@@ -593,6 +595,11 @@
       if (state.app !== 'all') activeFilterCount++;
 
       setHidden(resetBtn, activeFilterCount === 0);
+      if (emptyTitle) {
+        emptyTitle.textContent =
+          activeFilterCount > 0 ? 'No search match found' : 'No items found';
+      }
+      setHidden(emptyResetBtn, !(totalMatches === 0 && activeFilterCount > 0));
       if (activeFilterBadge) {
         activeFilterBadge.textContent = String(activeFilterCount);
         activeFilterBadge.classList.toggle('is-active', activeFilterCount > 0);
