@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-10-18T00:00:00Z",
+  "last_synced": "2026-10-18T09:59:46Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -29,17 +29,26 @@
   },
   "items": {
     "schemes/silksong-sea-of-sorrow": {
-      "badges": ["dev_approved", "official"],
+      "badges": [
+        "dev_approved",
+        "official"
+      ],
       "votes": 0,
       "downloads": 0
     },
     "schemes/retro-tech": {
-      "badges": ["dev_approved", "official"],
+      "badges": [
+        "dev_approved",
+        "official"
+      ],
       "votes": 0,
       "downloads": 0
     },
     "schemes/coruna-solar-eclipse": {
-      "badges": ["dev_approved", "official"],
+      "badges": [
+        "dev_approved",
+        "official"
+      ],
       "votes": 0,
       "downloads": 0
     }
