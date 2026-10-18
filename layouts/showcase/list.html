@@ -1,0 +1,378 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+
+  {{ $showcaseRoot := site.GetPage "section" "showcase" }}
+  {{ $allItems := slice }}
+  {{ $seenKeys := slice }}
+  {{ if $showcaseRoot }}
+    {{ range $showcaseRoot.RegularPagesRecursive }}
+      {{ $r := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" .RelPermalink) }}
+      {{ $k := .Params.showcase_id | default $r }}
+      {{ $allItems = $allItems | append . }}
+      {{ $seenKeys = $seenKeys | append $k }}
+    {{ end }}
+  {{ end }}
+  {{/* Fallback: include any untranslated items from the default language site */}}
+  {{ $defaultRoot := hugo.Sites.Default.GetPage "section" "showcase" }}
+  {{ if $defaultRoot }}
+    {{ range $defaultRoot.RegularPagesRecursive }}
+      {{ $r := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" .RelPermalink) }}
+      {{ $k := .Params.showcase_id | default $r }}
+      {{ if not (in $seenKeys $k) }}
+        {{ $allItems = $allItems | append . }}
+        {{ $seenKeys = $seenKeys | append $k }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ $initialType := .Params.default_filter_type | default "all" }}
+  {{ $isDevelopersPage := eq $initialType "developers" }}
+
+  {{/* Collect unique developers & unique target apps across all showcase items and data/developers */}}
+  {{ $devIds := slice }}
+  {{ $appNames := slice }}
+  {{ range $devKey, $devVal := hugo.Data.developers }}
+    {{ $id := $devVal.id | default $devKey }}
+    {{ if and $id (not (in $devIds $id)) }}
+      {{ $devIds = $devIds | append $id }}
+    {{ end }}
+  {{ end }}
+  {{ range $allItems }}
+    {{ $d := .Params.developer_id | default (.Params.author.github | default "D4vidDf") }}
+    {{ if and $d (not (in $devIds $d)) }}
+      {{ $devIds = $devIds | append $d }}
+    {{ end }}
+    {{ range .Params.target_apps }}
+      {{ if reflect.IsMap . }}
+        {{ with .name }}
+          {{ if not (in $appNames .) }}
+            {{ $appNames = $appNames | append . }}
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        {{ if not (in $appNames .) }}
+          {{ $appNames = $appNames | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $appNames = sort $appNames }}
+
+  <div class="sc-page-wrap not-prose" id="showcase-app" data-initial-type="{{ $initialType }}">
+    {{/* Breadcrumbs */}}
+    <div class="sc-breadcrumbs">
+      {{ partial "breadcrumbs.html" . }}
+    </div>
+
+    {{/* Compact Hero Header */}}
+    <header class="sc-hero docs-sidebar-box">
+      <div class="sc-hero-inner">
+        <div class="sc-hero-content">
+          <div class="sc-hero-kicker">
+            <span>✨ HyperBridge Community Hub</span>
+            <span>&bull;</span>
+            <span>{{ len $allItems }} Packages</span>
+          </div>
+          <h1 class="sc-hero-title">
+            {{ .Title | emojify }}
+          </h1>
+          {{ with .Description }}
+            <p class="sc-hero-desc">{{ . }}</p>
+          {{ end }}
+        </div>
+
+        <div class="sc-hero-actions">
+          <a href="/docs/contributing/showcase-submission/" class="sc-btn sc-btn-primary">
+            <span>+ Submit Creation (PR)</span>
+          </a>
+          <a href="{{ "showcase/developers/" | relLangURL }}" class="sc-btn sc-btn-secondary">
+            <span>👩‍💻 Creators ({{ len $devIds }})</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    {{ if $isDevelopersPage }}
+      {{/* =========================================================================
+           DEVELOPERS DIRECTORY VIEW (/showcase/developers/)
+           ========================================================================= */}}
+      {{ if gt (len $devIds) 0 }}
+        <section class="sc-dev-grid">
+          {{ range $devIds }}
+            {{ partial "developer-card.html" (dict "devId" . "compact" false) }}
+          {{ end }}
+        </section>
+      {{ else }}
+        <div class="sc-empty-state docs-sidebar-box">
+          <div class="sc-empty-icon">✨</div>
+          <h3 class="sc-empty-title">No creators found</h3>
+          <div class="sc-empty-actions">
+            <a href="/docs/contributing/showcase-submission/" class="sc-btn sc-btn-primary">
+              Learn how to create and submit &rarr;
+            </a>
+          </div>
+        </div>
+      {{ end }}
+    {{ else }}
+      {{/* =========================================================================
+           TWO-COLUMN WORKSPACE: STICKY LEFT FILTER SIDEBAR + MAIN GRID & PAGINATION
+           ========================================================================= */}}
+      <div class="sc-directory-layout">
+
+        {{/* Mobile/Tablet Backdrop for Slide-Over Filter Drawer */}}
+        <div id="sc-sidebar-backdrop" class="sc-sidebar-backdrop sc-hidden" data-close-filters></div>
+
+        {{/* LEFT STICKY FILTER SIDEBAR */}}
+        <aside id="sc-filter-sidebar" class="sc-filter-sidebar docs-sidebar-box" aria-label="Showcase Filters">
+          <div class="sc-sidebar-header">
+            <div class="sc-sidebar-title-wrap">
+              <span class="sc-icon">{{ partial "icon.html" "filter" }}</span>
+              <span class="sc-sidebar-title">Filters</span>
+            </div>
+            <div class="sc-sidebar-header-actions">
+              <button type="button" id="showcase-reset-btn" class="sc-reset-link sc-hidden">
+                Reset all
+              </button>
+              <button type="button" class="sc-sidebar-close-btn" data-close-filters aria-label="Close filters">
+                &times;
+              </button>
+            </div>
+          </div>
+
+          <div class="sc-sidebar-body">
+            {{/* 1. Search Input */}}
+            <div class="sc-filter-group">
+              <label for="showcase-search-input" class="sc-filter-heading">Search</label>
+              <div class="sc-search-wrap">
+                <span class="sc-search-icon sc-icon">
+                  {{ partial "icon.html" "search" }}
+                </span>
+                <input
+                  type="search"
+                  id="showcase-search-input"
+                  placeholder="App, name, creator, tag..."
+                  aria-label="Search showcase packages"
+                  class="sc-search-input"
+                />
+              </div>
+            </div>
+
+            {{/* 2. Package Category (Vertical Nav List) */}}
+            <div class="sc-filter-group">
+              <div class="sc-filter-heading">Category</div>
+              <div class="sc-category-list" role="tablist" aria-label="Package Category">
+                <button type="button" data-filter-type="all" class="sc-cat-btn active">
+                  <span>All Packages</span>
+                  <span class="sc-cat-count" data-count-type="all">{{ len $allItems }}</span>
+                </button>
+                <button type="button" data-filter-type="theme" class="sc-cat-btn">
+                  <span>🎨 Themes</span>
+                  <span class="sc-cat-count" data-count-type="theme"></span>
+                </button>
+                <button type="button" data-filter-type="design" class="sc-cat-btn">
+                  <span>📐 Studio Designs</span>
+                  <span class="sc-cat-count" data-count-type="design"></span>
+                </button>
+                <button type="button" data-filter-type="translator" class="sc-cat-btn">
+                  <span>⚡ Translators</span>
+                  <span class="sc-cat-count" data-count-type="translator"></span>
+                </button>
+                <button type="button" data-filter-type="scheme" class="sc-cat-btn">
+                  <span>🌈 Color Schemes</span>
+                  <span class="sc-cat-count" data-count-type="scheme"></span>
+                </button>
+              </div>
+            </div>
+
+            {{/* 3. Recognition Badges Checklist */}}
+            <div class="sc-filter-group">
+              <div class="sc-filter-heading">Recognition</div>
+              <div class="sc-checklist" role="group" aria-label="Filter by recognition badges">
+                <label class="sc-check-item">
+                  <input type="checkbox" value="dev_approved" data-filter-badge class="sc-check-input" />
+                  <span class="sc-check-box" aria-hidden="true">✓</span>
+                  <span class="sc-check-label">
+                    <span class="sc-icon">{{ partial "icon.html" "shield" }}</span>
+                    <span>Dev Approved</span>
+                  </span>
+                </label>
+                <label class="sc-check-item">
+                  <input type="checkbox" value="community_approved" data-filter-badge class="sc-check-input" />
+                  <span class="sc-check-box" aria-hidden="true">✓</span>
+                  <span class="sc-check-label">
+                    <span class="sc-icon">{{ partial "icon.html" "heart" }}</span>
+                    <span>Community Choice</span>
+                  </span>
+                </label>
+                <label class="sc-check-item">
+                  <input type="checkbox" value="featured_media" data-filter-badge class="sc-check-input" />
+                  <span class="sc-check-box" aria-hidden="true">✓</span>
+                  <span class="sc-check-label">
+                    <span class="sc-icon">{{ partial "icon.html" "youtube" }}</span>
+                    <span>Featured in Media</span>
+                  </span>
+                </label>
+                <label class="sc-check-item">
+                  <input type="checkbox" value="official" data-filter-badge class="sc-check-input" />
+                  <span class="sc-check-box" aria-hidden="true">✓</span>
+                  <span class="sc-check-label">
+                    <span class="sc-icon">{{ partial "icon.html" "star" }}</span>
+                    <span>Official Preset</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            {{/* 4. Notification Type */}}
+            <div class="sc-filter-group">
+              <label for="filter-notif-type" class="sc-filter-heading">Notification Type</label>
+              <select id="filter-notif-type" class="sc-select">
+                <option value="all">All Notification Types</option>
+                <option value="MEDIA">🎵 Media &amp; Music</option>
+                <option value="MESSAGING">💬 Messaging &amp; Chat</option>
+                <option value="CALLS">📞 Calls &amp; VoIP</option>
+                <option value="NAVIGATION">🧭 Navigation &amp; Maps</option>
+                <option value="PROGRESS">🚚 Progress &amp; Delivery</option>
+                <option value="TIMER">⏱️ Timers &amp; Alarms</option>
+                <option value="STANDARD">🔔 Standard / Global</option>
+              </select>
+            </div>
+
+            {{/* 5. Target Scope */}}
+            <div class="sc-filter-group">
+              <label for="filter-scope" class="sc-filter-heading">Target Scope</label>
+              <select id="filter-scope" class="sc-select">
+                <option value="all">All Scopes</option>
+                <option value="SPECIFIC_APPS">📱 Specific Apps</option>
+                <option value="NOTIFICATION_TYPE">🏷️ Notification Type</option>
+                <option value="SYSTEM_APPS">⚙️ System Apps</option>
+                <option value="GLOBAL">🌐 Global Rule</option>
+              </select>
+            </div>
+
+            {{/* 6. Developer */}}
+            <div class="sc-filter-group">
+              <label for="filter-developer" class="sc-filter-heading">Creator</label>
+              <select id="filter-developer" class="sc-select">
+                <option value="all">All Creators ({{ len $devIds }})</option>
+                {{ range $devIds }}
+                  {{ $dData := index hugo.Data.developers . | default dict }}
+                  {{ $dName := $dData.name | default . }}
+                  <option value="{{ lower . }}">{{ $dName }}</option>
+                {{ end }}
+              </select>
+            </div>
+
+            {{/* 7. Target App */}}
+            <div class="sc-filter-group">
+              <label for="filter-app" class="sc-filter-heading">Target App</label>
+              <select id="filter-app" class="sc-select">
+                <option value="all">All Applications</option>
+                {{ range $appNames }}
+                  <option value="{{ lower . }}">{{ . }}</option>
+                {{ end }}
+              </select>
+            </div>
+          </div>
+
+          {{/* Mobile Drawer Apply Button */}}
+          <div class="sc-sidebar-mobile-footer">
+            <button type="button" class="sc-btn sc-btn-primary sc-btn-block" data-close-filters>
+              Show Results
+            </button>
+          </div>
+        </aside>
+
+        {{/* RIGHT MAIN CONTENT AREA */}}
+        <div class="sc-directory-main">
+          {{/* Top Toolbar: Mobile Filter Toggle, Range Counter, Page Size & Sort */}}
+          <div class="sc-toolbar docs-sidebar-box">
+            <div class="sc-toolbar-left">
+              <button type="button" id="sc-mobile-filter-btn" class="sc-mobile-filter-btn" data-open-filters>
+                <span class="sc-mobile-filter-start">
+                  <span class="sc-icon">{{ partial "icon.html" "filter" }}</span>
+                  <span>Filters</span>
+                </span>
+                <span id="sc-active-filter-count" class="sc-filter-badge">0</span>
+              </button>
+
+              <div class="sc-results-summary">
+                Showing <strong id="showcase-range-label">1–{{ len $allItems }}</strong> of <strong id="showcase-visible-count">{{ len $allItems }}</strong> packages
+              </div>
+            </div>
+
+            <div class="sc-toolbar-right">
+              <div class="sc-toolbar-control">
+                <label for="showcase-page-size" class="sc-toolbar-label">Show</label>
+                <select id="showcase-page-size" class="sc-select sc-select-sm">
+                  <option value="auto" id="sc-opt-auto-size" selected>Auto (6 / page)</option>
+                  <option value="4">4 / page</option>
+                  <option value="6">6 / page</option>
+                  <option value="8">8 / page</option>
+                  <option value="12">12 / page</option>
+                </select>
+              </div>
+
+              <div class="sc-toolbar-control">
+                <label for="showcase-sort" class="sc-toolbar-label">Sort</label>
+                <select id="showcase-sort" class="sc-select sc-select-sm">
+                  <option value="popular">🔥 Most Popular</option>
+                  <option value="newest">🆕 Newest</option>
+                  <option value="az">🔤 Name (A–Z)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {{/* Active Developer Spotlight Banner */}}
+          <div id="showcase-dev-spotlights" class="sc-dev-spotlight-wrap sc-hidden">
+            <div class="sc-dev-spotlight-header">
+              <span>👩‍💻 Creator Profile &amp; Repositories</span>
+              <button type="button" data-clear-developer class="sc-reset-link">
+                Clear creator filter &times;
+              </button>
+            </div>
+            {{ range $devIds }}
+              <div data-dev-spotlight="{{ lower . }}" class="sc-hidden">
+                {{ partial "developer-card.html" (dict "devId" . "compact" false) }}
+              </div>
+            {{ end }}
+          </div>
+
+          {{/* Showcase Cards Grid */}}
+          <section aria-label="Showcase Packages Grid">
+            <div id="showcase-grid" class="sc-grid">
+              {{ range $allItems }}
+                {{ partial "showcase-card.html" . }}
+              {{ end }}
+            </div>
+
+            {{/* Empty State */}}
+            <div id="showcase-empty-state" class="sc-empty-state docs-sidebar-box {{ if gt (len $allItems) 0 }}sc-hidden{{ end }}">
+              <div class="sc-empty-icon">✨</div>
+              <h3 id="sc-empty-title" class="sc-empty-title">No items found</h3>
+              <div class="sc-empty-actions">
+                <button type="button" id="sc-empty-reset-btn" data-empty-reset class="sc-btn sc-btn-secondary sc-hidden">
+                  Reset Filters
+                </button>
+                <a href="/docs/contributing/showcase-submission/" class="sc-btn sc-btn-primary">
+                  Learn how to create and submit &rarr;
+                </a>
+              </div>
+            </div>
+
+            {{/* Pagination Bar */}}
+            <nav id="showcase-pagination" class="sc-pagination sc-hidden" aria-label="Showcase Pagination"></nav>
+          </section>
+        </div>
+
+      </div>
+    {{ end }}
+  </div>
+
+  {{ $showcaseJS := resources.Get "js/showcase.js" }}
+  {{ if $showcaseJS }}
+    {{ $showcaseJS = $showcaseJS | resources.Minify | resources.Fingerprint }}
+    <script defer src="{{ $showcaseJS.RelPermalink }}" integrity="{{ $showcaseJS.Data.Integrity }}"></script>
+  {{ end }}
+{{ end }}

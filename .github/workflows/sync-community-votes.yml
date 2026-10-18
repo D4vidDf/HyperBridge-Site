@@ -1,0 +1,113 @@
+name: "Sync Community Votes & Auto-Award Badges"
+
+on:
+  schedule:
+    # Runs daily at 06:00 UTC to sync GitHub Stars / Reactions and auto-award Community Approved badges
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      package_id:
+        description: "Optional package ID (e.g. designs/compact-wave-music) to manually award a badge"
+        required: false
+        type: string
+      award_badge:
+        description: "Badge to award (dev_approved | community_approved | featured_media | official)"
+        required: false
+        type: choice
+        options:
+          - ""
+          - "dev_approved"
+          - "community_approved"
+          - "featured_media"
+          - "official"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-votes:
+    name: "Sync Votes & Promote Community Approved Packages"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update Votes & Evaluate Community Threshold
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_PACKAGE_ID: ${{ inputs.package_id }}
+          INPUT_AWARD_BADGE: ${{ inputs.award_badge }}
+        run: |
+          python3 - << 'EOF'
+          import json, os, glob, re, urllib.request
+          from datetime import datetime, timezone
+
+          badge_file = "data/showcase_badges.json"
+          with open(badge_file, "r", encoding="utf-8") as f:
+              registry = json.load(f)
+
+          threshold = registry.get("threshold_likes_for_community_badge", 15)
+          items = registry.setdefault("items", {})
+
+          # 1. Handle optional manual badge dispatch by maintainer
+          pkg_id = os.environ.get("INPUT_PACKAGE_ID", "").strip()
+          award_badge = os.environ.get("INPUT_AWARD_BADGE", "").strip()
+          if pkg_id and award_badge:
+              entry = items.setdefault(pkg_id, {"badges": [], "votes": 0, "media_features": []})
+              if award_badge not in entry["badges"]:
+                  entry["badges"].append(award_badge)
+                  print(f"Awarded `{award_badge}` to `{pkg_id}`")
+
+          # 2. Scan all showcase packages and sync GitHub repo stars for community repos
+          token = os.environ.get("GITHUB_TOKEN", "")
+          for md_path in sorted(glob.glob("content/showcase/*/*/index.md")):
+              parts = md_path.replace("\\", "/").split("/")
+              item_key = f"{parts[2]}/{parts[3]}"
+              text = open(md_path, "r", encoding="utf-8").read()
+
+              m_id = re.search(r'showcase_id:\s*"([^"]+)"', text)
+              if m_id:
+                  item_key = m_id.group(1)
+
+              entry = items.setdefault(item_key, {"badges": [], "votes": 0, "media_features": []})
+
+              # Check external GitHub repo stars (excluding main D4vidDf/HyperBridge repo)
+              m_repo = re.search(r'repo_url:\s*"https://github\.com/([^/]+/[^/"]+)"', text)
+              if m_repo:
+                  repo_slug = m_repo.group(1).strip("/")
+                  if repo_slug.lower() not in ("d4viddf/hyperbridge", "d4viddf/hyperbridge-site"):
+                      try:
+                          req = urllib.request.Request(f"https://api.github.com/repos/{repo_slug}")
+                          if token:
+                              req.add_header("Authorization", f"Bearer {token}")
+                          req.add_header("User-Agent", "HyperBridge-Showcase-Sync")
+                          with urllib.request.urlopen(req, timeout=10) as resp:
+                              repo_data = json.loads(resp.read().decode("utf-8"))
+                              stars = int(repo_data.get("stargazers_count", 0))
+                              if stars > entry.get("votes", 0):
+                                  entry["votes"] = stars
+                      except Exception as ex:
+                          print(f"Skipped star fetch for {repo_slug}: {ex}")
+
+              # 3. Auto-award `community_approved` if votes >= threshold
+              if entry.get("votes", 0) >= threshold and "community_approved" not in entry["badges"]:
+                  entry["badges"].append("community_approved")
+                  print(f"🎉 Auto-awarded `community_approved` to `{item_key}` ({entry['votes']} votes >= {threshold})")
+
+          registry["last_synced"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+          with open(badge_file, "w", encoding="utf-8") as f:
+              json.dump(registry, f, indent=2)
+              f.write("\n")
+          EOF
+
+      - name: Commit Updated Badges & Votes if Changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet data/showcase_badges.json; then
+            git add data/showcase_badges.json
+            git commit -m "chore(showcase): sync community votes and auto-award badges"
+            git push
+          else
+            echo "No vote or badge changes to commit."
+          fi

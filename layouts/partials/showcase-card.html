@@ -1,0 +1,223 @@
+{{/*
+  Partial: showcase-card.html
+  Clean, spacious Showcase Package Card designed for a 2-column grid.
+  Features an unobstructed fixed-height 185px banner (click to open Lightbox),
+  a clean meta row (Category + Verified badge), full title, 2-line description,
+  and a single-row footer with full creator name, upvote, download, and view action.
+*/}}
+{{ $page := . }}
+
+{{/* 1. Compute canonical item ID & lookup protected badge/vote data from data/showcase_badges.json */}}
+{{ $rel := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" $page.RelPermalink) }}
+{{ $itemKey := $page.Params.showcase_id | default $rel }}
+{{ $badgeRegistry := hugo.Data.showcase_badges }}
+{{ $itemBadgeData := dict }}
+{{ if and $badgeRegistry $badgeRegistry.items (index $badgeRegistry.items $itemKey) }}
+  {{ $itemBadgeData = index $badgeRegistry.items $itemKey }}
+{{ end }}
+
+{{ $badges := $itemBadgeData.badges | default slice }}
+{{ $votes := $itemBadgeData.votes | default 0 }}
+{{ $threshold := $badgeRegistry.threshold_likes_for_community_badge | default 15 }}
+{{ if and (ge $votes $threshold) (not (in $badges "community_approved")) }}
+  {{ $badges = $badges | append "community_approved" }}
+{{ end }}
+
+{{/* 2. Resolve Developer Profile */}}
+{{ $devId := $page.Params.developer_id | default ($page.Params.author.github | default "D4vidDf") }}
+{{ $devData := dict }}
+{{ if and hugo.Data.developers (index hugo.Data.developers $devId) }}
+  {{ $devData = index hugo.Data.developers $devId }}
+{{ end }}
+{{ $devName := $devData.name | default ($page.Params.author.name | default $devId) }}
+{{ $devAvatar := $devData.avatar | default ($page.Params.author.avatar | default (printf "https://github.com/%s.png" $devId)) }}
+
+{{/* 3. Resolve Target Apps, Notification Types & Scope */}}
+{{ $showcaseType := $page.Params.showcase_type | default "design" }}
+{{ $fileExt := $page.Params.file_extension | default ".hwidget" }}
+{{ $targetScope := $page.Params.target_scope | default "GLOBAL" }}
+{{ $notifTypes := $page.Params.notification_types | default (slice "STANDARD") }}
+
+{{ $appNames := slice }}
+{{ $appPackages := slice }}
+{{ range $page.Params.target_apps }}
+  {{ if reflect.IsMap . }}
+    {{ with .name }}{{ $appNames = $appNames | append . }}{{ end }}
+    {{ with .package }}{{ $appPackages = $appPackages | append . }}{{ end }}
+  {{ else }}
+    {{ $appNames = $appNames | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $tags := $page.Params.tags | default slice }}
+{{ $colors := $page.Params.accent_colors | default (slice "#38BDF8" "#6366F1") }}
+{{ $primaryAccent := index $colors 0 | default "#38BDF8" }}
+
+{{/* Type Label & Icon */}}
+{{ $typeLabel := "Studio Design" }}
+{{ $typeIcon := "wand-magic-sparkles" }}
+{{ if eq $showcaseType "theme" }}
+  {{ $typeLabel = "Theme" }}
+  {{ $typeIcon = "palette" }}
+{{ else if eq $showcaseType "translator" }}
+  {{ $typeLabel = "Translator" }}
+  {{ $typeIcon = "code" }}
+{{ else if eq $showcaseType "scheme" }}
+  {{ $typeLabel = "Color Scheme" }}
+  {{ $typeIcon = "sun" }}
+{{ end }}
+
+{{/* Resolve Preview Image */}}
+{{ $previewImg := $page.Params.preview_image | default "" }}
+{{ if and $previewImg (not (strings.HasPrefix $previewImg "http")) (not (strings.HasPrefix $previewImg "/")) }}
+  {{ $previewImg = printf "%s%s" $page.RelPermalink $previewImg }}
+{{ end }}
+
+{{/* Build quiet context subtitle (e.g. "Spotify, YouTube Music" or "MEDIA") */}}
+{{ $contextSummary := "" }}
+{{ if gt (len $appNames) 0 }}
+  {{ $firstApps := first 3 $appNames }}
+  {{ $contextSummary = delimit $firstApps ", " }}
+  {{ if gt (len $appNames) 3 }}
+    {{ $contextSummary = printf "%s +%d" $contextSummary (sub (len $appNames) 3) }}
+  {{ end }}
+{{ else if gt (len $notifTypes) 0 }}
+  {{ $contextSummary = delimit (first 2 $notifTypes) " · " }}
+{{ else }}
+  {{ $contextSummary = $targetScope }}
+{{ end }}
+
+{{ $searchCorpus := printf "%s %s %s %s %s %s %s %s" $page.Title $page.Description $page.Plain $devName $devId (delimit $tags " ") (delimit $appNames " ") (delimit $appPackages " ") | lower }}
+
+<article
+  class="sc-card docs-feature-card"
+  data-showcase-card
+  data-showcase-id="{{ $itemKey }}"
+  data-type="{{ lower $showcaseType }}"
+  data-ext="{{ lower $fileExt }}"
+  data-scope="{{ upper $targetScope }}"
+  data-notif-types="{{ delimit $notifTypes "," | upper }}"
+  data-developer="{{ lower $devId }}"
+  data-developer-name="{{ lower $devName }}"
+  data-apps="{{ delimit $appNames "," | lower }}"
+  data-packages="{{ delimit $appPackages "," | lower }}"
+  data-badges="{{ delimit $badges "," | lower }}"
+  data-tags="{{ delimit $tags "," | lower }}"
+  data-votes="{{ $votes }}"
+  data-date="{{ $page.Date.Unix }}"
+  data-title="{{ lower $page.Title }}"
+  data-card-url="{{ $page.RelPermalink }}"
+  data-search="{{ $searchCorpus }}">
+
+  <a href="{{ $page.RelPermalink }}" class="sc-card-top" aria-label="View {{ $page.Title }} details">
+    {{/* Unobstructed Fixed-Height 185px Preview Banner */}}
+    <div class="sc-card-banner" style="--card-accent: {{ $primaryAccent }};">
+      {{ if $previewImg }}
+        <div class="sc-card-banner-media">
+          <img
+            src="{{ $previewImg }}"
+            alt="{{ $page.Title }} preview"
+            loading="lazy"
+            class="sc-card-banner-img showcase-preview-img nozoom"
+          />
+        </div>
+      {{ else }}
+        <div class="sc-card-banner-fallback">
+          <div class="sc-island-mockup">
+            <span class="sc-island-mockup-icon" style="background: {{ $primaryAccent }};">
+              <span class="sc-icon">{{ partial "icon.html" $typeIcon }}</span>
+            </span>
+            <div class="sc-island-mockup-text">
+              <div class="sc-island-mockup-title">{{ $page.Title }}</div>
+              <div class="sc-island-mockup-sub">{{ $typeLabel }} &bull; {{ $fileExt }}</div>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    {{/* Card Body: Clean Meta Top Row + Title + 2-Line Description + Context Line */}}
+    <div class="sc-card-body">
+      <div class="sc-card-meta-top">
+        <div class="sc-card-meta-left">
+          <span class="sc-card-type-tag">
+            <span class="sc-icon">{{ partial "icon.html" $typeIcon }}</span>
+            <span>{{ $typeLabel }}</span>
+          </span>
+          <span class="sc-card-ver">v{{ $page.Params.version | default "1.0" }}</span>
+        </div>
+
+        {{ if in $badges "dev_approved" }}
+          <span class="sc-card-verified sc-card-verified-dev" title="Reviewed and verified by D4vidDf">
+            <span class="sc-icon">{{ partial "icon.html" "shield" }}</span>
+            <span>Verified</span>
+          </span>
+        {{ else if in $badges "community_approved" }}
+          <span class="sc-card-verified sc-card-verified-comm" title="Community Choice">
+            <span class="sc-icon">{{ partial "icon.html" "heart" }}</span>
+            <span>Community</span>
+          </span>
+        {{ end }}
+      </div>
+
+      <h3 class="sc-card-title">{{ $page.Title }}</h3>
+
+      {{ with $page.Description }}
+        <p class="sc-card-desc">{{ . }}</p>
+      {{ end }}
+
+      <div class="sc-card-subline">
+        <span class="sc-card-context">{{ $contextSummary }}</span>
+      </div>
+    </div>
+  </a>
+
+  {{/* Clean Single-Row Footer: Full Creator Name on Left, Like + Download + View on Right */}}
+  <div class="sc-card-footer">
+    <button
+      type="button"
+      data-filter-developer="{{ lower $devId }}"
+      title="Filter packages by {{ $devName }}"
+      class="sc-card-dev-inline">
+      <img
+        src="{{ $devAvatar }}"
+        alt="{{ $devName }}"
+        loading="lazy"
+        onerror="this.onerror=null;this.src='/logo.svg';"
+        class="sc-card-dev-avatar nozoom"
+      />
+      <span class="sc-card-dev-name">{{ $devName }}</span>
+    </button>
+
+    <div class="sc-card-actions">
+      <button
+        type="button"
+        data-like-button="{{ $itemKey }}"
+        data-base-votes="{{ $votes }}"
+        aria-label="Upvote {{ $page.Title }}"
+        title="Like this customization"
+        class="sc-btn-icon-pill showcase-like-btn">
+        <span>♥</span>
+        <span data-like-count>{{ $votes }}</span>
+      </button>
+
+      {{ with $page.Params.download_url }}
+        <a
+          href="{{ . }}"
+          download
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Direct download ({{ $fileExt }})"
+          class="sc-btn-card-dl"
+          aria-label="Download {{ $page.Title }}">
+          <span class="sc-icon">{{ partial "icon.html" "download" }}</span>
+          <span>Download</span>
+        </a>
+      {{ end }}
+
+      <a href="{{ $page.RelPermalink }}" class="sc-btn-card-open">
+        <span>View</span>
+      </a>
+    </div>
+  </div>
+</article>

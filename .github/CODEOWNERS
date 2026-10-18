@@ -1,0 +1,6 @@
+# Protect Curation Badges, Workflows, and Layouts exclusively for the repository owner
+/data/showcase_badges.json @D4vidDf
+/.github/ @D4vidDf
+/layouts/ @D4vidDf
+/assets/ @D4vidDf
+/config/ @D4vidDf

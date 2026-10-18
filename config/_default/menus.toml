@@ -1,4 +1,52 @@
 [[main]]
+  name = "Showcase"
+  identifier = "showcase"
+  pageRef = "showcase"
+  weight = 5
+
+[[main]]
+  name = "✨ All Customizations"
+  parent = "showcase"
+  pageRef = "showcase"
+  weight = 1
+
+[[main]]
+  name = "🎨 Themes (.htheme)"
+  parent = "showcase"
+  pageRef = "showcase/themes"
+  weight = 2
+
+[[main]]
+  name = "📐 Studio Designs (.hwidget)"
+  parent = "showcase"
+  pageRef = "showcase/designs"
+  weight = 3
+
+[[main]]
+  name = "⚡ Translators (.htrans)"
+  parent = "showcase"
+  pageRef = "showcase/translators"
+  weight = 4
+
+[[main]]
+  name = "🌈 Color Schemes (.hscheme)"
+  parent = "showcase"
+  pageRef = "showcase/schemes"
+  weight = 5
+
+[[main]]
+  name = "👩‍💻 Community Developers"
+  parent = "showcase"
+  pageRef = "showcase/developers"
+  weight = 6
+
+[[main]]
+  name = "➕ Submit Yours (PR)"
+  parent = "showcase"
+  url = "/docs/contributing/showcase-submission/"
+  weight = 7
+
+[[main]]
   name = "Docs"
   pageRef = "docs"
   weight = 10

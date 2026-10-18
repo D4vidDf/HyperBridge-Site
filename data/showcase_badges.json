@@ -1,0 +1,31 @@
+{
+  "threshold_likes_for_community_badge": 15,
+  "last_synced": "2026-10-18T00:00:00Z",
+  "badge_definitions": {
+    "official": {
+      "label": "Official Preset",
+      "short_label": "Official",
+      "description": "Built and maintained by the HyperBridge core team.",
+      "icon": "wand-magic-sparkles"
+    },
+    "dev_approved": {
+      "label": "Developer Approved",
+      "short_label": "Dev Approved",
+      "description": "Reviewed and verified by D4vidDf for quality, design, and safety.",
+      "icon": "shield"
+    },
+    "community_approved": {
+      "label": "Community Approved",
+      "short_label": "Community Choice",
+      "description": "Widely loved and upvoted by the HyperBridge community.",
+      "icon": "heart"
+    },
+    "featured_media": {
+      "label": "Featured in Media",
+      "short_label": "Featured",
+      "description": "Showcased in tech videos, reviews, or community spotlights.",
+      "icon": "youtube"
+    }
+  },
+  "items": {}
+}

@@ -1,0 +1,173 @@
+name: "Validate Community Showcase PR & Badge Security"
+
+on:
+  pull_request:
+    branches:
+      - main
+      - feat/community-showcase
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate-showcase:
+    name: "Showcase Security, File Size & Schema Guard"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR Branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce Badge & Maintainer Security Rules
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          REPO_OWNER: "D4vidDf"
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python3 - << 'EOF'
+          import os, subprocess, sys, re
+
+          pr_author = os.environ.get("PR_AUTHOR", "")
+          repo_owner = os.environ.get("REPO_OWNER", "D4vidDf")
+          base_sha = os.environ.get("BASE_SHA", "origin/main")
+          head_sha = os.environ.get("HEAD_SHA", "HEAD")
+
+          is_maintainer = (pr_author.lower() == repo_owner.lower())
+          print(f"Checking PR by @{pr_author} (Maintainer: {is_maintainer})")
+
+          diff_cmd = ["git", "diff", "--name-only", f"{base_sha}...{head_sha}"]
+          changed_files = [
+              f.strip() for f in subprocess.check_output(diff_cmd, text=True).splitlines() if f.strip()
+          ]
+
+          errors = []
+
+          # 1. Prevent third parties from editing protected badge registry or site core
+          protected_prefixes = (
+              "data/showcase_badges.json",
+              ".github/",
+              "layouts/",
+              "assets/",
+              "config/",
+              "static/presets/",
+          )
+          if not is_maintainer:
+              for f in changed_files:
+                  if f.startswith(protected_prefixes):
+                      errors.append(
+                          f"⛔ SECURITY BLOCK: Third-party PRs cannot modify protected file `{f}`. "
+                          "Curation badges (`dev_approved`, `community_approved`, `featured_media`, `official`) "
+                          "are managed exclusively by the repository maintainer and automated voting workflows."
+                      )
+
+          # 2. Verify developer profile ownership & prevent verified_maintainer spoofing
+          for f in changed_files:
+              if f.startswith("data/developers/") and f.endswith((".yaml", ".yml")):
+                  dev_slug = os.path.splitext(os.path.basename(f))[0]
+                  if not is_maintainer and dev_slug.lower() != pr_author.lower():
+                      errors.append(
+                          f"⛔ IMPERSONATION BLOCK: @{pr_author} cannot modify developer profile `{f}`. "
+                          f"You may only create or edit `data/developers/{pr_author}.yaml`."
+                      )
+                  if os.path.exists(f) and not is_maintainer:
+                      content = open(f, "r", encoding="utf-8").read()
+                      if re.search(r"verified_maintainer\s*:\s*true", content, re.IGNORECASE):
+                          errors.append(
+                              f"⛔ SECURITY BLOCK: `{f}` cannot set `verified_maintainer: true`."
+                          )
+
+          # 3. Validate Showcase Submissions (No frontmatter badges, Max 300KB preview, No heavy binaries)
+          MAX_IMAGE_BYTES = 300 * 1024  # 300 KB
+          FORBIDDEN_BINARY_EXTS = (".htheme", ".hbr", ".htrans", ".hwidget", ".zip", ".apk", ".tar", ".gz")
+          REQUIRED_FIELDS = [
+              "title:", "description:", "showcase_type:", "file_extension:",
+              "version:", "developer_id:", "repo_url:", "download_url:",
+              "target_scope:", "notification_types:"
+          ]
+
+          for f in changed_files:
+              if not os.path.exists(f):
+                  continue
+
+              if f.startswith("content/showcase/"):
+                  ext = os.path.splitext(f)[1].lower()
+                  size = os.path.getsize(f)
+
+                  if ext in FORBIDDEN_BINARY_EXTS:
+                      errors.append(
+                          f"⛔ NO HEAVY BINARIES: Do not commit `{f}` directly to the website repository. "
+                          "Host your package file on your own GitHub Releases/Repository and link it via `download_url`."
+                      )
+
+                  if size > MAX_IMAGE_BYTES:
+                      errors.append(
+                          f"⛔ FILE SIZE LIMIT EXCEEDED: `{f}` is {size // 1024} KB (max allowed is 300 KB). "
+                          "Please compress your preview image to WebP/JPG under 300 KB."
+                      )
+
+                  if os.path.basename(f).startswith("_index.") and not is_maintainer:
+                      errors.append(
+                          f"⛔ SECURITY BLOCK: Third-party PRs cannot modify Showcase section file `{f}`."
+                      )
+                      continue
+
+                  # Verify package folder ownership for non-maintainers
+                  parts_path = f.split("/")
+                  if len(parts_path) >= 5 and not is_maintainer:
+                      pkg_dir = "/".join(parts_path[:4])
+                      pkg_index = f"{pkg_dir}/index.md"
+                      if os.path.exists(pkg_index):
+                          idx_text = open(pkg_index, "r", encoding="utf-8").read()
+                          m_dev = re.search(r"^\s*developer_id\s*:\s*['\"]?([^'\"\n\r#]+)['\"]?", idx_text, re.MULTILINE)
+                          pkg_dev = m_dev.group(1).strip() if m_dev else ""
+                          if pkg_dev.lower() != pr_author.lower():
+                              errors.append(
+                                  f"⛔ OWNERSHIP BLOCK: Package `{pkg_dir}` has `developer_id: \"{pkg_dev}\"`, "
+                                  f"which does not match PR author `@{pr_author}`."
+                              )
+                      # Also check if package already existed on base branch under a different owner
+                      try:
+                          base_idx = subprocess.check_output(
+                              ["git", "show", f"{base_sha}:{pkg_index}"],
+                               stderr=subprocess.DEVNULL, text=True
+                          )
+                          m_base_dev = re.search(r"^\s*developer_id\s*:\s*['\"]?([^'\"\n\r#]+)['\"]?", base_idx, re.MULTILINE)
+                          base_dev = m_base_dev.group(1).strip() if m_base_dev else ""
+                          if base_dev and base_dev.lower() != pr_author.lower():
+                              errors.append(
+                                  f"⛔ OWNERSHIP BLOCK: Existing package `{pkg_dir}` belongs to `@{base_dev}` "
+                                  f"and cannot be modified by `@{pr_author}`."
+                              )
+                      except subprocess.CalledProcessError:
+                          pass
+
+                  if os.path.basename(f) == "index.md" and f.count("/") >= 4:
+                      text = open(f, "r", encoding="utf-8").read()
+                      parts = text.split("---", 2)
+                      if len(parts) < 3:
+                          errors.append(f"⚠️ `{f}` is missing valid YAML frontmatter delimited by `---`.")
+                          continue
+                      fm = parts[1]
+
+                      # Reject any attempt to inject badges or media_features in frontmatter
+                      if re.search(r"^\s*(badges|media_features|votes)\s*:", fm, re.MULTILINE):
+                          errors.append(
+                              f"⛔ BADGE BLOCK: `{f}` contains `badges:`, `media_features:`, or `votes:` in frontmatter. "
+                              "Badges cannot be self-assigned in PRs; remove those keys from frontmatter."
+                          )
+
+                      for req in REQUIRED_FIELDS:
+                          if req not in fm:
+                              errors.append(f"⚠️ Missing required frontmatter field `{req}` in `{f}`.")
+
+          if errors:
+              print("\n❌ SHOWCASE PR VALIDATION FAILED:\n")
+              for e in errors:
+                  print(" - " + e)
+              sys.exit(1)
+
+          print("✅ All Showcase security, badge, schema, and file-size checks passed!")
+          EOF
