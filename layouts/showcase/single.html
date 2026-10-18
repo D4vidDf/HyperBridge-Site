@@ -14,6 +14,7 @@
 
   {{ $badges := $itemBadgeData.badges | default slice }}
   {{ $votes := $itemBadgeData.votes | default 0 }}
+  {{ $downloads := $itemBadgeData.downloads | default 0 }}
   {{ $mediaFeatures := $itemBadgeData.media_features | default slice }}
   {{ $threshold := $badgeRegistry.threshold_likes_for_community_badge | default 15 }}
   {{ if and (ge $votes $threshold) (not (in $badges "community_approved")) }}
@@ -74,7 +75,7 @@
   {{ $schemeColors := $page.Params.specified_colors | default $colors }}
   {{ $tags := $page.Params.tags | default slice }}
 
-  <div class="sc-page-wrap">
+  <div class="sc-page-wrap" data-api-url="{{ site.Params.showcaseApiUrl | default "https://hyperbridge-api.d4viddf.com" }}">
     {{/* Breadcrumbs & Back Link */}}
     <div class="sc-breadcrumbs-bar not-prose">
       {{ partial "breadcrumbs.html" . }}
@@ -303,6 +304,7 @@
               download
               target="_blank"
               rel="noopener noreferrer"
+              data-download-btn="{{ $itemKey }}"
               class="sc-btn sc-btn-primary sc-btn-block sc-btn-lg">
               <span class="sc-icon">{{ partial "icon.html" "download" }}</span>
               <span>Download Package ({{ $fileExt }})</span>
@@ -333,7 +335,7 @@
 
           <div class="sc-threshold-row">
             <span>❤️ Community Choice Threshold:</span>
-            <strong>{{ $votes }} / {{ $threshold }} likes</strong>
+            <strong data-threshold-progress="{{ $itemKey }}" data-threshold-max="{{ $threshold }}">{{ $votes }} / {{ $threshold }} likes</strong>
           </div>
 
           <div class="sc-privacy-note">
@@ -384,6 +386,10 @@
             <div class="sc-info-row">
               <dt>File Format</dt>
               <dd><code>{{ $fileExt }}</code></dd>
+            </div>
+            <div class="sc-info-row">
+              <dt>Downloads</dt>
+              <dd data-download-count="{{ $itemKey }}" data-base-downloads="{{ $downloads }}">{{ $downloads }}</dd>
             </div>
             <div class="sc-info-row">
               <dt>License</dt>

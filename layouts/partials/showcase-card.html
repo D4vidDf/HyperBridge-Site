@@ -18,6 +18,7 @@
 
 {{ $badges := $itemBadgeData.badges | default slice }}
 {{ $votes := $itemBadgeData.votes | default 0 }}
+{{ $downloads := $itemBadgeData.downloads | default 0 }}
 {{ $threshold := $badgeRegistry.threshold_likes_for_community_badge | default 15 }}
 {{ if and (ge $votes $threshold) (not (in $badges "community_approved")) }}
   {{ $badges = $badges | append "community_approved" }}
@@ -104,6 +105,7 @@
   data-badges="{{ delimit $badges "," | lower }}"
   data-tags="{{ delimit $tags "," | lower }}"
   data-votes="{{ $votes }}"
+  data-downloads="{{ $downloads }}"
   data-date="{{ $page.Date.Unix }}"
   data-title="{{ lower $page.Title }}"
   data-card-url="{{ $page.RelPermalink }}"
@@ -209,6 +211,7 @@
           download
           target="_blank"
           rel="noopener noreferrer"
+          data-download-btn="{{ $itemKey }}"
           title="Direct download ({{ $fileExt }})"
           class="sc-btn-card-dl"
           aria-label="Download {{ $page.Title }}">

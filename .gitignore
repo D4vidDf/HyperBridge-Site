@@ -11,3 +11,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# Local worker scripts (do not commit to public repo)
+cloudflare-worker/
+

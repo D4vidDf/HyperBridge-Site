@@ -166,26 +166,157 @@
     customDropdownControllers.forEach((ctrl) => ctrl.refresh());
   }
 
+  let directoryResortCallback = null;
+  const liveStatsCache = {};
+
+  function getApiBaseUrl() {
+    const wrap = document.querySelector('[data-api-url]');
+    const raw =
+      (wrap && wrap.getAttribute('data-api-url')) ||
+      'https://hyperbridge-api.d4viddf.com';
+    return raw.replace(/\/+$/, '');
+  }
+
+  function updateItemStatsInDom(itemId, serverVotes, serverDownloads) {
+    if (!itemId) return;
+    const key = itemId.toLowerCase();
+    const likedSet = getLikedSet();
+    const isLiked = likedSet.has(itemId) || likedSet.has(key);
+
+    if (typeof serverVotes === 'number' || typeof serverDownloads === 'number') {
+      liveStatsCache[key] = {
+        votes:
+          typeof serverVotes === 'number'
+            ? Math.max(0, serverVotes)
+            : (liveStatsCache[key]?.votes ?? undefined),
+        downloads:
+          typeof serverDownloads === 'number'
+            ? Math.max(0, serverDownloads)
+            : (liveStatsCache[key]?.downloads ?? undefined),
+      };
+    }
+
+    document
+      .querySelectorAll(`[data-like-button="${CSS.escape(itemId)}"]`)
+      .forEach((b) => {
+        const base = parseInt(b.getAttribute('data-base-votes') || '0', 10);
+        const liveV = liveStatsCache[key]?.votes;
+        let effectiveVotes =
+          typeof liveV === 'number'
+            ? Math.max(0, liveV)
+            : Math.max(0, base + (isLiked ? 1 : 0));
+
+        b.classList.toggle('is-liked', isLiked);
+        const cEl = b.querySelector('[data-like-count]');
+        if (cEl) cEl.textContent = String(effectiveVotes);
+
+        const parentCard = b.closest('[data-showcase-card]');
+        if (parentCard) {
+          parentCard.setAttribute('data-votes', String(effectiveVotes));
+        }
+      });
+
+    document
+      .querySelectorAll(`[data-threshold-progress="${CSS.escape(itemId)}"]`)
+      .forEach((el) => {
+        const max = parseInt(el.getAttribute('data-threshold-max') || '15', 10);
+        const btn = document.querySelector(`[data-like-button="${CSS.escape(itemId)}"]`);
+        const base = btn ? parseInt(btn.getAttribute('data-base-votes') || '0', 10) : 0;
+        const liveV = liveStatsCache[key]?.votes;
+        const effectiveVotes =
+          typeof liveV === 'number'
+            ? Math.max(0, liveV)
+            : Math.max(0, base + (isLiked ? 1 : 0));
+        el.textContent = `${effectiveVotes} / ${max} likes`;
+      });
+
+    document
+      .querySelectorAll(`[data-download-count="${CSS.escape(itemId)}"]`)
+      .forEach((el) => {
+        const baseDl = parseInt(el.getAttribute('data-base-downloads') || '0', 10);
+        const liveDl = liveStatsCache[key]?.downloads;
+        const effectiveDl = typeof liveDl === 'number' ? Math.max(baseDl, liveDl) : baseDl;
+        el.textContent = String(effectiveDl);
+      });
+
+    document
+      .querySelectorAll(`[data-showcase-card][data-showcase-id="${CSS.escape(itemId)}"]`)
+      .forEach((card) => {
+        const baseDl = parseInt(card.getAttribute('data-downloads') || '0', 10);
+        const liveDl = liveStatsCache[key]?.downloads;
+        if (typeof liveDl === 'number') {
+          card.setAttribute('data-downloads', String(Math.max(baseDl, liveDl)));
+        }
+      });
+  }
+
+  async function fetchLiveStats() {
+    const apiBase = getApiBaseUrl();
+    if (!apiBase) return;
+
+    try {
+      const resp = await fetch(`${apiBase}/stats`, {
+        method: 'GET',
+        headers: { Accept: 'application/json' },
+      });
+      if (!resp.ok) return;
+      const data = await resp.json();
+      if (!data || !data.items || typeof data.items !== 'object') return;
+
+      const allIds = new Set();
+      document.querySelectorAll('[data-like-button]').forEach((b) => {
+        const id = b.getAttribute('data-like-button');
+        if (id) allIds.add(id);
+      });
+      document.querySelectorAll('[data-download-count]').forEach((d) => {
+        const id = d.getAttribute('data-download-count');
+        if (id) allIds.add(id);
+      });
+
+      allIds.forEach((itemId) => {
+        const entry = data.items[itemId] || data.items[itemId.toLowerCase()];
+        if (entry) {
+          updateItemStatsInDom(
+            itemId,
+            Number(entry.votes) || 0,
+            Number(entry.downloads) || 0
+          );
+        }
+      });
+
+      if (typeof directoryResortCallback === 'function') {
+        directoryResortCallback();
+      }
+    } catch (_) {
+      // Offline or blocked; gracefully keep static build-time counts
+    }
+  }
+
   function initLikeButtons() {
     const likedSet = getLikedSet();
     const buttons = document.querySelectorAll('[data-like-button]');
+    const apiBase = getApiBaseUrl();
 
     buttons.forEach((btn) => {
       const itemId = btn.getAttribute('data-like-button');
+      if (!itemId) return;
       const baseVotes = parseInt(btn.getAttribute('data-base-votes') || '0', 10);
       const countEl = btn.querySelector('[data-like-count]');
       const isLiked = likedSet.has(itemId);
 
       if (isLiked) {
         btn.classList.add('is-liked');
-        if (countEl) countEl.textContent = String(baseVotes + 1);
+        const initialVotes = Math.max(1, baseVotes);
+        if (countEl) countEl.textContent = String(initialVotes);
         const card = btn.closest('[data-showcase-card]');
-        if (card) card.setAttribute('data-votes', String(baseVotes + 1));
+        if (card) card.setAttribute('data-votes', String(initialVotes));
       }
 
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', async (e) => {
         e.preventDefault();
         e.stopPropagation();
+        if (btn.dataset.voting === 'true') return;
+        btn.dataset.voting = 'true';
 
         const currentLiked = getLikedSet();
         const nowLiked = !currentLiked.has(itemId);
@@ -197,17 +328,83 @@
         }
         saveLikedSet(currentLiked);
 
-        document
-          .querySelectorAll(`[data-like-button="${CSS.escape(itemId)}"]`)
-          .forEach((b) => {
-            const base = parseInt(b.getAttribute('data-base-votes') || '0', 10);
-            const cEl = b.querySelector('[data-like-count]');
-            const nextCount = nowLiked ? base + 1 : base;
-            b.classList.toggle('is-liked', nowLiked);
-            if (cEl) cEl.textContent = String(nextCount);
-            const parentCard = b.closest('[data-showcase-card]');
-            if (parentCard) parentCard.setAttribute('data-votes', String(nextCount));
+        const key = itemId.toLowerCase();
+        const currentDisplayed = parseInt(
+          btn.querySelector('[data-like-count]')?.textContent || String(baseVotes),
+          10
+        );
+        const optimisticVotes = Math.max(0, currentDisplayed + (nowLiked ? 1 : -1));
+        updateItemStatsInDom(
+          itemId,
+          optimisticVotes,
+          liveStatsCache[key]?.downloads
+        );
+
+        try {
+          const resp = await fetch(`${apiBase}/vote`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: itemId,
+              action: nowLiked ? 'like' : 'unlike',
+              baseVotes,
+            }),
           });
+          if (resp.ok) {
+            const data = await resp.json();
+            if (data && data.ok) {
+              updateItemStatsInDom(itemId, Number(data.votes) || 0, Number(data.downloads) || 0);
+              if (typeof directoryResortCallback === 'function') {
+                directoryResortCallback();
+              }
+            }
+          }
+        } catch (_) {
+          // Keep optimistic localStorage state if offline
+        } finally {
+          btn.dataset.voting = 'false';
+        }
+      });
+    });
+  }
+
+  function initDownloadButtons() {
+    const dlButtons = document.querySelectorAll('[data-download-btn]');
+    const apiBase = getApiBaseUrl();
+
+    dlButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const itemId = btn.getAttribute('data-download-btn');
+        if (!itemId) return;
+
+        const key = itemId.toLowerCase();
+        const currentDl =
+          liveStatsCache[key]?.downloads ??
+          parseInt(
+            document
+              .querySelector(`[data-download-count="${CSS.escape(itemId)}"]`)
+              ?.getAttribute('data-base-downloads') || '0',
+            10
+          );
+
+        updateItemStatsInDom(itemId, liveStatsCache[key]?.votes, currentDl + 1);
+
+        try {
+          fetch(`${apiBase}/download`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: itemId }),
+            keepalive: true,
+          })
+            .then((r) => (r.ok ? r.json() : null))
+            .then((data) => {
+              if (data && data.ok) {
+                updateItemStatsInDom(itemId, Number(data.votes) || 0, Number(data.downloads) || 0);
+              }
+            })
+            .catch(() => {});
+        } catch (_) {}
       });
     });
   }
@@ -766,6 +963,7 @@
     initCustomDropdowns();
     syncControlsFromState();
     applyFiltersAndSort(false);
+    directoryResortCallback = () => applyFiltersAndSort(false);
   }
 
   function initCardNavigation() {
@@ -784,10 +982,12 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     initLikeButtons();
+    initDownloadButtons();
     initLightbox();
     initDetailGallery();
     initMobileSidebarDrawer();
     initDirectoryFilters();
     initCardNavigation();
+    fetchLiveStats();
   });
 })();
