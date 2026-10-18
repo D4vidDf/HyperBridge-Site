@@ -3,8 +3,26 @@
 
   {{ $showcaseRoot := site.GetPage "section" "showcase" }}
   {{ $allItems := slice }}
+  {{ $seenKeys := slice }}
   {{ if $showcaseRoot }}
-    {{ $allItems = $showcaseRoot.RegularPagesRecursive }}
+    {{ range $showcaseRoot.RegularPagesRecursive }}
+      {{ $r := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" .RelPermalink) }}
+      {{ $k := .Params.showcase_id | default $r }}
+      {{ $allItems = $allItems | append . }}
+      {{ $seenKeys = $seenKeys | append $k }}
+    {{ end }}
+  {{ end }}
+  {{/* Fallback: include any untranslated items from the default language site */}}
+  {{ $defaultRoot := hugo.Sites.Default.GetPage "section" "showcase" }}
+  {{ if $defaultRoot }}
+    {{ range $defaultRoot.RegularPagesRecursive }}
+      {{ $r := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" .RelPermalink) }}
+      {{ $k := .Params.showcase_id | default $r }}
+      {{ if not (in $seenKeys $k) }}
+        {{ $allItems = $allItems | append . }}
+        {{ $seenKeys = $seenKeys | append $k }}
+      {{ end }}
+    {{ end }}
   {{ end }}
 
   {{ $initialType := .Params.default_filter_type | default "all" }}
@@ -61,7 +79,7 @@
           <a href="/docs/contributing/showcase-submission/" class="sc-btn sc-btn-primary">
             <span>+ Submit Creation (PR)</span>
           </a>
-          <a href="/showcase/developers/" class="sc-btn sc-btn-secondary">
+          <a href="{{ "showcase/developers/" | relLangURL }}" class="sc-btn sc-btn-secondary">
             <span>👩‍💻 Creators ({{ len $devIds }})</span>
           </a>
         </div>

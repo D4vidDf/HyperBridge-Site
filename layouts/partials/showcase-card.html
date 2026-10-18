@@ -8,7 +8,7 @@
 {{ $page := . }}
 
 {{/* 1. Compute canonical item ID & lookup protected badge/vote data from data/showcase_badges.json */}}
-{{ $rel := strings.TrimPrefix "/showcase/" (strings.TrimSuffix "/" $page.RelPermalink) }}
+{{ $rel := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" $page.RelPermalink) }}
 {{ $itemKey := $page.Params.showcase_id | default $rel }}
 {{ $badgeRegistry := hugo.Data.showcase_badges }}
 {{ $itemBadgeData := dict }}

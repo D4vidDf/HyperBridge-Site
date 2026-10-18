@@ -1,38 +1,50 @@
 [[main]]
   name = "Showcase"
   identifier = "showcase"
-  url = "/showcase/"
+  pageRef = "showcase"
   weight = 5
 
 [[main]]
   name = "✨ Todas las Personalizaciones"
   parent = "showcase"
-  url = "/showcase/"
+  pageRef = "showcase"
   weight = 1
 
 [[main]]
   name = "🎨 Temas (.htheme)"
   parent = "showcase"
-  url = "/showcase/themes/"
+  pageRef = "showcase/themes"
   weight = 2
 
 [[main]]
   name = "📐 Diseños Studio (.hwidget)"
   parent = "showcase"
-  url = "/showcase/designs/"
+  pageRef = "showcase/designs"
   weight = 3
 
 [[main]]
   name = "⚡ Traductores (.htrans)"
   parent = "showcase"
-  url = "/showcase/translators/"
+  pageRef = "showcase/translators"
   weight = 4
+
+[[main]]
+  name = "🌈 Esquemas de Color (.hscheme)"
+  parent = "showcase"
+  pageRef = "showcase/schemes"
+  weight = 5
 
 [[main]]
   name = "👩‍💻 Desarrolladores"
   parent = "showcase"
-  url = "/showcase/developers/"
-  weight = 5
+  pageRef = "showcase/developers"
+  weight = 6
+
+[[main]]
+  name = "➕ Enviar el Tuyo (PR)"
+  parent = "showcase"
+  url = "/docs/contributing/showcase-submission/"
+  weight = 7
 
 [[main]]
   name = "Documentación"

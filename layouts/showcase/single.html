@@ -3,8 +3,9 @@
   {{ $page := . }}
 
   {{/* 1. Lookup Tamper-Proof Badges, Votes & Media Links from data/showcase_badges.json */}}
-  {{ $rel := strings.TrimPrefix "/showcase/" (strings.TrimSuffix "/" $page.RelPermalink) }}
+  {{ $rel := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" $page.RelPermalink) }}
   {{ $itemKey := $page.Params.showcase_id | default $rel }}
+  {{ $showcaseUrl := "showcase/" | relLangURL }}
   {{ $badgeRegistry := hugo.Data.showcase_badges }}
   {{ $itemBadgeData := dict }}
   {{ if and $badgeRegistry $badgeRegistry.items (index $badgeRegistry.items $itemKey) }}
@@ -77,7 +78,7 @@
     {{/* Breadcrumbs & Back Link */}}
     <div class="sc-breadcrumbs-bar not-prose">
       {{ partial "breadcrumbs.html" . }}
-      <a href="/showcase/" class="sc-back-link">&larr; Back to Community Showcase</a>
+      <a href="{{ $showcaseUrl }}" class="sc-back-link">&larr; Back to Community Showcase</a>
     </div>
 
     {{/* Main 2-Column Package Detail Layout */}}
@@ -235,7 +236,7 @@
             <div class="sc-spec-row">
               <div class="sc-spec-row-label">Target Scope</div>
               <div class="sc-spec-row-val">
-                <a href="/showcase/?scope={{ $targetScope }}" class="sc-meta-chip sc-meta-scope">🎯 {{ $targetScope }}</a>
+                <a href="{{ $showcaseUrl }}?scope={{ $targetScope }}" class="sc-meta-chip sc-meta-scope">🎯 {{ $targetScope }}</a>
               </div>
             </div>
 
@@ -244,7 +245,7 @@
                 <div class="sc-spec-row-label">Notification Types</div>
                 <div class="sc-spec-row-val">
                   {{ range $notifTypes }}
-                    <a href="/showcase/?notif={{ . }}" class="sc-meta-chip sc-meta-notif">🔔 {{ . }}</a>
+                    <a href="{{ $showcaseUrl }}?notif={{ . }}" class="sc-meta-chip sc-meta-notif">🔔 {{ . }}</a>
                   {{ end }}
                 </div>
               </div>
@@ -271,12 +272,12 @@
                   <div class="sc-spec-row-val">
                     {{ range . }}
                       {{ if reflect.IsMap . }}
-                        <a href="/showcase/?app={{ .name | lower }}" class="sc-meta-chip sc-meta-app">
+                        <a href="{{ $showcaseUrl }}?app={{ .name | lower }}" class="sc-meta-chip sc-meta-app">
                           <span>📱 {{ .name }}</span>
                           {{ with .package }}<code>({{ . }})</code>{{ end }}
                         </a>
                       {{ else }}
-                        <a href="/showcase/?app={{ . | lower }}" class="sc-meta-chip sc-meta-app">
+                        <a href="{{ $showcaseUrl }}?app={{ . | lower }}" class="sc-meta-chip sc-meta-app">
                           <span>📱 {{ . }}</span>
                         </a>
                       {{ end }}

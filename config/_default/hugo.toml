@@ -18,3 +18,20 @@ timeout = "120s"
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
+
+# Ensure Community Showcase (sections, categories, developers, and all items)
+# is always built and available on EVERY language, even when items only have
+# a single default (untranslated) index.md file.
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+
+  [[module.mounts]]
+    source = "content/showcase"
+    target = "content/showcase"
+    files = ["! **.*.*.md"]
+    [module.mounts.sites.matrix]
+      languages = ["**"]
+
+

@@ -43,7 +43,7 @@
 [[main]]
   name = "➕ Submit Yours (PR)"
   parent = "showcase"
-  pageRef = "docs/contributing/showcase-submission"
+  url = "/docs/contributing/showcase-submission/"
   weight = 7
 
 [[main]]

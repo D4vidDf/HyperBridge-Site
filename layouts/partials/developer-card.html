@@ -29,8 +29,25 @@
 {{/* Count showcase packages & category breakdown by this developer */}}
 {{ $showcaseRoot := site.GetPage "section" "showcase" }}
 {{ $allShowcase := slice }}
+{{ $seenKeys := slice }}
 {{ if $showcaseRoot }}
-  {{ $allShowcase = $showcaseRoot.RegularPagesRecursive }}
+  {{ range $showcaseRoot.RegularPagesRecursive }}
+    {{ $r := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" .RelPermalink) }}
+    {{ $k := .Params.showcase_id | default $r }}
+    {{ $allShowcase = $allShowcase | append . }}
+    {{ $seenKeys = $seenKeys | append $k }}
+  {{ end }}
+{{ end }}
+{{ $defaultRoot := hugo.Sites.Default.GetPage "section" "showcase" }}
+{{ if $defaultRoot }}
+  {{ range $defaultRoot.RegularPagesRecursive }}
+    {{ $r := replaceRE "^/([a-zA-Z0-9-]+/)?showcase/" "" (strings.TrimSuffix "/" .RelPermalink) }}
+    {{ $k := .Params.showcase_id | default $r }}
+    {{ if not (in $seenKeys $k) }}
+      {{ $allShowcase = $allShowcase | append . }}
+      {{ $seenKeys = $seenKeys | append $k }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{ $devPackages := slice }}
@@ -61,9 +78,9 @@
   <article
     class="sc-dev-card sc-dev-card-compact docs-feature-card"
     data-dev-profile="{{ lower $devId }}"
-    data-card-url="/showcase/?dev={{ lower $devId }}"
+    data-card-url="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}"
     title="View all packages by {{ $name }} on Showcase">
-    <a href="/showcase/?dev={{ lower $devId }}" class="sc-dev-compact-body">
+    <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}" class="sc-dev-compact-body">
       <div class="sc-dev-header">
         <div class="sc-dev-avatar-wrap">
           <img
@@ -118,7 +135,7 @@
         {{ end }}
       </div>
 
-      <a href="/showcase/?dev={{ lower $devId }}" class="sc-dev-compact-cta">
+      <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}" class="sc-dev-compact-cta">
         <span>All packages</span>
         <span>&rarr;</span>
       </a>
@@ -128,11 +145,11 @@
   <article
     class="sc-dev-card docs-feature-card"
     data-dev-profile="{{ lower $devId }}"
-    data-card-url="/showcase/?dev={{ lower $devId }}">
+    data-card-url="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}">
     <div class="sc-dev-card-top">
       {{/* 1. Identity Header: Avatar Logo + Name/Role on top, Badges/Handle/Pkg Count below */}}
       <div class="sc-dev-header">
-        <a href="/showcase/?dev={{ lower $devId }}" class="sc-dev-avatar-wrap" title="View packages by {{ $name }}">
+        <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}" class="sc-dev-avatar-wrap" title="View packages by {{ $name }}">
           <img
             src="{{ $avatar }}"
             alt="{{ $name }}"
@@ -147,7 +164,7 @@
 
         <div class="sc-dev-identity">
           <h3 class="sc-dev-name">
-            <a href="/showcase/?dev={{ lower $devId }}">{{ $name }}</a>
+            <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}">{{ $name }}</a>
           </h3>
           <div class="sc-dev-role">{{ $role }}</div>
         </div>
@@ -184,22 +201,22 @@
 
         <div class="sc-dev-stat-pills">
           {{ if gt $themeCount 0 }}
-            <a href="/showcase/?dev={{ lower $devId }}&type=theme" class="sc-dev-stat-pill" title="Filter Themes by {{ $name }}">
+            <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}&type=theme" class="sc-dev-stat-pill" title="Filter Themes by {{ $name }}">
               🎨 {{ $themeCount }} {{ if eq $themeCount 1 }}Theme{{ else }}Themes{{ end }}
             </a>
           {{ end }}
           {{ if gt $designCount 0 }}
-            <a href="/showcase/?dev={{ lower $devId }}&type=design" class="sc-dev-stat-pill" title="Filter Studio Designs by {{ $name }}">
+            <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}&type=design" class="sc-dev-stat-pill" title="Filter Studio Designs by {{ $name }}">
               📐 {{ $designCount }} {{ if eq $designCount 1 }}Design{{ else }}Designs{{ end }}
             </a>
           {{ end }}
           {{ if gt $translatorCount 0 }}
-            <a href="/showcase/?dev={{ lower $devId }}&type=translator" class="sc-dev-stat-pill" title="Filter Translators by {{ $name }}">
+            <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}&type=translator" class="sc-dev-stat-pill" title="Filter Translators by {{ $name }}">
               ⚡ {{ $translatorCount }} {{ if eq $translatorCount 1 }}Translator{{ else }}Translators{{ end }}
             </a>
           {{ end }}
           {{ if gt $schemeCount 0 }}
-            <a href="/showcase/?dev={{ lower $devId }}&type=scheme" class="sc-dev-stat-pill" title="Filter Color Schemes by {{ $name }}">
+            <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}&type=scheme" class="sc-dev-stat-pill" title="Filter Color Schemes by {{ $name }}">
               🌈 {{ $schemeCount }} {{ if eq $schemeCount 1 }}Scheme{{ else }}Schemes{{ end }}
             </a>
           {{ end }}
@@ -260,7 +277,7 @@
         {{ end }}
       </div>
 
-      <a href="/showcase/?dev={{ lower $devId }}" class="sc-btn sc-btn-primary sc-dev-browse-btn">
+      <a href="{{ "showcase/" | relLangURL }}?dev={{ lower $devId }}" class="sc-btn sc-btn-primary sc-dev-browse-btn">
         <span>Browse {{ len $devPackages }} {{ if eq (len $devPackages) 1 }}Package{{ else }}Packages{{ end }}</span>
         <span>&rarr;</span>
       </a>
