@@ -108,7 +108,13 @@ jobs:
                           "Please compress your preview image to WebP/JPG under 300 KB."
                       )
 
-                  if f.endswith("index.md") and f.count("/") >= 3:
+                  if os.path.basename(f).startswith("_index.") and not is_maintainer:
+                      errors.append(
+                          f"⛔ SECURITY BLOCK: Third-party PRs cannot modify Showcase section file `{f}`."
+                      )
+                      continue
+
+                  if os.path.basename(f) == "index.md" and f.count("/") >= 4:
                       text = open(f, "r", encoding="utf-8").read()
                       parts = text.split("---", 2)
                       if len(parts) < 3:
