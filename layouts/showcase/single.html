@@ -159,7 +159,7 @@
         {{ end }}
 
         {{/* 3. Scrollable Badges Row Under Images */}}
-        <div class="sc-badges-scroll-row not-prose" aria-label="Package badges and tags">
+        <div class="sc-badges-scroll-row not-prose" role="region" tabindex="0" aria-label="Package badges and tags">
           <span class="sc-badge sc-badge-type">
             <span class="sc-icon">{{ partial "icon.html" $typeIcon }}</span>
             <span>{{ $typeLabel }}</span>
