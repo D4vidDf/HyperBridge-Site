@@ -1,0 +1,41 @@
+id: summer_breeze
+name: "Summer Breeze"
+author: D4vidDf
+description: "Crisp coastal frosted blue, cerulean, and vibrant punch red over deep Oxford navy with soft honeydew highlights."
+is_dark: true
+
+roles:
+  # Primary — Frosted Blue (#A8DADC) & Cerulean (#457B9D)
+  primary: "#A8DADC"
+  on_primary: "#0E2238"
+  primary_container: "#457B9D"
+  on_primary_container: "#F1FAEE"
+
+  # Secondary — Punch Red (#E63946)
+  secondary: "#E63946"
+  on_secondary: "#F1FAEE"
+  secondary_container: "#68141C"
+  on_secondary_container: "#FFDAD9"
+
+  # Tertiary — Cerulean (#457B9D)
+  tertiary: "#457B9D"
+  on_tertiary: "#F1FAEE"
+  tertiary_container: "#274C6B"
+  on_tertiary_container: "#D6EEFF"
+
+  # Surfaces — Oxford Navy (#1D3557) & Honeydew (#F1FAEE)
+  surface: "#1D3557"
+  on_surface: "#F1FAEE"
+  surface_variant: "#27466E"
+  on_surface_variant: "#A8DADC"
+  surface_container: "#162944"
+  surface_container_high: "#243E63"
+  surface_container_low: "#101E33"
+
+  # Outlines & Borders
+  outline: "#457B9D"
+  outline_variant: "#2B4B73"
+
+  # Error / Alerts
+  error: "#E63946"
+  on_error: "#F1FAEE"
