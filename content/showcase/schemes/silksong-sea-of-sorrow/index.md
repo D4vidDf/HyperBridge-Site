@@ -13,18 +13,6 @@ repo_url: "https://github.com/D4vidDf/HyperBridge-Site"
 download_url: "/presets/silksong_sea_of_sorrow.hscheme"
 license: "MIT"
 
-target_scope: "GLOBAL"
-notification_types:
-  - "MEDIA"
-  - "MESSAGING"
-  - "CALLS"
-  - "NAVIGATION"
-  - "PROGRESS"
-  - "TIMER"
-  - "STANDARD"
-target_apps: []
-template_base: "DynamicColorSchemeResolver"
-
 preview_image: "banner.webp"
 
 specified_colors:

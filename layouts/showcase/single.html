@@ -229,29 +229,29 @@
           {{ $page.Content }}
         </article>
 
-        {{/* 6. Trigger Scope & Compatibility Column (Stacked Below Overview) */}}
-        <section class="sc-specs-panel docs-sidebar-box not-prose">
-          <h2 class="sc-section-heading">⚡ Trigger Scope &amp; Compatibility</h2>
-          <div class="sc-specs-column">
-            <div class="sc-spec-row">
-              <div class="sc-spec-row-label">Target Scope</div>
-              <div class="sc-spec-row-val">
-                <a href="{{ $showcaseUrl }}?scope={{ $targetScope }}" class="sc-meta-chip sc-meta-scope">🎯 {{ $targetScope }}</a>
-              </div>
-            </div>
-
-            {{ if gt (len $notifTypes) 0 }}
+        {{/* 6. Trigger Scope & Compatibility Column (Stacked Below Overview — Not needed for Color Schemes) */}}
+        {{ if ne $showcaseType "scheme" }}
+          <section class="sc-specs-panel docs-sidebar-box not-prose">
+            <h2 class="sc-section-heading">⚡ Trigger Scope &amp; Compatibility</h2>
+            <div class="sc-specs-column">
               <div class="sc-spec-row">
-                <div class="sc-spec-row-label">Notification Types</div>
+                <div class="sc-spec-row-label">Target Scope</div>
                 <div class="sc-spec-row-val">
-                  {{ range $notifTypes }}
-                    <a href="{{ $showcaseUrl }}?notif={{ . }}" class="sc-meta-chip sc-meta-notif">🔔 {{ . }}</a>
-                  {{ end }}
+                  <a href="{{ $showcaseUrl }}?scope={{ $targetScope }}" class="sc-meta-chip sc-meta-scope">🎯 {{ $targetScope }}</a>
                 </div>
               </div>
-            {{ end }}
 
-            {{ if ne $showcaseType "scheme" }}
+              {{ if gt (len $notifTypes) 0 }}
+                <div class="sc-spec-row">
+                  <div class="sc-spec-row-label">Notification Types</div>
+                  <div class="sc-spec-row-val">
+                    {{ range $notifTypes }}
+                      <a href="{{ $showcaseUrl }}?notif={{ . }}" class="sc-meta-chip sc-meta-notif">🔔 {{ . }}</a>
+                    {{ end }}
+                  </div>
+                </div>
+              {{ end }}
+
               <div class="sc-spec-row">
                 <div class="sc-spec-row-label">Layout / Canvas</div>
                 <div class="sc-spec-row-val">
@@ -263,31 +263,31 @@
                   {{ end }}
                 </div>
               </div>
-            {{ end }}
 
-            {{ with $page.Params.target_apps }}
-              {{ if gt (len .) 0 }}
-                <div class="sc-spec-row">
-                  <div class="sc-spec-row-label">Supported Applications</div>
-                  <div class="sc-spec-row-val">
-                    {{ range . }}
-                      {{ if reflect.IsMap . }}
-                        <a href="{{ $showcaseUrl }}?app={{ .name | lower }}" class="sc-meta-chip sc-meta-app">
-                          <span>📱 {{ .name }}</span>
-                          {{ with .package }}<code>({{ . }})</code>{{ end }}
-                        </a>
-                      {{ else }}
-                        <a href="{{ $showcaseUrl }}?app={{ . | lower }}" class="sc-meta-chip sc-meta-app">
-                          <span>📱 {{ . }}</span>
-                        </a>
+              {{ with $page.Params.target_apps }}
+                {{ if gt (len .) 0 }}
+                  <div class="sc-spec-row">
+                    <div class="sc-spec-row-label">Supported Applications</div>
+                    <div class="sc-spec-row-val">
+                      {{ range . }}
+                        {{ if reflect.IsMap . }}
+                          <a href="{{ $showcaseUrl }}?app={{ .name | lower }}" class="sc-meta-chip sc-meta-app">
+                            <span>📱 {{ .name }}</span>
+                            {{ with .package }}<code>({{ . }})</code>{{ end }}
+                          </a>
+                        {{ else }}
+                          <a href="{{ $showcaseUrl }}?app={{ . | lower }}" class="sc-meta-chip sc-meta-app">
+                            <span>📱 {{ . }}</span>
+                          </a>
+                        {{ end }}
                       {{ end }}
-                    {{ end }}
+                    </div>
                   </div>
-                </div>
+                {{ end }}
               {{ end }}
-            {{ end }}
-          </div>
-        </section>
+            </div>
+          </section>
+        {{ end }}
       </main>
 
       {{/* =========================================================================

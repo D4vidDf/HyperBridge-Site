@@ -142,9 +142,9 @@ Place your package in the directory matching its `showcase_type`:
 | `repo_url` | **Yes** | HTTPS URL | Link to your public source repository on GitHub/GitLab/Codeberg. |
 | `download_url` | **Yes** | HTTPS URL | Direct download link to your exported package file (e.g. GitHub Releases asset URL). |
 | `license` | Optional | String (default `"MIT"`) | Open-source license identifier (`"MIT"`, `"Apache-2.0"`, `"GPL-3.0"`, `"CC-BY-4.0"`). |
-| `target_scope` | **Yes** | `"GLOBAL"` \| `"SPECIFIC_APPS"` \| `"NOTIFICATION_TYPE"` \| `"SYSTEM_APPS"` | Populates the **Target Scope** sidebar filter and the compatibility column below the Overview. |
-| `notification_types` | **Yes** | List of: `"MEDIA"`, `"MESSAGING"`, `"CALLS"`, `"NAVIGATION"`, `"PROGRESS"`, `"TIMER"`, `"STANDARD"` | Populates the **Notification Type** sidebar filter and compatibility rows. |
-| `target_apps` | Optional | List of `{ name, package }` maps or Strings | Populates the **Target App** filter dropdown and compatibility rows (leave `[]` for global packages). |
+| `target_scope` | **Yes** (except `scheme`) | `"GLOBAL"` \| `"SPECIFIC_APPS"` \| `"NOTIFICATION_TYPE"` \| `"SYSTEM_APPS"` | Populates the **Target Scope** sidebar filter and compatibility column (not required for Color Schemes). |
+| `notification_types` | **Yes** (except `scheme`) | List of: `"MEDIA"`, `"MESSAGING"`, `"CALLS"`, `"NAVIGATION"`, `"PROGRESS"`, `"TIMER"`, `"STANDARD"` | Populates the **Notification Type** sidebar filter and compatibility rows (not required for Color Schemes). |
+| `target_apps` | Optional | List of `{ name, package }` maps or Strings | Populates the **Target App** filter dropdown and compatibility rows (leave `[]` for global packages; omit for Color Schemes). |
 | `canvas_size` | Optional | `"SMALL"` \| `"MEDIUM"` \| `"LARGE"` \| `"XLARGE"` | Studio canvas size or island layout preset shown in the compatibility column. |
 | `template_base` | Optional | String (e.g. `"custom_studio"`, `"media_session"`) | Underlying template or translator engine identifier. |
 | `preview_image` | Recommended | Relative filename or path | Primary `16:9` banner image (`< 300 KB`). |
@@ -219,7 +219,7 @@ Explain what your customization does, how it looks in both collapsed and expande
 
 ### Template B: Color Scheme (`content/showcase/schemes/<slug>/index.md`)
 
-For **Color Schemes** (`showcase_type: "scheme"`), you only need a single banner (or fallback) and can share your palette tokens using `specified_colors`:
+For **Color Schemes** (`showcase_type: "scheme"`), trigger scope and notification types are not required since schemes apply directly to any custom widget. You only need a single banner (or fallback) and can share your palette tokens using `specified_colors`:
 
 ```yaml
 ---
@@ -237,13 +237,7 @@ repo_url: "https://github.com/your-github-username/hyperbridge-packs"
 download_url: "https://github.com/your-github-username/hyperbridge-packs/releases/latest/download/ocean.hscheme"
 license: "MIT"
 
-target_scope: "GLOBAL"
-notification_types:
-  - "MEDIA"
-  - "STANDARD"
-target_apps: []
-
-# Single banner is sufficient for Color Schemes (no compact pill screenshot required)
+# Single banner is sufficient for Color Schemes (no compact pill screenshot or trigger scope required)
 preview_image: "banner.webp"
 
 # Share your scheme's key color tokens (rendered as visual swatch cards on the detail page)

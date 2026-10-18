@@ -159,7 +159,13 @@ jobs:
                               "Badges cannot be self-assigned in PRs; remove those keys from frontmatter."
                           )
 
-                      for req in REQUIRED_FIELDS:
+                      base_reqs = [
+                          "title:", "description:", "showcase_type:", "file_extension:",
+                          "version:", "developer_id:", "repo_url:", "download_url:"
+                      ]
+                      is_scheme = bool(re.search(r"^\s*showcase_type\s*:\s*['\"]?scheme['\"]?", fm, re.MULTILINE)) or "/schemes/" in f
+                      req_fields = base_reqs if is_scheme else base_reqs + ["target_scope:", "notification_types:"]
+                      for req in req_fields:
                           if req not in fm:
                               errors.append(f"⚠️ Missing required frontmatter field `{req}` in `{f}`.")
 
