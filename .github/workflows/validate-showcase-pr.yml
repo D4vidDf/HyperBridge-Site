@@ -114,6 +114,36 @@ jobs:
                       )
                       continue
 
+                  # Verify package folder ownership for non-maintainers
+                  parts_path = f.split("/")
+                  if len(parts_path) >= 5 and not is_maintainer:
+                      pkg_dir = "/".join(parts_path[:4])
+                      pkg_index = f"{pkg_dir}/index.md"
+                      if os.path.exists(pkg_index):
+                          idx_text = open(pkg_index, "r", encoding="utf-8").read()
+                          m_dev = re.search(r"^\s*developer_id\s*:\s*['\"]?([^'\"\n\r#]+)['\"]?", idx_text, re.MULTILINE)
+                          pkg_dev = m_dev.group(1).strip() if m_dev else ""
+                          if pkg_dev.lower() != pr_author.lower():
+                              errors.append(
+                                  f"⛔ OWNERSHIP BLOCK: Package `{pkg_dir}` has `developer_id: \"{pkg_dev}\"`, "
+                                  f"which does not match PR author `@{pr_author}`."
+                              )
+                      # Also check if package already existed on base branch under a different owner
+                      try:
+                          base_idx = subprocess.check_output(
+                              ["git", "show", f"{base_sha}:{pkg_index}"],
+                               stderr=subprocess.DEVNULL, text=True
+                          )
+                          m_base_dev = re.search(r"^\s*developer_id\s*:\s*['\"]?([^'\"\n\r#]+)['\"]?", base_idx, re.MULTILINE)
+                          base_dev = m_base_dev.group(1).strip() if m_base_dev else ""
+                          if base_dev and base_dev.lower() != pr_author.lower():
+                              errors.append(
+                                  f"⛔ OWNERSHIP BLOCK: Existing package `{pkg_dir}` belongs to `@{base_dev}` "
+                                  f"and cannot be modified by `@{pr_author}`."
+                              )
+                      except subprocess.CalledProcessError:
+                          pass
+
                   if os.path.basename(f) == "index.md" and f.count("/") >= 4:
                       text = open(f, "r", encoding="utf-8").read()
                       parts = text.split("---", 2)
