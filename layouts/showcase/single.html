@@ -45,11 +45,11 @@
   {{/* Resolve Previews & Collect Unique Gallery Images */}}
   {{ $previewImg := $page.Params.preview_image | default "" }}
   {{ if and $previewImg (not (strings.HasPrefix $previewImg "http")) (not (strings.HasPrefix $previewImg "/")) }}
-    {{ $previewImg = printf "%s%s" $page.RelPermalink $previewImg }}
+    {{ $previewImg = printf "/showcase/%s/%s" $rel $previewImg }}
   {{ end }}
   {{ $previewCompact := $page.Params.preview_compact | default "" }}
   {{ if and $previewCompact (not (strings.HasPrefix $previewCompact "http")) (not (strings.HasPrefix $previewCompact "/")) }}
-    {{ $previewCompact = printf "%s%s" $page.RelPermalink $previewCompact }}
+    {{ $previewCompact = printf "/showcase/%s/%s" $rel $previewCompact }}
   {{ end }}
 
   {{ $hasCompact := and $previewCompact (ne $previewCompact $previewImg) }}
@@ -64,7 +64,7 @@
   {{ range $idx, $shot := $page.Params.screenshots }}
     {{ $shotUrl := $shot }}
     {{ if and (not (strings.HasPrefix $shot "http")) (not (strings.HasPrefix $shot "/")) }}
-      {{ $shotUrl = printf "%s%s" $page.RelPermalink $shot }}
+      {{ $shotUrl = printf "/showcase/%s/%s" $rel $shot }}
     {{ end }}
     {{ if and (ne $shotUrl $previewImg) (ne $shotUrl $previewCompact) }}
       {{ $galleryList = $galleryList | append (dict "src" $shotUrl "label" (printf "Screenshot %d" (add $idx 1))) }}

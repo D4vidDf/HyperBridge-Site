@@ -1,0 +1,41 @@
+id: silksong_sea_of_sorrow
+name: "Silksong: Sea of Sorrow"
+author: D4vidDf
+description: "Bioluminescent sea cyan, gilded brass, and Hornet crimson over an abyssal dark teal surface inspired by Hollow Knight: Silksong – Sea of Sorrow."
+is_dark: true
+
+roles:
+  # Primary — Bioluminescent Sea Cyan (#87DAE4)
+  primary: "#87DAE4"
+  on_primary: "#00363C"
+  primary_container: "#004F57"
+  on_primary_container: "#AEF0F8"
+
+  # Secondary — Gilded Needle & Lantern Brass (#E8B96E)
+  secondary: "#E8B96E"
+  on_secondary: "#3E2800"
+  secondary_container: "#593C05"
+  on_secondary_container: "#FFDEA9"
+
+  # Tertiary — Hornet Crimson Cloak (#FB4E47)
+  tertiary: "#FB4E47"
+  on_tertiary: "#FFFFFF"
+  tertiary_container: "#680908"
+  on_tertiary_container: "#FFDAD7"
+
+  # Surfaces — Abyssal Sea Trench (#001B17) & Tonal Elevations
+  surface: "#001B17"
+  on_surface: "#E0F4F2"
+  surface_variant: "#0A2E29"
+  on_surface_variant: "#A8C8C4"
+  surface_container: "#04241F"
+  surface_container_high: "#0D332D"
+  surface_container_low: "#001310"
+
+  # Outlines & Borders
+  outline: "#527B77"
+  outline_variant: "#183F3A"
+
+  # Error / Alerts
+  error: "#FB4E47"
+  on_error: "#FFFFFF"
