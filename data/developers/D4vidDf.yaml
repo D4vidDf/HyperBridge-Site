@@ -1,10 +1,10 @@
 id: "D4vidDf"
-name: "David (D4vidDf)"
+name: "D4vidDf"
 role: "Creator & Lead Developer of HyperBridge"
-bio: "Android & Flutter developer building HyperBridge — unlocking native Xiaomi HyperOS Super Island experiences, declarative translators, and the Micro-Widgets Studio with 100% on-device privacy."
+bio: "I am a 26-year-old programmer. I have reduced mobility due to a rare neurological disease, and I can only program for about half an hour a day. My commitment to creating impactful software remains constant despite these constraints."
 avatar: "https://github.com/D4vidDf.png"
 github: "https://github.com/D4vidDf"
-website: "https://hyper-bridge.app"
+website: "https://d4viddf.com"
 verified_maintainer: true
 repos:
   - name: "HyperBridge (Android App)"
@@ -15,3 +15,4 @@ repos:
     description: "Documentation and Community Showcase directory"
 socials:
   github: "https://github.com/D4vidDf"
+  bluesky: "https://bsky.app/profile/d4viddf.com"

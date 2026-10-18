@@ -23,6 +23,7 @@
 {{ $avatar := $devData.avatar | default ($fallback.avatar | default (printf "https://github.com/%s.png" $githubUser)) }}
 {{ $githubUrl := $devData.github | default (cond (ne $githubUser "") (printf "https://github.com/%s" $githubUser) "") }}
 {{ $website := $devData.website | default ($fallback.website | default "") }}
+{{ $socials := $devData.socials | default ($fallback.socials | default dict) }}
 {{ $verified := $devData.verified_maintainer | default false }}
 {{ $repos := $devData.repos | default ($fallback.repos | default slice) }}
 
@@ -131,6 +132,12 @@
           <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="Developer Website">
             <span class="sc-icon">{{ partial "icon.html" "globe" }}</span>
             <span>Website</span>
+          </a>
+        {{ end }}
+        {{ with $socials.bluesky }}
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="Bluesky Profile">
+            <span class="sc-icon">{{ partial "icon.html" "bluesky" }}</span>
+            <span>Bluesky</span>
           </a>
         {{ end }}
       </div>
@@ -273,6 +280,12 @@
           <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="Developer Website">
             <span class="sc-icon">{{ partial "icon.html" "globe" }}</span>
             <span>Website</span>
+          </a>
+        {{ end }}
+        {{ with $socials.bluesky }}
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="sc-chip-btn" title="Bluesky Profile">
+            <span class="sc-icon">{{ partial "icon.html" "bluesky" }}</span>
+            <span>Bluesky</span>
           </a>
         {{ end }}
       </div>
