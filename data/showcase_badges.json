@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-10-20T21:22:13Z",
+  "last_synced": "2026-10-21T03:45:33Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -34,7 +34,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 0
+      "downloads": 3
     },
     "schemes/retro-tech": {
       "badges": [
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 7
+      "downloads": 8
     }
   }
 }
