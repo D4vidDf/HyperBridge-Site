@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-10-24T20:24:44Z",
+  "last_synced": "2026-10-25T03:42:29Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -42,7 +42,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 8
+      "downloads": 9
     },
     "schemes/coruna-solar-eclipse": {
       "badges": [
@@ -50,7 +50,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 13
+      "downloads": 15
     },
     "schemes/summer-breeze": {
       "badges": [
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 2,
-      "downloads": 21
+      "downloads": 23
     }
   }
 }
