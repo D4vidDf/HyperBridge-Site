@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-10-27T11:45:54Z",
+  "last_synced": "2026-10-27T17:39:56Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -34,7 +34,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 22
+      "downloads": 23
     },
     "schemes/retro-tech": {
       "badges": [
@@ -42,7 +42,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 16
+      "downloads": 17
     },
     "schemes/coruna-solar-eclipse": {
       "badges": [
@@ -50,15 +50,15 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 28
+      "downloads": 30
     },
     "schemes/summer-breeze": {
       "badges": [
         "dev_approved",
         "official"
       ],
-      "votes": 2,
-      "downloads": 59
+      "votes": 3,
+      "downloads": 62
     }
   }
 }
