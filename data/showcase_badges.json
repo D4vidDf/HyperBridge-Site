@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-10-31T11:51:09Z",
+  "last_synced": "2026-10-31T16:58:05Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 3,
-      "downloads": 93
+      "downloads": 95
     }
   }
 }
