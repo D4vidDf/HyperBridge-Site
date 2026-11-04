@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-04T05:21:27Z",
+  "last_synced": "2026-11-04T13:56:30Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -50,7 +50,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 52
+      "downloads": 53
     },
     "schemes/summer-breeze": {
       "badges": [
