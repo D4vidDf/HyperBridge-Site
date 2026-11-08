@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-07T21:34:14Z",
+  "last_synced": "2026-11-08T04:59:58Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -42,7 +42,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 27
+      "downloads": 28
     },
     "schemes/coruna-solar-eclipse": {
       "badges": [
