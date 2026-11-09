@@ -9,6 +9,115 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## HyperBridge v0.6.0-rc1 🚀 — First Release Candidate
+
+Welcome to the **first Release Candidate (RC1) of HyperBridge v0.6.0**! 🎉
+
+> [!IMPORTANT]
+> ### 🛑 Feature Freeze & Stabilization Phase
+> With **v0.6.0-rc1**, HyperBridge officially enters its final development stage before the general 0.6.0 release.
+> 
+> Starting now, our main focus is on **fixing remaining issues, polishing edge cases, and ensuring overall performance and stability**. All new feature additions are paused for the 0.6.0 cycle and will land in future releases after 0.6.0 is out.
+> 
+> Please test this build and report any remaining issues on GitHub!
+
+---
+
+### 📱 Highlights: Redesigned for Tablets & Foldables
+
+This release candidate introduces a major overhaul of the large-screen experience. Instead of simply stretching mobile phone layouts, HyperBridge now natively adapts to wide viewports, foldable postures, and landscape screens:
+
+* **Adaptive UI Foundation**: Built on modern Window Size Class paradigms to ensure responsive, layout-aware rendering across tablets, foldables, and desktop/DeX modes ([#453](https://github.com/D4vidDf/HyperBridge/pull/453)).
+* **Adaptive 3-Column Widget Studio**: Full advantage is now taken of wide displays by organizing design controls into an adaptive 3-column workspace featuring canvas panning and fluid viewport adjustments ([#456](https://github.com/D4vidDf/HyperBridge/pull/456)).
+* **Split-Pane & Cascading Panes in Theme Creator**: Manage and edit themes without losing context. Inspect configurations on one side while adjusting color tokens, properties, and components on the other ([#455](https://github.com/D4vidDf/HyperBridge/pull/455)).
+* **Adaptive Translator Experience**: The translation editor now features a dual-pane layout with cascading navigation, making string localization significantly faster and more intuitive on larger screens ([#460](https://github.com/D4vidDf/HyperBridge/pull/460)).
+
+---
+
+### 🎨 Widget Studio & Typography Overhaul
+
+* **Custom Font Imports & Typeface Rendering**: Import your own TTF/OTF custom fonts directly into Widget Studio! Custom fonts are rendered to high-res bitmaps for widgets, button typefaces are fully customizable, and font resolution across notifications has been enhanced ([#446](https://github.com/D4vidDf/HyperBridge/pull/446), [#447](https://github.com/D4vidDf/HyperBridge/pull/447)).
+* **Transparent Backgrounds & Container Color Overrides**: Gain finer control over visual hierarchy with per-container theme overrides and root canvas transparent background support ([#451](https://github.com/D4vidDf/HyperBridge/pull/451)).
+* **Canvas Picture Backgrounds**: Set rich image backgrounds directly on the root canvas with improved notification visual fidelity ([#452](https://github.com/D4vidDf/HyperBridge/pull/452)).
+* **Live Previews & Placeholders**: Customize preview placeholders, inspect live preview rendering in real time, and export designs directly with improved package bundling ([#457](https://github.com/D4vidDf/HyperBridge/pull/457)).
+* **Direct Studio Design Creation**: Create custom designs directly via Widget Studio straight from the "Add Design" flow ([#449](https://github.com/D4vidDf/HyperBridge/pull/449)).
+* **Refactored Image Selector**: Streamlined image source and configuration selection with the new `ImageConfigSelectorCard` component ([#458](https://github.com/D4vidDf/HyperBridge/pull/458)).
+
+---
+
+### 📦 Theme Management & `.hscheme` Packaging
+
+* **New `.hscheme` Packaging Format**: Introduced the standardized `.hscheme` format with strict validation for dependable theme importing, exporting, and sharing ([#443](https://github.com/D4vidDf/HyperBridge/pull/443)).
+* **Material 3 Expressive Theme Manager**: Redesigned Theme Manager utilizing Material 3 Expressive list items, smoother list animations, and human-friendly named file sharing ([#454](https://github.com/D4vidDf/HyperBridge/pull/454)).
+
+---
+
+### ⚡ Battery & Charging Improvements
+
+* **Charging Speed Display & Dual-Cell Support**: Introduced a dedicated charging speed display mode, accurate wattage calculation for dual-cell batteries, and vendor-specific charge time estimation for Xiaomi/HyperOS devices ([#448](https://github.com/D4vidDf/HyperBridge/pull/448)).
+
+---
+
+### What's Changed
+* feat(packaging): introduce .hscheme format and standardize package file validation by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/443
+* feat(studio): support custom font imports and revamp palette and font family pickers by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/446
+* feat(widget): render custom fonts to bitmap, support button typefaces, and improve font resolution by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/447
+* feat(charging): introduce charging speed display mode, dual-cell wattage support, and Xiaomi charge time estimation by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/448
+* feat(design): enable custom design creation via Widget Studio from add design flow by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/449
+* feat(studio): add transparent background support and per-container color scheme overrides by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/451
+* feat(widget): support picture backgrounds on root canvas and improve notification visual resolution by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/452
+* feat: adaptive UI foundation for tablets, foldables, and landscape screens (Part 1) by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/453
+* feat(theme): modernize Theme Manager with Material 3 Expressive list items and named file sharing by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/454
+* feat(theme): adaptive split-pane and cascading panes UI for Theme Creator on tablets and foldables by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/455
+* feat(studio): introduce adaptive 3-column layout, canvas panning, and… by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/456
+* feat(studio): introduce preview placeholder customization, live preview rendering, and package bundling by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/457
+* refactor(studio): extract ImageConfigSelectorCard for image source an… by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/458
+* feat(translator): introduce adaptive split-pane layout and cascading navigation in translator editor by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/460
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-beta5...v0.6.0-rc1
+
+---
+
+## HyperBridge v0.6.0-beta5 🚀
+
+### 🌟 New: Community Showcase is Live!
+
+We're excited to announce the launch of our new **[Official Community Showcase](https://hyper-bridge.app/showcase/)**! 
+
+Users will soon be able to share their own custom creations directly with the community. To start off, **4 custom color schemes** are currently available to explore and download, with many more designs, templates, and presets rolling out over time.
+
+> [!NOTE]
+> The Showcase platform is brand new and in active development, so you might run into occasional rough edges or issues. If you notice any bugs or have suggestions, please feel free to report them on our [GitHub Issues](https://github.com/D4vidDf/HyperBridge-site/issues) or Discord!
+
+---
+
+### 🚀 Highlights & Features
+
+- **⚡ Charging Island & Customization**: Added an interactive system Charging Status Island with customizable layout designs and real-time previews in settings (#424, #426).
+- **🛠️ USB & Wireless Debugging Island**: Introduced an automatic island indicating active USB or wireless ADB debugging sessions (#430).
+- **🔒 VPN Island Customization**: Full customization screen for the VPN Island, supporting multiple detection modes, provider priority sorting, and Cloudflare WARP adapter support (#431).
+- **📱 Lock Screen Support for Custom Translators**: Added a "Show on lock screen" toggle in custom translator behavior settings. Dynamically manages `islandProperty` (0 while locked, 1 upon unlock) so islands display on the keyguard and dismiss/timeout properly once unlocked (#433).
+- **🎨 Design & Translator Manager Overhaul**: Redesigned cards with clean overflow menus and delete confirmations, plus an upgraded share bottom sheet with static previews and export selectors (#428, #429).
+- **🔗 Showcase Integration**: Featured banner cards in the app now link directly to their respective showcase pages (#427).
+- **🧹 Island Architecture Cleanup**: Decoupled custom micro-widget bindings and source management from the permanent island (#432).
+
+---
+
+### What's Changed
+* feat(system): charging status island by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/424
+* feat(charging): add customizable layout design options and live preview for charging island by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/426
+* feat(design): link featured banner cards to showcase pages by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/427
+* feat(design): redesign share bottom sheet with static previews, export selector, and optional linked translator by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/428
+* feat(ui): redesign Design & Translator Manager cards with overflow menu and delete confirmation by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/429
+* feat(system): USB and wireless debugging island by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/430
+* feat(vpn): introduce VPN Island customization screen, detection modes… by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/431
+* refactor(island): remove custom micro-widget binding and source management from permanent island by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/432
+* feat(translator): add show on lock screen behavior override and dynamic property switching by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/433
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-beta4...v0.6.0-beta5
+
+---
+
 ## HyperBridge v0.6.0-beta4 🚀
 
 Welcome to **v0.6.0-beta4**! This release introduces the all-new **Studio Design** & Spatial Island Builder, completing our initial development roadmap for 0.6.0 ([#268](https://github.com/D4vidDf/HyperBridge/issues/268)), alongside translator persistence, navigation state preservation, and critical fixes for messaging, calls, and progress tracking.
