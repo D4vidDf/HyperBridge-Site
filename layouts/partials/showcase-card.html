@@ -69,7 +69,7 @@
 {{ end }}
 
 {{/* Resolve Preview Image */}}
-{{ $previewImg := $page.Params.preview_image | default "" }}
+{{ $previewImg := $page.Params.thumbnail | default ($page.Params.preview_image | default "") }}
 {{ if and $previewImg (not (strings.HasPrefix $previewImg "http")) (not (strings.HasPrefix $previewImg "/")) }}
   {{ $previewImg = printf "/showcase/%s/%s" $rel $previewImg }}
 {{ end }}
