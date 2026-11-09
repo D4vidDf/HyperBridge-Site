@@ -24,10 +24,9 @@ target_apps:
 canvas_size: "SMALL"
 template_base: "custom_studio"
 
+thumbnail: "thumbnail.webp"
 preview_image: "banner.webp"
 preview_compact: "pill.webp"
-screenshots:
-  - "screenshot.webp"
 
 accent_colors:
   - "#FF0000"

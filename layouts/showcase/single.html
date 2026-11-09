@@ -62,6 +62,15 @@
   {{ if $hasCompact }}
     {{ $galleryList = $galleryList | append (dict "src" $previewCompact "label" "Compact Pill") }}
   {{ end }}
+  {{ with $page.Params.thumbnail }}
+    {{ $thumbUrl := . }}
+    {{ if and (not (strings.HasPrefix $thumbUrl "http")) (not (strings.HasPrefix $thumbUrl "/")) }}
+      {{ $thumbUrl = printf "/showcase/%s/%s" $rel $thumbUrl }}
+    {{ end }}
+    {{ if and (ne $thumbUrl $previewImg) (ne $thumbUrl $previewCompact) }}
+      {{ $galleryList = $galleryList | append (dict "src" $thumbUrl "label" "Card Thumbnail") }}
+    {{ end }}
+  {{ end }}
   {{ range $idx, $shot := $page.Params.screenshots }}
     {{ $shotUrl := $shot }}
     {{ if and (not (strings.HasPrefix $shot "http")) (not (strings.HasPrefix $shot "/")) }}
