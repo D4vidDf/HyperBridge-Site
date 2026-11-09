@@ -25,7 +25,7 @@ Hyper Island ToolKit was created and is actively maintained by **D4vidDf** (the 
 
 ## Why does the island still show when I uninstall Hyper Bridge?
 
-Xiaomi introduced Hyper Island natively starting in **HyperOS 3**, allowing system applications and approved third-party apps to display status cards directly in the island area. 
+Xiaomi introduced island capabilities natively as Focus Notifications in **HyperOS 3** and officially renamed the framework to **HyperIsland** in **HyperOS 4**, allowing system applications and approved third-party apps to display status cards directly in the island area. 
 
 Because Hyper Bridge only functions as a translation layer, native OS features—such as multimedia playback, the built-in Clock and timer apps, or charging status animations—will continue to appear on the island even when Hyper Bridge is uninstalled, as they are part of the core operating system.
 
@@ -37,9 +37,17 @@ Hyper Bridge operates purely as a translation layer specifically tailored to Xia
 
 ---
 
-## Why can't I have an island on the lock screen?
+## Can I show dynamic islands on the lock screen?
 
-Xiaomi restricts the display of Hyper Island strictly to when the device is unlocked; the island is deliberately hidden on the lock screen by the operating system. Because Hyper Bridge relies 100% on the native OS framework rather than drawing custom overlays over your lock screen, it cannot display notifications on the lock screen.
+**Yes! Starting in HyperBridge v0.6.0**, you can display dynamic islands on the lock screen using Custom Translators:
+
+1. **System Permission:** Ensure **Show on lock screen** is enabled under HyperBridge's notification settings in HyperOS (**Settings** → **Notifications & status bar** → **App notifications** → **Hyper Bridge**).
+2. **Translator Setting:** In HyperBridge, open your custom translator, navigate to **Behavior Settings**, and toggle **Show on lock screen** → **ON**.
+
+### How it works under the hood
+By default, HyperOS suppresses islands while the device keyguard is engaged. HyperBridge dynamically switches the native Xiaomi `islandProperty` key:
+- While the device is locked, it posts with `islandProperty: 0`, instructing the system to render the capsule on the lock screen keyguard.
+- As soon as the device is unlocked, HyperBridge automatically switches to `islandProperty: 1`, allowing the island to follow normal unlock timeouts, dismissal rules, or interactive expansion.
 
 ---
 

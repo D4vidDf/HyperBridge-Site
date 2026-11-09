@@ -5,7 +5,7 @@ weight: 1
 showTableOfContents: true
 ---
 
-The **Dynamic Island Engine** is the core rendering pipeline of HyperBridge. It intercepts standard Android status bar notifications and translates them into native **Xiaomi HyperOS Super Island** (Featured Notification) presentations wrapped around your camera punch hole.
+The **Dynamic Island Engine** is the core rendering pipeline of HyperBridge. It intercepts standard Android status bar notifications and translates them into native **Xiaomi HyperOS HyperIsland / Super Island** (Focus/Featured Notification) presentations wrapped around your camera punch hole.
 
 Rather than drawing a simulated overlay that consumes CPU and interrupts touchscreen gestures, HyperBridge outputs native system contracts directly processed by Xiaomi's `SystemUI`.
 

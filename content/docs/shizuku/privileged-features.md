@@ -22,7 +22,7 @@ flowchart TD
 ```
 
 ### 1. Full HyperOS China (CN) ROM Compatibility
-On Xiaomi devices running **HyperOS CN (China) ROMs**, Xiaomi enforces strict proprietary app allowlists for the Super Island. Only a handful of approved Chinese domestic apps (such as Gaode Maps, Meituan, or Ele.me) are permitted by the system framework to trigger native Focus Notifications. Standard third-party apps like Spotify, Telegram, or WhatsApp are blocked from displaying islands by default.
+On Xiaomi devices running **HyperOS CN (China) ROMs**, Xiaomi enforces strict proprietary app allowlists for the Super Island. Only a handful of approved Chinese domestic apps (such as Gaode Maps, Meituan, or Ele.me) are permitted by the system framework to trigger native HyperIsland / Focus Notifications. Standard third-party apps like Spotify, Telegram, or WhatsApp are blocked from displaying islands by default.
 
 * **The Shizuku Workaround**: With Shizuku authorized, HyperBridge uses elevated system shell APIs to register and route notifications directly into Xiaomi's native Live Update framework, completely bypassing regional CN firmware restrictions.
 * **How to enable**:

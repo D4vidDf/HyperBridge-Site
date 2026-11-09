@@ -86,13 +86,13 @@ To convert standard notifications into floating dynamic islands, Hyper Bridge re
 
 {{< figure 
     src="/img/docs/onboarding/en/06-featured-notifications-check.jpg" 
-    alt="Featured Notifications Verification" 
-    caption="Step 6: Featured Notifications Check for HyperOS Focus permissions." 
+    alt="HyperIsland and Focus Notifications Verification" 
+    caption="Step 6: Verification check for HyperIsland (HyperOS 4+) and Focus Notifications (HyperOS 3)." 
 >}}
 
-### Step 6: Featured Notifications Check
-- Verifies whether your HyperOS installation allows custom apps to access the privileged Xiaomi Island notification channel.
-- If your ROM requires manual focus configuration, follow the instructions in the [HyperOS Focus Permissions Guide]({{< ref "docs/permissions/hyperos-focus-permissions.md" >}}).
+### Step 6: HyperIsland / Focus Notifications Check
+- Verifies whether your HyperOS installation allows custom apps to access the privileged Xiaomi Island notification channel (**HyperIsland** on HyperOS 4+, or **Focus notifications** on HyperOS 3).
+- If your ROM requires manual configuration, follow the instructions in the [HyperIsland & Focus Permissions Guide]({{< ref "docs/permissions/hyperos-focus-permissions.md" >}}).
 
 ---
 

@@ -19,7 +19,7 @@ In Hyper Bridge, open **Settings** &rarr; **System Health** (or tap the Health c
 flowchart TD
     H["System Health Dashboard"] --> P1["1. Notification Listener Access"]
     H --> P2["2. Android 13+ Restricted Settings"]
-    H --> P3["3. HyperOS Focus Notifications"]
+    H --> P3["3. HyperIsland / Focus Notifications"]
     H --> P4["4. Battery Saver: No Restrictions"]
     H --> P5["5. Autostart Whitelist"]
     H --> P6["6. Floating Notification Setup"]
@@ -58,10 +58,10 @@ Each card on the System Health screen provides a 1-tap shortcut directly to the 
 
 ---
 
-### Step 3: HyperOS Focus Notifications
-- **Why it is required:** Xiaomi HyperOS manages dynamic island elements through the native **Focus Notifications** channel. Without this permission, Hyper Bridge cannot render floating cards over other applications.
-- **How to grant:** Tap **Configure Focus Notifications** on the health card &rarr; Ensure that **Allow floating notifications** and **Focus notifications** are enabled for Hyper Bridge.
-- *Detailed guide:* [HyperOS Focus Notifications Guide]({{< ref "docs/permissions/hyperos-focus-permissions.md" >}}).
+### Step 3: HyperIsland (HyperOS 4+) / Focus Notifications (HyperOS 3)
+- **Why it is required:** Xiaomi HyperOS manages dynamic island elements through the native **HyperIsland** (on HyperOS 4+) or **Focus Notifications** (on HyperOS 3) channel. Without this permission, Hyper Bridge cannot render floating cards and capsules around the camera cutout.
+- **How to grant:** Tap **Configure HyperIsland / Focus Notifications** on the health card &rarr; Ensure that **HyperIsland** (or **Focus notifications**) and **Allow floating notifications** are enabled for Hyper Bridge.
+- *Detailed guide:* [HyperIsland & Focus Notifications Guide]({{< ref "docs/permissions/hyperos-focus-permissions.md" >}}).
 
 ---
 

@@ -214,7 +214,8 @@ Configure interactive buttons displayed on the expanded island card:
 Configure notification lifecycle, dismissal rules, and delivery engines:
 - **Engine Configuration**: Choose between **Inherit App Default**, **Custom Floating Island Engine**, or **Native Live Update Engine**.
 - **Auto-hide Island**: Automatically hide the expanded island after a duration or keep it visible until dismissed.
-- **Xiaomi Featured Notifications**:
+- **Show on lock screen**: *(New in v0.6.0)* Display dynamic islands on the lock screen keyguard. Dynamically manages Xiaomi's internal `islandProperty` (0 while locked, 1 upon unlock) so the island stays visible on the keyguard and auto-dismisses or transitions smoothly when the device is unlocked.
+- **Xiaomi Featured Notifications / HyperIsland**:
   - **Heads-up Popup**: Show a brief banner popup before collapsing into the island (with duration slider, e.g. 10s).
   - **Notification Panel**: Choose whether to keep the notification visible in the standard shade.
 - **Notification Management**:

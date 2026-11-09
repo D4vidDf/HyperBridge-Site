@@ -1,16 +1,23 @@
 ---
-title: "HyperOS Focus & Featured Notifications"
-description: "How to configure Focus Notifications, floating alerts, and lock screen permissions for HyperBridge on Xiaomi HyperOS."
+title: "HyperIsland & Focus Notification Permissions"
+description: "How to configure HyperIsland (HyperOS 4+) and Focus / Featured Notifications (HyperOS 3) permissions for HyperBridge."
 weight: 2
 showTableOfContents: true
 ---
 
-On Xiaomi HyperOS, dynamic islands around the camera cutout are powered by a system framework called **Focus Notifications** (also referred to as *Featured Notifications* or *焦点通知*). 
+On Xiaomi HyperOS, dynamic status cards and capsules around the camera cutout are powered by a dedicated system framework. 
 
-Unlike standard Android notifications that sit in your pull-down shade, Focus Notifications are granted special system clearance to render as interactive status capsules directly around your camera punch hole.
+> [!NOTE]
+> ### 🏷️ Naming on HyperOS 4 vs. HyperOS 3
+> * **HyperOS 4+:** Xiaomi officially renamed this capability to **HyperIsland** (or *Super Island* / *超级岛*). In system settings, the permission toggle appears directly as **HyperIsland**.
+> * **HyperOS 3:** This capability is labeled as **Focus Notifications** (also referred to as *Featured Notifications* or *焦点通知*).
+>
+> Depending on your device's installed HyperOS version and system language, look for either **HyperIsland** or **Focus notifications**.
+
+Unlike standard Android notifications that only sit in your pull-down shade, **HyperIsland / Focus Notifications** are granted special system clearance to render as interactive status capsules and expanded cards directly around your camera punch hole.
 
 {{< alert icon="lightbulb" >}}
-**Top Troubleshooting Tip:** If HyperBridge is running and the Notification Listener is connected, but dynamic islands never appear around your camera hole, a missing **Focus Notification** or **Floating Notification** permission is almost always the cause!
+**Top Troubleshooting Tip:** If HyperBridge is running and the Notification Listener is connected, but dynamic islands never appear around your camera hole, a missing **HyperIsland / Focus Notification** or **Floating Notification** permission is almost always the cause!
 {{< /alert >}}
 
 ---
@@ -22,27 +29,27 @@ For HyperBridge to render both the collapsed pill and the expanded island cards,
 ```mermaid
 flowchart TD
     App["Hyper Bridge App Notifications"] --> T1["1. Allow Notifications (Master Toggle)"]
-    App --> T2["2. Focus / Featured Notifications (Island Punch-Hole)"]
+    App --> T2["2. HyperIsland (HyperOS 4+) / Focus Notifications (HyperOS 3)"]
     App --> T3["3. Floating Notifications (Heads-Up Overlay)"]
     App --> T4["4. Show on Lock Screen (Keyguard & Dynamic Unlock)"]
     App --> T5["5. Notification Badges (Optional)"]
 ```
 
 1. **Allow notifications**: Master switch enabling HyperBridge to post status alerts.
-2. **Focus / Featured notifications**: The specialized Xiaomi permission enabling the Super Island punch-hole capsule.
+2. **HyperIsland (HyperOS 4+) / Focus notifications (HyperOS 3)**: The specialized Xiaomi permission enabling the Super Island punch-hole capsule.
 3. **Allow floating notifications**: Allows the island to pop up as a floating heads-up banner over fullscreen apps and games.
 4. **Show on lock screen**: Allows Live Updates and custom translators configured with `islandProperty` to display while locked and transition cleanly upon unlocking.
 
 ---
 
-## 🛠️ Step-by-Step: Enabling Focus Notifications
+## 🛠️ Step-by-Step: Enabling HyperIsland / Focus Notifications
 
 ### Method 1: Via HyperBridge System Health (Recommended)
 
 1. Open **HyperBridge** and navigate to **Settings** &rarr; **System Health**.
-2. Locate the **HyperOS Focus Notifications** card.
+2. Locate the **HyperIsland / Focus Notifications** card.
 3. Tap **Open Settings**. HyperBridge will launch your device's notification management page directly for HyperBridge.
-4. Enable **Focus notifications** and **Allow floating notifications**.
+4. Enable **HyperIsland** (or **Focus notifications**) and **Allow floating notifications**.
 
 ---
 
@@ -56,7 +63,7 @@ If you prefer to configure it directly from HyperOS settings:
 4. Scroll or search for **Hyper Bridge** and tap it to open its notification channel settings.
 5. Verify and enable the following settings:
    - Toggle **Allow notifications** &rarr; **ON**.
-   - Toggle **Focus notifications** (or **Featured notifications**) &rarr; **ON**.
+   - Toggle **HyperIsland** (on HyperOS 4+) or **Focus notifications** / **Featured notifications** (on HyperOS 3) &rarr; **ON**.
    - Toggle **Allow floating notifications** &rarr; **ON**.
    - Toggle **Show on lock screen** &rarr; **ON**.
 
@@ -64,7 +71,7 @@ If you prefer to configure it directly from HyperOS settings:
 
 ## 💡 Avoiding Double Popups: Floating Notification Setup
 
-When an app like Telegram, WhatsApp, or Spotify posts an alert, Xiaomi HyperOS may attempt to display its **native Android floating heads-up banner** at the exact same moment HyperBridge renders its **Dynamic Island** around the camera hole.
+When an app like Telegram, WhatsApp, or Spotify posts an alert, Xiaomi HyperOS may attempt to display its **native Android floating heads-up banner** at the exact same moment HyperBridge renders its **HyperIsland** around the camera hole.
 
 To prevent awkward visual duplication:
 

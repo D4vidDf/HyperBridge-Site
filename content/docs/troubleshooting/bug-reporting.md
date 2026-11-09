@@ -62,7 +62,7 @@ When you generate a report, `BugReportCollector` gathers an automated technical 
 - Notification Listener granted (`true`/`false`).
 - Post Notifications granted.
 - Android 13+ Restricted Settings authorization.
-- HyperOS Focus Notifications status.
+- HyperIsland / Focus Notifications status.
 - Battery Optimization exclusion ("No Restrictions").
 - Autostart permission status.
 - Shizuku service status and version (if active).
