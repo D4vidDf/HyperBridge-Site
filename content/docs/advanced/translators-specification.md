@@ -5,6 +5,7 @@ weight: 1
 aliases:
   - /docs/customization/translators-specification/
 showTableOfContents: true
+linkTitle: "Translators Spec"
 ---
 
 This document provides the authoritative technical reference for the **Custom Translators Framework** (`.htrans`) in Hyper Bridge 0.6.0. It is designed for developers, theme authors, and power users building custom notification pipelines, automation tools, or community packages.

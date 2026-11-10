@@ -1,8 +1,9 @@
 ---
 title: "Theme Creator Guide"
 description: "How to customize shapes, colors, per-app styling, and bundled custom translators using HyperThemes."
-weight: 1
+weight: 2
 showTableOfContents: true
+linkTitle: "Theme Creator"
 ---
 
 This guide covers how to customize and create themes using the **In-App Theme Creator** in Hyper Bridge:
@@ -213,6 +214,6 @@ Please refer to the dedicated **[Theme Packaging Specification (.hbr)]({{< ref "
 
 ## Next Steps
 
-- Browse the official [10 Xiaomi Island Templates]({{< ref "docs/customization/custom-designs.md" >}}) to see how themes render across delivery, music, and boarding pass cards.
-- Add live home-screen widgets into your islands with the [System Widgets Guide]({{< ref "docs/customization/widgets-guide.md" >}}).
+- Browse the official [10 Xiaomi Island Templates]({{< ref "docs/features/custom-designs.md" >}}) to see how themes render across delivery, music, and boarding pass cards.
+- Add live home-screen widgets into your islands with the [System Widgets Guide]({{< ref "docs/features/widgets-guide.md" >}}).
 - Create custom notification rules with the [Custom Translators Guide]({{< ref "docs/customization/custom-translators.md" >}}).

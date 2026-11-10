@@ -3,6 +3,7 @@ title: "Privileged Features & Shizuku Capabilities"
 description: "How Shizuku unlocks CN ROM compatibility, elevated IPC commands, and robust system-level listener persistence without root."
 weight: 2
 showTableOfContents: true
+linkTitle: "Privileged Features"
 ---
 
 **HyperBridge is completely functional out of the box on Global and EEA ROMs without root or Shizuku.** 

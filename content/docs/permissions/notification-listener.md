@@ -1,8 +1,9 @@
 ---
 title: "Notification Listener Access"
 description: "How to safely grant Android notification listener permission, handle Android 13+ restricted settings, and pass Xiaomi's security countdown."
-weight: 1
+weight: 2
 showTableOfContents: true
+linkTitle: "Notification Access"
 ---
 
 In Android, third-party applications are strictly sandboxed from observing other apps' alerts. To intercept music playback, incoming chat messages, download progress, navigation alerts, and system timers, **HyperBridge** requires Android's specialized **Notification Listener Access** (`NotificationListenerService`).

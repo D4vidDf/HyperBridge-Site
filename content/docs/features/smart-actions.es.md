@@ -1,8 +1,9 @@
 ---
 title: "Acciones Inteligentes y Botones de Contexto"
 description: "Copiado de códigos de verificación en 1 toque, direcciones de navegación, seguimiento de envíos y marcación directa en la HyperIsland."
-weight: 2
+weight: 5
 showTableOfContents: true
+linkTitle: "Acciones Inteligentes"
 ---
 
 Las **Acciones Inteligentes** (*Smart Actions*) detectan automáticamente entidades útiles en tus notificaciones —como códigos de verificación (2FA), direcciones postales, enlaces de mapas, números de teléfono y números de seguimiento de paquetes— e insertan botones de acción en 1 toque directamente en la **HyperIsland** y en la cortina de notificaciones.

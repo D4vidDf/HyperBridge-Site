@@ -3,6 +3,7 @@ title: "System Health & Setup Guide"
 description: "Complete guide to the System Health dashboard, essential permissions checklist, and the Floating Notification Setup screen."
 weight: 1
 showTableOfContents: true
+linkTitle: "System Health"
 ---
 
 Xiaomi HyperOS is known for its strict background memory management and multi-tiered permission system. To ensure that Hyper Bridge can reliably intercept incoming notifications, render islands seamlessly, and stay alive in the background, the app includes a central **System Health Dashboard** (`SetupHealthScreen`) and a dedicated **Floating Notification Setup** manager.

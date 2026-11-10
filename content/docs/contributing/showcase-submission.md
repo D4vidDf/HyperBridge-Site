@@ -4,6 +4,7 @@ description: "Complete developer guide to publishing Themes (.htheme / .hbt), St
 weight: 2
 icon: "wand-magic-sparkles"
 showTableOfContents: true
+linkTitle: "Showcase Submission"
 ---
 
 The **[HyperBridge Community Showcase](/showcase/)** is the official directory where users discover, filter, preview, and download community-built **Themes** (`.htheme` / `.hbt` / `.hbr`), **Studio Custom Designs** (`.hwidget`), **Smart Translators** (`.htrans` / `.hbp`), and **Material 3 Color Schemes** (`.hscheme`).

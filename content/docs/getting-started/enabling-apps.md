@@ -3,6 +3,7 @@ title: "Managing & Enabling Apps"
 description: "How to select, filter, and configure applications to show dynamic islands in Hyper Bridge."
 weight: 3
 showTableOfContents: true
+linkTitle: "Enabling Apps"
 ---
 
 After completing the initial setup, you can control precisely which applications are bridged into dynamic islands. The **Active Apps** management screen provides fine-grained controls, category filters, and automatic rules for new installations.

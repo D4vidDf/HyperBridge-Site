@@ -1,8 +1,11 @@
 ---
 title: "System Widgets on HyperIsland"
 description: "How to mount, configure, resize, and automate Android home-screen widgets inside Xiaomi HyperOS HyperIsland."
-weight: 4
+weight: 7
 showTableOfContents: true
+linkTitle: "System Widgets"
+aliases:
+  - "/docs/customization/widgets-guide/"
 ---
 
 Hyper Bridge 0.6.0 features a native **Android AppWidget Host**, allowing you to place any standard Android home-screen widget (Spotify, Google Keep, Weather, Clock, Calendar, Smart Home toggles, etc.) directly into your Xiaomi HyperOS **HyperIsland**!

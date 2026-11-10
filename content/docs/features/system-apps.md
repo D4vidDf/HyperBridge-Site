@@ -1,8 +1,9 @@
 ---
 title: "Native System Apps & Options"
 description: "Configure built-in system islands including Screen Recording, System Updates, Charging Status, USB Debugging, and VPN."
-weight: 2
+weight: 4
 showTableOfContents: true
+linkTitle: "System Islands"
 ---
 
 Hyper Bridge includes native system island adapters for essential HyperOS and Android platform services: **Screen Recording**, **System Updates**, **Charging Status**, **USB & Wireless Debugging**, and **VPN connections**. These system modules feature specialized layouts, live timers, wattage calculations, and custom side display configurations.

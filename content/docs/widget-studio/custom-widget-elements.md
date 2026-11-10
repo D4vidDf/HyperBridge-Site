@@ -1,11 +1,14 @@
 ---
 title: "Custom Widget Elements & Visual Properties"
 description: "Master all 6 building block elements in Hyper Bridge Micro-Widgets Studio: Text, Image, Progress, Button, Shape, and Container groups."
-weight: 11
+weight: 2
 series: ["Custom Widget Design"]
 series_order: 2
 seriesOpened: true
 showTableOfContents: true
+linkTitle: "2. Elements & Visuals"
+aliases:
+  - "/docs/customization/custom-widget-elements/"
 ---
 
 Every design built in the **Micro-Widgets Studio** is composed of an Abstract Syntax Tree (AST) of visual nodes (`CustomWidgetNode`). When compiled, Hyper Bridge maps these elements into optimized Android RemoteViews compatible with Xiaomi HyperOS HyperIsland.

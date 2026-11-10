@@ -1,8 +1,9 @@
 ---
 title: "Smart Actions & Context Buttons"
 description: "Instant 1-tap verification code copying, navigation directions, package tracking, and dialing directly from the HyperIsland."
-weight: 2
+weight: 5
 showTableOfContents: true
+linkTitle: "Smart Actions"
 ---
 
 **Smart Actions** supercharge your notifications by automatically detecting actionable entities—such as 2FA verification codes, street addresses, map links, phone numbers, and package tracking numbers—and injecting contextual 1-tap action buttons directly onto the **HyperIsland** (HyperIsland) and notification shade.

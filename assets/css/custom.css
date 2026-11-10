@@ -3037,3 +3037,22 @@ html.dark .sc-empty-title {
 }
 
 
+
+/* Strict 17rem Sidebar Width & Multiline Link Typography */
+.docs-sidebar-sticky {
+  width: 17rem !important;
+  min-width: 17rem !important;
+  max-width: 17rem !important;
+}
+.docs-sidebar {
+  width: 100% !important;
+  max-width: 17rem !important;
+  overflow-x: hidden;
+}
+.docs-sidebar summary,
+.docs-sidebar a,
+.docs-sidebar span {
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+}

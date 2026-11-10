@@ -3,6 +3,7 @@ title: "Preguntas Frecuentes (FAQ)"
 description: "Respuestas a dudas comunes sobre Hyper Bridge, arquitectura de HyperIsland, compatibilidad con otros fabricantes, pantalla de bloqueo y privacidad."
 weight: 1
 showTableOfContents: true
+linkTitle: "Preguntas Frecuentes"
 ---
 
 Encuentra respuestas a preguntas frecuentes sobre el funcionamiento de Hyper Bridge, arquitectura, compatibilidad y garantías de privacidad.

@@ -2,7 +2,7 @@
 title: "Community & Contributing"
 description: "Join the Hyper Bridge community, contribute code, and help translate."
 icon: "scale-balanced"
-weight: 70
+weight: 80
 showTableOfContents: false
 ---
 

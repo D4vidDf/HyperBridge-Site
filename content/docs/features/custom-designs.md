@@ -1,8 +1,11 @@
 ---
 title: "Island Templates & Designs"
 description: "How to use Xiaomi's 10 official HyperIsland layout templates and configure them in Hyper Bridge."
-weight: 3
+weight: 2
 showTableOfContents: true
+linkTitle: "10 Official Templates"
+aliases:
+  - "/docs/customization/custom-designs/"
 ---
 
 Starting with Hyper Bridge 0.6.0, you can display incoming notifications using **Xiaomi's 10 Official HyperIsland Layout Templates** (`IslandTemplateCatalog`).

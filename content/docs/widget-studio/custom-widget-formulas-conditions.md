@@ -1,11 +1,14 @@
 ---
 title: "Formulas, Dynamic Data & Visibility Conditions"
 description: "Learn how to use dynamic tokens, property formulas, and conditional visibility rules in Hyper Bridge Micro-Widgets Studio."
-weight: 12
+weight: 3
 series: ["Custom Widget Design"]
 series_order: 3
 seriesOpened: true
 showTableOfContents: true
+linkTitle: "3. Formulas & Logic"
+aliases:
+  - "/docs/customization/custom-widget-formulas-conditions/"
 ---
 
 A key strength of the **Micro-Widgets Studio** in Hyper Bridge 0.6.0-beta4 is its dynamic execution engine. Rather than rendering static mockups, every property can be tied to live notification data, media sessions, device telemetry, and conditional rules.

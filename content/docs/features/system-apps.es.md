@@ -1,8 +1,9 @@
 ---
 title: "Aplicaciones del Sistema y Opciones"
 description: "Configura islas integradas del sistema para Grabación de Pantalla, Actualizaciones del Sistema, Estado de Carga, Depuración USB y VPN."
-weight: 2
+weight: 4
 showTableOfContents: true
+linkTitle: "Islas del Sistema"
 ---
 
 Hyper Bridge incluye adaptadores nativos para servicios esenciales de HyperOS y Android: **Grabación de Pantalla**, **Actualizaciones del Sistema**, **Estado de Carga**, **Depuración USB y Wi-Fi** y **Conexiones VPN**. Estos módulos disponen de diseños especializados, temporizadores en vivo, cálculo de potencia en vatios y ajustes personalizables.

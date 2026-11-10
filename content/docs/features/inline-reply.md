@@ -1,8 +1,9 @@
 ---
 title: "Inline Reply"
 description: "Quickly reply to incoming chats and messages directly from the island with customizable colors and styling."
-weight: 4
+weight: 6
 showTableOfContents: true
+linkTitle: "Inline Reply"
 ---
 
 **Inline Reply** brings immediate, seamless chat responses to your HyperOS dynamic island. Instead of pulling down the entire notification shade or switching away from your current app or game, tapping reply on any supported message immediately launches a sleek floating input box.

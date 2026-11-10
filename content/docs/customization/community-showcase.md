@@ -1,8 +1,9 @@
 ---
 title: "Community Showcase & Presets Guide"
 description: "Browse the Community Showcase, download custom themes, color schemes, micro-widgets, and translators, and import them seamlessly into HyperBridge."
-weight: 2
+weight: 3
 showTableOfContents: true
+linkTitle: "Community Showcase"
 ---
 
 The **[HyperBridge Community Showcase](https://hyper-bridge.app/showcase/)** is the official community hub for discovering, downloading, and sharing custom HyperIsland creations. 

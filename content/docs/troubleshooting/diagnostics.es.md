@@ -3,6 +3,7 @@ title: "Diagnóstico y Monitor del Sistema"
 description: "Cómo usar el panel de Diagnóstico en tiempo real, telemetría de servicios y registro de eventos en Hyper Bridge."
 weight: 2
 showTableOfContents: true
+linkTitle: "Monitor de Diagnóstico"
 ---
 
 En la aplicación Hyper Bridge, accede a:

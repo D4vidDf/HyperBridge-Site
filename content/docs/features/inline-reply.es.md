@@ -1,8 +1,9 @@
 ---
 title: "Respuesta Rápida Integrada (Inline Reply)"
 description: "Responde rápidamente a chats y mensajes entrantes directamente desde la isla con colores y estilos personalizables."
-weight: 4
+weight: 6
 showTableOfContents: true
+linkTitle: "Respuesta Rápida"
 ---
 
 **Inline Reply** permite responder mensajes de chat de forma inmediata y fluida desde la isla dinámica de HyperOS. En lugar de desplegar toda la cortina de notificaciones o cambiar de aplicación o juego, pulsar el botón de responder en cualquier mensaje compatible abre al instante un cuadro de texto flotante.

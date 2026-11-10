@@ -1,8 +1,9 @@
 ---
 title: "Acceso a Notificaciones (Listener)"
 description: "Cómo conceder de forma segura el acceso a notificaciones en Android, resolver ajustes restringidos en Android 13+ y superar la cuenta atrás de seguridad de Xiaomi."
-weight: 1
+weight: 2
 showTableOfContents: true
+linkTitle: "Acceso a Notificaciones"
 ---
 
 En Android, las aplicaciones de terceros no pueden leer los avisos de otras apps por motivos de seguridad. Para capturar la reproducción de música, mensajes de chat entrantes, progreso de descargas, avisos de navegación y temporizadores del sistema, **HyperBridge** requiere el permiso especializado de **Acceso a notificaciones** (`NotificationListenerService`).

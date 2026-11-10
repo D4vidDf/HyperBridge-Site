@@ -3,6 +3,7 @@ title: "Primeros Pasos y Asistente de Inicio"
 description: "Paso a paso visual del asistente de configuración inicial de Hyper Bridge en Xiaomi HyperOS."
 weight: 2
 showTableOfContents: true
+linkTitle: "Asistente de Inicio"
 ---
 
 Al abrir **Hyper Bridge** por primera vez, un intuitivo asistente visual de 22 pasos te guía a través de la comprobación de compatibilidad, permisos esenciales de Android, optimizaciones de segundo plano y personalización básica de la isla.

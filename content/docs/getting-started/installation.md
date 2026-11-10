@@ -3,6 +3,7 @@ title: "Installation & Requirements"
 description: "Hardware requirements, supported HyperOS versions, and downloading Hyper Bridge from Google Play or GitHub."
 weight: 1
 showTableOfContents: true
+linkTitle: "Installation"
 ---
 
 Learn about system requirements and how to install Hyper Bridge on your device.

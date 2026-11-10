@@ -1,8 +1,9 @@
 ---
 title: "Ahorro de Batería e Inicio Automático"
 description: "Cómo evitar que HyperOS cierre Hyper Bridge en segundo plano."
-weight: 3
+weight: 4
 showTableOfContents: true
+linkTitle: "Batería e Inicio"
 ---
 
 Los dispositivos Xiaomi cierran agresivamente las aplicaciones en segundo plano por defecto. Sigue estos pasos para que Hyper Bridge funcione de forma continua:

@@ -1,11 +1,14 @@
 ---
 title: "Packaging, Sharing & Handcrafting .hwidget Files"
 description: "Understand the .hwidget file format, learn how to export, import, and share widgets, and handcraft custom widget packages from scratch."
-weight: 14
+weight: 4
 series: ["Custom Widget Design"]
 series_order: 5
 seriesOpened: true
 showTableOfContents: true
+linkTitle: "4. Packaging (.hwidget)"
+aliases:
+  - "/docs/customization/custom-widget-files-packaging/"
 ---
 
 Every design created in Hyper Bridge can be packaged, backed up, and shared across devices as a standalone **`.hwidget`** file.

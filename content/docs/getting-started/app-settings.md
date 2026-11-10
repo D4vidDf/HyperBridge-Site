@@ -3,6 +3,7 @@ title: "App Settings & Preferences"
 description: "Comprehensive guide to all Hyper Bridge settings, behaviors, limit strategies, and maintenance tools."
 weight: 4
 showTableOfContents: true
+linkTitle: "Global Settings"
 ---
 
 The **Settings** menu in Hyper Bridge provides complete command over engine behaviors, queuing limits, privacy exclusions, and diagnostic tools. Tap the gear icon in the top right corner of the app to access settings.
@@ -231,7 +232,7 @@ Display native Android home screen widgets directly inside the expanded island.
 >}}
 
 - Tap the floating **+** button to attach compatible app widgets directly to the island interface.
-- Check the [Android Widget Island Guide]({{< ref "docs/customization/widgets-guide.md" >}}) for complete setup instructions.
+- Check the [Android Widget Island Guide]({{< ref "docs/features/widgets-guide.md" >}}) for complete setup instructions.
 
 ### Custom Design & Templates
 Apply unique visual styles, layout bento cards, and themes to this application.
@@ -243,7 +244,7 @@ Apply unique visual styles, layout bento cards, and themes to this application.
 >}}
 
 - Tap the info icon to learn how app-specific designs interact with global themes.
-- Learn more in the [Custom Designs Guide]({{< ref "docs/customization/custom-designs.md" >}}).
+- Learn more in the [Custom Designs Guide]({{< ref "docs/features/custom-designs.md" >}}).
 
 {{< figure 
     src="/img/docs/app-config/en/08-app-about-island-designs-sheet.jpg" 

@@ -1,8 +1,11 @@
 ---
 title: "Experiencia Adaptativa para Pantallas Grandes y Plegables"
 description: "Espacio de trabajo adaptativo de 3 columnas en Widget Studio, desplazamiento de lienzo, edición de temas en panel dividido y diseño en cascada para traductores."
-weight: 3
+weight: 5
 showTableOfContents: true
+linkTitle: "Tablets y Plegables"
+aliases:
+  - "/es/docs/customization/adaptive-large-screens/"
 ---
 
 A partir de **HyperBridge v0.6.0**, la aplicación incorpora un rediseño completo pensado específicamente para pantallas grandes, teléfonos plegables y modos de escritorio / Workstation de HyperOS.

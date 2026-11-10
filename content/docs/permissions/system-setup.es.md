@@ -3,6 +3,7 @@ title: "Guía de Configuración y Estado del Sistema"
 description: "Guía completa sobre el panel de Estado del Sistema, lista de verificación de permisos esenciales y el gestor de Notificaciones Flotantes."
 weight: 1
 showTableOfContents: true
+linkTitle: "Estado del Sistema"
 ---
 
 Xiaomi HyperOS es conocido por su estricta gestión de memoria en segundo plano y su sistema de permisos multinivel. Para asegurar que Hyper Bridge intercepte notificaciones de forma fiable, dibuje las islas fluidamente y permanezca activo en segundo plano, la aplicación incluye un panel central de **Estado del Sistema** (`SetupHealthScreen`) y un gestor específico para **Configuración de Notificaciones Flotantes**.

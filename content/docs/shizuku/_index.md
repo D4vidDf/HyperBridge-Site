@@ -2,7 +2,7 @@
 title: "Shizuku Integration"
 description: "Guide to setting up Shizuku for elevated HyperOS system integration."
 icon: "code"
-weight: 30
+weight: 55
 showTableOfContents: false
 ---
 

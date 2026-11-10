@@ -1,8 +1,9 @@
 ---
 title: "Adding Smart Actions Support for Your Language"
 description: "How to teach the Smart Actions extractor the verification-code words, street names and parcel vocabulary of your language."
-weight: 3
+weight: 4
 showTableOfContents: true
+linkTitle: "Smart Actions Languages"
 ---
 
 [Smart Actions]({{< ref "docs/features/smart-actions.md" >}}) find verification codes, addresses, links, phone numbers and parcel numbers in notification text. Numbers and links look the same everywhere, but the **words around them** don't: "code", "Calle", "Straße" and "посылка" all have to be listed somewhere. This guide shows where those lists live and how to add your language.

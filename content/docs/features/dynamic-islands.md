@@ -3,6 +3,7 @@ title: "Dynamic Island Engine Architecture"
 description: "Deep dive into how HyperBridge renders notifications into Xiaomi Super Islands, island display states, the 10 official templates, and prioritization rules."
 weight: 1
 showTableOfContents: true
+linkTitle: "Island Architecture"
 ---
 
 The **Dynamic Island Engine** is the core rendering pipeline of HyperBridge. It intercepts standard Android status bar notifications and translates them into native **Xiaomi HyperOS HyperIsland / Super Island** (Focus/Featured Notification) presentations wrapped around your camera punch hole.
@@ -112,5 +113,5 @@ flowchart TD
 
 Want to build your own layouts beyond the standard templates?
 * **[Design Hub & Custom Designs]({{< ref "docs/customization/design-hub.md" >}})**: Compose layouts using official templates or browse community designs.
-* **[Custom Widget Studio]({{< ref "docs/customization/custom-widget-studio.md" >}})**: Visually construct your own element-by-element micro-widgets with custom formulas and tokens.
+* **[Custom Widget Studio]({{< ref "docs/widget-studio/custom-widget-studio.md" >}})**: Visually construct your own element-by-element micro-widgets with custom formulas and tokens.
 * **[Custom Translators (`.htrans`)]({{< ref "docs/customization/custom-translators.md" >}})**: Map any specific app notification using regex extractions and `RAW_PARAM_V2` contracts.

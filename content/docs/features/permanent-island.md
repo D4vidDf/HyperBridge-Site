@@ -3,6 +3,7 @@ title: "Permanent Island"
 description: "Keep a sleek dynamic pill on screen around your camera cutout during idle state with smart yielding and modular micro-widgets."
 weight: 3
 showTableOfContents: true
+linkTitle: "Permanent Island"
 ---
 
 **Permanent Island** allows your device's camera punch hole to always blend seamlessly into a continuous, interactive dynamic island—even when no music is playing and no active notifications are present.
@@ -106,6 +107,6 @@ Configure Permanent Island in HyperBridge under **Global Settings** &rarr; **Per
 ## 🔗 Related Features
 
 - **[Dynamic Island Engine]({{< ref "dynamic-islands.md" >}})**: Learn how notifications morph between collapsed pills and expanded cards.
-- **[Widget Studio]({{< ref "docs/customization/custom-widget-studio.md" >}})**: Create custom micro-widgets and layouts.
+- **[Widget Studio]({{< ref "docs/widget-studio/custom-widget-studio.md" >}})**: Create custom micro-widgets and layouts.
 - **[Design Hub & Custom Themes]({{< ref "docs/customization/design-hub.md" >}})**: Download and apply custom color palettes and `.hscheme` themes.
 - **[Lock Screen Behavior]({{< ref "docs/troubleshooting/faq.md#can-i-show-dynamic-islands-on-the-lock-screen" >}})**: Understand dynamic `islandProperty` keyguard handling.

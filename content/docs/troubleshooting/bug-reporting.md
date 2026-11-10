@@ -1,8 +1,9 @@
 ---
 title: "Bug Reporting & Issue Diagnosis"
 description: "How to generate and submit comprehensive bug reports with automated environment diagnostics."
-weight: 3
+weight: 4
 showTableOfContents: true
+linkTitle: "Bug Reporting"
 ---
 
 Hyper Bridge includes an integrated, privacy-first **Bug Report Generator** that combines your description of an issue with an automated hardware and permission snapshot. 

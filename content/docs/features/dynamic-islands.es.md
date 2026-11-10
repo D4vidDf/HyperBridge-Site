@@ -3,6 +3,7 @@ title: "Arquitectura del Motor de Islas Dinámicas"
 description: "Cómo transforma HyperBridge las notificaciones en Super Islas de Xiaomi, estados de visualización, las 10 plantillas oficiales y reglas de prioridad."
 weight: 1
 showTableOfContents: true
+linkTitle: "Arquitectura de Isla"
 ---
 
 El **Motor de Islas Dinámicas** es el núcleo de renderizado de HyperBridge. Intercepta las notificaciones estándar de Android y las transforma en presentaciones nativas de **Xiaomi HyperOS HyperIsland / Super Island** (Notificaciones destacadas / de enfoque) alrededor del recorte de la cámara frontal.

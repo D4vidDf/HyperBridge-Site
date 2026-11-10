@@ -2,7 +2,7 @@
 title: "Features Overview"
 description: "Explore all features and modules provided by Hyper Bridge."
 icon: "list-check"
-weight: 50
+weight: 30
 showTableOfContents: false
 ---
 

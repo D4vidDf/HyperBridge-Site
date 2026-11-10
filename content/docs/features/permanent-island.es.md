@@ -3,6 +3,7 @@ title: "Isla Permanente"
 description: "Mantén una elegante cápsula dinámica alrededor del orificio de tu cámara en estado de reposo con cesión inteligente y micro-widgets modulares."
 weight: 3
 showTableOfContents: true
+linkTitle: "Isla Permanente"
 ---
 
 La **Isla Permanente** (*Permanent Island*) permite que el orificio de la cámara de tu dispositivo se integre continuamente en una cápsula dinámica estética, incluso cuando no haya música en reproducción ni notificaciones activas.

@@ -2,7 +2,7 @@
 title: "Funciones y Módulos"
 description: "Explora todas las características y módulos disponibles en Hyper Bridge."
 icon: "list-check"
-weight: 50
+weight: 30
 showTableOfContents: false
 ---
 

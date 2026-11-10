@@ -1,8 +1,9 @@
 ---
 title: "Website & Docs Translation Guide"
 description: "Complete guide on contributing translations, localized images, and Blowfish components to HyperBridge-Site."
-weight: 2
+weight: 3
 showTableOfContents: true
+linkTitle: "Translation Guide"
 ---
 
 Thank you for your interest in making **Hyper Bridge** accessible to users worldwide!

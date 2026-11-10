@@ -2,7 +2,7 @@
 title: "Advanced & Developer"
 description: "Technical specifications, schema references, theme packaging formats, and integration APIs for developers and modders."
 icon: "terminal"
-weight: 55
+weight: 70
 showTableOfContents: false
 ---
 

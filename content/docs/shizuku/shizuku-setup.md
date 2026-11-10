@@ -3,6 +3,7 @@ title: "Shizuku Setup Guide"
 description: "Step-by-step wireless debugging setup for Shizuku."
 weight: 1
 showTableOfContents: true
+linkTitle: "Shizuku Setup"
 ---
 
 Setting up Shizuku is completely rootless and takes less than two minutes using Android's built-in **Wireless Debugging**.

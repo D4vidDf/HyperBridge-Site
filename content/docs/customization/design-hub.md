@@ -3,6 +3,7 @@ title: "Design Studio & Hub"
 description: "Master the Design screen in Hyper Bridge: Bento dashboard, Island Templates, Themes, System Widgets, and Translators."
 weight: 1
 showTableOfContents: true
+linkTitle: "Design Hub"
 ---
 
 The **Design Hub** (`DesignScreen`) in Hyper Bridge 0.6.0 is your creative control center. Located in the bottom navigation bar alongside **Active Apps** and **Library**, the Design screen brings together all personalization aspects of your Xiaomi HyperOS HyperIsland experience in a unified Material 3 Expressive interface.
@@ -86,6 +87,6 @@ Below the Bento Grid, the Design Hub connects directly to the broader HyperBridg
 ## Next Steps
 
 - Learn how to use the built-in [In-App Theme Creator]({{< ref "docs/customization/theme-creator.md" >}}).
-- Explore [Island Templates & Designs]({{< ref "docs/customization/custom-designs.md" >}}) to see all 10 official Xiaomi presets.
-- Add your favorite Android home-screen widgets to the island with the [System Widgets Guide]({{< ref "docs/customization/widgets-guide.md" >}}).
+- Explore [Island Templates & Designs]({{< ref "docs/features/custom-designs.md" >}}) to see all 10 official Xiaomi presets.
+- Add your favorite Android home-screen widgets to the island with the [System Widgets Guide]({{< ref "docs/features/widgets-guide.md" >}}).
 - Build advanced regex rules and action slots with the [Custom Translators Guide]({{< ref "docs/customization/custom-translators.md" >}}).

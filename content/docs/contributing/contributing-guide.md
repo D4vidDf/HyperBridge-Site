@@ -3,6 +3,7 @@ title: "Contributing Guide"
 description: "Guidelines for contributing code, reporting bugs, and designing themes."
 weight: 1
 showTableOfContents: true
+linkTitle: "Contributing Guide"
 ---
 
 We welcome all contributions to Hyper Bridge!

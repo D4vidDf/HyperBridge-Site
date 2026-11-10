@@ -3,6 +3,7 @@ title: "Instalación y Requisitos"
 description: "Requisitos de hardware, versiones compatibles de HyperOS y descarga de Hyper Bridge desde Google Play o GitHub."
 weight: 1
 showTableOfContents: true
+linkTitle: "Instalación"
 ---
 
 Conoce los requisitos del sistema y cómo instalar Hyper Bridge en tu dispositivo Xiaomi.

@@ -3,6 +3,7 @@ title: "First Steps & Onboarding Wizard"
 description: "Visual step-by-step walkthrough of the initial Hyper Bridge setup wizard on Xiaomi HyperOS."
 weight: 2
 showTableOfContents: true
+linkTitle: "Onboarding Wizard"
 ---
 
 When you open **Hyper Bridge** for the first time, an intuitive 22-step visual onboarding wizard guides you through compatibility validation, essential Android permissions, background optimizations, and core island behaviors.
@@ -292,6 +293,6 @@ Congratulations! Hyper Bridge is now fully configured and actively running.
 - **[Managing & Enabling Apps]({{< ref "docs/getting-started/enabling-apps.md" >}})**: Choose which apps trigger dynamic islands and enable auto-bridging.
 - **[Native System Apps & Options]({{< ref "docs/features/system-apps.md" >}})**: Configure Screen Recording, System Update, and VPN islands.
 - **[Design Studio & Hub]({{< ref "docs/customization/design-hub.md" >}})**: Customize colors, styles, and templates.
-- **[System Widgets Guide]({{< ref "docs/customization/widgets-guide.md" >}})**: Add widgets from your favorite apps.
+- **[System Widgets Guide]({{< ref "docs/features/widgets-guide.md" >}})**: Add widgets from your favorite apps.
 - **[Custom Translators Guide]({{< ref "docs/customization/custom-translators.md" >}})**: Create custom notification rules with regex matching and smart actions.
 - **[Troubleshooting & Diagnostics]({{< ref "docs/troubleshooting/diagnostics.md" >}})**: Test permissions and inspect active system states.

@@ -1,8 +1,9 @@
 ---
 title: "Battery Saver & Autostart Whitelist"
 description: "Preventing HyperOS from stopping Hyper Bridge in the background."
-weight: 3
+weight: 4
 showTableOfContents: true
+linkTitle: "Battery & Autostart"
 ---
 
 Xiaomi devices aggressively kill background services by default. Follow these steps to keep Hyper Bridge running smoothly:

@@ -1,8 +1,9 @@
 ---
 title: "HyperIsland & Focus Notification Permissions"
 description: "How to configure HyperIsland (HyperOS 4+) and Focus / Featured Notifications (HyperOS 3) permissions for HyperBridge."
-weight: 2
+weight: 3
 showTableOfContents: true
+linkTitle: "HyperIsland Permissions"
 ---
 
 On Xiaomi HyperOS, dynamic status cards and capsules around the camera cutout are powered by a dedicated system framework. 

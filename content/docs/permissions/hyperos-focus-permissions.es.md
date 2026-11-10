@@ -1,8 +1,9 @@
 ---
 title: "Permisos de HyperIsland y Notificaciones de Enfoque"
 description: "Cómo configurar los permisos de HyperIsland (HyperOS 4+) y Notificaciones de enfoque / destacadas (HyperOS 3) en Xiaomi HyperOS."
-weight: 2
+weight: 3
 showTableOfContents: true
+linkTitle: "Permisos de HyperIsland"
 ---
 
 En Xiaomi HyperOS, las cápsulas y tarjetas dinámicas alrededor del orificio de la cámara funcionan mediante un framework del sistema específico.

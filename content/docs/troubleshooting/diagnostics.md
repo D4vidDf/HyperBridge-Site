@@ -3,6 +3,7 @@ title: "Diagnostics & System Health Monitor"
 description: "How to use the Diagnostics Screen to inspect real-time service status, monitor notification events, and troubleshoot issues."
 weight: 2
 showTableOfContents: true
+linkTitle: "Diagnostics Monitor"
 ---
 
 The **Diagnostics Screen** in Hyper Bridge provides real-time visibility into the internal operating state of the bridge engine. It gives you instant insight into listener service connectivity, permission health, recent notification event streams, and translation statistics.

@@ -1,11 +1,14 @@
 ---
 title: "Custom Widget Studio: Overview & In-App Builder"
 description: "How to use Hyper Bridge 0.6.0-beta4's KWGT-style Micro-Widgets Studio to build spatial HyperIsland designs element by element."
-weight: 10
+weight: 1
 series: ["Custom Widget Design"]
 series_order: 1
 seriesOpened: true
 showTableOfContents: true
+linkTitle: "1. Studio Overview"
+aliases:
+  - "/docs/customization/custom-widget-studio/"
 ---
 
 Introduced in **Hyper Bridge 0.6.0-beta4**, the **Micro-Widgets Studio** brings KWGT-style element-by-element design capabilities directly to Xiaomi HyperOS **HyperIsland** (Super Island).

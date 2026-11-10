@@ -1,8 +1,9 @@
 ---
 title: "Known Issues & HyperOS Quirks"
 description: "Known limitations and workarounds on Xiaomi HyperOS."
-weight: 2
+weight: 3
 showTableOfContents: true
+linkTitle: "Known Quirks"
 ---
 
 ## Common Issues & Fixes

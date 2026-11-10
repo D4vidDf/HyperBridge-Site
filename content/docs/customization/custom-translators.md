@@ -1,8 +1,9 @@
 ---
 title: "Custom Translators Guide"
 description: "Learn how to create, configure, import, and share declarative notification translators in Hyper Bridge."
-weight: 2
+weight: 5
 showTableOfContents: true
+linkTitle: "Custom Translators"
 ---
 
 Hyper Bridge 0.6.0 introduces the **Custom Translators Framework**, a declarative engine that lets you customize exactly how notifications from any app are transformed into native Xiaomi HyperOS **HyperIsland** (HyperIsland) cards and compact status pills.

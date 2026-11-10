@@ -1,11 +1,12 @@
 ---
 title: "Color Schemes & Material 3 Dynamic Palettes"
 description: "How to use Material 3 dynamic color schemes, wallpaper-adaptive palettes, and YAML scheme files (.hscheme) in Hyper Bridge."
-weight: 13
+weight: 4
 series: ["Custom Widget Design"]
 series_order: 4
 seriesOpened: true
 showTableOfContents: true
+linkTitle: "Color Schemes (.hscheme)"
 ---
 
 Starting with **Hyper Bridge 0.6.0-beta4**, the custom widget engine features a full **Material 3 Dynamic Color Architecture** (`DynamicColorSchemeResolver`).

@@ -69,9 +69,9 @@
                   </span>
                   <a
                     href="{{ $section.RelPermalink }}"
-                    class="text-sm truncate bg-transparent border-none p-0 shadow-none {{ if $isSectionActive }}text-primary-700 dark:text-primary-400 font-bold{{ else }}font-semibold text-neutral-800 dark:text-neutral-200 hover:text-primary-600 dark:hover:text-primary-400{{ end }}"
+                    class="text-sm break-words whitespace-normal leading-snug bg-transparent border-none p-0 shadow-none {{ if $isSectionActive }}text-primary-700 dark:text-primary-400 font-bold{{ else }}font-semibold text-neutral-800 dark:text-neutral-200 hover:text-primary-600 dark:hover:text-primary-400{{ end }}"
                     onclick="event.stopPropagation()">
-                    {{ $section.Title }}
+                    {{ $section.LinkTitle | default $section.Title }}
                   </a>
                 </div>
                 <span class="shrink-0 pe-2 text-neutral-400 dark:text-neutral-400 group-open:rotate-90 transition-transform duration-200" aria-hidden="true">
@@ -87,9 +87,9 @@
                   {{ $isPageActive := eq $currentPage.RelPermalink $page.RelPermalink }}
                   <a
                     href="{{ $page.RelPermalink }}"
-                    class="block rounded-lg py-1.5 px-3 text-xs leading-relaxed transition-all duration-150 {{ if $isPageActive }}bg-primary-100 text-primary-700 dark:bg-primary-950/70 dark:text-primary-400 font-bold border-r-[3px] border-primary-600 dark:border-primary-500 shadow-sm{{ else }}text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800/60 font-medium{{ end }}"
+                    class="block rounded-lg py-1.5 px-2.5 text-xs transition-all duration-150 {{ if $isPageActive }}bg-primary-100 text-primary-700 dark:bg-primary-950/70 dark:text-primary-400 font-bold border-r-[3px] border-primary-600 dark:border-primary-500 shadow-sm{{ else }}text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800/60 font-medium{{ end }}"
                     {{ if $isPageActive }}aria-current="page"{{ end }}>
-                    <span class="truncate block {{ if $isPageActive }}text-primary-700 dark:text-primary-400 font-bold{{ end }}">{{ $page.Title }}</span>
+                    <span class="block break-words whitespace-normal leading-snug {{ if $isPageActive }}text-primary-700 dark:text-primary-400 font-bold{{ end }}">{{ $page.LinkTitle | default $page.Title }}</span>
                   </a>
                 {{ end }}
               </div>

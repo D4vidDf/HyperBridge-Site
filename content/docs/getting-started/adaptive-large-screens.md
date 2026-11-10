@@ -1,8 +1,11 @@
 ---
 title: "Large-Screen & Foldable Adaptive Experience"
 description: "Master the 3-column Widget Studio workspace, canvas panning, split-pane theme editing, and cascading translator layouts on tablets and foldables."
-weight: 3
+weight: 5
 showTableOfContents: true
+linkTitle: "Tablets & Foldables"
+aliases:
+  - "/docs/customization/adaptive-large-screens/"
 ---
 
 Starting in **HyperBridge v0.6.0**, the app introduces a major redesign built specifically for large displays, foldable smartphones, and desktop desktop/Workstation modes. 

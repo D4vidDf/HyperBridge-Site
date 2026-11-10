@@ -3,6 +3,7 @@ title: "Frequently Asked Questions (FAQ)"
 description: "Common questions about Hyper Bridge, HyperIsland architecture, OEM compatibility, lock screen limitations, and privacy."
 weight: 1
 showTableOfContents: true
+linkTitle: "FAQ"
 ---
 
 Find answers to common questions about how Hyper Bridge works, its architecture, compatibility, and privacy guarantees.

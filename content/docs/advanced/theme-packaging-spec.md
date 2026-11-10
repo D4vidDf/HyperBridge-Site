@@ -3,6 +3,7 @@ title: "Theme & Color Scheme Packaging Specification (.htheme / .hscheme / .hbr)
 description: "Authoritative packaging standards, JSON/YAML schemas, standalone .hscheme validation rules, and Android Intent API for distributing HyperBridge themes and color palettes."
 weight: 2
 showTableOfContents: true
+linkTitle: "Themes & .hscheme Spec"
 ---
 
 This specification defines the packaging format and Android integration contract for distributing standalone **Hyper Bridge Theme Packages** (`.hbr` or `.htheme`).
@@ -49,7 +50,7 @@ Themes can distribute tailored notification behaviors alongside visual styling:
 
 - When Hyper Bridge installs an `.hbr` package, its installer automatically inspects the `translators/` directory.
 - Any `.htrans` ZIP packages (containing `translator.json` and custom icons) or `.json` translator definitions are automatically imported into the user's database.
-- Translators bundled with themes can leverage the theme's highlight colors, override default notification actions, and select specialized [Island Templates]({{< ref "docs/customization/custom-designs.md" >}}).
+- Translators bundled with themes can leverage the theme's highlight colors, override default notification actions, and select specialized [Island Templates]({{< ref "docs/features/custom-designs.md" >}}).
 
 See the [Translators Technical Specification]({{< ref "translators-specification.md" >}}) for complete schema documentation.
 
