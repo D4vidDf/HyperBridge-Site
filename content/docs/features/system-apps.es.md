@@ -5,7 +5,7 @@ weight: 2
 showTableOfContents: true
 ---
 
-Hyper Bridge incluye adaptadores nativos para servicios esenciales de HyperOS y Android: **Grabación de Pantalla**, **Actualizaciones del Sistema**, **Estado de Carga**, **Depuración USB y Wi-Fi** y **Conexiones VPN**. Estos módulos disponen de diseños especializados, temporizadores en vivo, barras de progreso y ajustes personalizables.
+Hyper Bridge incluye adaptadores nativos para servicios esenciales de HyperOS y Android: **Grabación de Pantalla**, **Actualizaciones del Sistema**, **Estado de Carga**, **Depuración USB y Wi-Fi** y **Conexiones VPN**. Estos módulos disponen de diseños especializados, temporizadores en vivo, cálculo de potencia en vatios y ajustes personalizables.
 
 Puedes acceder y configurar cada módulo directamente desde la lista de **Aplicaciones Activas** (bajo el filtro `Sistema`) pulsando el icono de engranaje junto al servicio correspondiente.
 
@@ -31,23 +31,33 @@ Muestra el progreso de descarga de actualizaciones OTA de HyperOS y paquetes del
 
 ---
 
-## 3. Isla de Estado de Carga (Novedad en v0.6.0)
+## 3. ⚡ Isla de Estado de Carga (#424, #426, #448)
 
-Añade una isla dinámica interactiva que indica el estado de carga de la batería:
-- Muestra el modo de velocidad de carga y potencia en vatios (soporte para baterías de doble celda).
-- Estimación precisa del tiempo restante de carga para dispositivos Xiaomi/HyperOS.
-- Diseños visuales personalizables y vista previa en tiempo real en ajustes.
+Introducida en **HyperBridge v0.6.0**, la **Isla de Estado de Carga** convierte la conexión del cargador o carga inalámbrica en una tarjeta visual interactiva en tiempo real sobre el recorte de la cámara:
 
----
-
-## 4. Depuración USB y Wi-Fi (Novedad en v0.6.0)
-
-Cápsula automática que indica sesiones activas de depuración ADB por cable USB o red inalámbrica, permitiendo a desarrolladores verificar la conectividad de un vistazo.
+- **Vista Previa en Tiempo Real**: Prueba animaciones y diseños directamente en la pantalla de ajustes antes de conectar el cable.
+- **Modos de Velocidad de Carga**: Visualización de porcentaje estándar o potencia en vatios en vivo (`67W`, `90W`, `120W`).
+- **Cálculo de Baterías de Doble Celda (#448)**: Los modelos insignia de Xiaomi (Xiaomi 13 Pro/Ultra, serie 14, POCO F6 Pro) emplean baterías divididas en dos celdas. HyperBridge calcula correctamente la potencia total sumando ambas celdas en lugar de reportar la mitad.
+- **Estimación Precisa de Tiempo de Carga (#448)**: Consulta los controladores específicos de Xiaomi para estimar los minutos restantes hasta el 100% con máxima precisión.
 
 ---
 
-## 5. Isla de Conexión VPN
+## 4. 🛠️ Depuración USB y Wi-Fi (#430)
 
-Supervisa el estado de la red y túneles cifrados:
-- Pantalla de personalización completa con múltiples modos de detección y orden de prioridad por proveedor.
-- Compatibilidad mejorada para adaptadores como Cloudflare WARP.
+Diseñada para desarrolladores y usuarios avanzados, esta isla se activa automáticamente al iniciar sesiones ADB:
+- **Indicador de Conexión**: Distingue entre conexión directa por cable USB y depuración inalámbrica Wi-Fi con el puerto activo (`ip:puerto`).
+- **Espacio Limpio**: Reemplaza el aviso persistente de la cortina de notificaciones por una cápsula sutil en la cámara.
+- **Cierre Inmediato**: Se oculta automáticamente en cuanto se desconecta el cable o se cierra el servidor ADB.
+
+---
+
+## 5. 🔒 Isla de VPN y Panel de Personalización (#431)
+
+HyperBridge v0.6.0 renueva por completo la experiencia de conexión VPN con una pantalla de ajustes dedicada:
+
+- **Detección Multimodo**: Alterna entre escucha de eventos de red de Android (`NetworkCallback`) y sondeo de interfaces de red de bajo nivel (`tun0`).
+- **Soporte para Cloudflare WARP**: Reconocimiento nativo para el adaptador `1.1.1.1` WARP y túneles WireGuard.
+- **Prioridad de Proveedores**: Si utilizas varias apps de VPN o bloqueo DNS simultáneamente, ordena la prioridad arrastrando los servicios.
+- **Cronómetro de Duración de Conexión**: Muestra el tiempo transcurrido en vivo (`HH:MM:SS`) desde que el túnel seguro está activo.
+- **Banderas de Países y Servidor**: Detecta la ubicación del servidor y muestra la bandera del país en la tarjeta expandida.
+- **Botón de Desconexión Rápida**: Desconecta el túnel VPN en 1 toque directamente desde la tarjeta expandida de la isla.

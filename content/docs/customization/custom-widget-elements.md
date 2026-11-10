@@ -52,6 +52,13 @@ The **Text** element renders static strings or dynamic notification templates (`
 | **Gravity / Alignment** | `Start`, `Center`, `End` | Horizontal alignment within the element's bounding box. |
 | **Filter & Blend Modes** | 11 modes (`Normal`, `Multiply`, `Screen`, `Overlay`, `Darken`, `Lighten`, `Add`, etc.) | Blends the text rendering with layers beneath it. |
 
+### Custom Font Imports & Typeface Rendering (#446, #447)
+
+In **HyperBridge v0.6.0**, you are no longer limited to system Roboto or Sans-Serif fonts:
+- **Import TTF / OTF Fonts**: Tap **Import Custom Font** in the Typography tab to select any TrueType (`.ttf`) or OpenType (`.otf`) font file from your device storage.
+- **High-Res Bitmap Typeface Rendering (#446)**: Because Xiaomi's `SystemUI` RemoteViews cannot dynamically load external TTF files via standard text views without system-level permissions, HyperBridge compiles custom-font text into high-DPI rasterized bitmaps on the fly. This ensures crisp typography with zero font clipping and full kerning preservation.
+- **Bundled Font Packaging**: When exporting `.hwidget` files, imported font files are automatically packaged into the widget archive so other users see the exact same custom typeface.
+
 ### Text Effects (`TextEfxConfig`)
 - **Drop Shadows**: Configure blur radius (dp), light angle direction (0–360°), projection distance, and shadow color (with alpha).
 - **Background Blur Mask**: Adds a Gaussian background blur underneath the text glyphs for legibility against complex notification covers.
@@ -62,6 +69,10 @@ The **Text** element renders static strings or dynamic notification templates (`
 ## 2. Image Element (`ImageNode`)
 
 The **Image** element displays graphics, app badges, contact avatars, media album art, and custom assets.
+
+### Unified Image Configuration (`ImageConfigSelectorCard` #458)
+
+HyperBridge v0.6.0 streamlines image management into the unified **`ImageConfigSelectorCard`** component. It presents an intuitive selector sheet where you can configure the image source, scale mode, corner masks, and tinting from a single card.
 
 ### Image Sources (`ImageSource`)
 
@@ -134,6 +145,12 @@ The **Button** element turns your micro-widget into an interactive command cente
 ### Icon & Sub-Icon Layout
 Configure primary icons and secondary badge icons, positioned as `Leading`, `Trailing`, `Icon Only`, or `Top`.
 
+### Button Typeface Customization (#447)
+
+Buttons share the same typography engine as Text elements:
+- In the Button Style inspector, you can select custom imported TTF/OTF typefaces for button labels.
+- Typeface rendering is automatically rasterized into the button's interactive remote view, maintaining consistent visual identity across cards.
+
 ### Dual-State Conditional Overrides
 Buttons can dynamically switch their appearance based on runtime conditions without needing two separate elements!
 For example, for a Media Play/Pause button:
@@ -178,6 +195,8 @@ ABSOLUTE:  (Canvas freeform coordinates: each element uses explicit X and Y)
 - **Gap (dp)**: Uniform spacing between items in Row and Column layouts.
 - **Padding (dp)**: Inset margin applied inside container boundaries.
 - **Backgrounds**: Solid color fill or **Picture Background** (loading album art, wallpapers, or bundled assets with optional blur).
+- **Per-Container Color Scheme Overrides (#451)**: Individual containers can override the global widget theme with a specific `.hscheme` or local color token map. This allows you to create high-contrast sub-cards (e.g., an elevated accent badge within a dark background).
+- **Root Canvas Transparency (#451)**: Toggle the root container background to 100% transparent, creating frameless dynamic islands where individual sub-containers float seamlessly over your screen.
 
 ---
 

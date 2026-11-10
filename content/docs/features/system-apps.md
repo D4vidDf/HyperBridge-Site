@@ -1,11 +1,11 @@
 ---
 title: "Native System Apps & Options"
-description: "Configure built-in system islands including Screen Recording, System Update, and VPN."
+description: "Configure built-in system islands including Screen Recording, System Updates, Charging Status, USB Debugging, and VPN."
 weight: 2
 showTableOfContents: true
 ---
 
-Hyper Bridge includes native system island adapters for essential HyperOS and Android platform services: **Screen Recording**, **System Updates**, and **VPN connections**. These system modules have specialized layouts, live timers, progress bars, and custom side display configurations.
+Hyper Bridge includes native system island adapters for essential HyperOS and Android platform services: **Screen Recording**, **System Updates**, **Charging Status**, **USB & Wireless Debugging**, and **VPN connections**. These system modules feature specialized layouts, live timers, wattage calculations, and custom side display configurations.
 
 You can access and configure each system app directly from the **Active Apps** list (under the `System` filter chip) by tapping the gear icon next to the corresponding service.
 
@@ -24,35 +24,10 @@ The Screen Recording island provides a sleek live status pill during active scre
 ### Configuration Options
 
 - **Preview**: An interactive live preview of how the dynamic island looks while screen capture is active.
-- **Left Side**: Determines what information is displayed on the left of the camera cutout.
-- **Right Side**: Determines what appears on the right side of the camera cutout.
+- **Left Side**: Determines what information is displayed on the left of the camera cutout (Icon only, Icon and message, or Message only).
+- **Right Side**: Determines what appears on the right side of the camera cutout (Live Timer `MM:SS` or Nothing).
 - **Auto-hide Island**: Controls whether the island auto-hides after recording completes.
   - **Completion Checkmark Duration**: Adjust how long (e.g. `4s`) the completion checkmark remains visible on screen once you stop recording before the island collapses.
-
----
-
-### Customizing Left & Right Sides
-
-Tap on **Left Side** or **Right Side** to select the presentation style:
-
-{{< figure 
-    src="/img/docs/system-apps/en/02-screen-recording-left-side.jpg" 
-    alt="Screen Recording Left Side Options" 
-    caption="Left Side options: Icon only, Icon and message, or Message only." 
->}}
-
-- **Icon only**: Displays only the red recording pulse dot/icon.
-- **Icon and message (Default)**: Displays both the icon and text indicator (`Recording...`).
-- **Message only**: Shows only the text message.
-
-{{< figure 
-    src="/img/docs/system-apps/en/03-screen-recording-right-side.jpg" 
-    alt="Screen Recording Right Side Options" 
-    caption="Right Side options: Live Timer or Nothing." 
->}}
-
-- **Timer (Default)**: Shows an accurate live elapsed stopwatch timer (`MM:SS`).
-- **Nothing**: Leaves the right side empty for a minimalist compact island.
 
 ---
 
@@ -69,58 +44,61 @@ The System Update island surfaces download progress for HyperOS OTA updates and 
 ### Configuration Options
 
 - **Preview**: Shows the live OTA progress with package version and percentage download.
-- **Left Side**: Configures the update icon and OS version label.
+- **Left Side**: Configures the update icon and OS version label (Icon and version, Icon only, or Version only).
 - **Right Side**: Configures the numeric percentage or circular progress indicator.
-- **Icon**: Choose the icon source displayed in the island.
-- **Auto-hide Island**: 
-  - **Completion Checkmark Duration**: Set how long (e.g. `4s`) the completion indicator stays visible after the update finishes downloading.
+- **Icon Source**: Choose between Default notification icon, Package app icon, System update icon, or Download icon.
+- **Auto-hide Island**: Set how long (e.g. `4s`) the completion indicator stays visible after the update finishes downloading.
 
 ---
 
-### Layout & Icon Customization
+## 3. ⚡ Charging Status Island (#424, #426, #448)
 
-{{< figure 
-    src="/img/docs/system-apps/en/05-system-update-left-side.jpg" 
-    alt="System Update Left Side Options" 
-    caption="Left Side options: Icon and version, Icon only, or Version only." 
->}}
+Introduced in **HyperBridge v0.6.0**, the **Charging Status Island** turns plug-in and wireless charging events into an expressive, real-time battery status card centered on your camera cutout.
 
-- **Icon and version (Default)**: Displays the download arrow alongside the target OS version number (e.g., `3.0.304.0`).
-- **Icon only**: Displays only the update arrow icon.
-- **Version only**: Displays the version string only.
+### Features & Capabilities
 
-{{< figure 
-    src="/img/docs/system-apps/en/06-system-update-right-side.jpg" 
-    alt="System Update Right Side Options" 
-    caption="Right Side options: Percentage, Progress circle, or Nothing." 
->}}
-
-- **Percentage (Default)**: Shows exact numeric progress (e.g., `17%`).
-- **Progress circle**: Renders a circular animated progress ring.
-- **Nothing**: Keeps the right side blank for an ultra-compact pill.
-
-{{< figure 
-    src="/img/docs/system-apps/en/07-system-update-icon.jpg" 
-    alt="System Update Icon Selection Sheet" 
-    caption="Select icon source: Default notification icon, Package app icon, System update icon, or Download icon." 
->}}
-
-- **Default notification icon**: Uses the icon provided in the original notification.
-- **Package app icon**: Pulls the official system updater app icon.
-- **System update icon**: Uses the dedicated HyperOS system update glyph.
-- **Download icon**: Uses a universal downward download arrow icon.
+- **Real-Time Interactive Preview**: Test charging animations, layouts, and typography directly inside the settings screen before plugging in your phone.
+- **Charging Speed Display Mode**:
+  - **Standard Battery %**: Displays clean battery level percentage with charging bolt.
+  - **Live Wattage Mode**: Renders dynamic charging speed in watts (e.g. `67W`, `90W`, `120W`).
+- **Dual-Cell Battery Wattage Calculation (#448)**: Modern Xiaomi flagship devices (such as Xiaomi 13 Pro/Ultra, Xiaomi 14 series, POCO F6 Pro, and Redmi K-series) use dual-cell split-battery architectures. HyperBridge accurately calculates total wattage across both battery cells rather than underreporting half the power.
+- **Vendor-Specific Charge Time Estimation (#448)**: Queries Xiaomi-specific battery fuel gauge drivers to calculate remaining time until full charge with minute-by-minute precision.
+- **Customizable Layout Designs**: Choose between minimal compact pills, extended charging bars, or prominent wattage badges.
 
 ---
 
-## 3. VPN Island & Global Settings
+## 4. 🛠️ USB & Wireless Debugging Island (#430)
 
-In addition to Screen Recording and System Updates, HyperOS system services like **VPN** can be monitored dynamically:
-- When a VPN connection starts or establishes a tunnel, the VPN island displays the active status icon and network status.
-- You can manage whether system services auto-hide or remain pinned using **Global Settings** (`Settings` > `Global Settings`).
+For Android developers, power users, and modders, HyperBridge v0.6.0 introduces an automatic **Debugging Status Island**:
+
+- **Automatic Triggering**: Instantly displays an island status capsule as soon as an active USB debugging (`adb`) or Wireless ADB session is established.
+- **Interface Indicator**:
+  - **USB Debugging**: Displays the USB cable glyph and host machine connection status.
+  - **Wireless Debugging**: Shows the Wi-Fi broadcast indicator along with the active pairing port (`ip:port`).
+- **Zero-Clutter Workspace**: Replaces the bulky Android system notification shade prompt with an elegant camera pill that stays visible while testing.
+- **Quick Dismissal**: Automatically dismisses the moment the ADB server disconnects or the USB cable is unplugged.
 
 ---
 
-## Next Steps
+## 5. 🔒 VPN Island & Customization Suite (#431)
+
+HyperBridge v0.6.0 upgrades the VPN Island with a full-fledged **VPN Customization Screen**:
+
+### Customization Options
+
+- **Multi-Mode Detection**:
+  - **Network Callback Mode**: Listens directly to Android's `ConnectivityManager.NetworkCallback` for immediate tunnel establishment.
+  - **Interface Polling Mode**: Monitors low-level `tun0` / `pdp_data` network interfaces, ideal for custom VPN daemons and proxy tools.
+- **Cloudflare WARP Adapter Support**: Tailored recognition for the Cloudflare `1.1.1.1` WARP adapter, wireguard routing, and split-tunnel states.
+- **Provider Priority Sorting**: If you run multiple VPN, AdGuard, or DNS services simultaneously, drag to re-order provider priority so the most relevant VPN service takes the island anchor.
+- **Connected Duration Stopwatch**: Live elapsed time counter (`HH:MM:SS`) tracking how long your secure tunnel has been active.
+- **Country Flags & Server Indicator**: Automatically parses geographic endpoints to display the server country flag directly on the expanded card.
+- **1-Tap Disconnect Action**: Expanded island card provides a dedicated disconnect button, allowing you to terminate active VPN tunnels without navigating into system settings.
+
+---
+
+## 🔗 Related Resources
 
 - **[Dynamic Island Engine]({{< ref "docs/features/dynamic-islands.md" >}})**: Learn how notifications and system events are mapped into HyperIslands.
 - **[Design Hub & Custom Themes]({{< ref "docs/customization/design-hub.md" >}})**: Customize colors, shapes, and layouts across all your islands.
+- **[Shizuku Privileged Features]({{< ref "docs/shizuku/privileged-features.md" >}})**: Elevated IPC controls for Xiaomi screen recording and system telemetry.

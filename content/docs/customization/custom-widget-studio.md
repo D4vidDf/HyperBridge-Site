@@ -47,11 +47,12 @@ Hyper Bridge provides two complementary ways to display widgets on HyperIsland:
 
 You can enter the Studio through either of the following paths:
 
-### Method A: From the Designs Manager (Recommended)
+### Method A: Direct Studio Creation from "Add Design" (#449)
+In **HyperBridge v0.6.0**, you can jump directly into Widget Studio without needing to pre-configure or duplicate a template:
 1. Open the **Design** tab from the main bottom navigation bar.
-2. Tap the **Designs** Bento card to open the **Designs Manager**.
-3. Tap **Add Design** (or the floating `+` button).
-4. In the creation sheet, select **Custom design (Studio)** to open a clean canvas.
+2. Tap the **Designs** Bento card to open the **Designs Manager** (or tap the central `+` FAB on Design Hub).
+3. Tap **Add Design** &rarr; select **Create with Studio** ([#449](https://github.com/D4vidDf/HyperBridge/pull/449)).
+4. A fresh, clean canvas opens immediately, ready for you to add containers, typography, and media elements.
 
 ### Method B: Editing or Duplicating an Existing Design
 1. In the **Designs Manager**, locate any active custom design card.
@@ -117,6 +118,12 @@ The canvas width is standardized to **350dp** to match Xiaomi HyperOS Super Isla
 - **Large (`280dp`)**: Multi-row dashboards, ticket previews, and detailed tracking cards.
 - **X-Large (`380dp`)**: Full-height spatial islands featuring rich data feeds, system controls, and detailed media covers.
 
+### Canvas Picture Backgrounds & Transparent Canvas (#451, #452)
+
+In HyperBridge v0.6.0, the root canvas offers enhanced background customization:
+- **Canvas Picture Backgrounds (#452)**: You can now set a full-bleed picture background directly on the root canvas. Choose from local artwork, app covers, or dynamic `{pic.key}` tokens with optional Gaussian blur (0–50dp) to ensure sharp foreground text contrast.
+- **Transparent Root Canvas (#451)**: Toggle root canvas transparency to create sleek, frameless dynamic islands where individual sub-containers float cleanly over your wallpaper or active app without a rigid outer bounding box.
+
 ---
 
 ## 5. Live Scenario Switcher
@@ -131,6 +138,12 @@ Tap the scenario selector pill below the canvas to instantly simulate realistic 
 4. **Low Battery / Device State**: Simulates device hardware variables such as `{device.battery}` at 15% and formatted timestamps.
 5. **OTP / Smart Action**: Simulates incoming verification codes with smart action chips (`OTP`, `URL`, `PHONE`, `TRACKING`).
 6. **Custom Scenario**: Configure mock text strings and variables to test your exact edge cases.
+
+### Preview Placeholders & Dynamic Testing (#457)
+
+In addition to built-in presets, HyperBridge v0.6.0 introduces customizable **Preview Placeholders** ([#457](https://github.com/D4vidDf/HyperBridge/pull/457)):
+- **Custom Sample Values**: Directly configure placeholder mock data for notification titles, message bodies, track names, progress percentages, and contact avatars.
+- **Instant Canvas Reflection**: The live canvas immediately interpolates your custom placeholder values, allowing you to test text truncation, character overflow, and container bounds under real-world conditions.
 
 ---
 

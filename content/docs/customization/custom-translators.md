@@ -217,6 +217,7 @@ Configure notification lifecycle, dismissal rules, and delivery engines:
 - **Show on lock screen**: *(New in v0.6.0)* Display dynamic islands on the lock screen keyguard. Dynamically manages Xiaomi's internal `islandProperty` (0 while locked, 1 upon unlock) so the island stays visible on the keyguard and auto-dismisses or transitions smoothly when the device is unlocked.
 - **Xiaomi Featured Notifications / HyperIsland**:
   - **Heads-up Popup**: Show a brief banner popup before collapsing into the island (with duration slider, e.g. 10s).
+  - **Float only on first alert (#416)**: *(New in v0.6.0)* Suppress annoying repeated heads-up popups on progress updates. When an app sends frequent updates (e.g., file downloads, step counters, turn-by-turn navigation, delivery progress), this toggle ensures the floating heads-up banner only pops up when the notification first arrives. Subsequent progress updates update silently inside the compact pill or expanded card without repeatedly intruding over your screen.
   - **Notification Panel**: Choose whether to keep the notification visible in the standard shade.
 - **Notification Management**:
   - **Remove original notification**: Automatically clear the source notification when a Live Update is active.

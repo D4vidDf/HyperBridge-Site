@@ -35,15 +35,20 @@ flowchart TD
     Sections --> SecApps["📱 App-Specific Overrides\nPer-app highlight & button customizations"]
 ```
 
-### 1. Accessing Theme Management
+### 1. Material 3 Expressive Theme Manager (#454)
+
+In **HyperBridge v0.6.0**, the Theme Manager has been overhauled with **Material 3 Expressive** design standards ([#454](https://github.com/D4vidDf/HyperBridge/pull/454)):
 
 Open **Design Hub** &rarr; tap the **Themes & Styles** Bento card:
 
-{{< figure src="/img/docs/themes/en/01-themes-manager-list.jpg" alt="Theme Manager Library" caption="Figure 1: The Theme Manager library showing installed themes, active selection checkmark, and edit/export actions." >}}
+{{< figure src="/img/docs/themes/en/01-themes-manager-list.jpg" alt="Theme Manager Library" caption="Figure 1: Material 3 Expressive Theme Manager library showing installed themes, smooth animations, and active selection." >}}
 
-From here you can:
+Key enhancements include:
+- **Expressive List Items**: Larger, tactile theme cards with active accent pills, author badges, and clear selection states.
+- **Smooth Layout Animations**: Fluid physics-based list animations when filtering, reordering, and switching themes.
+- **Human-Friendly Named File Sharing**: Exporting themes or color schemes now generates clean, human-readable file names (e.g. `Silksong Sea of Sorrow.htheme` or `Summer Breeze.hscheme`) instead of cryptic UUID hashes.
 - **Switch Active Theme:** Tap any theme card to activate it immediately.
-- **Manage Custom Themes:** Tap the **Edit (Pencil)** icon to modify an existing theme, **Share** to export as an `.hbr` bundle, or **Trash** to delete it.
+- **Manage Custom Themes:** Tap the **Edit (Pencil)** icon to modify an existing theme, **Share** to export as an `.hbr` / `.htheme` / `.hscheme` bundle, or **Trash** to delete it with safety confirmation.
 - **Add New Theme:** Tap the **`+` (Floating Action Button)** in the bottom right corner:
 
 {{< figure src="/img/docs/themes/en/02-add-new-theme-sheet.jpg" alt="Add New Theme Action Sheet" caption="Figure 2: Add New Theme sheet with options to Create New Theme, Search online catalog, or Import from file." >}}
