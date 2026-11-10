@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-10T14:30:04Z",
+  "last_synced": "2026-11-10T22:56:59Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 3,
-      "downloads": 148
+      "downloads": 149
     },
     "designs/musicrama": {
       "badges": [
@@ -66,7 +66,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 7
+      "downloads": 9
     }
   }
 }
