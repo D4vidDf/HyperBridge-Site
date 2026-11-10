@@ -1,6 +1,6 @@
 ---
-title: "Theme Packaging Specification (.hbr / .htheme)"
-description: "Authoritative packaging standard, JSON schema, bundled translators, and Android Intent API for distributing Hyper Bridge themes."
+title: "Theme & Color Scheme Packaging Specification (.htheme / .hscheme / .hbr)"
+description: "Authoritative packaging standards, JSON/YAML schemas, standalone .hscheme validation rules, and Android Intent API for distributing HyperBridge themes and color palettes."
 weight: 2
 showTableOfContents: true
 ---
@@ -154,7 +154,86 @@ The `theme_config.json` file controls colors, geometric masks, call styles, and 
 
 ---
 
-## 4. Programmatic Theme Installation (Android Intent API)
+---
+
+## 4. Standalone Color Scheme Specification (`.hscheme`)
+
+Introduced in **HyperBridge v0.6.0** ([#443](https://github.com/D4vidDf/HyperBridge/pull/443)), the `.hscheme` format is a standardized, lightweight YAML specification for Material 3 color schemes.
+
+While full `.htheme` / `.hbr` archives bundle bitmap icons, progress assets, and dynamic translator rules in a ZIP container, `.hscheme` files are **standalone, single-file color palettes**. They can be shared independently, imported in one tap, and applied across both classic Island templates and modern Widget Studio micro-widgets.
+
+### YAML Schema Definition
+
+A valid `.hscheme` file consists of top-level metadata and a structured `roles` mapping adhering to Material Design 3 token semantics:
+
+```yaml
+id: coruna_solar_eclipse
+name: "A Coruña Total Eclipse (12 Aug)"
+author: D4vidDf
+description: "Solar corona gold and horizon ember orange over deep totality umbra black."
+is_dark: true
+
+roles:
+  # Primary — Accent, progress bars, and high-emphasis chips
+  primary: "#D25C24"
+  on_primary: "#FFFFFF"
+  primary_container: "#591F05"
+  on_primary_container: "#FFDBCD"
+
+  # Secondary — Status pill indicators and secondary badges
+  secondary: "#FFB055"
+  on_secondary: "#2B1700"
+  secondary_container: "#4F3108"
+  on_secondary_container: "#FFDEA6"
+
+  # Tertiary — Contrasting visual accents and tags
+  tertiary: "#FF8652"
+  on_tertiary: "#311000"
+  tertiary_container: "#4A1C07"
+  on_tertiary_container: "#FFDBCE"
+
+  # Surfaces — Backplates, elevated containers, and base backgrounds
+  surface: "#080302"
+  on_surface: "#F5E6DF"
+  surface_variant: "#24140E"
+  on_surface_variant: "#D8BFB4"
+  surface_container: "#140A07"
+  surface_container_high: "#21120D"
+  surface_container_low: "#040101"
+
+  # Outlines & Dividers
+  outline: "#8C6756"
+  outline_variant: "#3D241B"
+
+  # Error & Alert Highlights
+  error: "#FF5449"
+  on_error: "#FFFFFF"
+```
+
+### Schema Field Reference
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `id` | `String` | **Yes** | Unique identifier (lowercase alphanumeric, underscores, hyphens: `^[a-z0-9_-]+$`). |
+| `name` | `String` | **Yes** | User-friendly display name shown in Theme Manager and Community Showcase. |
+| `author` | `String` | **Yes** | Creator name or GitHub username. |
+| `description`| `String` | No | Short narrative describing aesthetic theme inspiration or contrast characteristics. |
+| `is_dark` | `Boolean` | **Yes** | `true` for dark themes; `false` for light themes. Governs SystemUI icon brightness. |
+| `roles` | `Map` | **Yes** | Key-value mapping of Material 3 role tokens to hexadecimal color strings. |
+
+### Strict Validation Rules (#443)
+
+HyperBridge v0.6.0 enforces strict validation via `YamlColorSchemeParser` during import:
+
+1. **Hex Color Formatting**: Every color value in `roles` must match `#RGB`, `#RRGGBB`, or `#AARRGGBB` (with alpha). Invalid CSS names (e.g. `red`) or unquoted numeric hex codes are rejected.
+2. **Mandatory Core Roles**: At minimum, `primary`, `on_primary`, `surface`, and `on_surface` must be defined. Any omitted secondary or container tokens are automatically derived through standard Material 3 tonal palette algorithms.
+3. **Contrast & Luminance Checks**: When `is_dark: true`, `surface` must have low luminance (< 0.25) to prevent illegible blinding white cards in dark mode.
+4. **Encoding & Line Breaks**: Files must be UTF-8 encoded. Both Unix (`\n`) and Windows (`\r\n`) line breaks are supported.
+
+---
+
+## 5. Programmatic Installation & File Associations (Android Intent API)
+
 
 Companion apps, icon packs, and theme managers can install themes directly into Hyper Bridge using an Android Intent. The user will see Hyper Bridge launch and present a 1-tap confirmation preview sheet.
 
@@ -235,7 +314,7 @@ Future<void> applyTheme() async {
 
 ---
 
-## 5. Next Steps
+## 6. Next Steps
 
 - Explore the [Translators Technical Specification]({{< ref "translators-specification.md" >}}) to build advanced notification rules bundled in your themes.
 - Learn about [Smart Actions]({{< ref "docs/features/smart-actions.md" >}}) to add copy OTP or quick-reply chips.

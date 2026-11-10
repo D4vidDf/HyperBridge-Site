@@ -248,6 +248,7 @@ my_translator.htrans (ZIP Archive)
 | `is_show_shade` | `Boolean?` | `null` | Whether to retain the notification in the standard Android notification drawer. |
 | `remove_original_notification` | `Boolean?` | `null` | Dismisses the underlying Android notification once bridged. |
 | `enable_inline_reply` | `Boolean?` | `null` | Enables interactive text reply field directly on the island. |
+| `show_on_lockscreen` | `Boolean?` | `false` | *(New in v0.6.0 [#433])* Shows the island on the lock screen keyguard via dynamic `islandProperty` switching (`0` locked, `1` unlocked). |
 
 ### 10. `CustomVariableDefinition` (`custom_variables`)
 
@@ -366,10 +367,64 @@ Instead of relying on predefined visual slots (`text_slot`, `progress_slot`, `pi
 #### Automatic Normalization & Structural Guarantees
 Hyper Bridge's `validateOrNormalizeParamV2` engine inspects the template output and guarantees protocol compliance:
 1. **Root Wrapping:** If the template provides a bare object (e.g. starting with `{"bigIslandArea": ...}`), the engine automatically wraps it in `{"param_v2": { ... }}`.
-2. **Param Island Verification:** Ensures `param_island` exists with `islandProperty: 1`.
+2. **Param Island & Dynamic Keyguard Verification:** Ensures `param_island` exists. In v0.6.0+, when `show_on_lockscreen` is enabled, the engine dynamically injects `islandProperty: 0` while the device is locked, transitioning to `islandProperty: 1` upon unlock.
 3. **Small Island Auto-Generation:** If `smallIslandArea` is omitted, the engine automatically derives it using the primary picture candidate and `hidden_pixel`.
 4. **Big Island Auto-Generation:** If `bigIslandArea` is omitted but `baseInfo` is present, the engine constructs an `imageTextInfoLeft` layout automatically.
 5. **Key Duplication in Bundles:** In both `miui.focus.pics` and `miui.focus.actions`, keys are populated with both their raw name (e.g. `pic_avatar`) and their prefixed name (`miui.focus.pic_avatar`) so templates work regardless of key formatting.
+
+### Dynamic `islandProperty` Keyguard Switching Protocol (#433)
+
+Starting in **HyperBridge v0.6.0** ([#433](https://github.com/D4vidDf/HyperBridge/pull/433)), custom translators can display dynamic islands on the lock screen keyguard through dynamic `islandProperty` switching.
+
+#### Background: Xiaomi HyperOS Keyguard Contract
+In Xiaomi's native `param_v2` protocol:
+- **`islandProperty: 1` (Standard Unlocked Mode)**: Tells Xiaomi's `SystemUI` to render the dynamic island only when the device is unlocked. If the screen is locked, `SystemUI` automatically hides the island from the keyguard.
+- **`islandProperty: 0` (Keyguard Mode)**: Instructs `SystemUI` that this notification has permission to render directly on the lock screen keyguard. However, if left as `0` permanently, the island may fail to trigger normal floating heads-up expansions or auto-hide timeouts once the user unlocks their phone.
+
+#### Dynamic Runtime Switching Engine
+When a translator sets `"show_on_lockscreen": true` in `behavior_override`:
+```mermaid
+sequenceDiagram
+    participant Lock as Android Keyguard State
+    participant HB as HyperBridge Translator Engine
+    participant UI as Xiaomi SystemUI
+    
+    Note over Lock,UI: Device Locked (Screen On or Ambient Display)
+    HB->>UI: Post param_v2 with islandProperty: 0
+    UI->>UI: Render island card/capsule on Keyguard
+    
+    Note over Lock,UI: User Unlocks Device (Fingerprint / PIN / Face)
+    Lock-->>HB: Broadcast ACTION_USER_PRESENT
+    HB->>UI: Live Update param_v2 with islandProperty: 1
+    UI->>UI: Smoothly transition to standard interactive island
+    Note over UI: Normal timeout, dismissal rules & expansions engage
+```
+
+1. **Locked State (`islandProperty: 0`)**: HyperBridge intercepts the event while `KeyguardManager.isKeyguardLocked()` is active and dispatches `param_v2` with `islandProperty: 0`. The island renders cleanly around the camera cutout on the lock screen.
+2. **Dynamic Promotion (`islandProperty: 1`)**: As soon as the user unlocks their phone (monitored via `Intent.ACTION_USER_PRESENT`), HyperBridge silently mutates the live notification payload to `islandProperty: 1` without triggering duplicate chimes or vibration. This immediately activates normal floating banner timeouts and touch interaction.
+
+#### Configuration in Custom Translators
+
+Translator authors can activate this behavior either declaratively or directly in raw JSON:
+
+**Declarative Configuration (`behavior_override`):**
+```json
+{
+  "id": "com.example.transit_live",
+  "meta": {
+    "name": "Live Transit Tracker",
+    "version": 1
+  },
+  "behavior_override": {
+    "show_on_lockscreen": true,
+    "is_float": true,
+    "float_timeout_seconds": 8
+  }
+}
+```
+
+**Direct `param_v2` Template Configuration:**
+If authoring in `RAW_PARAM_V2` mode, you can either hardcode `"islandProperty": 0` or leave it to HyperBridge's dynamic runtime switcher by setting `show_on_lockscreen: true`.
 
 ---
 

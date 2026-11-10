@@ -70,12 +70,16 @@ Tapping the prominent **Floating Action Button (`+`)** in the bottom-right corne
 
 ---
 
-## 4. Featured & Community Section
+## 4. Featured & Community Section (#427, #428, #429)
 
-Below the Bento Grid, the Design Hub showcases:
+Below the Bento Grid, the Design Hub connects directly to the broader HyperBridge ecosystem:
+
+- **Featured Showcase Cards (#427)**: Promotional banner cards link directly to featured entries on the **[Official Community Showcase](https://hyper-bridge.app/showcase/)**, allowing you to preview and download new community designs, color schemes, and translators with one tap.
 - **Active Designs Carousel**: Scroll through your enabled template cards and preview how they appear in expanded and compact status bar states.
 - **Installed Themes**: Quickly switch between installed `.htheme` / `.hbr` theme packs with a single tap.
-- **Guides & Video Tutorials**: In-app links to help documentation, permission guides, and the troubleshooting diagnostics console.
+- **Card Overflow Menus & Delete Confirmation (#429)**: Cards in the Design & Translator managers feature clean overflow menus (`⋮`) with safety confirmations to prevent accidental deletions.
+- **Upgraded Share & Import Bottom Sheet (#428)**: Export your creations with static live previews, file-type selectors, and optional linked translators. Downloaded presets open directly in HyperBridge for instant verification and import.
+- *Detailed guide:* [Community Showcase & Presets Guide]({{< ref "community-showcase.md" >}}).
 
 ---
 

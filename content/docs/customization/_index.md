@@ -9,6 +9,7 @@ showTableOfContents: false
 Explore step-by-step guides on personalizing your Xiaomi HyperOS HyperIsland using Hyper Bridge's built-in visual tools:
 
 - **[Design Studio & Hub]({{< ref "design-hub.md" >}})**: Learn how the Bento grid, hero showcase, and central creation action sheet work.
+- **[Community Showcase & Presets Guide]({{< ref "community-showcase.md" >}})**: Browse, download, and import community `.hscheme`, `.hwidget`, and `.htrans` creations using the in-app import sheet.
 - **[Visual Theme Creator]({{< ref "theme-creator.md" >}})**: Customize colors, dynamic app extraction, geometric masks, call buttons, and export/import `.hbr` themes without code.
 - **[System Widgets Guide]({{< ref "widgets-guide.md" >}})**: Mount any Android home-screen widget (Spotify, Google Calendar, Weather) directly into your HyperIsland.
 - **[Island Templates & Designs]({{< ref "custom-designs.md" >}})**: Browse and apply Xiaomi's 10 official HyperIsland layouts (waypoint delivery, OTP payment, boarding pass, etc.).
