@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-10T22:56:59Z",
+  "last_synced": "2026-11-11T05:11:39Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -34,7 +34,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 70
+      "downloads": 71
     },
     "schemes/retro-tech": {
       "badges": [
@@ -50,7 +50,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 74
+      "downloads": 75
     },
     "schemes/summer-breeze": {
       "badges": [
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 3,
-      "downloads": 149
+      "downloads": 153
     },
     "designs/musicrama": {
       "badges": [
@@ -66,7 +66,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 9
+      "downloads": 11
     }
   }
 }
