@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-12T14:47:45Z",
+  "last_synced": "2026-11-12T23:18:24Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -34,7 +34,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 75
+      "downloads": 76
     },
     "schemes/retro-tech": {
       "badges": [
@@ -42,7 +42,7 @@
         "official"
       ],
       "votes": 2,
-      "downloads": 36
+      "downloads": 37
     },
     "schemes/coruna-solar-eclipse": {
       "badges": [
@@ -50,7 +50,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 80
+      "downloads": 82
     },
     "schemes/summer-breeze": {
       "badges": [
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 3,
-      "downloads": 161
+      "downloads": 164
     },
     "designs/musicrama": {
       "badges": [
@@ -66,7 +66,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 12
+      "downloads": 15
     }
   }
 }
