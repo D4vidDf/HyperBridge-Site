@@ -8,6 +8,59 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## HyperBridge v0.6.0-rc2 🚀 — Second Release Candidate
+
+Welcome to the **second Release Candidate of HyperBridge 0.6.0**! 🎉
+
+As we approach the final stable release of **0.6.0**, our development focus remains strictly on **stabilization, bug fixing, and refining user experience**. This second release candidate addresses key community feedback from [#462](https://github.com/D4vidDf/HyperBridge/issues/462), bringing a complete revamp to compact pill customization, smart contextual extractions, and media playback counter modes.
+
+---
+
+### 🌟 What's New & Highlights
+
+#### 💊 Complete Revamp of Pill Slot Customization
+Take full control over what appears on both sides of the HyperOS island pill:
+* **Left Slot Graphic Sources**: Choose between App Icon, Notification Icon, Sender Avatar, Media Album Art, Custom Theme Icon, or Hidden.
+* **Left Slot Text Sources**: Choose between Notification Title, Message Body, Sender Name, App Name, Media Track Title, Media Artist, Custom Template (`{token}`), or None.
+* **Categorized Right Slot Selector**: Organized into 4 clean sections in the editor:
+  * 🧠 **Smart & Contextual**: Smart Auto-Detect, Verification OTP, Boarding Pass, Progress Percentage, Timer.
+  * 💬 **Notification Content**: Notification Title, Message Body, Sender Name, Unread Message Counter.
+  * 🎵 **Media & Playback**: Track Title, Artist Name, Media Counter.
+  * 🎨 **Custom & Minimal**: Highlighted Text, Empty.
+
+#### ⏱️ Media Playback Counter: Elapsed vs. Remaining Time
+* Added the ability to choose your preferred **Media Counter Mode**:
+  * **Time elapsed** (e.g. `02:45`)
+  * **Time remaining** (e.g. `-01:15`)
+* Added `{media.remaining}` variable token across custom micro-widgets, templates, and dynamic translators.
+* Improved playback position extraction for streams, podcasts, and audio tracks with missing/zero duration metadata across Spotify, YouTube Music, Apple Music, and more.
+
+#### ✈️ Smart Extractions for the Pill
+* **Verification OTP / 2FA**: Automatically isolates 4–8 digit verification codes from incoming SMS and security notifications (`smart_action.OTP.code`).
+* **Flight & Boarding Pass Details**: Extracts flight numbers (e.g. `IB3821`), gate assignments (e.g. `Gate B12`), seat numbers (e.g. `Seat 14A`), and boarding time.
+* **Unread Chat Counter Badge**: Displays incoming or unread message count badges (`+3`).
+
+---
+
+### 🐛 Bug Fixes & Improvements
+
+* **Fix Blank Right Pill Slot ([#462](https://github.com/D4vidDf/HyperBridge/issues/462))**: Corrected the HyperOS SystemUI text rendering type flag and empty title fallback that previously caused the right side of the pill to appear blank in standard templates.
+* **Fix False "Incoming Call" State ([#462](https://github.com/D4vidDf/HyperBridge/issues/462))**: Decoupled the Call Kit template presentation from the active call engine so non-call notifications no longer trigger call timers or "Incoming call" labels.
+* **Fix Missing Media Counter on Standard Translator**: Standard media notifications now properly resolve and display media counters instead of leaving the right slot empty.
+* **Interactive Live Preview**: The compact pill preview in the Translator Editor now immediately reflects left icon/text sources, right slot choices, and elapsed vs. remaining counter modes.
+* **Localization**: Full English and Spanish translations for all new pill slot settings and media counter options.
+
+---
+
+### What's Changed
+
+* feat(translator): introduce granular pill slot customization, contextual right designs, and media counter modes by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/463
+* chore(build): bump version to 0.6.0-rc2 by @D4vidDf
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-rc1...v0.6.0-rc2
+
+---
+
 ## HyperBridge v0.6.0-rc1 🚀 — First Release Candidate
 
 Welcome to the **first Release Candidate (RC1) of HyperBridge v0.6.0**! 🎉

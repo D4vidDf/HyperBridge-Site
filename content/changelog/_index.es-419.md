@@ -9,6 +9,59 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## HyperBridge v0.6.0-rc2 🚀 — Segunda Release Candidate
+
+¡Te damos la bienvenida a la **segunda Release Candidate (RC2) de HyperBridge v0.6.0**! 🎉
+
+A medida que nos acercamos al lanzamiento estable definitivo de **0.6.0**, nuestro enfoque de desarrollo continúa centrado estrictamente en la **estabilización, corrección de errores y refinamiento de la experiencia de usuario**. Esta segunda release candidate aborda comentarios clave de la comunidad de [#462](https://github.com/D4vidDf/HyperBridge/issues/462), incorporando una renovación completa de la personalización de la píldora compacta, extracciones contextuales inteligentes y modos de contador de reproducción multimedia.
+
+---
+
+### 🌟 Novedades y aspectos destacados
+
+#### 💊 Renovación completa de la personalización de ranuras de la píldora
+Toma el control total sobre lo que aparece a ambos lados de la píldora tipo isla de HyperOS:
+* **Fuentes gráficas de la ranura izquierda**: Elige entre Icono de la app, Icono de notificación, Avatar del remitente, Carátula del álbum multimedia, Icono de tema personalizado u Oculto.
+* **Fuentes de texto de la ranura izquierda**: Elige entre Título de notificación, Cuerpo del mensaje, Nombre del remitente, Nombre de la app, Título de pista multimedia, Artista multimedia, Plantilla personalizada (`{token}`) o Ninguno.
+* **Selector categorizado de la ranura derecha**: Organizado en 4 secciones limpias en el editor:
+  * 🧠 **Inteligente y contextual**: Autodetección inteligente, Código de verificación OTP, Tarjeta de embarque, Porcentaje de progreso, Temporizador.
+  * 💬 **Contenido de la notificación**: Título de notificación, Cuerpo del mensaje, Nombre del remitente, Contador de mensajes no leídos.
+  * 🎵 **Multimedia y reproducción**: Título de pista, Nombre del artista, Contador multimedia.
+  * 🎨 **Personalizado y minimalista**: Texto destacado, Vacío.
+
+#### ⏱️ Contador de reproducción multimedia: Tiempo transcurrido vs. restante
+* Posibilidad de elegir tu **Modo de contador multimedia** preferido:
+  * **Tiempo transcurrido** (ej. `02:45`)
+  * **Tiempo restante** (ej. `-01:15`)
+* Se añade el token de variable `{media.remaining}` en micro-widgets personalizados, plantillas y traductores dinámicos.
+* Mejora en la extracción de la posición de reproducción para transmisiones, podcasts y pistas de audio sin metadatos de duración o con duración cero en Spotify, YouTube Music, Apple Music y más.
+
+#### ✈️ Extracciones inteligentes para la píldora
+* **Código de verificación OTP / 2FA**: Aísla automáticamente códigos de verificación de 4 a 8 dígitos de SMS y notificaciones de seguridad entrantes (`smart_action.OTP.code`).
+* **Detalles de vuelo y tarjeta de embarque**: Extrae números de vuelo (ej. `IB3821`), puertas asignadas (ej. `Puerta B12`), asientos (ej. `Asiento 14A`) y hora de embarque.
+* **Insignia de contador de chats no leídos**: Muestra insignias con el recuento de mensajes entrantes o no leídos (`+3`).
+
+---
+
+### 🐛 Correcciones de errores y mejoras
+
+* **Corrección de ranura derecha vacía en la píldora ([#462](https://github.com/D4vidDf/HyperBridge/issues/462))**: Corregido el indicador de tipo de renderizado de texto de SystemUI de HyperOS y el fallback de título vacío que causaban que el lado derecho de la píldora se mostrara en blanco en las plantillas estándar.
+* **Corrección de estado falso de "Llamada entrante" ([#462](https://github.com/D4vidDf/HyperBridge/issues/462))**: Desacoplada la presentación de la plantilla Call Kit del motor de llamadas activas para que las notificaciones regulares no activen temporizadores de llamada ni etiquetas de "Llamada entrante".
+* **Corrección de contador multimedia ausente en el traductor estándar**: Las notificaciones multimedia estándar ahora resuelven y muestran correctamente los contadores en vez de dejar la ranura derecha vacía.
+* **Vista previa interactiva en tiempo real**: La vista previa compacta de la píldora en el Editor de Traductores ahora refleja de inmediato el icono/texto izquierdo, la ranura derecha y los modos de contador transcurrido vs. restante.
+* **Localización**: Traducciones completas en inglés y español para todas las nuevas opciones de ranura de píldora y contador multimedia.
+
+---
+
+### What's Changed
+
+* feat(translator): introduce granular pill slot customization, contextual right designs, and media counter modes by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/463
+* chore(build): bump version to 0.6.0-rc2 by @D4vidDf
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-rc1...v0.6.0-rc2
+
+---
+
 ## HyperBridge v0.6.0-rc1 🚀 — First Release Candidate
 
 Welcome to the **first Release Candidate (RC1) of HyperBridge v0.6.0**! 🎉

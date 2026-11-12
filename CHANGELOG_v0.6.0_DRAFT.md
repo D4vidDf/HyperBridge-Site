@@ -147,6 +147,7 @@ Expanded native integration for core device features without requiring root:
 * feat(studio): introduce preview placeholder customization, live preview rendering, and package bundling by @D4vidDf in [#457](https://github.com/D4vidDf/HyperBridge/pull/457)
 * refactor(studio): extract ImageConfigSelectorCard for image source and configuration by @D4vidDf in [#458](https://github.com/D4vidDf/HyperBridge/pull/458)
 * feat(translator): introduce adaptive split-pane layout and cascading navigation in translator editor by @D4vidDf in [#460](https://github.com/D4vidDf/HyperBridge/pull/460)
+* feat(translator): introduce granular pill slot customization, contextual right designs, and media counter modes by @D4vidDf in [#463](https://github.com/D4vidDf/HyperBridge/pull/463)
 
 ---
 
