@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-15T05:24:30Z",
+  "last_synced": "2026-11-15T13:37:35Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -34,7 +34,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 83
+      "downloads": 84
     },
     "schemes/retro-tech": {
       "badges": [
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 4,
-      "downloads": 174
+      "downloads": 175
     },
     "designs/musicrama": {
       "badges": [
@@ -66,7 +66,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 26
+      "downloads": 28
     }
   }
 }
