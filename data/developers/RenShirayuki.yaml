@@ -1,0 +1,10 @@
+id: "RenShirayuki"
+name: "Hyousou Ren"
+role: "Custom Translator Creator"
+bio: "Android & HyperOS enthusiast crafting clean notification translators and dynamic island tweaks for HyperBridge."
+github: "https://github.com/RenShirayuki"
+repos:
+  - name: "HyperBridge Translators"
+    url: "https://github.com/RenShirayuki/hyperbridge-translators"
+    description: "Custom notification translators (.htrans) for Discord and daily apps"
+    
