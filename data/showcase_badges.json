@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-15T13:37:35Z",
+  "last_synced": "2026-11-15T22:35:12Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -34,7 +34,7 @@
         "official"
       ],
       "votes": 0,
-      "downloads": 84
+      "downloads": 85
     },
     "schemes/retro-tech": {
       "badges": [
@@ -42,7 +42,7 @@
         "official"
       ],
       "votes": 3,
-      "downloads": 45
+      "downloads": 46
     },
     "schemes/coruna-solar-eclipse": {
       "badges": [
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 4,
-      "downloads": 175
+      "downloads": 178
     },
     "designs/musicrama": {
       "badges": [
@@ -66,7 +66,12 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 28
+      "downloads": 29
+    },
+    "translators/discord-voice-call-timer": {
+      "badges": [],
+      "votes": 1,
+      "downloads": 3
     }
   }
 }
