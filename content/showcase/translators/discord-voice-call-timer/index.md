@@ -39,4 +39,4 @@ A clean Custom Translator for Discord (`com.discord`) that transforms the ongoin
 ### Key Features
 - **Live Count-Up Stopwatch**: Uses HyperBridge's `First Detected (Stopwatch / Call Start)` timer source (`Count Up`) to track active voice call duration from `00:00` without requiring native `usesChronometer` flags.
 - **Clean Compact Pill & Expanded Card**: Displays the Discord icon alongside the active channel or caller name (`{notif.subtext}`) and live elapsed timer.
-- **Modded Client Friendly**: Pre-configured for official Discord and easily adaptable to modded clients (such as Valenced) by updating the target package name.
+- **Instant Plug & Play**: Pre-configured for Discord (`com.discord`) with zero manual setup needed after importing.
