@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-20T06:13:04Z",
+  "last_synced": "2026-11-20T19:43:02Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -66,12 +66,12 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 47
+      "downloads": 49
     },
     "translators/discord-voice-call-timer": {
       "badges": [],
       "votes": 3,
-      "downloads": 14
+      "downloads": 15
     }
   }
 }
