@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-22T14:14:58Z",
+  "last_synced": "2026-11-22T23:22:09Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 4,
-      "downloads": 209
+      "downloads": 210
     },
     "designs/musicrama": {
       "badges": [
@@ -66,12 +66,12 @@
         "official"
       ],
       "votes": 2,
-      "downloads": 58
+      "downloads": 62
     },
     "translators/discord-voice-call-timer": {
       "badges": [],
       "votes": 3,
-      "downloads": 22
+      "downloads": 24
     }
   }
 }
