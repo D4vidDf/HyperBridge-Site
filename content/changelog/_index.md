@@ -8,6 +8,128 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 
 ---
 
+## HyperBridge v0.6.0-rc5 🚀 — Fifth Release Candidate
+
+### ✨ New Features & Enhancements
+
+* **Privacy Indicators Island:**
+  * Added live island indicators for microphone and camera usage ([#481](https://github.com/D4vidDf/HyperBridge/issues/481), [#486](https://github.com/D4vidDf/HyperBridge/pull/486)).
+  * **Customization Options:** Choose between sensor icons or minimalist colored dots, toggle status text for an ultra-compact pill appearance, and preview your configuration in real-time ([#491](https://github.com/D4vidDf/HyperBridge/pull/491)).
+  * **Lock Screen Privacy:** Bridge notifications now strictly respect lock screen privacy settings and hide sensitive content when the source app does ([#479](https://github.com/D4vidDf/HyperBridge/pull/479)).
+* **"Less in Landscape" Mode:** Added an option to suppress heads-up floating popups while the device is in landscape orientation ([#478](https://github.com/D4vidDf/HyperBridge/pull/478)).
+* **Extended Call & Navigation Lifetimes:** Added timeout extensions so call and navigation focus islands persist beyond HyperOS's 1-hour default auto-dismiss limit ([#168](https://github.com/D4vidDf/HyperBridge/issues/168), [#488](https://github.com/D4vidDf/HyperBridge/pull/488)).
+
+### 🐛 Bug Fixes & Reliability
+
+* **Messaging & Custom Translators:**
+  * Fixed shade duplication and missing dismiss/reply behaviors for WhatsApp and other custom translators ([#492](https://github.com/D4vidDf/HyperBridge/pull/492)).
+  * Resolved unlock flicker and disappearing notifications when unlocking the device with multiple pending messages ([#492](https://github.com/D4vidDf/HyperBridge/pull/492)).
+* **Media Playback:**
+  * Fixed media progress timer and seek counter desynchronization when scrubbing or seeking audio tracks ([#492](https://github.com/D4vidDf/HyperBridge/pull/492)).
+  * Fixed permanent island staying hidden while a media player is actively playing ([#445](https://github.com/D4vidDf/HyperBridge/issues/445), [#476](https://github.com/D4vidDf/HyperBridge/pull/476)).
+* **Island Teardown & Fallback Handling:**
+  * Cleanly end call islands when an ongoing call notification is rewritten into an ended/missed follow-up ([#226](https://github.com/D4vidDf/HyperBridge/issues/226), [#487](https://github.com/D4vidDf/HyperBridge/pull/487)).
+  * Fixed bridge notifications repeating source content when the island cannot be drawn by HyperOS ([#485](https://github.com/D4vidDf/HyperBridge/issues/485), [#489](https://github.com/D4vidDf/HyperBridge/pull/489)).
+  * Prevented ongoing browser notifications from falsely triggering download progress bars ([#231](https://github.com/D4vidDf/HyperBridge/issues/231), [#477](https://github.com/D4vidDf/HyperBridge/pull/477)).
+
+### 🌐 Localization
+
+* **Spanish (es):** Added and updated Spanish translations for landscape mode settings, privacy indicators, and troubleshooting ([#483](https://github.com/D4vidDf/HyperBridge/pull/483)).
+
+### ⚙️ CI & Development
+
+* Added automated GitHub Actions workflow for PR test gating and debug APK artifact uploads ([#349](https://github.com/D4vidDf/HyperBridge/pull/349)).
+* Configured explicit workflow read permissions to resolve code scanning alerts ([#475](https://github.com/D4vidDf/HyperBridge/pull/475)).
+
+---
+
+### What's Changed
+* ci: add GitHub Actions workflow for PR test gating and debug APK arti… by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/349
+* Potential fix for code scanning alert no. 1: Workflow does not contain permissions by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/475
+* fix: permanent island stays hidden while a media player is playing (#445) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/476
+* fix(progress): ongoing browser notifications are not download progress (#231) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/477
+* feat(settings): add "Less in landscape" option to skip the heads-up popup when rotated by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/478
+* i18n(es): add Spanish translations for landscape float setting and tr… by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/483
+* fix: the bridge notification repeats the source when the island is not drawn (#485) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/489
+* fix(call): end the call island when the app rewrites the call into a follow-up (#226) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/487
+* feat(system): privacy indicators island for mic and camera in use (#481) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/486
+* feat(privacy): add indicator style (icon vs dot) and text visibility customization options by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/491
+* fix(privacy): keep bridge notifications off the lock screen when the source is hidden there by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/479
+* fix(call,nav): call and navigation islands outlive HyperOS's 1 h default (#168) by @noelpatata in https://github.com/D4vidDf/HyperBridge/pull/488
+* fix: resolve WhatsApp shade duplication, unlock flicker with multiple messages, and media seek counter by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/492
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-rc4...v0.6.0-rc5
+
+---
+
+## HyperBridge v0.6.0-rc4 🚀 — Fourth Release Candidate
+
+Welcome to the **fourth Release Candidate of HyperBridge 0.6.0**! 🚀
+
+As we approach the final 0.6.0 release, this release candidate brings important improvements to media time tracking and live elapsed timers in Custom Translators, alongside documentation polish and refreshed multi-language translations.
+
+---
+
+### ✨ Features & Improvements
+
+* **Configurable Timers & Stopwatches for Custom Translators ([#468](https://github.com/D4vidDf/HyperBridge/issues/468), [#471](https://github.com/D4vidDf/HyperBridge/pull/471)):**
+  * Added dedicated timer configuration options under **Progress & Timing** and on the **Compact Pill Right Slot** when `Timer` is selected.
+  * **Start Reference Modes:** Choose between *Automatic (From Notification)*, *First Detected (Stopwatch / Call Start)*, or *Notification Timestamp*.
+  * **Direction:** Count Up (Elapsed Stopwatch) or Count Down (Remaining Time).
+  * Perfect for Discord voice calls, gaming sessions, and ongoing notifications that don't natively expose Android chronometers. The session time remains anchored and won't reset on notification updates.
+
+* **Documentation & Asset Updates ([#467](https://github.com/D4vidDf/HyperBridge/pull/467)):**
+  * Updated README with detailed sections for Phone and Adaptive Tablet / Foldable experiences.
+  * Added refreshed high-resolution screenshots for Design Screen, Widget Studio, and Custom Translator split-view layouts.
+
+* **Localization Updates:**
+  * Updated translations across French, German, Hungarian, Indonesian, Italian, Korean, Polish, Portuguese, Spanish, Turkish, and Traditional Chinese.
+
+---
+
+### 🐛 Bug Fixes
+
+* **Fixed Island Resizing on Media Counter ([#469](https://github.com/D4vidDf/HyperBridge/issues/469), [#470](https://github.com/D4vidDf/HyperBridge/pull/470)):**
+  * Integrated Xiaomi HyperOS native `sameWidthDigitInfo` on Big Island for media playback counters.
+  * Fixed visual jitter and constant island resizing caused by variable-width fonts when counting elapsed or remaining track duration.
+  * SystemUI now updates the timer smoothly in native count-up/countdown mode while playing, and displays fixed-width monospaced digits when paused.
+
+---
+
+### What's Changed
+* `docs: update README for 0.6.0 and refresh screenshots` by @D4vidDf in [#467](https://github.com/D4vidDf/HyperBridge/pull/467)
+* `fix(translator): use sameWidthDigitInfo for media counter to prevent island resizing` by @D4vidDf in [#470](https://github.com/D4vidDf/HyperBridge/pull/470)
+* `feat(translator): add configurable timer start mode and direction for custom translators` by @D4vidDf in [#471](https://github.com/D4vidDf/HyperBridge/pull/471)
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-rc3...v0.6.0-rc4
+
+---
+
+## HyperBridge v0.6.0-rc3 🚀 — Third Release Candidate
+
+Welcome to the **third Release Candidate of HyperBridge 0.6.0**! 🚀
+
+As we finalize the release of **0.6.0**, our focus remains squarely on polish, stability, and honoring default behaviors. This release candidate ensures that default built-in notification translators maintain their proven, classic layout while keeping powerful new pill customizations strictly scoped to custom dynamic translators.
+
+---
+
+### 🐛 Bug Fixes & Refinements
+
+* **Restore Classic Pill Layout for Built-in Translators ([#465](https://github.com/D4vidDf/HyperBridge/issues/465))**: 
+  - Restored the default compact pill design in `StandardTranslator` and `MessageTranslator` back to their exact **0.6.0-rc1** layout.
+  - Granular slot configurations and right-side display modes (such as OTP extractions, boarding pass details, and custom media counter modes) are now scoped strictly to user-configured dynamic rules (`DynamicTranslator` and `CustomWidgetTranslator`).
+
+---
+
+### What's Changed
+
+* fix(translator): restore standard and message translators to rc1 pill design by @D4vidDf in https://github.com/D4vidDf/HyperBridge/pull/466
+* chore(build): bump version to 0.6.0-rc3 by @D4vidDf
+
+**Full Changelog**: https://github.com/D4vidDf/HyperBridge/compare/v0.6.0-rc2...v0.6.0-rc3
+
+---
+
 ## HyperBridge v0.6.0-rc2 🚀 — Second Release Candidate
 
 Welcome to the **second Release Candidate of HyperBridge 0.6.0**! 🎉

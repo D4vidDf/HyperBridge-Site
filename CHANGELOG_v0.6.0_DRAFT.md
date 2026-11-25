@@ -4,7 +4,7 @@ Welcome to the official, stable release of **HyperBridge v0.6.0**! 🎉
 
 **v0.6.0** is our largest and most transformative release to date. Over multiple development and beta iterations, HyperBridge has evolved from a notification bridge into a full-fledged **spatial micro-widget studio**, an open **custom translator engine**, and an **adaptive large-screen companion** for Xiaomi HyperOS.
 
-Whether you want to build custom KWGT-style Dynamic Island widgets, localize and customize any app’s notifications with regex, or monitor real-time charging, screen recordings, and VPN sessions, 0.6.0 gives you total control.
+Whether you want to build custom KWGT-style Dynamic Island widgets, localize and customize any app’s notifications with regex, or monitor real-time charging, privacy indicators (camera/microphone), screen recordings, and VPN sessions, 0.6.0 gives you total control.
 
 ---
 
@@ -14,7 +14,7 @@ Whether you want to build custom KWGT-style Dynamic Island widgets, localize and
 Build, customize, and bind interactive micro-widgets that render directly into your HyperOS Super Island as native Android views (`RemoteViews`):
 * **Layer-Based Node Tree**: Arrange, group, and style containers (`Row`, `Column`, `Box`) alongside content elements (`Text`, `Button`, `Image`, `Progress`, `Shape`).
 * **Spatial Sizing Modes**: Design layouts optimized for all island dimensions: **Small**, **Medium**, **Large**, **Extra-Large**, and **Snapshot**.
-* **Dynamic Tokens & Formulas**: Bind live notification payloads (`{notif.title}`, `{notif.text}`), device telemetry (`{device.battery}`), variables, and conditional formulas.
+* **Dynamic Tokens & Formulas**: Bind live notification payloads (`{notif.title}`, `{notif.text}`), media playback tokens (`{media.remaining}`), device telemetry (`{device.battery}`), variables, and conditional formulas.
 * **Conditional Visibility (`showIf`)**: Display elements conditionally (e.g., show progress only during active downloads, or render buttons only when an inline reply is present).
 * **Interactive Button Triggers**: Trigger notification actions, smart actions, inline replies, media controls, or custom deep links directly from island buttons, featuring stateful icon overrides (e.g. dynamic play/pause swaps).
 * **Typography & Fonts**: Import custom TTF/OTF fonts directly into the studio, rendered to high-resolution bitmaps for crisp display.
@@ -28,9 +28,11 @@ Build, customize, and bind interactive micro-widgets that render directly into y
 Take complete control over how third-party app notifications display on the Super Island:
 * **Built-in Visual Translator Editor**: Create and test custom rules without waiting for app updates.
 * **Flexible Matching**: Regex pattern extraction, dynamic variable mapping, custom action assignment, and theme bindings.
+* **Granular Pill Slot Customization & Contextual Extractions**: Choose custom left-slot graphics/text and categorized right-slot modes—including Smart Auto-Detect, 2FA/OTP codes, Flight & Boarding Pass details, unread chat badges (`+3`), progress percentages, and elapsed vs. remaining media playback counters (scoped strictly to custom translators to preserve the classic built-in pill layout).
+* **Configurable Timers & Stopwatches**: Dedicated timer start reference modes (*Automatic*, *First Detected*, or *Notification Timestamp*) and count-up/count-down direction for voice calls, gaming sessions, and ongoing notifications without native chronometers.
 * **`RAW_PARAM_V2` Super Island Contracts**: Advanced creators can bypass standard templates and construct native HyperOS JSON contracts with dual island layouts (`smallIslandArea` & `bigIslandArea`), `coverInfo`, `progressInfo`, `chatInfo`, `baseInfo`, and `bgInfo`.
-* **Lock Screen Adaptation**: Dedicated "Show on lock screen" toggle dynamically switching `islandProperty` (0 while locked, 1 unlocked) for keyguard visibility and proper post-unlock dismissal.
-* **Alert Control**: "Float only on first alert" toggle to suppress repeated heads-up popups on frequently updating progress notifications.
+* **Lock Screen Adaptation & Privacy**: Dedicated "Show on lock screen" toggle dynamically switching `islandProperty` (0 while locked, 1 unlocked) for keyguard visibility, while strictly respecting system lock screen privacy settings when source notifications hide sensitive content.
+* **Alert & Orientation Control**: "Float only on first alert" toggle to suppress repeated heads-up popups on frequently updating progress notifications, plus **"Less in Landscape" Mode** to skip heads-up popups while rotated in landscape orientation.
 * **SAF Import/Export**: Bundle and share standalone `.htrans` and `.htrans.zip` packages across devices.
 
 ---
@@ -55,6 +57,7 @@ Intelligent inline buttons extracted directly from incoming notifications:
 
 ### 🏝️ 5. New System Islands & Telemetry
 Expanded native integration for core device features without requiring root:
+* **Privacy Indicators Island**: Live island indicators for active microphone and camera usage, featuring customizable indicator styles (sensor icons vs. minimalist colored dots), optional status text for an ultra-compact pill appearance, and real-time preview.
 * **System Charging Island**: Real-time charging status island with customizable layout designs, live previews, dedicated charging speed display mode, dual-cell battery wattage calculation, and vendor-specific charge time estimation for Xiaomi devices.
 * **Screen Recording Controls**: Direct IPC connection to Xiaomi Screen Recorder (`com.miui.screenrecorder`) to pause, resume, and stop recordings from the island, complete with post-save preview banners.
 * **VPN Connectivity**: System-level network observer tracking live duration, country flags, one-tap disconnection, provider priority sorting, and Cloudflare WARP adapter support.
@@ -75,10 +78,11 @@ Expanded native integration for core device features without requiring root:
 ### ⚡ 7. Performance & Notification Engine 2.0
 * **Zero-Latency In-Memory Dispatch**: Preference reads on the notification hot path moved to cached StateFlows, eliminating SQLite/DataStore I/O bottlenecks.
 * **Generation Gating & Expiry Registry**: `SourceProcessingGeneration` and `ExpiredIslandRegistry` eliminate notification race conditions, ghost islands, and flickering.
-* **Messaging & Call Deduplication**: Presentation family tracking resolves group chat bursts ("chat storms") across WhatsApp, Telegram, and Signal.
+* **Messaging, Shade & Unlock Reliability**: Presentation family tracking resolves group chat bursts ("chat storms") across WhatsApp, Telegram, and Signal, while fixing shade duplication, missing dismiss/reply behaviors, unlock flicker with multiple pending messages, and fallback notification duplication when an island cannot be drawn.
 * **AndroidX `MessagingStyle` Avatars**: Profile pictures render cleanly without being incorrectly tinted by system theme colors.
-* **Call Lifecycle Machine**: Classifies Incoming, Ongoing, Held, and Ending states with whole-word mute/unmute keyword matching.
-* **Permanent Island Yielding Overhaul**: Yields momentarily to native focus/media notifications before gracefully restoring.
+* **Monospaced Media Counters & Seek Sync**: Integrated Xiaomi HyperOS native `sameWidthDigitInfo` on Big Island to prevent visual jitter and island resizing during track playback, alongside accurate seek/scrub counter synchronization.
+* **Call & Navigation Lifetimes**: Classifies Incoming, Ongoing, Held, and Ending call states with whole-word mute/unmute keyword matching, cleanly tears down call islands when rewritten into ended/missed follow-ups, and extends call and navigation island lifetimes beyond HyperOS's 1-hour default limit.
+* **Permanent Island & Progress Accuracy**: Yields momentarily to native focus notifications before gracefully restoring, remains visible while media is actively playing, and prevents discount percentages or ongoing browser notifications from falsely triggering download progress bars.
 * **HyperOS 4 Beta Compatibility**: Guarantees island visibility by ensuring `dismissible: false` parameters are explicitly applied.
 * **Direct App Launching**: Messaging capsules launch target apps via direct activity intents, eliminating trampoline delays.
 
@@ -148,13 +152,29 @@ Expanded native integration for core device features without requiring root:
 * refactor(studio): extract ImageConfigSelectorCard for image source and configuration by @D4vidDf in [#458](https://github.com/D4vidDf/HyperBridge/pull/458)
 * feat(translator): introduce adaptive split-pane layout and cascading navigation in translator editor by @D4vidDf in [#460](https://github.com/D4vidDf/HyperBridge/pull/460)
 * feat(translator): introduce granular pill slot customization, contextual right designs, and media counter modes by @D4vidDf in [#463](https://github.com/D4vidDf/HyperBridge/pull/463)
+* fix(translator): restore standard and message translators to rc1 pill design by @D4vidDf in [#466](https://github.com/D4vidDf/HyperBridge/pull/466)
+* docs: update README for 0.6.0 and refresh screenshots by @D4vidDf in [#467](https://github.com/D4vidDf/HyperBridge/pull/467)
+* fix(translator): use sameWidthDigitInfo for media counter to prevent island resizing by @D4vidDf in [#470](https://github.com/D4vidDf/HyperBridge/pull/470)
+* feat(translator): add configurable timer start mode and direction for custom translators by @D4vidDf in [#471](https://github.com/D4vidDf/HyperBridge/pull/471)
+* Potential fix for code scanning alert no. 1: Workflow does not contain permissions by @D4vidDf in [#475](https://github.com/D4vidDf/HyperBridge/pull/475)
+* fix: permanent island stays hidden while a media player is playing (#445) by @noelpatata in [#476](https://github.com/D4vidDf/HyperBridge/pull/476)
+* fix(progress): ongoing browser notifications are not download progress (#231) by @noelpatata in [#477](https://github.com/D4vidDf/HyperBridge/pull/477)
+* feat(settings): add "Less in landscape" option to skip the heads-up popup when rotated by @noelpatata in [#478](https://github.com/D4vidDf/HyperBridge/pull/478)
+* fix(privacy): keep bridge notifications off the lock screen when the source is hidden there by @noelpatata in [#479](https://github.com/D4vidDf/HyperBridge/pull/479)
+* i18n(es): add Spanish translations for landscape float setting and troubleshooting by @D4vidDf in [#483](https://github.com/D4vidDf/HyperBridge/pull/483)
+* feat(system): privacy indicators island for mic and camera in use (#481) by @noelpatata in [#486](https://github.com/D4vidDf/HyperBridge/pull/486)
+* fix(call): end the call island when the app rewrites the call into a follow-up (#226) by @noelpatata in [#487](https://github.com/D4vidDf/HyperBridge/pull/487)
+* fix(call,nav): call and navigation islands outlive HyperOS's 1 h default (#168) by @noelpatata in [#488](https://github.com/D4vidDf/HyperBridge/pull/488)
+* fix: the bridge notification repeats the source when the island is not drawn (#485) by @noelpatata in [#489](https://github.com/D4vidDf/HyperBridge/pull/489)
+* feat(privacy): add indicator style (icon vs dot) and text visibility customization options by @D4vidDf in [#491](https://github.com/D4vidDf/HyperBridge/pull/491)
+* fix: resolve WhatsApp shade duplication, unlock flicker with multiple messages, and media seek counter by @D4vidDf in [#492](https://github.com/D4vidDf/HyperBridge/pull/492)
 
 ---
 
 ## 💖 Community & Credits
 A heartfelt thank you to everyone who contributed code, translations, testing, and feedback during this milestone:
 * **[Sykeptical](https://github.com/sykeptical)** for foundational Screen Recording IPC controls, VPN integration, and messaging deduplication concepts.
-* **@noelpatata / @noelpatata2** for Smart Action buttons, USB/wireless debugging island, charging status island, and lifecycle fixes.
+* **@noelpatata / @noelpatata2** for Smart Action buttons, Privacy Indicators island, USB/wireless debugging island, charging status island, "Less in landscape" mode, lock screen privacy, and call/navigation lifecycle fixes.
 * **@alexkoala** and **@solom185** for localized translations.
 * All our testers and Community Showcase creators on Discord and GitHub.
 
