@@ -62,7 +62,7 @@ When you generate a report, `BugReportCollector` gathers an automated technical 
 ### Permission Matrix
 - Notification Listener granted (`true`/`false`).
 - Post Notifications granted.
-- Android 13+ Restricted Settings authorization.
+- Android 15+ Restricted Settings authorization.
 - HyperIsland / Focus Notifications status.
 - Battery Optimization exclusion ("No Restrictions").
 - Autostart permission status.

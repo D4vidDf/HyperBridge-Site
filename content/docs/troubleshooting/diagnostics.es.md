@@ -16,7 +16,7 @@ En la aplicación Hyper Bridge, accede a:
 En la parte superior de la pantalla de Diagnóstico, una **Tarjeta de Estado** resume tus permisos fundamentales:
 - **Acceso a Notificaciones:** Si Hyper Bridge cuenta con el permiso activo de Notification Listener en Android.
 - **Publicar Notificaciones:** Permiso para crear avisos en la barra de estado.
-- **Ajustes Restringidos:** Si se autorizaron los ajustes restringidos de Android 13+ para APKs externos.
+- **Ajustes Restringidos:** Si se autorizaron los ajustes restringidos de Android 15+ para APKs externos.
 - **HyperIsland / Notificaciones de Enfoque:** Si el canal de notificación privilegiado de Xiaomi está habilitado.
 
 {{< alert icon="lightbulb" >}}

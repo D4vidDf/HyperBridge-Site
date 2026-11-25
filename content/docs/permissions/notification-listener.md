@@ -1,6 +1,6 @@
 ---
 title: "Notification Listener Access"
-description: "How to safely grant Android notification listener permission, handle Android 13+ restricted settings, and pass Xiaomi's security countdown."
+description: "How to safely grant Android notification listener permission, handle Android 15+ restricted settings, and pass Xiaomi's security countdown."
 weight: 2
 showTableOfContents: true
 linkTitle: "Notification Access"
@@ -49,13 +49,13 @@ If you need to navigate to the setting manually in HyperOS:
 
 ---
 
-## ⚠️ Android 13, 14 & 15+ "Restricted Settings" Fix
+## ⚠️ Android 15+ "Restricted Settings" Fix
 
 If you installed HyperBridge directly from a downloaded APK (e.g. from GitHub Releases) rather than the Google Play Store, Android automatically flags the app as sideloaded and greys out the notification listener toggle with the following alert:
 
 > **"Restricted setting: For your security, this setting is currently unavailable."**
 
-{{< figure src="/img/docs/permissions/en/system-setup-permissions.jpg" alt="Allow Restricted Settings on HyperOS" caption="Resolving Android 13+ restricted settings in App Info." >}}
+{{< figure src="/img/docs/permissions/en/system-setup-permissions.jpg" alt="Allow Restricted Settings on HyperOS" caption="Resolving Android 15+ restricted settings in App Info." >}}
 
 ### How to Unlock Restricted Settings:
 

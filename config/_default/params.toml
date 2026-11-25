@@ -19,7 +19,7 @@ showcaseApiUrl = "https://hyperbridge-api.d4viddf.com"
   cardView = true
 
 [docs]
-  versionBadge = "v0.6.0 (dev)"
+  versionBadge = "v0.6.0"
   versionBadgeTextSize = "16px"
 
 [article]

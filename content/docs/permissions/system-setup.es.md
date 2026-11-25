@@ -19,7 +19,7 @@ En Hyper Bridge, ve a **Ajustes** &rarr; **Estado del Sistema** (o toca la tarje
 ```mermaid
 flowchart TD
     H["Panel de Estado del Sistema"] --> P1["1. Acceso a Notificaciones"]
-    H --> P2["2. Ajustes Restringidos de Android 13+"]
+    H --> P2["2. Ajustes Restringidos de Android 15+"]
     H --> P3["3. HyperIsland / Notificaciones de Enfoque"]
     H --> P4["4. Ahorro de Batería: Sin Restricciones"]
     H --> P5["5. Inicio Automático"]
@@ -47,8 +47,8 @@ Cada tarjeta en la pantalla de Estado del Sistema proporciona un acceso directo 
 
 ---
 
-### Paso 2: Ajustes Restringidos en Android 13+
-- **El problema:** En Android 13, 14 y 15, Google introdujo una medida de seguridad que inhabilita los permisos de lectura de notificaciones para aplicaciones instaladas fuera de Google Play Store (como APKs descargados desde GitHub).
+### Paso 2: Ajustes Restringidos en Android 15+
+- **El problema:** En Android 15+, Google aplica una medida de seguridad que inhabilita los permisos de lectura de notificaciones para aplicaciones instaladas fuera de Google Play Store (como APKs descargados desde GitHub).
 - **Cómo solucionarlo:**
   1. Abre los **Ajustes** del teléfono &rarr; **Aplicaciones** &rarr; **Administrar aplicaciones**.
   2. Busca y selecciona **Hyper Bridge**.

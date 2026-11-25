@@ -3,7 +3,7 @@
 {{ $docsSection := .Site.GetPage "docs" }}
 {{ $isDocsHome := eq $currentPage.RelPermalink "/docs/" }}
 
-{{ $versionText := site.Params.docs.versionBadge | default "v0.6.0 (dev)" }}
+{{ $versionText := site.Params.docs.versionBadge | default "v0.6.0" }}
 {{ $versionSize := site.Params.docs.versionBadgeTextSize | default "6.5px" }}
 {{ $isTailwindSize := strings.HasPrefix $versionSize "text-" }}
 

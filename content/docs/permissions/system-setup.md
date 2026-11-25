@@ -19,7 +19,7 @@ In Hyper Bridge, open **Settings** &rarr; **System Health** (or tap the Health c
 ```mermaid
 flowchart TD
     H["System Health Dashboard"] --> P1["1. Notification Listener Access"]
-    H --> P2["2. Android 13+ Restricted Settings"]
+    H --> P2["2. Android 15+ Restricted Settings"]
     H --> P3["3. HyperIsland / Focus Notifications"]
     H --> P4["4. Battery Saver: No Restrictions"]
     H --> P5["5. Autostart Whitelist"]
@@ -47,8 +47,8 @@ Each card on the System Health screen provides a 1-tap shortcut directly to the 
 
 ---
 
-### Step 2: Android 13+ Restricted Settings
-- **The Issue:** On Android 13, 14, and 15, Google introduced a security measure that automatically greys out Notification Listener and Accessibility permissions for apps installed from outside the Google Play Store (e.g., APK downloads from GitHub).
+### Step 2: Android 15+ Restricted Settings
+- **The Issue:** On Android 15+, Google enforces a security measure that automatically greys out Notification Listener and Accessibility permissions for apps installed from outside the Google Play Store (e.g., APK downloads from GitHub).
 - **How to resolve:**
   1. Open your phone's **Settings** &rarr; **Apps** &rarr; **Manage apps**.
   2. Search for and select **Hyper Bridge**.

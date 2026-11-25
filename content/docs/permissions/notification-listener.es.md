@@ -1,6 +1,6 @@
 ---
 title: "Acceso a Notificaciones (Listener)"
-description: "Cómo conceder de forma segura el acceso a notificaciones en Android, resolver ajustes restringidos en Android 13+ y superar la cuenta atrás de seguridad de Xiaomi."
+description: "Cómo conceder de forma segura el acceso a notificaciones en Android, resolver ajustes restringidos en Android 15+ y superar la cuenta atrás de seguridad de Xiaomi."
 weight: 2
 showTableOfContents: true
 linkTitle: "Acceso a Notificaciones"
@@ -47,7 +47,7 @@ Puedes otorgar el Acceso a Notificaciones durante el [Asistente de Bienvenida]({
 
 ---
 
-## ⚠️ Solución para "Ajustes Restringidos" en Android 13, 14 y 15+
+## ⚠️ Solución para "Ajustes Restringidos" en Android 15+
 
 Si instalaste HyperBridge directamente desde un archivo APK (por ejemplo desde GitHub Releases) en lugar de Google Play Store, Android marca la app como instalada externamente y bloquea el interruptor con el siguiente aviso:
 
