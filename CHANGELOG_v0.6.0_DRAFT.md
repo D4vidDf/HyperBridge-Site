@@ -22,6 +22,13 @@ Build, customize, and bind interactive micro-widgets that render directly into y
 * **Live Scenario Switcher**: Stress-test your design right inside the editor against simulated audio playback, OTP messages, downloads, and incoming calls.
 * **Portable `.hwidget` Packaging**: One-tap export, file association import modals, and full system backup integration.
 
+📖 **Learn More in the Docs:**
+* [Widget Studio Overview & Editor Guide](https://hyper-bridge.app/docs/widget-studio/custom-widget-studio/)
+* [Widget Elements & Node Properties](https://hyper-bridge.app/docs/widget-studio/custom-widget-elements/)
+* [Dynamic Tokens, Formulas & `showIf` Conditions](https://hyper-bridge.app/docs/widget-studio/custom-widget-formulas-conditions/)
+* [Custom Widget Color Schemes & Overrides](https://hyper-bridge.app/docs/customization/custom-widget-color-schemes/)
+* [`.hwidget` Files, Bundling & Packaging](https://hyper-bridge.app/docs/widget-studio/custom-widget-files-packaging/)
+
 ---
 
 ### 🧩 2. Custom Translators Framework (`.htrans`) & RAW_PARAM_V2
@@ -35,6 +42,11 @@ Take complete control over how third-party app notifications display on the Supe
 * **Alert & Orientation Control**: "Float only on first alert" toggle to suppress repeated heads-up popups on frequently updating progress notifications, plus **"Less in Landscape" Mode** to skip heads-up popups while rotated in landscape orientation.
 * **SAF Import/Export**: Bundle and share standalone `.htrans` and `.htrans.zip` packages across devices.
 
+📖 **Learn More in the Docs:**
+* [Custom Translators Guide & Visual Editor](https://hyper-bridge.app/docs/customization/custom-translators/)
+* [`.htrans` & `RAW_PARAM_V2` Technical Specification](https://hyper-bridge.app/docs/advanced/translators-specification/)
+* [App Settings & Notification Behavior](https://hyper-bridge.app/docs/getting-started/app-settings/)
+
 ---
 
 ### 📱 3. Adaptive Redesign for Large Screens, Foldables & DeX
@@ -42,6 +54,9 @@ Built on modern Window Size Class paradigms to make optimal use of tablets, fold
 * **Adaptive 3-Column Studio Workspace**: Panning canvas with fluid viewport adjustments and dedicated side toolbars.
 * **Split-Pane & Cascading Panes in Theme Creator**: Inspect theme configurations on one side while tweaking color tokens and components on the other.
 * **Dual-Pane Translator Experience**: Cascading navigation for accelerated string localization and translation testing.
+
+📖 **Learn More in the Docs:**
+* [Adaptive UI for Tablets, Foldables & Large Screens](https://hyper-bridge.app/docs/getting-started/adaptive-large-screens/)
 
 ---
 
@@ -52,6 +67,10 @@ Intelligent inline buttons extracted directly from incoming notifications:
 * **Track Parcels**: Automatically identifies carrier tracking codes for immediate delivery lookups.
 * **Turn-by-Turn Directions**: Recognizes shared map links and physical street addresses to launch route navigation immediately.
 * **M3 Expressive App Exclusion Picker**: Filter and whitelist/blacklist apps with search controls.
+
+📖 **Learn More in the Docs:**
+* [Context-Aware Smart Actions Guide](https://hyper-bridge.app/docs/features/smart-actions/)
+* [Contributing Smart Action Languages & Patterns](https://hyper-bridge.app/docs/contributing/smart-actions-languages/)
 
 ---
 
@@ -64,6 +83,10 @@ Expanded native integration for core device features without requiring root:
 * **USB & Wireless Debugging**: Automatic status island indicating active ADB debugging sessions.
 * **System Updates**: Native Super Island integration for tracking download and installation progress of Xiaomi system updates.
 
+📖 **Learn More in the Docs:**
+* [System Apps & Telemetry Islands Guide](https://hyper-bridge.app/docs/features/system-apps/)
+* [Dynamic Islands Overview](https://hyper-bridge.app/docs/features/dynamic-islands/)
+
 ---
 
 ### 🌟 6. Community Showcase & Theming Ecosystem
@@ -72,6 +95,13 @@ Expanded native integration for core device features without requiring root:
 * **Material 3 Expressive Theme Manager**: Redesigned theme screen with smooth list animations and named file sharing.
 * **10 Official HyperOS Templates**: Compose layouts using official Xiaomi island designs (delivery tracking, boarding pass, progress transfer, call card, media capsule, etc.).
 * **Bento Grid Design Screen**: Unified navigation for Themes, Island Widgets, Custom Designs, and Smart Translators.
+
+📖 **Learn More in the Docs:**
+* [Design Hub Overview](https://hyper-bridge.app/docs/customization/design-hub/)
+* [Custom Designs & Official HyperOS Templates](https://hyper-bridge.app/docs/features/custom-designs/)
+* [Theme Creator & Color Schemes](https://hyper-bridge.app/docs/customization/theme-creator/)
+* [`.hscheme` Theme Packaging Specification](https://hyper-bridge.app/docs/advanced/theme-packaging-spec/)
+* [Community Showcase Guide](https://hyper-bridge.app/docs/customization/community-showcase/) & [How to Submit Creations](https://hyper-bridge.app/docs/contributing/showcase-submission/)
 
 ---
 
@@ -85,6 +115,12 @@ Expanded native integration for core device features without requiring root:
 * **Permanent Island & Progress Accuracy**: Yields momentarily to native focus notifications before gracefully restoring, remains visible while media is actively playing, and prevents discount percentages or ongoing browser notifications from falsely triggering download progress bars.
 * **HyperOS 4 Beta Compatibility**: Guarantees island visibility by ensuring `dismissible: false` parameters are explicitly applied.
 * **Direct App Launching**: Messaging capsules launch target apps via direct activity intents, eliminating trampoline delays.
+
+📖 **Learn More in the Docs:**
+* [Permanent Island Configuration](https://hyper-bridge.app/docs/features/permanent-island/)
+* [Inline Reply & Messaging Islands](https://hyper-bridge.app/docs/features/inline-reply/)
+* [Diagnostics & Notification Event Tracking](https://hyper-bridge.app/docs/troubleshooting/diagnostics/)
+* [Full HyperBridge Documentation Portal](https://hyper-bridge.app/docs/)
 
 ---
 

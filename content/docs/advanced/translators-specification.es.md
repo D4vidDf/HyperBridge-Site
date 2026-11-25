@@ -10,8 +10,15 @@ Esta especificación técnica detalla la estructura formal de los archivos de tr
 
 ---
 
-## Protocolo Dinámico en Pantalla de Bloqueo (#433)
+## Protocolo Dinámico en Pantalla de Bloqueo y Privacidad (#433, #479)
 
 HyperBridge alterna dinámicamente la propiedad interna `islandProperty` de Xiaomi:
-- **En pantalla de bloqueo**: emite con `islandProperty: 0`, instruyendo a `SystemUI` a dibujar la cápsula en la pantalla de bloqueo (keyguard).
+- **En pantalla de bloqueo**: emite con `islandProperty: 0`, instruyendo a `SystemUI` a dibujar la cápsula en la pantalla de bloqueo (keyguard), respetando estrictamente la visibilidad y privacidad de la pantalla de bloqueo cuando la notificación de origen oculta contenido sensible (#479).
 - **Al desbloquear**: actualiza inmediatamente a `islandProperty: 1` para permitir tiempos de espera normales y modo interactivo.
+
+---
+
+## Personalización de Ranuras de Píldora y Temporizadores (#463, #470, #471)
+
+- **Ranuras de Píldora Compacta (`CompactPillConfig`)**: Soporte para fuentes gráficas/texto en la ranura izquierda y modos contextuales en la ranura derecha (`OTP`, `BOARDING_PASS`, `UNREAD_COUNT`, `MEDIA_COUNTER` transcurrido/restante con `sameWidthDigitInfo` monoespaciado nativo y `{media.remaining}`).
+- **Temporizadores Configurables (`ProgressSlotConfig`)**: Soporte para modos de referencia de inicio (`AUTOMATIC`, `FIRST_DETECTED`, `NOTIFICATION_TIMESTAMP`) y dirección (`COUNT_UP`, `COUNT_DOWN`).

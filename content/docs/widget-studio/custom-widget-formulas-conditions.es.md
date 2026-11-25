@@ -21,6 +21,7 @@ Los widgets cobran vida cuando se vinculan a datos dinámicos mediante fórmulas
 - `{notif.text}`: Cuerpo del mensaje o subtítulo de la alerta.
 - `{device.battery}`: Nivel actual de batería del dispositivo (0–100%).
 - `{media.track}` / `{media.artist}`: Nombre de la pista musical y artista.
+- `{media.position}` / `{media.remaining}` / `{media.duration}`: Tiempo transcurrido (`MM:SS`), tiempo restante (`-MM:SS`) y duración total de la pista (#463).
 
 ---
 

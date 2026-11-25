@@ -1,12 +1,12 @@
 ---
 title: "Aplicaciones del Sistema y Opciones"
-description: "Configura islas integradas del sistema para Grabación de Pantalla, Actualizaciones del Sistema, Estado de Carga, Depuración USB y VPN."
+description: "Configura islas integradas del sistema para Grabación de Pantalla, Actualizaciones del Sistema, Estado de Carga, Depuración USB, VPN e Indicadores de Privacidad."
 weight: 4
 showTableOfContents: true
 linkTitle: "Islas del Sistema"
 ---
 
-Hyper Bridge incluye adaptadores nativos para servicios esenciales de HyperOS y Android: **Grabación de Pantalla**, **Actualizaciones del Sistema**, **Estado de Carga**, **Depuración USB y Wi-Fi** y **Conexiones VPN**. Estos módulos disponen de diseños especializados, temporizadores en vivo, cálculo de potencia en vatios y ajustes personalizables.
+Hyper Bridge incluye adaptadores nativos para servicios esenciales de HyperOS y Android: **Grabación de Pantalla**, **Actualizaciones del Sistema**, **Estado de Carga**, **Depuración USB y Wi-Fi**, **Conexiones VPN** e **Indicadores de Privacidad (Micrófono y Cámara)**. Estos módulos disponen de diseños especializados, temporizadores en vivo, cálculo de potencia en vatios y ajustes personalizables.
 
 Puedes acceder y configurar cada módulo directamente desde la lista de **Aplicaciones Activas** (bajo el filtro `Sistema`) pulsando el icono de engranaje junto al servicio correspondiente.
 
@@ -62,3 +62,14 @@ HyperBridge v0.6.0 renueva por completo la experiencia de conexión VPN con una 
 - **Cronómetro de Duración de Conexión**: Muestra el tiempo transcurrido en vivo (`HH:MM:SS`) desde que el túnel seguro está activo.
 - **Banderas de Países y Servidor**: Detecta la ubicación del servidor y muestra la bandera del país en la tarjeta expandida.
 - **Botón de Desconexión Rápida**: Desconecta el túnel VPN en 1 toque directamente desde la tarjeta expandida de la isla.
+
+---
+
+## 6. 🎙️ Isla de Indicadores de Privacidad (#481, #486, #491)
+
+Introducida en **HyperBridge v0.6.0-rc5**, la **Isla de Indicadores de Privacidad** muestra avisos en tiempo real alrededor del recorte de la cámara cada vez que una aplicación utiliza el **micrófono** o la **cámara**:
+
+- **Monitorización en Vivo (#481, #486)**: Activa automáticamente una cápsula de privacidad cuando el micrófono, la cámara o ambos sensores están en uso activo.
+- **Estilo del Indicador (#491)**: Elige entre **Iconos de sensores** (glifos expresivos de micrófono y cámara) o **Puntos de color minimalistas** para una estética discreta.
+- **Visibilidad del Texto de Estado (#491)**: Activa o desactiva el texto descriptivo para alternar entre una píldora informativa y un indicador ultracompacto.
+- **Vista Previa en Tiempo Real**: Previsualiza al instante tu configuración de estilo (Icono vs. Punto) y texto directamente en la pantalla de ajustes.

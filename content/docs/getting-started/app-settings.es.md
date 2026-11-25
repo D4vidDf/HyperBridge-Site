@@ -21,8 +21,11 @@ Define el comportamiento general del ciclo de vida de las notificaciones e integ
 ### Comportamiento de la Isla
 - **Ocultar Automáticamente**: Define cuántos segundos (ej. `5s` a `60s`) flota la isla antes de colapsar.
 - **Notificación Emergente (Heads-up)**: Muestra un aviso flotante antes de replegarse en la cápsula punch-hole.
+- **Menos en Horizontal (#478)**: *(Nuevo en v0.6.0-rc5)* Omite automáticamente las ventanas emergentes flotantes (heads-up) mientras el dispositivo está en orientación horizontal (por ejemplo, viendo vídeos o jugando).
 - **Visibilidad en el Panel**: Elige si las alertas permanecen en la cortina de notificaciones mientras la isla está activa.
 - **Descartar con la Original**: Cierra la isla al deslizar y borrar la notificación del sistema.
+- **Privacidad en Pantalla de Bloqueo (#479)**: Las notificaciones de Hyper Bridge respetan estrictamente los ajustes de privacidad de la pantalla de bloqueo y ocultan el contenido sensible cuando la app de origen lo hace.
+- **Duración Extendida en Llamadas y Navegación (#168, #488)**: Las islas de llamadas y navegación renuevan automáticamente su ciclo de vida para superar el límite predeterminado de 1 hora de HyperOS.
 
 ### Modo No Molestar (DND)
 - **Detección Automática**: Silencia las islas dinámicas automáticamente cuando tu móvil entra en modo No Molestar.

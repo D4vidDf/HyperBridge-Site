@@ -35,9 +35,12 @@ Fine-tune how notifications appear, minimize, and dismiss:
 
 - **Auto-hide Island**: Define how many seconds (e.g. `5s` to `60s`) an island floats before collapsing.
 - **Heads-up Popup**: Briefly display full heads-up notification banners before minimizing into the island pill.
+- **Less in Landscape (#478)**: *(New in v0.6.0-rc5)* Automatically suppress floating heads-up popups while the device is rotated in landscape orientation (e.g. during video playback or gaming), allowing notifications to settle directly into the compact pill without blocking your screen.
 - **Notification Panel Visibility**: Choose whether notifications remain in your pull-down shade while active as an island.
 - **Remove original notification**: Dismiss the Android notification when a Live Update is active.
 - **Dismiss with original**: Dismiss the island when you clear the notification from your shade.
+- **Lock Screen Privacy Compliance (#479)**: Bridge notifications strictly honor system lock screen privacy settings, automatically hiding sensitive content from the lock screen whenever the source application is hidden there.
+- **Extended Call & Navigation Lifetimes (#168, #488)**: Active phone/VoIP calls and turn-by-turn navigation islands automatically renew their focus lifetime so they persist beyond Xiaomi HyperOS's 1-hour default auto-dismiss limit.
 
 ### Do Not Disturb (DND)
 {{< figure 

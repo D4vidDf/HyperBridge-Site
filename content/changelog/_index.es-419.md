@@ -16,7 +16,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
 * **Isla de indicadores de privacidad:**
   * Se añadieron indicadores en tiempo real en la isla para el uso del micrófono y la cámara ([#481](https://github.com/D4vidDf/HyperBridge/issues/481), [#486](https://github.com/D4vidDf/HyperBridge/pull/486)).
   * **Opciones de personalización:** Elige entre iconos de sensores o puntos de color minimalistas, activa o desactiva el texto de estado para una apariencia de píldora ultracompacta y previsualiza tu configuración en tiempo real ([#491](https://github.com/D4vidDf/HyperBridge/pull/491)).
-  * **Privacidad en pantalla de bloqueo:** Las notificaciones del puente ahora respetan estrictamente los ajustes de privacidad de la pantalla de bloqueo y ocultan el contenido sensible cuando la aplicación de origen lo hace ([#479](https://github.com/D4vidDf/HyperBridge/pull/479)).
+  * **Privacidad en pantalla de bloqueo:** Las notificaciones de Hyper Bridge ahora respetan estrictamente los ajustes de privacidad de la pantalla de bloqueo y ocultan el contenido sensible cuando la aplicación de origen lo hace ([#479](https://github.com/D4vidDf/HyperBridge/pull/479)).
 * **Modo "Menos en horizontal":** Se añadió una opción para omitir las ventanas emergentes flotantes (heads-up) mientras el dispositivo está en orientación horizontal ([#478](https://github.com/D4vidDf/HyperBridge/pull/478)).
 * **Duración extendida para llamadas y navegación:** Se añadieron extensiones de tiempo de espera para que las islas de llamadas y navegación persistan más allá del límite de cierre automático predeterminado de 1 hora de HyperOS ([#168](https://github.com/D4vidDf/HyperBridge/issues/168), [#488](https://github.com/D4vidDf/HyperBridge/pull/488)).
 
@@ -30,7 +30,7 @@ Follow the latest updates, features, and release history for **HyperBridge**.
   * Corregido el problema por el cual la isla permanente permanecía oculta mientras un reproductor multimedia estaba reproduciendo activamente ([#445](https://github.com/D4vidDf/HyperBridge/issues/445), [#476](https://github.com/D4vidDf/HyperBridge/pull/476)).
 * **Cierre de islas y manejo de fallbacks:**
   * Finalización limpia de las islas de llamada cuando una notificación de llamada en curso se reescribe como una notificación de llamada finalizada o perdida ([#226](https://github.com/D4vidDf/HyperBridge/issues/226), [#487](https://github.com/D4vidDf/HyperBridge/pull/487)).
-  * Corregido el problema por el que las notificaciones del puente repetían el contenido de origen cuando HyperOS no podía dibujar la isla ([#485](https://github.com/D4vidDf/HyperBridge/issues/485), [#489](https://github.com/D4vidDf/HyperBridge/pull/489)).
+  * Corregido el problema por el que las notificaciones de Hyper Bridge repetían el contenido de origen cuando HyperOS no podía dibujar la isla ([#485](https://github.com/D4vidDf/HyperBridge/issues/485), [#489](https://github.com/D4vidDf/HyperBridge/pull/489)).
   * Se evitó que las notificaciones persistentes del navegador activaran falsamente barras de progreso de descarga ([#231](https://github.com/D4vidDf/HyperBridge/issues/231), [#477](https://github.com/D4vidDf/HyperBridge/pull/477)).
 
 ### 🌐 Localización

@@ -1,12 +1,12 @@
 ---
 title: "Native System Apps & Options"
-description: "Configure built-in system islands including Screen Recording, System Updates, Charging Status, USB Debugging, and VPN."
+description: "Configure built-in system islands including Screen Recording, System Updates, Charging Status, USB Debugging, VPN, and Privacy Indicators."
 weight: 4
 showTableOfContents: true
 linkTitle: "System Islands"
 ---
 
-Hyper Bridge includes native system island adapters for essential HyperOS and Android platform services: **Screen Recording**, **System Updates**, **Charging Status**, **USB & Wireless Debugging**, and **VPN connections**. These system modules feature specialized layouts, live timers, wattage calculations, and custom side display configurations.
+Hyper Bridge includes native system island adapters for essential HyperOS and Android platform services: **Screen Recording**, **System Updates**, **Charging Status**, **USB & Wireless Debugging**, **VPN connections**, and **Privacy Indicators (Mic & Camera)**. These system modules feature specialized layouts, live timers, wattage calculations, and custom side display configurations.
 
 You can access and configure each system app directly from the **Active Apps** list (under the `System` filter chip) by tapping the gear icon next to the corresponding service.
 
@@ -95,6 +95,21 @@ HyperBridge v0.6.0 upgrades the VPN Island with a full-fledged **VPN Customizati
 - **Connected Duration Stopwatch**: Live elapsed time counter (`HH:MM:SS`) tracking how long your secure tunnel has been active.
 - **Country Flags & Server Indicator**: Automatically parses geographic endpoints to display the server country flag directly on the expanded card.
 - **1-Tap Disconnect Action**: Expanded island card provides a dedicated disconnect button, allowing you to terminate active VPN tunnels without navigating into system settings.
+
+---
+
+## 6. 🎙️ Privacy Indicators Island (#481, #486, #491)
+
+Introduced in **HyperBridge v0.6.0-rc5**, the **Privacy Indicators Island** integrates real-time hardware sensor monitoring directly into the camera cutout island whenever any application accesses your **microphone** or **camera**:
+
+### Features & Customization Options
+
+- **Live Sensor Monitoring (#481, #486)**: Automatically surfaces a dynamic privacy capsule whenever the microphone, camera, or both sensors are actively in use by a foreground or background application.
+- **Indicator Style Selector (#491)**:
+  - **Sensor Icons**: Displays expressive microphone and camera glyphs alongside active status coloring.
+  - **Minimalist Colored Dots**: Renders subtle, non-intrusive status dots next to the camera cutout for a clean hardware-indicator aesthetic.
+- **Status Text Visibility Toggle (#491)**: Toggle descriptive status labels on or off to switch between an informative pill and an ultra-compact minimal indicator.
+- **Real-Time Live Preview**: Preview your chosen indicator style (Icon vs. Dot) and text visibility configuration live inside the Privacy Indicators settings screen before applying.
 
 ---
 

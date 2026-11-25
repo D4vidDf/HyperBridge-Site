@@ -46,6 +46,7 @@ Hyper Bridge connects directly to the Android `MediaSession` manager to pull hig
 | `{media.progress}` | `{notif.progress}` | Real-time playback position as a percentage (0–100). |
 | `{media.duration}` | *None* | Total track length formatted as `MM:SS`. |
 | `{media.position}` | *None* | Elapsed playback time formatted as `MM:SS`. |
+| `{media.remaining}` | *None* | Remaining playback time formatted as `-MM:SS` (#463). |
 | `{media.is_playing}` | `"false"` | Boolean string (`"true"` / `"false"`). |
 | `{media.state}` | *None* | Raw playback state (e.g., `PLAYING`, `PAUSED`, `BUFFERING`). |
 

@@ -222,19 +222,33 @@ my_translator.htrans (ZIP Archive)
 | `pill` | `CompactPillConfig` | `{}` | Collapsed status bar pill styling. |
 | `raw_param_v2` | `RawParamV2Config?` | `null` | Dedicated Xiaomi HyperOS `param_v2` payload template and asset bundling configuration. |
 
-#### Compact Pill Slot Options
-- **`left_design` (`PillLeftDesign`):**
-  - `ICON_AND_TEXT` *(Default)*: Shows app/slot icon and short title.
-  - `ICON_ONLY`: Shows only the masked icon.
-  - `TEXT_ONLY`: Shows only title text.
-  - `AVATAR`: Shows contact avatar (extracted from Messaging notifications).
-  - `HIDDEN`: Hides the left side of the pill.
-- **`right_design` (`PillRightDesign`):**
-  - `AUTO` *(Default)*: Automatically chooses progress, timer, or status.
-  - `PROGRESS_PERCENT`: Shows numeric percentage (e.g. `78%`).
-  - `TIMER`: Displays active ticking chronometer/countdown.
-  - `HIGHLIGHT_TEXT`: Shows accented badge text.
-  - `NONE`: Leaves right side empty.
+#### Compact Pill Slot Options (#463, #465, #470, #471)
+> **Scoping Note (#465):** Granular pill slot configurations and contextual right-side display modes are scoped strictly to custom dynamic translators (`DynamicTranslator` and `CustomWidgetTranslator`). Default built-in translators (`StandardTranslator` and `MessageTranslator`) retain their classic compact pill layout.
+
+- **Left Pill Slot Configuration (`left_graphic_source`, `left_text_source`, `left_design`):**
+  - **Left Graphic Sources**: `APP_ICON`, `NOTIFICATION_ICON`, `AVATAR` (Sender Avatar), `MEDIA_ALBUM_ART`, `CUSTOM_THEME_ICON`, or `HIDDEN`.
+  - **Left Text Sources**: `NOTIFICATION_TITLE`, `NOTIFICATION_TEXT` (Message Body), `SENDER_NAME`, `APP_NAME`, `MEDIA_TRACK`, `MEDIA_ARTIST`, `CUSTOM_TEMPLATE` (`{token}`), or `NONE`.
+  - **Legacy `left_design` (`PillLeftDesign`)**: `ICON_AND_TEXT` *(Default)*, `ICON_ONLY`, `TEXT_ONLY`, `AVATAR`, `HIDDEN`.
+- **Categorized Right Pill Design (`right_design` / `PillRightDesign`):**
+  - **Smart & Contextual**:
+    - `AUTO` *(Default)*: Smart auto-detects progress, timer, or contextual status.
+    - `OTP`: Automatically isolates 4–8 digit verification codes (`smart_action.OTP.code`).
+    - `BOARDING_PASS`: Extracts flight numbers (`IB3821`), gate (`Gate B12`), seat (`Seat 14A`), or boarding time.
+    - `PROGRESS_PERCENT`: Shows numeric percentage (e.g. `78%`) or circular progress indicator.
+    - `TIMER`: Displays an active ticking chronometer/countdown with configurable `timer_start_mode` and `timer_direction` (#471).
+  - **Notification Content**: `NOTIFICATION_TITLE`, `NOTIFICATION_TEXT`, `SENDER_NAME`, `UNREAD_COUNT` (unread chat counter badge, e.g. `+3`).
+  - **Media & Playback**: `MEDIA_TRACK`, `MEDIA_ARTIST`, `MEDIA_COUNTER` (supports `ELAPSED` e.g. `02:45` vs. `REMAINING` e.g. `-01:15`, utilizing Xiaomi HyperOS native monospaced `sameWidthDigitInfo` #470 to eliminate visual jitter and island resizing).
+  - **Custom & Minimal**: `HIGHLIGHT_TEXT` (accented badge text), `NONE` (empty).
+
+#### Configurable Timers & Stopwatches (`ProgressSlotConfig` & `CompactPillConfig` #468, #471)
+When `TIMER` is selected in `progress_slot` or on the compact pill right slot:
+- **`timer_start_mode` (`TimerStartMode`)**:
+  - `AUTOMATIC` *(Default)*: Uses the notification's native chronometer timestamp when exposed.
+  - `FIRST_DETECTED`: Anchors the timer start reference to the timestamp when the ongoing notification session was first intercepted (ideal for Discord calls, gaming sessions, and persistent alerts without native chronometers; does not reset on notification updates).
+  - `NOTIFICATION_TIMESTAMP`: Uses the notification's `when` timestamp.
+- **`timer_direction` (`TimerDirection`)**:
+  - `COUNT_UP`: Elapsed stopwatch mode.
+  - `COUNT_DOWN`: Remaining time countdown mode.
 
 ---
 
@@ -244,12 +258,13 @@ my_translator.htrans (ZIP Archive)
 |---|---|---|---|
 | `engine_mode` | `EngineMode` | `INHERIT` | Motor mode: `INHERIT`, `CUSTOM_ISLAND` (native floating island), `NATIVE_LIVE_UPDATE` (Xiaomi native live channel). |
 | `is_float` | `Boolean?` | `null` | Whether the notification expands into a floating banner on arrival. |
+| `float_only_on_first_alert` | `Boolean?` | `false` | *(New in v0.6.0 [#416])* Suppresses repeated floating heads-up popups on subsequent notification updates. |
 | `float_timeout_seconds` | `Int?` | `null` | Duration in seconds before the floating banner automatically collapses. |
 | `timeout_seconds` | `Int?` | `null` | Duration in seconds before the island card automatically dismisses. |
 | `is_show_shade` | `Boolean?` | `null` | Whether to retain the notification in the standard Android notification drawer. |
 | `remove_original_notification` | `Boolean?` | `null` | Dismisses the underlying Android notification once bridged. |
 | `enable_inline_reply` | `Boolean?` | `null` | Enables interactive text reply field directly on the island. |
-| `show_on_lockscreen` | `Boolean?` | `false` | *(New in v0.6.0 [#433])* Shows the island on the lock screen keyguard via dynamic `islandProperty` switching (`0` locked, `1` unlocked). |
+| `show_on_lockscreen` | `Boolean?` | `false` | *(New in v0.6.0 [#433, #479])* Shows the island on the lock screen keyguard via dynamic `islandProperty` switching (`0` locked, `1` unlocked), while strictly respecting system lock screen privacy when the source notification is hidden there. |
 
 ### 10. `CustomVariableDefinition` (`custom_variables`)
 
@@ -480,6 +495,7 @@ The following table lists all built-in tokens available during interpolation:
 | `{notif.media_artist}` / `{media.artist}` | Track artist | `"David Kushner"` |
 | `{media.album}` | Album or playlist title | `"Daylight"` |
 | `{media.track}` | Track title | `"Daylight"` |
+| `{media.remaining}` | Remaining track playback duration (#463) | `"-01:15"` |
 | **Progress & Steps** | | |
 | `{notif.progress}` / `{progress.percent}` | Progress percentage number | `"75"` |
 | `{progress.current}` | Current progress counter value | `"150"` |

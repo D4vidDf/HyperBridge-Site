@@ -135,7 +135,7 @@ Control visual rendering mode and variable text templates:
 3. **Linked Theme**: Inherit the globally active theme or bind to a custom installed theme.
 4. **Left Icon Slot**: Set the source icon displayed on the left side of the island (e.g., App Icon, Custom Icon, Contact Avatar).
 5. **Text & Templates with Dynamic Tokens & Cascading Fallbacks**: Customize the **Title Template**, **Subtitle Template**, and **Highlight Text Template** using dynamic variable chips like `{notif.title}`, `{notif.text}`, `{notif.subtext}`:
-   - Built-in tokens: `{notif.title}`, `{notif.text}`, `{notif.sender}`, `{notif.conversation_title}`, `{notif.media_artist}`, `{notif.progress}`, `{app.name}`.
+   - Built-in tokens: `{notif.title}`, `{notif.text}`, `{notif.sender}`, `{notif.conversation_title}`, `{notif.media_artist}`, `{media.remaining}`, `{notif.progress}`, `{app.name}`.
    - Cascading fallbacks: `{media.artist | notif.text | "Unknown Artist"}` or `{var.driver ?: "Driver"}` evaluate candidates from left to right, preventing blank placeholders.
 
 {{< figure src="/img/docs/translators/en/10-edit-presentation-layout-overview.jpg" title="Presentation & Layout Overview" alt="Presentation & Layout Screen" width="300" >}}
@@ -155,15 +155,22 @@ Control visual rendering mode and variable text templates:
 ---
 
 ### Module 6: Compact Pill Customization
-Configure how the compact status pill is displayed when collapsed around your camera cutout:
+Configure how the compact status pill is displayed when collapsed around your camera cutout. Granular pill slot configurations and contextual right-side display modes are scoped strictly to custom dynamic translators (`DynamicTranslator` and `CustomWidgetTranslator`), preserving the classic compact pill layout for default built-in translators (#463, #465):
 1. Open **Pill Customization** to review the live pill preview and configure left/right sides.
 2. Read the **Compact Pill Guide** to understand symmetrical layout rules and auto-detection behaviors.
-3. Select **Right Pill Design**:
-   - **Auto-detect (Recommended)**: Automatically renders a timer or circular progress percentage if present in the notification.
-   - **Circular progress**: Shows an animated circular progress ring.
-   - **Timer**: Displays a live counting chronometer.
-   - **Highlight text**: Shows custom highlight text or status snippet.
-   - **Empty**: Leaves the right pill slot blank.
+3. Configure **Left Pill Slot**:
+   - **Left Slot Graphic Sources**: Choose between *App Icon*, *Notification Icon*, *Sender Avatar*, *Media Album Art*, *Custom Theme Icon*, or *Hidden*.
+   - **Left Slot Text Sources**: Choose between *Notification Title*, *Message Body*, *Sender Name*, *App Name*, *Media Track Title*, *Media Artist*, *Custom Template (`{token}`)*, or *None*.
+4. Select **Right Pill Design** (organized into 4 categories):
+   - 🧠 **Smart & Contextual**:
+     - **Smart Auto-Detect (Recommended)**: Automatically renders a timer, progress percentage, or contextual info if present in the notification.
+     - **Verification OTP**: Automatically isolates 4–8 digit 2FA/OTP codes from incoming SMS and security alerts (`smart_action.OTP.code`).
+     - **Boarding Pass**: Extracts flight numbers (e.g. `IB3821`), gate assignments (`Gate B12`), seat numbers (`Seat 14A`), and boarding time.
+     - **Progress Percentage / Circular Progress**: Shows numeric percentage or animated circular progress ring.
+     - **Timer**: Displays a live counting chronometer with configurable start reference mode and count-up/count-down direction (#471).
+   - 💬 **Notification Content**: *Notification Title*, *Message Body*, *Sender Name*, or *Unread Message Counter* badge (e.g. `+3`).
+   - 🎵 **Media & Playback**: *Track Title*, *Artist Name*, or *Media Counter* (**Time elapsed** `02:45` vs. **Time remaining** `-01:15`, rendered with Xiaomi HyperOS native monospaced `sameWidthDigitInfo` #470 to prevent visual jitter and island resizing).
+   - 🎨 **Custom & Minimal**: *Highlighted Text* or *Empty*.
 
 {{< figure src="/img/docs/translators/en/17-edit-pill-customization-overview.jpg" title="Pill Customization Overview" alt="Pill Customization Overview" width="300" >}}
 
@@ -174,13 +181,19 @@ Configure how the compact status pill is displayed when collapsed around your ca
 ---
 
 ### Module 7: Progress & Timing Elements
-Configure progress indicators on the island:
+Configure progress indicators and live timers on the island:
 1. Open **Progress & Timing** to adjust how progress is tracked and displayed.
 2. Select **Progress Type**:
    - **Disabled / None**: Do not show progress bar or timing indicators.
    - **Progress Bar**: Linear bar in the expanded island, circular indicator on the pill.
    - **Waypoint / Stepper**: Step-by-step waypoint markers for deliveries, routes, and milestones.
    - **Countdown / Timer**: Active elapsed or remaining countdown time indicator.
+3. **Configurable Timers & Stopwatches (#468, #471)**: When **Timer** is selected (either under **Progress & Timing** or on the **Compact Pill Right Slot**), you can configure:
+   - **Start Reference Mode**:
+     - *Automatic (From Notification)*: Uses the notification's native chronometer base time when available.
+     - *First Detected (Stopwatch / Call Start)*: Anchors the start timestamp to the moment the notification session was first detected—so ongoing updates won't reset the timer. Ideal for Discord voice calls, gaming sessions, and persistent notifications that don't expose native Android chronometers.
+     - *Notification Timestamp*: Anchors to the notification's `when` timestamp.
+   - **Timer Direction**: Choose between **Count Up (Elapsed Stopwatch)** or **Count Down (Remaining Time)**.
 
 {{< figure src="/img/docs/translators/en/20-edit-progress-and-timing-overview.jpg" title="Progress & Timing Overview" alt="Progress & Timing Overview" width="300" >}}
 
@@ -215,7 +228,7 @@ Configure interactive buttons displayed on the expanded island card:
 Configure notification lifecycle, dismissal rules, and delivery engines:
 - **Engine Configuration**: Choose between **Inherit App Default**, **Custom Floating Island Engine**, or **Native Live Update Engine**.
 - **Auto-hide Island**: Automatically hide the expanded island after a duration or keep it visible until dismissed.
-- **Show on lock screen**: *(New in v0.6.0)* Display dynamic islands on the lock screen keyguard. Dynamically manages Xiaomi's internal `islandProperty` (0 while locked, 1 upon unlock) so the island stays visible on the keyguard and auto-dismisses or transitions smoothly when the device is unlocked.
+- **Show on lock screen**: *(New in v0.6.0)* Display dynamic islands on the lock screen keyguard. Dynamically manages Xiaomi's internal `islandProperty` (0 while locked, 1 upon unlock) so the island stays visible on the keyguard and auto-dismisses or transitions smoothly when the device is unlocked. Bridge notifications also strictly respect system lock screen privacy settings and hide sensitive content whenever the source notification is hidden on the lock screen (#479).
 - **Xiaomi Featured Notifications / HyperIsland**:
   - **Heads-up Popup**: Show a brief banner popup before collapsing into the island (with duration slider, e.g. 10s).
   - **Float only on first alert (#416)**: *(New in v0.6.0)* Suppress annoying repeated heads-up popups on progress updates. When an app sends frequent updates (e.g., file downloads, step counters, turn-by-turn navigation, delivery progress), this toggle ensures the floating heads-up banner only pops up when the notification first arrives. Subsequent progress updates update silently inside the compact pill or expanded card without repeatedly intruding over your screen.
