@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-24T22:01:47Z",
+  "last_synced": "2026-11-25T07:31:07Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -42,7 +42,7 @@
         "official"
       ],
       "votes": 3,
-      "downloads": 61
+      "downloads": 62
     },
     "schemes/coruna-solar-eclipse": {
       "badges": [
@@ -66,7 +66,7 @@
         "official"
       ],
       "votes": 2,
-      "downloads": 68
+      "downloads": 70
     },
     "translators/discord-voice-call-timer": {
       "badges": [],
