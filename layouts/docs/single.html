@@ -140,4 +140,18 @@
 
     </div>
   </div>
+
+  {{/* Full-Screen Image Lightbox Modal (Shared with Showcase Zoom) */}}
+  <div id="sc-lightbox" class="sc-lightbox sc-hidden" role="dialog" aria-modal="true" aria-label="Image Preview">
+    <div class="sc-lightbox-backdrop" data-lightbox-close></div>
+    <div class="sc-lightbox-content">
+      <div class="sc-lightbox-topbar">
+        <span id="sc-lightbox-caption" class="sc-lightbox-caption">{{ .Title }}</span>
+        <button type="button" class="sc-lightbox-close-btn" data-lightbox-close aria-label="Close preview">&times; Close</button>
+      </div>
+      <div class="sc-lightbox-img-wrap">
+        <img id="sc-lightbox-img" src="" alt="Enlarged preview" class="sc-lightbox-img nozoom" />
+      </div>
+    </div>
+  </div>
 {{ end }}

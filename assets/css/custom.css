@@ -3036,6 +3036,15 @@ html.dark .sc-empty-title {
   margin: 0 !important;
 }
 
+.sc-zoomable-img {
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sc-zoomable-img:hover {
+  transform: translateY(-1px);
+}
+
 
 
 /* Strict 17rem Sidebar Width & Multiline Link Typography */
