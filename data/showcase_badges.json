@@ -1,6 +1,6 @@
 {
   "threshold_likes_for_community_badge": 15,
-  "last_synced": "2026-11-25T21:16:11Z",
+  "last_synced": "2026-11-26T07:20:25Z",
   "badge_definitions": {
     "official": {
       "label": "Official Preset",
@@ -50,7 +50,7 @@
         "official"
       ],
       "votes": 1,
-      "downloads": 102
+      "downloads": 103
     },
     "schemes/summer-breeze": {
       "badges": [
@@ -58,7 +58,7 @@
         "official"
       ],
       "votes": 4,
-      "downloads": 220
+      "downloads": 223
     },
     "designs/musicrama": {
       "badges": [
@@ -66,12 +66,12 @@
         "official"
       ],
       "votes": 2,
-      "downloads": 73
+      "downloads": 75
     },
     "translators/discord-voice-call-timer": {
       "badges": [],
       "votes": 3,
-      "downloads": 28
+      "downloads": 31
     }
   }
 }
